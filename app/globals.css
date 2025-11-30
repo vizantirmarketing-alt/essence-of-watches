@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
+/* Luxury Theme Colors - Light Mode */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-primary: #ffffff;
+  --background-secondary: #f8f8f8;
+  --background-accent: #f5f3ef;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --accent-gold: #c9a962;
+  --accent-navy: #1b365d;
+  --border: #e5e5e5;
+  --success: #2d5a3d;
+  --error: #8b2635;
+}
+
+/* Luxury Theme Colors - Dark Mode */
+.dark {
+  --background-primary: #0a0a0a;
+  --background-secondary: #141414;
+  --background-accent: #1a1814;
+  --text-primary: #f8f8f8;
+  --text-secondary: #a0a0a0;
+  --accent-gold: #d4b872;
+  --accent-navy: #2a4a7a;
+  --border: #2a2a2a;
+  --success: #4a8b5c;
+  --error: #c44d5c;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--background-primary);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Typography - Elegant Serif for Headings */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&display=swap');
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
