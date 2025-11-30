@@ -40,10 +40,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setIsDarkMode((prev) => !prev);
   };
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide the context, even during SSR
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {children}

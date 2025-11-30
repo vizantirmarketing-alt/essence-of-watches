@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, DM_Sans } from "next/font/google";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { CartProvider } from "@/contexts/CartContext";
-import { WishlistProvider } from "@/contexts/WishlistContext";
-import { CartDrawerProvider } from "@/components/cart/CartDrawer";
+import { Providers } from "@/components/Providers";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -42,18 +39,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${dmSans.variable} antialiased`}
       >
-        <ThemeProvider>
-          <CartProvider>
-            <WishlistProvider>
-              <CartDrawerProvider>
-                <Navbar />
-                <CartDrawer />
-                <main className="min-h-screen">{children}</main>
-                <Footer />
-              </CartDrawerProvider>
-            </WishlistProvider>
-          </CartProvider>
-        </ThemeProvider>
+        <Providers>
+          <Navbar />
+          <CartDrawer />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

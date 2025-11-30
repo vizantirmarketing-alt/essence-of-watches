@@ -1,3 +1,6 @@
+/* Google Fonts - Import at the top */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&display=swap');
+
 @import "tailwindcss";
 
 /* Luxury Theme Colors - Light Mode */
@@ -34,9 +37,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
-/* Typography - Elegant Serif for Headings */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&display=swap');
 
 body {
   background: var(--background-primary);
