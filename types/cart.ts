@@ -14,3 +14,4 @@ export interface CartContextType {
   itemCount: number;
 }
 
+

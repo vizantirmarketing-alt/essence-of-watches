@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
 import type { CartItem as CartItemType } from '@/types/cart';
 
 interface CartItemProps {
@@ -11,19 +12,13 @@ interface CartItemProps {
 
 export function CartItem({ item }: CartItemProps) {
   const { removeItem } = useCart();
+  const { formatPrice } = useCurrency();
   const { product, quantity } = item;
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
-  };
-
   return (
-    <div className="flex gap-4 py-4 border-b border-[#E5E5E5] dark:border-[#2A2A2A] last:border-b-0">
+    <div className="flex gap-4 py-4 border-b border-[var(--border)] last:border-b-0">
       <Link href={`/shop/${product.slug}`} className="flex-shrink-0">
-        <div className="w-20 h-20 md:w-24 md:h-24 bg-[#F5F3EF] dark:bg-[#1A1814] rounded overflow-hidden">
+        <div className="w-20 h-20 md:w-24 md:h-24 bg-[var(--bg-elevated)] rounded overflow-hidden">
           {product.images && product.images[0] ? (
             <Image
               src={product.images[0]}
@@ -33,7 +28,7 @@ export function CartItem({ item }: CartItemProps) {
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-[#6B6B6B] dark:text-[#A0A0A0] text-xs">
+            <div className="w-full h-full flex items-center justify-center text-[var(--text-secondary)] text-xs">
               No Image
             </div>
           )}
@@ -42,22 +37,22 @@ export function CartItem({ item }: CartItemProps) {
 
       <div className="flex-1 min-w-0">
         <Link href={`/shop/${product.slug}`}>
-          <h3 className="font-medium text-[#1A1A1A] dark:text-[#F8F8F8] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors">
+          <h3 className="font-medium text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors">
             {product.brand} {product.model}
           </h3>
         </Link>
-        <p className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0] mt-1">
+        <p className="text-sm text-[var(--text-secondary)] mt-1">
           Reference: {product.reference}
         </p>
-        <p className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0]">
+        <p className="text-sm text-[var(--text-secondary)]">
           Condition: {product.condition}
         </p>
         <div className="flex items-center justify-between mt-2">
-          <span className="text-lg font-semibold text-[#1A1A1A] dark:text-[#F8F8F8]">
+          <span className="text-lg font-semibold text-[var(--text-primary)]">
             {formatPrice(product.price)}
           </span>
           {quantity > 1 && (
-            <span className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0]">
+            <span className="text-sm text-[var(--text-secondary)]">
               Qty: {quantity}
             </span>
           )}
@@ -66,7 +61,7 @@ export function CartItem({ item }: CartItemProps) {
 
       <button
         onClick={() => removeItem(product.id)}
-        className="flex-shrink-0 p-2 text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#8B2635] dark:hover:text-[#C44D5C] transition-colors"
+        className="flex-shrink-0 p-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
         aria-label="Remove item"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

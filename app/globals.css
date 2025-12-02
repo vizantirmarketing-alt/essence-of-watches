@@ -1,34 +1,72 @@
 /* Google Fonts - Import at the top */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
 
 @import "tailwindcss";
 
-/* Luxury Theme Colors - Light Mode */
+/* Ultra Premium Editorial Color System - Night Mode (Default) */
 :root {
-  --background-primary: #ffffff;
-  --background-secondary: #f8f8f8;
-  --background-accent: #f5f3ef;
-  --text-primary: #1a1a1a;
-  --text-secondary: #6b6b6b;
+  /* Night Mode - Premium Bloomberg Terminal Style */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1a1a1a;
+  --bg-elevated: #1f1f1f;
+  --bg-card: #0F0F10;
+  
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #6b6b6b;
+  
+  --border: #262626;
+  --border-light: #1f1f1f;
+  --border-focus: #404040;
+  --border-hover: rgba(255, 255, 255, 0.15);
+  
+  --accent: #C9A227;
   --accent-gold: #c9a962;
-  --accent-navy: #1b365d;
-  --border: #e5e5e5;
-  --success: #2d5a3d;
-  --error: #8b2635;
+  --accent-steel: #1e3a5f;
+  
+  /* Card colors - Night mode */
+  --card-bg: #0C0C0E;
+  --card-bg-inner: #141416;
+  --card-border: #1a1a1c;
+  --card-border-hover: #2a2a2c;
+  
+  /* Legacy support */
+  --bg-rich-black: var(--bg-primary);
+  --bg-warm-charcoal: var(--bg-secondary);
+  --bg-porcelain: #F3F1EB;
+  --text-dark: #050506;
+  --border-subtle: var(--border);
+  --background-primary: var(--bg-primary);
+  --background-secondary: var(--bg-secondary);
 }
 
-/* Luxury Theme Colors - Dark Mode */
-.dark {
-  --background-primary: #0a0a0a;
-  --background-secondary: #141414;
-  --background-accent: #1a1814;
-  --text-primary: #f8f8f8;
-  --text-secondary: #a0a0a0;
-  --accent-gold: #d4b872;
-  --accent-navy: #2a4a7a;
-  --border: #2a2a2a;
-  --success: #4a8b5c;
-  --error: #c44d5c;
+/* Day Mode — Porcelain */
+[data-theme="day"] {
+  --bg-primary: #F3F1EB;
+  --bg-secondary: #FAFAF8;
+  --bg-tertiary: #F5F3EE;
+  --bg-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  
+  --text-primary: #050506;
+  --text-secondary: #4A4A4A;
+  --text-muted: #8A8A8A;
+  
+  --border: rgba(0, 0, 0, 0.08);
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-focus: rgba(0, 0, 0, 0.2);
+  --border-hover: rgba(0, 0, 0, 0.15);
+  
+  --accent: #9A7B1C;
+  --accent-gold: #9A7B1C;
+  --accent-steel: #243755;
+  
+  /* Card colors - Day mode */
+  --card-bg: #FFFFFF;
+  --card-bg-inner: #F5F3EE;
+  --card-border: #E5E3DE;
+  --card-border-hover: #D5D3CE;
 }
 
 @theme inline {
@@ -38,15 +76,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Typography */
 body {
-  background: var(--background-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+/* Spec table values should be slightly bolder */
+.spec-value {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-weight: 500;
 }
 
 /* Smooth scrolling */
@@ -56,18 +106,84 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 1px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-secondary);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Minimal animations - only subtle transitions */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* Mobile Typography Improvements */
+@media (max-width: 640px) {
+  /* Base text larger on mobile */
+  body {
+    font-size: 16px;
+  }
+
+  /* Form labels */
+  label {
+    font-size: 15px !important;
+  }
+
+  /* Form inputs */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS zoom */
+    padding: 14px 16px !important;
+  }
+
+  /* Paragraphs */
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Small text - make it readable */
+  .text-xs {
+    font-size: 13px !important;
+  }
+
+  .text-sm {
+    font-size: 15px !important;
+  }
+
+  /* Headings */
+  .text-3xl {
+    font-size: 28px !important;
+  }
+
+  .text-2xl {
+    font-size: 24px !important;
+  }
+
+  .text-xl {
+    font-size: 20px !important;
+  }
+
+  .text-lg {
+    font-size: 18px !important;
+  }
 }

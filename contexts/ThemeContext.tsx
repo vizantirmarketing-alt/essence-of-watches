@@ -1,48 +1,40 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface ThemeContextType {
-  isDarkMode: boolean;
+  isDayMode: boolean;
   toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [isDayMode, setIsDayMode] = useState(false); // Default to night mode
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Check localStorage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'day') {
+      setIsDayMode(true);
+      document.documentElement.setAttribute('data-theme', 'day');
     } else {
-      setIsDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', 'night');
     }
   }, []);
 
   useEffect(() => {
     if (mounted) {
-      if (isDarkMode) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
+      localStorage.setItem('theme', isDayMode ? 'day' : 'night');
+      document.documentElement.setAttribute('data-theme', isDayMode ? 'day' : 'night');
     }
-  }, [isDarkMode, mounted]);
+  }, [isDayMode, mounted]);
 
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-  };
+  const toggleTheme = () => setIsDayMode(!isDayMode);
 
-  // Always provide the context, even during SSR
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDayMode, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -50,9 +42,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
+  if (!context) throw new Error('useTheme must be used within ThemeProvider');
   return context;
 }
-

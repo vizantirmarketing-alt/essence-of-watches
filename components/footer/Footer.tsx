@@ -1,149 +1,324 @@
-'use client';
-
 import Link from 'next/link';
-
-const footerLinks = {
-  shop: [
-    { href: '/shop', label: 'All Watches' },
-    { href: '/brands', label: 'Brands' },
-    { href: '/collections', label: 'Collections' },
-    { href: '/sell', label: 'Sell Your Watch' },
-  ],
-  company: [
-    { href: '/about', label: 'About Us' },
-    { href: '/authenticity', label: 'Authenticity Guarantee' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
-  ],
-  support: [
-    { href: '/faq', label: 'FAQ' },
-    { href: '/contact', label: 'Customer Service' },
-    { href: '/authenticity', label: 'Warranty' },
-    { href: '/account', label: 'My Account' },
-  ],
-};
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F8F8F8] dark:bg-[#141414] border-t border-[#E5E5E5] dark:border-[#2A2A2A] transition-colors">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <Link
-              href="/"
-              className="text-2xl font-serif font-bold text-[#1A1A1A] dark:text-[#F8F8F8] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors mb-4 inline-block"
-            >
-              Essence of Watches
-            </Link>
-            <p className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0] mb-4">
-              Where Time Meets Excellence. Authenticated pre-owned luxury timepieces from the world's finest brands.
-            </p>
-            <div className="flex gap-4">
-              {/* Social Media Icons - Placeholder */}
-              <a
-                href="#"
-                className="text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
-                aria-label="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
-                aria-label="Instagram"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Shop Links */}
+    <footer className="bg-[var(--bg-secondary)] dark:bg-[#141414] border-t border-[var(--border)] dark:border-[#262626]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 mb-12">
+          {/* Shop */}
           <div>
-            <h3 className="text-sm font-semibold text-[#1A1A1A] dark:text-[#F8F8F8] mb-4 uppercase tracking-wider">
+            <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
               Shop
-            </h3>
+            </h4>
             <ul className="space-y-3">
-              {footerLinks.shop.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/shop"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  All Watches
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?collection=Submariner"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Submariner
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?collection=Daytona"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Daytona
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?collection=GMT-Master"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  GMT-Master II
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?collection=Datejust"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Datejust
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-[#1A1A1A] dark:text-[#F8F8F8] mb-4 uppercase tracking-wider">
-              Company
-            </h3>
+            <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
+              Services
+            </h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/sell"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Sell Your Watch
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/source"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Source a Watch
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/authenticity"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Authenticity Guarantee
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/verify"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  ID Verification
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Support Links */}
+          {/* Support */}
           <div>
-            <h3 className="text-sm font-semibold text-[#1A1A1A] dark:text-[#F8F8F8] mb-4 uppercase tracking-wider">
+            <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
               Support
-            </h3>
+            </h4>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shipping"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Shipping & Delivery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/returns"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Returns & Refunds
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/track-order"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Track Order
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
+              Company
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/about"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-[#E5E5E5] dark:border-[#2A2A2A]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-[#6B6B6B] dark:text-[#A0A0A0]">
-              © {new Date().getFullYear()} Essence of Watches. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <Link
-                href="#"
-                className="text-xs text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
+        {/* Trust Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 py-8 border-t border-b border-[var(--border)]">
+          <div className="flex items-center gap-2 text-[var(--text-muted)]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+            <span className="text-xs">Authenticated</span>
+          </div>
+          <div className="flex items-center gap-2 text-[var(--text-muted)]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span className="text-xs">Secure Payments</span>
+          </div>
+          <div className="flex items-center gap-2 text-[var(--text-muted)]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            </svg>
+            <span className="text-xs">Insured Shipping</span>
+          </div>
+          <div className="flex items-center gap-2 text-[var(--text-muted)]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span className="text-xs">2-Year Warranty</span>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[var(--text-muted)] text-xs">
+            © {new Date().getFullYear()} Essence of Watches. All rights reserved.
+          </p>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
               >
-                Privacy Policy
-              </Link>
-              <Link
-                href="#"
-                className="text-xs text-[#6B6B6B] dark:text-[#A0A0A0] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
               >
-                Terms of Service
-              </Link>
-            </div>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg>
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
