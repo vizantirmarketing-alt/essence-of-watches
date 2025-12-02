@@ -5,31 +5,18 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Mock cart items - replace with CartContext
-const initialCartItems = [
-  {
-    id: '1',
-    name: 'Rolex Submariner Date',
-    ref: '126610LN',
-    price: 12500,
-    image: '/assets/images/watches/submariner.jpg',
-    brand: 'Rolex',
-    condition: 'Excellent',
-    year: '2023',
-    quantity: 1,
-  },
-  {
-    id: '2',
-    name: 'Omega Speedmaster Professional',
-    ref: '310.30.42.50.01.001',
-    price: 8900,
-    image: '/assets/images/watches/speedmaster.jpg',
-    brand: 'Omega',
-    condition: 'Very Good',
-    year: '2022',
-    quantity: 1,
-  },
-];
+// Cart items - replace with CartContext
+const initialCartItems: {
+  id: string;
+  name: string;
+  ref: string;
+  price: number;
+  image: string;
+  brand: string;
+  condition: string;
+  year: string;
+  quantity: number;
+}[] = [];
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState(initialCartItems);

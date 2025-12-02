@@ -44,6 +44,8 @@ const linkVariants = {
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const { isDayMode, toggleTheme } = useTheme();
   const { data: session } = useSession();
   const pathname = usePathname();
@@ -56,8 +58,19 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-  }, [menuOpen]);
+    document.body.style.overflow = menuOpen || searchOpen ? 'hidden' : '';
+  }, [menuOpen, searchOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSearchOpen(false);
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
   return (
     <>
@@ -105,7 +118,7 @@ export default function Navbar() {
 
             {/* Right - Quick Links */}
             <div className="flex items-center gap-6">
-              <Link href="/verify" className="flex items-center gap-2 hover:opacity-80 transition">
+              <Link href="/authenticity" className="flex items-center gap-2 hover:opacity-80 transition">
                 <svg
                   width="14"
                   height="14"
@@ -116,6 +129,23 @@ export default function Navbar() {
                 >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
+                </svg>
+                Authenticity
+              </Link>
+              <Link href="/verify" className="flex items-center gap-2 hover:opacity-80 transition">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <circle cx="9" cy="10" r="2" />
+                  <path d="M15 8h2" />
+                  <path d="M15 12h2" />
+                  <path d="M7 16h10" />
                 </svg>
                 ID Verification
               </Link>
@@ -135,7 +165,7 @@ export default function Navbar() {
                 </svg>
                 Schedule Appointment
               </Link>
-              <Link href="/track-order" className="hover:opacity-80 transition">
+              <Link href="/track" className="hover:opacity-80 transition">
                 Track Order
               </Link>
             </div>
@@ -191,7 +221,11 @@ export default function Navbar() {
                 <CurrencySelector />
               </div>
 
-              <button className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1">
+              <button 
+                onClick={() => setSearchOpen(true)}
+                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1"
+                aria-label="Search"
+              >
                 <svg
                   width="20"
                   height="20"
@@ -366,6 +400,87 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Search Overlay */}
+      <AnimatePresence>
+        {searchOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-[var(--bg-primary)] dark:bg-[#0a0a0a]"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSearchOpen(false)}
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2"
+              aria-label="Close search"
+            >
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
+            <div className="h-full flex flex-col justify-center px-4 sm:px-6 lg:px-12 max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <label className="block text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-4">
+                  Search Watches
+                </label>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // Handle search - redirect to shop with query
+                    window.location.href = `/shop?q=${encodeURIComponent(searchQuery)}`;
+                  }}
+                  className="relative"
+                >
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search by brand, model, reference..."
+                    autoFocus
+                    className="w-full px-6 py-6 bg-transparent dark:bg-[#0f0f0f] border-b-2 border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-2xl sm:text-3xl placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+                    aria-label="Submit search"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                  </button>
+                </form>
+                <p className="text-xs text-[var(--text-muted)] mt-4">
+                  Press Enter to search or ESC to close
+                </p>
               </motion.div>
             </div>
           </motion.div>

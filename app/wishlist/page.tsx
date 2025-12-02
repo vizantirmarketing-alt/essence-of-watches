@@ -5,46 +5,22 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Mock wishlist items - replace with real context/API
-const mockWishlistItems = [
-  {
-    id: '1',
-    name: 'Rolex Submariner Date',
-    ref: '126610LN',
-    price: 12500,
-    originalPrice: 14200,
-    image: '/assets/images/watches/submariner.jpg',
-    brand: 'Rolex',
-    condition: 'Excellent',
-    year: '2023',
-    inStock: true,
-  },
-  {
-    id: '2',
-    name: 'Omega Speedmaster Professional',
-    ref: '310.30.42.50.01.001',
-    price: 8900,
-    image: '/assets/images/watches/speedmaster.jpg',
-    brand: 'Omega',
-    condition: 'Very Good',
-    year: '2022',
-    inStock: true,
-  },
-  {
-    id: '3',
-    name: 'Patek Philippe Nautilus',
-    ref: '5711/1A-010',
-    price: 125000,
-    image: '/assets/images/watches/nautilus.jpg',
-    brand: 'Patek Philippe',
-    condition: 'Mint',
-    year: '2021',
-    inStock: false,
-  },
-];
+// Wishlist items - replace with real context/API
+const initialWishlistItems: {
+  id: string;
+  name: string;
+  ref: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  brand: string;
+  condition: string;
+  year: string;
+  inStock: boolean;
+}[] = [];
 
 export default function WishlistPage() {
-  const [wishlistItems, setWishlistItems] = useState(mockWishlistItems);
+  const [wishlistItems, setWishlistItems] = useState(initialWishlistItems);
 
   const removeFromWishlist = (id: string) => {
     setWishlistItems((prev) => prev.filter((item) => item.id !== id));
