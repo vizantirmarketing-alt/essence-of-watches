@@ -43,7 +43,22 @@ const mockOrderStatuses = {
   },
 };
 
-type OrderData = typeof mockOrderStatuses['EOW-2024-001'];
+type OrderData = {
+  id: string;
+  status: string;
+  date: string;
+  item: string;
+  ref: string;
+  total: number;
+  tracking: string | null;
+  carrier: string;
+  timeline: {
+    status: string;
+    date: string;
+    time: string;
+    completed: boolean;
+  }[];
+};
 
 const statusColors: Record<string, string> = {
   'Processing': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-400 dark:border dark:border-yellow-500/30',
