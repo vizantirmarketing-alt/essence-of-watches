@@ -1,11 +1,8 @@
 import { getPageSeo } from '@/sanity/lib/seo';
 import type { Metadata } from 'next';
-import Hero from '@/components/homepage/Hero';
-import TrustBar from '@/components/homepage/TrustBar';
-import NewArrivals from '@/components/homepage/NewArrivals';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageSeo('home');
+  const page = await getPageSeo('faq');
 
   return {
     title: page?.seo?.metaTitle || 'Essence of Watches',
@@ -18,12 +15,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
-  return (
-    <main>
-      <Hero />
-      <TrustBar />
-      <NewArrivals />
-    </main>
-  );
+export default function FAQLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }
+
