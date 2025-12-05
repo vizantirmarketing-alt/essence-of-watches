@@ -241,6 +241,15 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[var(--text-muted)] text-xs">
             © {new Date().getFullYear()} Essence of Watches. All rights reserved.
+            <span className="mx-2">|</span>
+            <a 
+              href="https://www.vizantir.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-[var(--text-primary)] transition"
+            >
+              Developed by Vizantir
+            </a>
           </p>
 
           {/* Social Links */}
