@@ -52,7 +52,7 @@ export default function Navbar() {
   const isHomepage = pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > window.innerHeight - 100);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -180,8 +180,10 @@ export default function Navbar() {
           isHomepage ? 'top-0' : 'top-0 sm:top-9'
         } ${
           isScrolled
-            ? 'bg-[var(--bg-primary)]/95 dark:bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-[var(--border)] dark:border-[#262626]'
-            : 'bg-transparent'
+            ? 'bg-black/30 dark:bg-black/40 backdrop-blur-md border-b border-white/5'
+            : isHomepage 
+              ? 'bg-transparent' 
+              : 'bg-[var(--bg-primary)] dark:bg-[#0a0a0a] border-b border-[var(--border)]'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -190,7 +192,7 @@ export default function Navbar() {
             <div className="w-12 sm:w-auto">
               <button
                 onClick={() => setMenuOpen(true)}
-                className="flex items-center gap-2 text-[var(--text-primary)]"
+                className={`flex items-center gap-2 ${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'}`}
               >
                 <svg
                   width="22"
@@ -198,19 +200,19 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                 >
                   <line x1="3" y1="6" x2="21" y2="6" />
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
-                <span className="hidden sm:inline text-xs tracking-[0.15em] uppercase">Menu</span>
+                <span className="hidden sm:inline text-xs tracking-[0.15em] uppercase font-medium">Menu</span>
               </button>
             </div>
 
             {/* Center - Logo */}
             <Link href="/" className="flex-1 flex justify-center px-2">
-              <span className="text-[10px] sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] text-[var(--text-primary)] font-light whitespace-nowrap">
+              <span className={`text-[10px] sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] font-medium whitespace-nowrap ${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'}`}>
                 ESSENCE OF WATCHES
               </span>
             </Link>
@@ -218,12 +220,12 @@ export default function Navbar() {
             {/* Right - Icons */}
             <div className="flex items-center gap-3 sm:gap-5">
               <div className="hidden sm:block">
-                <CurrencySelector />
+                <CurrencySelector className={isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
               </div>
 
               <button 
                 onClick={() => setSearchOpen(true)}
-                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1"
+                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
                 aria-label="Search"
               >
                 <svg
@@ -232,7 +234,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                 >
                   <circle cx="11" cy="11" r="8" />
                   <path d="M21 21l-4.35-4.35" />
@@ -241,7 +243,7 @@ export default function Navbar() {
 
               <Link
                 href="/wishlist"
-                className="hidden sm:block text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1"
+                className={`hidden sm:block ${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 <svg
                   width="20"
@@ -249,7 +251,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                 >
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
@@ -257,7 +259,7 @@ export default function Navbar() {
 
               <Link
                 href="/cart"
-                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1"
+                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 <svg
                   width="20"
@@ -265,7 +267,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                 >
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                   <line x1="3" y1="6" x2="21" y2="6" />
@@ -275,7 +277,7 @@ export default function Navbar() {
 
               <Link
                 href={session ? '/account' : '/login'}
-                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1"
+                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 {session?.user?.image ? (
                   <Image
@@ -286,7 +288,7 @@ export default function Navbar() {
                     className="rounded-full"
                   />
                 ) : (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                   </svg>
@@ -295,7 +297,7 @@ export default function Navbar() {
 
               <button
                 onClick={toggleTheme}
-                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition p-1"
+                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 {isDayMode ? (
                   <svg
@@ -304,7 +306,7 @@ export default function Navbar() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                   >
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                   </svg>
@@ -315,7 +317,7 @@ export default function Navbar() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                   >
                     <circle cx="12" cy="12" r="5" />
                     <line x1="12" y1="1" x2="12" y2="3" />
@@ -363,44 +365,63 @@ export default function Navbar() {
             </button>
 
             <div className="h-full flex flex-col justify-center px-6 sm:px-16 lg:px-24">
-              {/* Main Nav Links */}
-              <nav className="space-y-5 sm:space-y-6">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.06 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="block font-serif text-3xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1400px] mx-auto w-full">
+                {/* Left - Nav Links */}
+                <div>
+                  <nav className="space-y-5 sm:space-y-6">
+                    {navLinks.map((link, i) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + i * 0.06 }}
+                      >
+                        <Link
+                          href={link.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="block font-serif text-3xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </nav>
 
-              {/* Footer Links */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="mt-12 sm:mt-16 flex flex-wrap gap-x-6 gap-y-3"
-              >
-                {footerLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-[var(--text-muted)] text-base sm:text-sm hover:text-[var(--text-primary)] transition-colors"
+                  {/* Footer Links */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="mt-12 sm:mt-16 flex flex-wrap gap-x-6 gap-y-3"
                   >
-                    {link.label}
-                  </Link>
-                ))}
-              </motion.div>
+                    {footerLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="text-[var(--text-muted)] text-base sm:text-sm hover:text-[var(--text-primary)] transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                </div>
+
+                {/* Right - Featured Image */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="hidden lg:block relative aspect-[4/5] rounded-lg overflow-hidden"
+                >
+                  <Image
+                    src="/menu-watch.jpg"
+                    alt="Featured Timepiece"
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         )}

@@ -3,7 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { useCurrency, currencies } from '@/contexts/CurrencyContext';
 
-export default function CurrencySelector() {
+interface CurrencySelectorProps {
+  className?: string;
+}
+
+export default function CurrencySelector({ className = '' }: CurrencySelectorProps) {
   const { currency, setCurrency } = useCurrency();
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -40,7 +44,11 @@ export default function CurrencySelector() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-sm"
+        className={`flex items-center gap-2 transition-colors text-sm ${
+          className 
+            ? `${className} hover:opacity-70` 
+            : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+        }`}
       >
         <span className="text-base">{currency.flag}</span>
         <span className="hidden sm:inline">{currency.code}</span>
