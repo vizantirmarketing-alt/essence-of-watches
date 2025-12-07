@@ -3,13 +3,17 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-// import { useCart } from '@/contexts/CartContext'; // Uncomment when ready to integrate
+import { useCart } from '@/contexts/CartContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 type CheckoutStep = 'information' | 'shipping' | 'payment';
 
 export default function CheckoutPage() {
+  const { items, total: cartTotal } = useCart();
+  const { theme } = useTheme();
   const [currentStep, setCurrentStep] = useState<CheckoutStep>('information');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<'card' | 'wire' | 'affirm'>('card');
   
   const [formData, setFormData] = useState({
     // Contact
@@ -34,17 +38,17 @@ export default function CheckoutPage() {
     sameAsBilling: true,
   });
 
-  // Mock cart data - replace with useCart() context
-  const cartItems: {
-    id: string;
-    name: string;
-    ref: string;
-    price: number;
-    brand: string;
-    image: string;
-  }[] = [];
+  const cartItems = items.map(item => ({
+    id: item.product.id,
+    name: item.product.model,
+    ref: item.product.reference,
+    price: item.product.price,
+    brand: item.product.brand,
+    image: item.product.images?.[0] || '',
+    quantity: item.quantity,
+  }));
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const shipping = 0;
   const tax = Math.round(subtotal * 0.0825); // 8.25% example tax
   const total = subtotal + shipping + tax;
@@ -434,81 +438,153 @@ export default function CheckoutPage() {
                     <div className="grid grid-cols-3 gap-2 mb-6">
                       <button
                         type="button"
-                        className="p-3 border border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-xs tracking-[0.1em] uppercase text-[var(--text-primary)]"
+                        onClick={() => setPaymentMethod('card')}
+                        className={`p-3 border text-xs tracking-[0.1em] uppercase transition ${
+                          paymentMethod === 'card'
+                            ? 'border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)]'
+                            : 'border-[var(--border)] dark:border-[#333] text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)]'
+                        }`}
                       >
                         Card
                       </button>
                       <button
                         type="button"
-                        className="p-3 border border-[var(--border)] dark:border-[#333] text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)] transition"
+                        onClick={() => setPaymentMethod('wire')}
+                        className={`p-3 border text-xs tracking-[0.1em] uppercase transition ${
+                          paymentMethod === 'wire'
+                            ? 'border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)]'
+                            : 'border-[var(--border)] dark:border-[#333] text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)]'
+                        }`}
                       >
                         Wire
                       </button>
                       <button
                         type="button"
-                        className="p-3 border border-[var(--border)] dark:border-[#333] text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)] transition"
+                        onClick={() => setPaymentMethod('affirm')}
+                        className={`p-3 border text-xs tracking-[0.1em] uppercase transition ${
+                          paymentMethod === 'affirm'
+                            ? 'border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)]'
+                            : 'border-[var(--border)] dark:border-[#333] text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)]'
+                        }`}
                       >
                         Affirm
                       </button>
                     </div>
                     
-                    <div className="space-y-4">
-                      <div>
-                        <label htmlFor="cardNumber" className={labelClasses}>Card Number</label>
-                        <input
-                          type="text"
-                          id="cardNumber"
-                          name="cardNumber"
-                          required
-                          value={formData.cardNumber}
-                          onChange={handleChange}
-                          placeholder="1234 5678 9012 3456"
-                          className={inputClasses}
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="cardName" className={labelClasses}>Name on Card</label>
-                        <input
-                          type="text"
-                          id="cardName"
-                          name="cardName"
-                          required
-                          value={formData.cardName}
-                          onChange={handleChange}
-                          className={inputClasses}
-                        />
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-4">
+                    {paymentMethod === 'card' && (
+                      <div className="space-y-4">
                         <div>
-                          <label htmlFor="expiry" className={labelClasses}>Expiration</label>
+                          <label htmlFor="cardNumber" className={labelClasses}>Card Number</label>
                           <input
                             type="text"
-                            id="expiry"
-                            name="expiry"
+                            id="cardNumber"
+                            name="cardNumber"
                             required
-                            value={formData.expiry}
+                            value={formData.cardNumber}
                             onChange={handleChange}
-                            placeholder="MM / YY"
+                            placeholder="1234 5678 9012 3456"
                             className={inputClasses}
                           />
                         </div>
+                        
                         <div>
-                          <label htmlFor="cvc" className={labelClasses}>Security Code</label>
+                          <label htmlFor="cardName" className={labelClasses}>Name on Card</label>
                           <input
                             type="text"
-                            id="cvc"
-                            name="cvc"
+                            id="cardName"
+                            name="cardName"
                             required
-                            value={formData.cvc}
+                            value={formData.cardName}
                             onChange={handleChange}
-                            placeholder="CVC"
                             className={inputClasses}
                           />
                         </div>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label htmlFor="expiry" className={labelClasses}>Expiration</label>
+                            <input
+                              type="text"
+                              id="expiry"
+                              name="expiry"
+                              required
+                              value={formData.expiry}
+                              onChange={handleChange}
+                              placeholder="MM / YY"
+                              className={inputClasses}
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="cvc" className={labelClasses}>Security Code</label>
+                            <input
+                              type="text"
+                              id="cvc"
+                              name="cvc"
+                              required
+                              value={formData.cvc}
+                              onChange={handleChange}
+                              placeholder="CVC"
+                              className={inputClasses}
+                            />
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    )}
+
+                    {paymentMethod === 'wire' && (
+                      <div className="space-y-4">
+                        <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+                          <h3 className="text-sm font-medium text-[var(--text-primary)] mb-4">Wire Transfer Instructions</h3>
+                          <div className="space-y-3 text-sm">
+                            <div>
+                              <p className="text-[var(--text-muted)]">Bank Name</p>
+                              <p className="text-[var(--text-primary)]">Chase Bank</p>
+                            </div>
+                            <div>
+                              <p className="text-[var(--text-muted)]">Account Name</p>
+                              <p className="text-[var(--text-primary)]">Essence of Watches LLC</p>
+                            </div>
+                            <div>
+                              <p className="text-[var(--text-muted)]">Routing Number</p>
+                              <p className="text-[var(--text-primary)]">XXXXXXXXX</p>
+                            </div>
+                            <div>
+                              <p className="text-[var(--text-muted)]">Account Number</p>
+                              <p className="text-[var(--text-primary)]">XXXXXXXXXXXX</p>
+                            </div>
+                          </div>
+                          <p className="text-xs text-[var(--text-muted)] mt-4">
+                            Please include your order number in the wire transfer memo. 
+                            Your order will be processed once payment is confirmed (1-2 business days).
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {paymentMethod === 'affirm' && (
+                      <div className="space-y-4">
+                        <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 text-center">
+                          <img 
+                            src={theme === 'night' ? "/assets/affirm-dark.svg" : "/assets/affirm-day.svg"}
+                            alt="Affirm" 
+                            className="h-8 mx-auto mb-4"
+                          />
+                          <p className="text-sm text-[var(--text-primary)] mb-2">Pay over time with Affirm</p>
+                          <p className="text-xs text-[var(--text-muted)] mb-4">
+                            You'll be redirected to Affirm to complete your purchase securely.
+                          </p>
+                          <div className="bg-[var(--bg-primary)] dark:bg-[#0a0a0a] p-4 rounded mb-4">
+                            <p className="text-lg font-medium text-[var(--text-primary)]">
+                              As low as ${Math.round(total / 12).toLocaleString()}/month
+                            </p>
+                            <p className="text-xs text-[var(--text-muted)]">with 12 monthly payments</p>
+                          </div>
+                          <p className="text-xs text-[var(--text-muted)]">
+                            Subject to credit check. Rates from 0-36% APR.
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex items-center gap-3">
@@ -555,7 +631,7 @@ export default function CheckoutPage() {
                       disabled={isProcessing}
                       className="flex-1 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition disabled:opacity-50"
                     >
-                      {isProcessing ? 'Processing...' : `Pay $${total.toLocaleString()}`}
+                      {isProcessing ? 'Processing...' : paymentMethod === 'affirm' ? 'Continue with Affirm' : `Pay $${total.toLocaleString()}`}
                     </button>
                   </div>
                 </motion.div>
@@ -585,13 +661,17 @@ export default function CheckoutPage() {
                 ) : (
                   cartItems.map((item) => (
                     <div key={item.id} className="flex gap-4">
-                      <div className="relative w-20 h-20 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] flex items-center justify-center flex-shrink-0">
-                        <svg className="w-8 h-8 text-[var(--text-muted)]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="0.5">
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
+                      <div className="relative w-20 h-20 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] flex-shrink-0 overflow-hidden">
+                        {item.image ? (
+                          <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <svg className="w-8 h-8 text-[var(--text-muted)]/30 m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="0.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                          </svg>
+                        )}
                         <span className="absolute -top-2 -right-2 w-5 h-5 bg-[var(--text-muted)] text-[var(--bg-primary)] text-xs flex items-center justify-center rounded-full">
-                          1
+                          {item.quantity}
                         </span>
                       </div>
                       <div className="flex-1">
@@ -599,7 +679,7 @@ export default function CheckoutPage() {
                         <p className="text-sm text-[var(--text-primary)] font-medium">{item.name}</p>
                         <p className="text-xs text-[var(--text-muted)]">Ref. {item.ref}</p>
                       </div>
-                      <p className="text-sm text-[var(--text-primary)]">${item.price.toLocaleString()}</p>
+                      <p className="text-sm text-[var(--text-primary)]">${(item.price * item.quantity).toLocaleString()}</p>
                     </div>
                   ))
                 )}

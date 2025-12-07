@@ -2,16 +2,27 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { watches } from '@/data/watches';
 import { useCurrency } from '@/contexts/CurrencyContext';
 
-export default function NewArrivals() {
+interface Watch {
+  _id: string;
+  name: string;
+  slug: string;
+  reference: string;
+  price: number;
+  image: string;
+}
+
+interface NewArrivalsProps {
+  watches: Watch[];
+}
+
+export default function NewArrivals({ watches }: NewArrivalsProps) {
   const { formatPrice } = useCurrency();
-  // Get the 4 most recent new arrivals
-  const newArrivals = watches
-    .filter((w) => w.newArrival)
-    .sort((a, b) => b.year - a.year)
-    .slice(0, 4);
+
+  if (!watches || watches.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-16 sm:py-24 bg-[var(--bg-primary)]">
@@ -27,7 +38,7 @@ export default function NewArrivals() {
             </h2>
           </div>
           <Link
-            href="/shop?filter=new"
+            href="/shop"
             className="text-[var(--text-secondary)] text-[11px] tracking-[0.15em] uppercase hover:text-[var(--text-primary)] transition-colors duration-300 flex items-center gap-2 group"
           >
             View All
@@ -45,15 +56,15 @@ export default function NewArrivals() {
 
         {/* Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {newArrivals.map((watch) => (
-            <Link key={watch.id} href={`/shop/${watch.slug}`} className="group block">
+          {watches.map((watch) => (
+            <Link key={watch._id} href={`/shop/${watch.slug}`} className="group block">
               {/* Card */}
               <div className="rounded-lg overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)] transition-all duration-300 group-hover:border-[var(--card-border-hover)] group-hover:shadow-lg">
                 {/* Image */}
                 <div className="relative aspect-square overflow-hidden bg-[var(--card-bg-inner)]">
                   <Image
                     src={watch.image}
-                    alt={`${watch.brand} ${watch.model}`}
+                    alt={watch.name}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -76,10 +87,10 @@ export default function NewArrivals() {
                 {/* Info */}
                 <div className="p-4">
                   <p className="text-[var(--text-muted)] text-[10px] tracking-[0.2em] uppercase mb-1">
-                    {watch.brand}
+                    Rolex
                   </p>
                   <h3 className="font-serif text-sm sm:text-base text-[var(--text-primary)] group-hover:text-[var(--text-secondary)] transition-colors duration-300 mb-1 line-clamp-1">
-                    {watch.model}
+                    {watch.name.replace('Rolex ', '')}
                   </h3>
                   <p className="text-[var(--text-muted)] text-xs mb-2">{watch.reference}</p>
                   <p className="text-[var(--text-primary)] font-serif text-base sm:text-lg">
@@ -94,4 +105,3 @@ export default function NewArrivals() {
     </section>
   );
 }
-

@@ -1,7 +1,7 @@
 import { getPageSeo } from '@/sanity/lib/seo';
+import { getFeaturedWatches } from '@/sanity/lib/watches';
 import type { Metadata } from 'next';
 import Hero from '@/components/homepage/Hero';
-import TrustBar from '@/components/homepage/TrustBar';
 import NewArrivals from '@/components/homepage/NewArrivals';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,12 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
+export default async function Home() {
+  const featuredWatches = await getFeaturedWatches();
+
   return (
     <main>
       <Hero />
-      <TrustBar />
-      <NewArrivals />
+      <NewArrivals watches={featuredWatches || []} />
     </main>
   );
 }

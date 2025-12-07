@@ -1,12 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
 import { useCurrency } from '@/contexts/CurrencyContext';
+import { useCartDrawer } from '@/components/cart/CartDrawer';
 
 export function CartSummary() {
   const { total, itemCount } = useCart();
   const { formatPrice } = useCurrency();
+  const { closeDrawer } = useCartDrawer();
+  const router = useRouter();
 
   const shipping = total > 0 ? 0 : 0; // Free shipping threshold logic can be added
   const finalTotal = total + shipping;
@@ -29,12 +33,15 @@ export function CartSummary() {
       </div>
 
       <div className="mt-6 space-y-3">
-        <Link
-          href="/checkout"
+        <button
+          onClick={() => {
+            closeDrawer();
+            router.push('/checkout');
+          }}
           className="block w-full bg-[var(--text-primary)] text-[var(--bg-primary)] text-center py-3 px-6 font-medium hover:opacity-90 transition-opacity"
         >
           Proceed to Checkout
-        </Link>
+        </button>
         <Link
           href="/cart"
           className="block w-full border border-[var(--border)] text-[var(--text-primary)] text-center py-3 px-6 font-medium hover:border-[var(--text-secondary)] transition-colors"

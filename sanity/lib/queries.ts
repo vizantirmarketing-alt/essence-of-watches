@@ -60,12 +60,10 @@ export const singleWatchQuery = groq`
 `;
 
 export const featuredWatchesQuery = groq`
-  *[_type == "watch" && featured == true] | order(createdAt desc) [0...4] {
+  *[_type == "watch" && featured == true] | order(year desc, price desc) [0...4] {
     _id,
-    title,
-    slug,
-    brand,
-    model,
+    name,
+    "slug": slug.current,
     reference,
     price,
     "image": images[0].asset->url
