@@ -52,7 +52,7 @@ export default function Navbar() {
   const isHomepage = pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > window.innerHeight - 100);
+    const handleScroll = () => setIsScrolled(window.scrollY > window.innerHeight);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

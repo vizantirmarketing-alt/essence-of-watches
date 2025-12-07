@@ -120,10 +120,10 @@ export default function AppointmentPage() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0">
               <Image
-                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1200&q=80"
+                src="/daytona-consulting.jpg"
                 alt=""
                 fill
-                className="object-cover opacity-20"
+                className="object-cover object-center opacity-20"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-secondary)] via-[var(--bg-secondary)]/90 to-transparent" />
             </div>
