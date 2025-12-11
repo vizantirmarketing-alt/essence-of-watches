@@ -43,6 +43,7 @@ const linkVariants = {
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,7 +53,10 @@ export default function Navbar() {
   const isHomepage = pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > window.innerHeight - 100);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      setIsPastHero(window.scrollY > window.innerHeight);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -192,7 +196,7 @@ export default function Navbar() {
             <div className="w-12 sm:w-auto">
               <button
                 onClick={() => setMenuOpen(true)}
-                className={`flex items-center gap-2 ${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'}`}
+                className={`flex items-center gap-2 ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}
               >
                 <svg
                   width="22"
@@ -212,7 +216,7 @@ export default function Navbar() {
 
             {/* Center - Logo */}
             <Link href="/" className="flex-1 flex justify-center px-2">
-              <span className={`text-[10px] sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] font-medium whitespace-nowrap ${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'}`}>
+              <span className={`text-[10px] sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] font-medium whitespace-nowrap ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}>
                 ESSENCE OF WATCHES
               </span>
             </Link>
@@ -220,12 +224,12 @@ export default function Navbar() {
             {/* Right - Icons */}
             <div className="flex items-center gap-3 sm:gap-5">
               <div className="hidden sm:block">
-                <CurrencySelector className={isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
+                <CurrencySelector className={isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
               </div>
 
               <button 
                 onClick={() => setSearchOpen(true)}
-                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
                 aria-label="Search"
               >
                 <svg
@@ -243,7 +247,7 @@ export default function Navbar() {
 
               <Link
                 href="/wishlist"
-                className={`hidden sm:block ${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`hidden sm:block ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 <svg
                   width="20"
@@ -259,7 +263,7 @@ export default function Navbar() {
 
               <Link
                 href="/cart"
-                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 <svg
                   width="20"
@@ -277,7 +281,7 @@ export default function Navbar() {
 
               <Link
                 href={session ? '/account' : '/login'}
-                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 {session?.user?.image ? (
                   <Image
@@ -297,7 +301,7 @@ export default function Navbar() {
 
               <button
                 onClick={toggleTheme}
-                className={`${isHomepage && !isScrolled ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
               >
                 {isDayMode ? (
                   <svg
