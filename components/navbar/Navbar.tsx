@@ -444,7 +444,7 @@ export default function Navbar() {
             {/* Close Button */}
             <button
               onClick={() => setSearchOpen(false)}
-              className="absolute top-5 right-5 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2 z-10"
               aria-label="Close search"
             >
               <svg
@@ -460,7 +460,7 @@ export default function Navbar() {
               </svg>
             </button>
 
-            <div className="h-full flex flex-col justify-center px-4 sm:px-6 lg:px-12 max-w-3xl mx-auto">
+            <div className="h-full flex flex-col justify-center px-4 sm:px-6 lg:px-12 max-w-3xl mx-auto pt-16 sm:pt-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -481,13 +481,13 @@ export default function Navbar() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search by brand, model, reference..."
+                    placeholder="Search watches..."
                     autoFocus
-                    className="w-full px-6 py-6 bg-transparent dark:bg-[#0f0f0f] border-b-2 border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-2xl sm:text-3xl placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors"
+                    className="w-full pl-4 sm:pl-6 pr-14 sm:pr-12 py-4 sm:py-6 bg-transparent dark:bg-[#0f0f0f] border-b-2 border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-xl sm:text-2xl md:text-3xl placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors"
                   />
                   <button
                     type="submit"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+                    className="absolute right-0 sm:right-0 top-1/2 -translate-y-1/2 p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
                     aria-label="Submit search"
                   >
                     <svg

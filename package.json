@@ -14,7 +14,7 @@
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.20.3",
     "framer-motion": "^12.23.24",
-    "next": "^16.0.7",
+    "next": "^16.0.10",
     "next-auth": "^4.24.13",
     "next-sanity": "^11.6.10",
     "prisma": "^7.0.1",
