@@ -366,6 +366,18 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
           </div>
         </section>
 
+        {/* Shipping Information */}
+        <section className="mb-16">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-6">
+            Shipping Information
+          </h2>
+          <div className="max-w-3xl">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
+              All orders are shipped fully insured via FedEx or UPS. Orders are typically processed within 1-2 business days. Tracking information will be provided once your order ships.
+            </p>
+          </div>
+        </section>
+
         {/* Accordion Sections */}
         <section className="mb-16 border-t border-[var(--border)]">
           {/* Description */}
