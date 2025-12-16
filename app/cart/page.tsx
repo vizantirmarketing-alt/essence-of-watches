@@ -17,7 +17,7 @@ export default function CartPage() {
   // Map CartContext items to display format
   const cartItems = items.map((item) => ({
     id: item.product.id,
-    name: item.product.model || item.product.name || 'Watch',
+    name: item.product.model || 'Watch',
     ref: item.product.reference || '',
     price: item.product.price,
     image: item.product.images?.[0] || '',

@@ -340,6 +340,32 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
           </div>
         </section>
 
+        {/* Warranty & Returns */}
+        <section className="mb-16">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-6">
+            Warranty & Returns
+          </h2>
+          <div className="max-w-3xl">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
+              This timepiece is covered by an{' '}
+              <Link
+                href="/warranty"
+                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] underline"
+              >
+                Essence of Watches warranty
+              </Link>{' '}
+              for added peace of mind. Every watch is thoroughly inspected and authenticated prior to sale. Insured shipping is included.{' '}
+              <Link
+                href="/returns"
+                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] underline"
+              >
+                Returns
+              </Link>{' '}
+              are accepted within 14 days.
+            </p>
+          </div>
+        </section>
+
         {/* Accordion Sections */}
         <section className="mb-16 border-t border-[var(--border)]">
           {/* Description */}

@@ -46,7 +46,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     });
     
     // Track add to cart event
-    trackAddToCart(product.model || product.name, product.slug || product.id, product.price);
+    trackAddToCart(product.model, product.slug || product.id, product.price);
   }, []);
 
   const removeItem = useCallback((productId: string) => {
