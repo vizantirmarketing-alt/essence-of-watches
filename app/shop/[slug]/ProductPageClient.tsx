@@ -378,6 +378,18 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
           </div>
         </section>
 
+        {/* Why Essence of Watches */}
+        <section className="mb-16">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-6">
+            Why Essence of Watches
+          </h2>
+          <div className="max-w-3xl">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
+              Every watch we offer is carefully curated, authenticated, and inspected to meet our standards. We focus on quality over volume, offering timepieces we would confidently wear ourselves. No marketplaces. No uncertainty. Just exceptional watches, sourced with intention.
+            </p>
+          </div>
+        </section>
+
         {/* Accordion Sections */}
         <section className="mb-16 border-t border-[var(--border)]">
           {/* Description */}
