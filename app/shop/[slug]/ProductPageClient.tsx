@@ -161,7 +161,15 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
                 <p className="text-[10px] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
                   Condition
                 </p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">{watch.condition}</p>
+                <p className="text-sm text-[var(--text-primary)] font-medium">
+                  {watch.condition}{' '}
+                  <Link
+                    href="/condition-guide"
+                    className="text-[var(--text-muted)] hover:text-[var(--text-secondary)] text-[10px] font-normal underline"
+                  >
+                    (What's this?)
+                  </Link>
+                </p>
               </div>
               <div className="bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-center">
                 <p className="text-[10px] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
@@ -175,6 +183,125 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
                 </p>
                 <p className="text-sm text-[var(--text-primary)] font-medium">{watch.year}</p>
               </div>
+            </div>
+
+            {/* What's Included */}
+            <div className="mt-6 pt-6 border-t border-[var(--border)]">
+              <h3 className="font-serif text-lg text-[var(--text-primary)] mb-4">
+                What's Included
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-green-500 flex-shrink-0"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <span>The watch itself</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                  {watch.box ? (
+                    <>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="text-green-500 flex-shrink-0"
+                      >
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                      <span>Original box included</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="text-[var(--text-muted)] flex-shrink-0"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                      <span className="text-[var(--text-muted)]">No original box</span>
+                    </>
+                  )}
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                  {watch.papers ? (
+                    <>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="text-green-500 flex-shrink-0"
+                      >
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                      <span>Papers/warranty card included</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="text-[var(--text-muted)] flex-shrink-0"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                      <span className="text-[var(--text-muted)]">No papers</span>
+                    </>
+                  )}
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-green-500 flex-shrink-0"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <span>Essence of Watches authentication certificate</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-green-500 flex-shrink-0"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <span>Protective packaging</span>
+                </li>
+              </ul>
             </div>
 
             {/* Trust Signals */}
