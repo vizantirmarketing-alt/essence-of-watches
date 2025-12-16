@@ -5,6 +5,7 @@ import { ClientLayout } from "@/components/ClientLayout";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${dmSans.variable} antialiased`}
       >
+        <GoogleAnalytics />
         <Providers>
           <ClientLayout>
             <div className="min-h-screen bg-[var(--bg-primary)]">

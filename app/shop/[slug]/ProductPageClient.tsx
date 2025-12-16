@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BadgeCheck, Shield, RotateCcw, Truck } from 'lucide-react';
 import RelatedWatches from '@/components/product-page/RelatedWatches';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { useCart } from '@/contexts/CartContext';
@@ -257,17 +258,63 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
               </Link>
             </div>
 
-            {/* Contact Note */}
-            <p className="text-[var(--text-muted)] text-xs text-center">
-              Questions?{' '}
-              <Link
-                href="/contact"
-                className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
-              >
-                Contact us
-              </Link>{' '}
-              to discuss this timepiece.
-            </p>
+            {/* Trust Badges */}
+            <div className="mt-6 pt-6 border-t border-[var(--border)]">
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <Link
+                  href="/authenticity"
+                  className="flex items-center gap-2 p-3 border border-[var(--border)] hover:border-[var(--text-muted)] transition-colors group"
+                >
+                  <BadgeCheck size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
+                    Authenticity Guaranteed
+                  </span>
+                </Link>
+                <Link
+                  href="/warranty"
+                  className="flex items-center gap-2 p-3 border border-[var(--border)] hover:border-[var(--text-muted)] transition-colors group"
+                >
+                  <Shield size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
+                    2-Year Warranty
+                  </span>
+                </Link>
+                <Link
+                  href="/returns"
+                  className="flex items-center gap-2 p-3 border border-[var(--border)] hover:border-[var(--text-muted)] transition-colors group"
+                >
+                  <RotateCcw size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
+                    14-Day Returns
+                  </span>
+                </Link>
+                <Link
+                  href="/shipping"
+                  className="flex items-center gap-2 p-3 border border-[var(--border)] hover:border-[var(--text-muted)] transition-colors group"
+                >
+                  <Truck size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
+                    Free Insured Shipping
+                  </span>
+                </Link>
+              </div>
+              <p className="text-[var(--text-muted)] text-[10px] text-center">
+                Questions?{' '}
+                <Link
+                  href="/contact"
+                  className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
+                >
+                  Contact us
+                </Link>{' '}
+                or call{' '}
+                <a
+                  href="tel:+17025551234"
+                  className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
+                >
+                  (702) 555-1234
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 

@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import type { Product } from '@/types/product';
 import type { CartItem, CartContextType } from '@/types/cart';
+import { trackAddToCart } from '@/lib/analytics';
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -43,6 +44,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prevItems, { product, quantity: 1 }];
     });
+    
+    // Track add to cart event
+    trackAddToCart(product.model || product.name, product.slug || product.id, product.price);
   }, []);
 
   const removeItem = useCallback((productId: string) => {

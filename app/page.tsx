@@ -2,7 +2,9 @@ import { getPageSeo } from '@/sanity/lib/seo';
 import { getFeaturedWatches } from '@/sanity/lib/watches';
 import type { Metadata } from 'next';
 import Hero from '@/components/homepage/Hero';
+import TrustStrip from '@/components/homepage/TrustStrip';
 import NewArrivals from '@/components/homepage/NewArrivals';
+import WhyEssence from '@/components/homepage/WhyEssence';
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageSeo('home');
@@ -24,7 +26,9 @@ export default async function Home() {
   return (
     <main>
       <Hero />
+      <TrustStrip />
       <NewArrivals watches={featuredWatches || []} />
+      <WhyEssence />
     </main>
   );
 }

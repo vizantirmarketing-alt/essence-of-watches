@@ -1,6 +1,7 @@
 import { getWatchBySlug } from '@/sanity/lib/watches';
 import { notFound } from 'next/navigation';
 import ProductPageClient from './ProductPageClient';
+import ProductJsonLd from '@/components/product/ProductJsonLd';
 import type { Metadata } from 'next';
 
 type Props = {
@@ -29,5 +30,19 @@ export default async function ProductPage({ params }: Props) {
     notFound();
   }
 
-  return <ProductPageClient watch={watch} />;
+  return (
+    <>
+      <ProductJsonLd
+        product={{
+          name: watch.name,
+          slug: watch.slug,
+          reference: watch.reference,
+          price: watch.price,
+          status: watch.status,
+          images: watch.images || [],
+        }}
+      />
+      <ProductPageClient watch={watch} />
+    </>
+  );
 }

@@ -4,31 +4,30 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-
-// Cart items - replace with CartContext
-const initialCartItems: {
-  id: string;
-  name: string;
-  ref: string;
-  price: number;
-  image: string;
-  brand: string;
-  condition: string;
-  year: string;
-  quantity: number;
-}[] = [];
+import { useCart } from '@/contexts/CartContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState(initialCartItems);
+  const { items, removeItem, total: cartTotal } = useCart();
+  const { formatPrice } = useCurrency();
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoError, setPromoError] = useState('');
 
-  const removeItem = (id: string) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-  };
+  // Map CartContext items to display format
+  const cartItems = items.map((item) => ({
+    id: item.product.id,
+    name: item.product.model || item.product.name || 'Watch',
+    ref: item.product.reference || '',
+    price: item.product.price,
+    image: item.product.images?.[0] || '',
+    brand: item.product.brand || 'Rolex',
+    condition: item.product.condition || 'Excellent',
+    year: item.product.year?.toString() || '',
+    quantity: item.quantity,
+  }));
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cartTotal; // Use total from CartContext
   const shipping = 0; // Free shipping on luxury items
   const discount = promoApplied ? subtotal * 0.05 : 0; // 5% discount example
   const tax = 0; // Calculate based on location
@@ -120,17 +119,28 @@ export default function CartPage() {
                 >
                   <div className="flex gap-4 sm:gap-6">
                     {/* Image */}
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] flex-shrink-0 flex items-center justify-center">
-                      <svg
-                        className="w-12 h-12 text-[var(--text-muted)]/30"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="0.5"
-                      >
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] flex-shrink-0 relative overflow-hidden">
+                      {item.image ? (
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <svg
+                            className="w-12 h-12 text-[var(--text-muted)]/30"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="0.5"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
 
                     {/* Info */}
@@ -169,9 +179,9 @@ export default function CartPage() {
                       </div>
 
                       <div className="flex items-center justify-between mt-4 pt-4 border-t border-[var(--border)] dark:border-[#262626]">
-                        <span className="text-xs text-[var(--text-muted)]">Qty: 1</span>
+                        <span className="text-xs text-[var(--text-muted)]">Qty: {item.quantity}</span>
                         <span className="text-lg font-medium text-[var(--text-primary)]">
-                          ${item.price.toLocaleString()}
+                          {formatPrice(item.price * item.quantity)}
                         </span>
                       </div>
                     </div>
@@ -235,20 +245,20 @@ export default function CartPage() {
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-[var(--text-secondary)]">Subtotal</span>
-                    <span className="text-[var(--text-primary)]">${subtotal.toLocaleString()}</span>
+                    <span className="text-[var(--text-primary)]">{formatPrice(subtotal)}</span>
                   </div>
                   
                   {promoApplied && (
                     <div className="flex justify-between text-green-500">
                       <span>Discount (5%)</span>
-                      <span>-${discount.toLocaleString()}</span>
+                      <span>-{formatPrice(discount)}</span>
                     </div>
                   )}
                   
                   <div className="flex justify-between">
                     <span className="text-[var(--text-secondary)]">Shipping</span>
                     <span className="text-[var(--text-primary)]">
-                      {shipping === 0 ? 'Free' : `$${shipping}`}
+                      {shipping === 0 ? 'Free' : formatPrice(shipping)}
                     </span>
                   </div>
                   
@@ -259,7 +269,7 @@ export default function CartPage() {
                   
                   <div className="flex justify-between pt-4 border-t border-[var(--border)] dark:border-[#262626] text-base font-medium">
                     <span className="text-[var(--text-primary)]">Total</span>
-                    <span className="text-[var(--text-primary)]">${total.toLocaleString()}</span>
+                    <span className="text-[var(--text-primary)]">{formatPrice(total)}</span>
                   </div>
                 </div>
 

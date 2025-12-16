@@ -2,10 +2,26 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { trackPurchase } from '@/lib/analytics';
 
 export default function CheckoutSuccessPage() {
   const [orderNumber] = useState(`EOW-${new Date().getFullYear()}-${Math.floor(Math.random() * 900) + 100}`);
+
+  // Track purchase completion
+  useEffect(() => {
+    // Try to get order total from URL params or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderTotal = urlParams.get('total') 
+      ? parseFloat(urlParams.get('total') || '0')
+      : parseFloat(localStorage.getItem('lastOrderTotal') || '0');
+    
+    if (orderTotal > 0) {
+      trackPurchase(orderNumber, orderTotal);
+      // Clear the stored total
+      localStorage.removeItem('lastOrderTotal');
+    }
+  }, [orderNumber]);
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center px-4">

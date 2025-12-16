@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
 import { useTheme } from '@/contexts/ThemeContext';
+import { trackBeginCheckout } from '@/lib/analytics';
 
 type CheckoutStep = 'information' | 'shipping' | 'payment';
 
@@ -53,6 +54,13 @@ export default function CheckoutPage() {
   const tax = Math.round(subtotal * 0.0825); // 8.25% example tax
   const total = subtotal + shipping + tax;
 
+  // Track begin checkout when page loads
+  useEffect(() => {
+    if (cartTotal > 0) {
+      trackBeginCheckout(cartTotal);
+    }
+  }, [cartTotal]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     setFormData((prev) => ({
@@ -75,11 +83,14 @@ export default function CheckoutPage() {
     e.preventDefault();
     setIsProcessing(true);
     
+    // Store order total for tracking on success page
+    localStorage.setItem('lastOrderTotal', total.toString());
+    
     // Simulate payment processing
     await new Promise((resolve) => setTimeout(resolve, 2000));
     
-    // Redirect to success page
-    window.location.href = '/checkout/success';
+    // Redirect to success page with total in URL
+    window.location.href = `/checkout/success?total=${total}`;
   };
 
   const inputClasses =
