@@ -160,6 +160,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/privacy"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >

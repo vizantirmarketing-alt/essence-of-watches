@@ -15,6 +15,7 @@ const navLinks = [
   { href: '/source', label: 'Source a Watch' },
   { href: '/appointment', label: 'Schedule Appointment' },
   { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
