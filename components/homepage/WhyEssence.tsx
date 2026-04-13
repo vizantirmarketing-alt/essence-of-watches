@@ -22,7 +22,7 @@ export default function WhyEssence() {
     {
       icon: Handshake,
       title: 'Collector-First Service',
-      description: 'Direct communication with watch specialists, not sales scripts.',
+      description: 'Direct communication with watch specialists, not scripted sales pressure.',
     },
   ];
 

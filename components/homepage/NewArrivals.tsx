@@ -41,7 +41,7 @@ export default function NewArrivals({ watches }: NewArrivalsProps) {
             href="/shop"
             className="text-[var(--text-secondary)] text-[11px] tracking-[0.15em] uppercase hover:text-[var(--text-primary)] transition-colors duration-300 flex items-center gap-2 group"
           >
-            View All
+            Explore the Collection
             <svg
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               viewBox="0 0 24 24"
@@ -79,7 +79,7 @@ export default function NewArrivals({ watches }: NewArrivalsProps) {
                   {/* Quick View */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center z-10">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-[10px] tracking-[0.2em] uppercase border border-white px-5 py-2.5">
-                      View
+                      View This Watch
                     </span>
                   </div>
                 </div>

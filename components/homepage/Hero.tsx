@@ -34,7 +34,7 @@ export default function Hero() {
             
             {/* Subtext */}
             <p className="text-white/60 text-base leading-relaxed mb-12 max-w-sm">
-              Authenticated pre-owned timepieces from the world's most distinguished houses.
+              Authenticated pre-owned timepieces from the world's most respected makers.
             </p>
 
             {/* CTA - Minimal */}
@@ -68,7 +68,7 @@ export default function Hero() {
       {/* Scroll Indicator - Watch Crown Inspired */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
         <div className="flex flex-col items-center gap-3">
-          <span className="text-white/30 text-[9px] tracking-[0.3em] uppercase">Scroll</span>
+          <span className="text-white/30 text-[9px] tracking-[0.3em] uppercase">Discover the Collection</span>
           <div className="relative w-8 h-8">
             {/* Outer ring like watch bezel */}
             <div className="absolute inset-0 rounded-full border border-white/20" />
