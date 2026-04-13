@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import { BadgeCheck, Shield, RotateCcw, Truck, Heart, Maximize2 } from 'lucide-react';
@@ -14,6 +15,7 @@ import { useCartDrawer } from '@/components/cart/CartDrawer';
 import { normalizeWatchStatus } from '@/data/watches';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { sanityWatchToProduct } from '@/lib/watchToProduct';
+import AuthCertificate from '@/components/product/AuthCertificate';
 
 interface SanityWatch {
   _id: string;
@@ -33,6 +35,7 @@ interface SanityWatch {
   description?: string;
   featured?: boolean;
   images: string[];
+  serialNumber?: string;
 }
 
 interface ProductPageClientProps {
@@ -56,6 +59,9 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [certificateModalOpen, setCertificateModalOpen] = useState(false);
+
+  const serialNumberTrimmed = watch.serialNumber?.trim() ?? '';
 
   const lightboxSlides = useMemo(
     () => images.map((src) => ({ src, alt: watch.name })),
@@ -103,6 +109,15 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
   const toggleAccordion = (section: string) => {
     setActiveAccordion(activeAccordion === section ? null : section);
   };
+
+  useEffect(() => {
+    if (!certificateModalOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setCertificateModalOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [certificateModalOpen]);
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
@@ -256,9 +271,18 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
 
             {/* What's Included */}
             <div className="mt-6 pt-6 border-t border-[var(--border)]">
-              <h3 className="font-serif text-lg text-[var(--text-primary)] mb-4">
-                What's Included
-              </h3>
+              <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <h3 className="font-serif text-lg text-[var(--text-primary)]">What&apos;s Included</h3>
+                {serialNumberTrimmed ? (
+                  <button
+                    type="button"
+                    onClick={() => setCertificateModalOpen(true)}
+                    className="self-start border border-[var(--border)] px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase text-[var(--text-primary)] transition hover:border-[var(--text-secondary)] hover:bg-[var(--card-bg)] sm:self-auto"
+                  >
+                    View Certificate
+                  </button>
+                ) : null}
+              </div>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
                   <svg
@@ -754,6 +778,65 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
             }}
           />
         )}
+
+        <AnimatePresence>
+          {certificateModalOpen && serialNumberTrimmed ? (
+            <motion.div
+              key="certificate-overlay"
+              role="presentation"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4 print:static print:inset-auto print:bg-transparent print:p-0"
+              onClick={() => setCertificateModalOpen(false)}
+            >
+              <motion.div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="certificate-dialog-title"
+                initial={{ opacity: 0, scale: 0.97, y: 16 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.97, y: 16 }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-[var(--border)] bg-[var(--bg-primary)] p-5 shadow-2xl print:max-h-none print:overflow-visible print:rounded-none print:border-0 print:p-0 print:shadow-none"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-3 print:hidden">
+                  <h2
+                    id="certificate-dialog-title"
+                    className="font-serif text-lg text-[var(--text-primary)]"
+                  >
+                    Certificate of Authenticity
+                  </h2>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => window.print()}
+                      className="border border-[var(--border)] px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-[var(--text-primary)] transition hover:bg-[var(--card-bg)]"
+                    >
+                      Print
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCertificateModalOpen(false)}
+                      className="bg-[var(--text-primary)] px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-[var(--bg-primary)] transition hover:opacity-90"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+                <AuthCertificate
+                  brand={brand}
+                  model={model}
+                  reference={watch.reference}
+                  serialNumber={serialNumberTrimmed}
+                  slug={watch.slug}
+                />
+              </motion.div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </div>
     </main>
   );

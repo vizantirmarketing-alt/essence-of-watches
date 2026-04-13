@@ -26,6 +26,12 @@ export const watch = defineType({
       description: 'e.g., 126610LN',
     }),
     defineField({
+      name: 'serialNumber',
+      title: 'Serial Number',
+      type: 'string',
+      description: 'Case or movement serial for certificate of authenticity (optional).',
+    }),
+    defineField({
       name: 'price',
       title: 'Price',
       type: 'number',
