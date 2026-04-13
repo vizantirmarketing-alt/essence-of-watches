@@ -26,14 +26,31 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
     setIsSubmitting(true);
-    // Simulate submission - replace with real API
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'contact',
+          ...formData,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Failed to send message');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -388,6 +405,12 @@ export default function ContactPage() {
                   className={`${inputClasses} resize-none`}
                 />
               </div>
+
+              {submitError ? (
+                <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+                  {submitError}
+                </p>
+              ) : null}
 
               {/* Submit */}
               <button

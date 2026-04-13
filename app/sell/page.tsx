@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function SellPage() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,9 @@ export default function SellPage() {
   });
 
   const [files, setFiles] = useState<File[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -31,10 +35,31 @@ export default function SellPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData, files);
+    setSubmitError('');
+    setIsSubmitting(true);
+    try {
+      const photos = files.map((f) => ({ name: f.name, size: f.size, type: f.type }));
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'sell',
+          ...formData,
+          photos,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit valuation request');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Failed to submit valuation request');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const steps = [
@@ -62,6 +87,38 @@ export default function SellPage() {
         "Once authenticated, you'll receive payment via your preferred method within 2-3 business days.",
     },
   ];
+
+  if (submitted) {
+    return (
+      <main className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center px-4">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-500/10 flex items-center justify-center">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              className="text-green-500"
+            >
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
+          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">Request Received</h1>
+          <p className="text-[var(--text-secondary)] mb-8">
+            Thank you. Our team will review your submission and respond within 24–48 hours.
+          </p>
+          <Link
+            href="/"
+            className="inline-block text-xs tracking-[0.2em] uppercase border-b border-[var(--text-primary)] text-[var(--text-primary)] pb-1 hover:opacity-70 transition"
+          >
+            Return Home
+          </Link>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
@@ -407,13 +464,20 @@ export default function SellPage() {
                 />
               </div>
 
+              {submitError ? (
+                <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+                  {submitError}
+                </p>
+              ) : null}
+
               {/* Submit */}
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-[11px] tracking-[0.2em] uppercase font-medium hover:opacity-90 transition"
+                  disabled={isSubmitting}
+                  className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-[11px] tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-50"
                 >
-                  Submit for Valuation
+                  {isSubmitting ? 'Submitting...' : 'Submit for Valuation'}
                 </button>
                 <p className="text-[var(--text-muted)] text-xs text-center mt-4">
                   By submitting this form, you agree to our{' '}
