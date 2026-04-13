@@ -1,12 +1,144 @@
 {
   "Navbar": {
-    "brand": "Essence of Watches",
-    "shop": "Shop",
-    "sell": "Sell",
-    "source": "Source",
-    "blog": "Blog",
-    "contact": "Contact",
-    "account": "Account",
-    "searchPlaceholder": "Search watches..."
+    "logo": "ESSENCE OF WATCHES",
+    "menu": "Menu",
+    "top": {
+      "authenticity": "Authenticity",
+      "idVerification": "ID Verification",
+      "scheduleAppointment": "Schedule Appointment",
+      "trackOrder": "Track Order"
+    },
+    "nav": {
+      "shop": "Shop",
+      "sellYourWatch": "Sell Your Watch",
+      "sourceWatch": "Source a Watch",
+      "scheduleAppointment": "Schedule Appointment",
+      "about": "About",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "menuQuick": {
+      "faq": "FAQ",
+      "authenticity": "Authenticity",
+      "idVerification": "ID Verification",
+      "financing": "Financing",
+      "shipping": "Shipping",
+      "returns": "Returns"
+    },
+    "search": {
+      "label": "Search Watches",
+      "placeholder": "Search watches...",
+      "hint": "Press Enter to search or ESC to close",
+      "ariaSearch": "Search",
+      "ariaClose": "Close search",
+      "ariaSubmit": "Submit search"
+    },
+    "accountAlt": "Account",
+    "featuredImageAlt": "Featured Timepiece"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Language"
+  },
+  "Footer": {
+    "shop": {
+      "title": "Shop",
+      "allWatches": "All Watches",
+      "submariner": "Submariner",
+      "daytona": "Daytona",
+      "gmtMaster": "GMT-Master II",
+      "datejust": "Datejust",
+      "referenceGuide": "Reference Guide"
+    },
+    "services": {
+      "title": "Services",
+      "sellYourWatch": "Sell Your Watch",
+      "sourceWatch": "Source a Watch",
+      "authenticityGuarantee": "Authenticity Guarantee",
+      "idVerification": "ID Verification"
+    },
+    "support": {
+      "title": "Support",
+      "contactUs": "Contact Us",
+      "faq": "FAQ",
+      "shippingDelivery": "Shipping & Delivery",
+      "returnsRefunds": "Returns & Refunds",
+      "trackOrder": "Track Order",
+      "sitemap": "Sitemap"
+    },
+    "company": {
+      "title": "Company",
+      "aboutUs": "About Us",
+      "blog": "Blog",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
+    },
+    "trust": {
+      "authenticated": "Authenticated",
+      "securePayments": "Secure Payments",
+      "insuredShipping": "Insured Shipping",
+      "warranty": "2-Year Warranty"
+    },
+    "copyright": "© {year} Essence of Watches. All rights reserved.",
+    "developedBy": "Developed by Vizantir"
+  },
+  "Hero": {
+    "eyebrow": "Curated Collection",
+    "headline1": "Where Time",
+    "headline2": "Meets Legacy",
+    "subtext": "Authenticated pre-owned timepieces from the world's most respected makers.",
+    "ctaExplore": "Explore Collection",
+    "ctaSell": "Sell Your Watch",
+    "scrollHint": "Discover the Collection"
+  },
+  "TrustStrip": {
+    "authenticity": "Authenticity Guaranteed",
+    "certified": "Certified Pre-Owned",
+    "shipping": "Insured Shipping",
+    "warranty": "2-Year Warranty"
+  },
+  "WhyEssence": {
+    "eyebrow": "Our Promise",
+    "title": "Why Essence of Watches",
+    "cards": {
+      "sourcing": {
+        "title": "Expert Sourcing",
+        "description": "Every timepiece is sourced from verified collectors, authorized dealers, and trusted estates."
+      },
+      "authentication": {
+        "title": "Multi-Point Authentication",
+        "description": "Each watch undergoes serial number validation, movement inspection, and dial authenticity checks."
+      },
+      "condition": {
+        "title": "Condition Transparency",
+        "description": "No hidden flaws. We document every scratch, mark, and service detail."
+      },
+      "service": {
+        "title": "Collector-First Service",
+        "description": "Direct communication with watch specialists, not scripted sales pressure."
+      }
+    }
+  },
+  "NewArrivals": {
+    "eyebrow": "Just In",
+    "title": "New Arrivals",
+    "viewCollection": "Explore the Collection",
+    "badge": "New",
+    "quickView": "View This Watch",
+    "brand": "Rolex"
+  },
+  "NewsletterSignup": {
+    "eyebrow": "Stay informed",
+    "title": "New arrivals & journal",
+    "description": "Occasional notes on fresh inventory, authentication, and the pre-owned market—no daily blasts, no noise.",
+    "success": "You are on the list. We only write when we have something worth your time.",
+    "emailAria": "Email address",
+    "placeholder": "Your email",
+    "subscribe": "Subscribe",
+    "sending": "Sending…",
+    "legal": "By subscribing you agree to our <policy>Privacy Policy</policy>. Unsubscribe any time from the footer of our emails.",
+    "errors": {
+      "server": "Something went wrong. Please try again.",
+      "network": "Could not subscribe. Please try again."
+    }
   }
 }

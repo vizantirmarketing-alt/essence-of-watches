@@ -1,6 +1,12 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+  const t = useTranslations('Footer');
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-[var(--bg-secondary)] dark:bg-[#141414] border-t border-[var(--border)] dark:border-[#262626]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
@@ -8,7 +14,7 @@ export default function Footer() {
           {/* Shop */}
           <div>
             <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
-              Shop
+              {t('shop.title')}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -16,7 +22,7 @@ export default function Footer() {
                   href="/shop"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  All Watches
+                  {t('shop.allWatches')}
                 </Link>
               </li>
               <li>
@@ -24,7 +30,7 @@ export default function Footer() {
                   href="/shop?collection=Submariner"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Submariner
+                  {t('shop.submariner')}
                 </Link>
               </li>
               <li>
@@ -32,7 +38,7 @@ export default function Footer() {
                   href="/shop?collection=Daytona"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Daytona
+                  {t('shop.daytona')}
                 </Link>
               </li>
               <li>
@@ -40,7 +46,7 @@ export default function Footer() {
                   href="/shop?collection=GMT-Master"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  GMT-Master II
+                  {t('shop.gmtMaster')}
                 </Link>
               </li>
               <li>
@@ -48,7 +54,7 @@ export default function Footer() {
                   href="/shop?collection=Datejust"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Datejust
+                  {t('shop.datejust')}
                 </Link>
               </li>
               <li>
@@ -56,7 +62,7 @@ export default function Footer() {
                   href="/references"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Reference Guide
+                  {t('shop.referenceGuide')}
                 </Link>
               </li>
             </ul>
@@ -65,7 +71,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
-              Services
+              {t('services.title')}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -73,7 +79,7 @@ export default function Footer() {
                   href="/sell"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Sell Your Watch
+                  {t('services.sellYourWatch')}
                 </Link>
               </li>
               <li>
@@ -81,7 +87,7 @@ export default function Footer() {
                   href="/source"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Source a Watch
+                  {t('services.sourceWatch')}
                 </Link>
               </li>
               <li>
@@ -89,7 +95,7 @@ export default function Footer() {
                   href="/authenticity"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Authenticity Guarantee
+                  {t('services.authenticityGuarantee')}
                 </Link>
               </li>
               <li>
@@ -97,7 +103,7 @@ export default function Footer() {
                   href="/verify"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  ID Verification
+                  {t('services.idVerification')}
                 </Link>
               </li>
             </ul>
@@ -106,7 +112,7 @@ export default function Footer() {
           {/* Support */}
           <div>
             <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
-              Support
+              {t('support.title')}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -114,7 +120,7 @@ export default function Footer() {
                   href="/contact"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Contact Us
+                  {t('support.contactUs')}
                 </Link>
               </li>
               <li>
@@ -122,7 +128,7 @@ export default function Footer() {
                   href="/faq"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  FAQ
+                  {t('support.faq')}
                 </Link>
               </li>
               <li>
@@ -130,7 +136,7 @@ export default function Footer() {
                   href="/shipping"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Shipping & Delivery
+                  {t('support.shippingDelivery')}
                 </Link>
               </li>
               <li>
@@ -138,7 +144,7 @@ export default function Footer() {
                   href="/returns"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Returns & Refunds
+                  {t('support.returnsRefunds')}
                 </Link>
               </li>
               <li>
@@ -146,7 +152,7 @@ export default function Footer() {
                   href="/track-order"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Track Order
+                  {t('support.trackOrder')}
                 </Link>
               </li>
               <li>
@@ -154,7 +160,7 @@ export default function Footer() {
                   href="/sitemap-page"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Sitemap
+                  {t('support.sitemap')}
                 </Link>
               </li>
             </ul>
@@ -163,7 +169,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
-              Company
+              {t('company.title')}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -171,7 +177,7 @@ export default function Footer() {
                   href="/about"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  About Us
+                  {t('company.aboutUs')}
                 </Link>
               </li>
               <li>
@@ -179,7 +185,7 @@ export default function Footer() {
                   href="/blog"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Blog
+                  {t('company.blog')}
                 </Link>
               </li>
               <li>
@@ -187,7 +193,7 @@ export default function Footer() {
                   href="/privacy"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Privacy Policy
+                  {t('company.privacyPolicy')}
                 </Link>
               </li>
               <li>
@@ -195,7 +201,7 @@ export default function Footer() {
                   href="/terms"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  Terms of Service
+                  {t('company.termsOfService')}
                 </Link>
               </li>
             </ul>
@@ -216,7 +222,7 @@ export default function Footer() {
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               <path d="M9 12l2 2 4-4" />
             </svg>
-            <span className="text-xs">Authenticated</span>
+            <span className="text-xs">{t('trust.authenticated')}</span>
           </div>
           <div className="flex items-center gap-2 text-[var(--text-muted)]">
             <svg
@@ -230,7 +236,7 @@ export default function Footer() {
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>
-            <span className="text-xs">Secure Payments</span>
+            <span className="text-xs">{t('trust.securePayments')}</span>
           </div>
           <div className="flex items-center gap-2 text-[var(--text-muted)]">
             <svg
@@ -243,7 +249,7 @@ export default function Footer() {
             >
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
             </svg>
-            <span className="text-xs">Insured Shipping</span>
+            <span className="text-xs">{t('trust.insuredShipping')}</span>
           </div>
           <div className="flex items-center gap-2 text-[var(--text-muted)]">
             <svg
@@ -257,22 +263,22 @@ export default function Footer() {
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
               <polyline points="22 4 12 14.01 9 11.01" />
             </svg>
-            <span className="text-xs">2-Year Warranty</span>
+            <span className="text-xs">{t('trust.warranty')}</span>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="w-full sm:w-auto text-center sm:text-left text-[var(--text-muted)] text-xs">
-            © {new Date().getFullYear()} Essence of Watches. All rights reserved.
+            {t('copyright', { year })}
             <span className="mx-2">|</span>
-            <a 
-              href="https://www.vizantir.com" 
-              target="_blank" 
+            <a
+              href="https://www.vizantir.com"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--text-primary)] transition"
             >
-              Developed by Vizantir
+              {t('developedBy')}
             </a>
           </p>
 

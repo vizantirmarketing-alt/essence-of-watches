@@ -1,12 +1,144 @@
 {
   "Navbar": {
-    "brand": "Essence of Watches",
-    "shop": "Shop",
-    "sell": "Sell",
-    "source": "Source",
-    "blog": "Blog",
-    "contact": "Contact",
-    "account": "Account",
-    "searchPlaceholder": "Search watches..."
+    "logo": "ESSENCE OF WATCHES",
+    "menu": "菜单",
+    "top": {
+      "authenticity": "真伪鉴定",
+      "idVerification": "身份验证",
+      "scheduleAppointment": "预约到店",
+      "trackOrder": "订单追踪"
+    },
+    "nav": {
+      "shop": "精品店",
+      "sellYourWatch": "出售腕表",
+      "sourceWatch": "寻表服务",
+      "scheduleAppointment": "预约到店",
+      "about": "关于我们",
+      "blog": "品牌志",
+      "contact": "联系我们"
+    },
+    "menuQuick": {
+      "faq": "常见问题",
+      "authenticity": "真伪鉴定",
+      "idVerification": "身份验证",
+      "financing": "分期付款",
+      "shipping": "配送说明",
+      "returns": "退换货"
+    },
+    "search": {
+      "label": "搜索腕表",
+      "placeholder": "搜索腕表…",
+      "hint": "按 Enter 搜索，按 ESC 关闭",
+      "ariaSearch": "搜索",
+      "ariaClose": "关闭搜索",
+      "ariaSubmit": "提交搜索"
+    },
+    "accountAlt": "账户",
+    "featuredImageAlt": "精选时计"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "语言"
+  },
+  "Footer": {
+    "shop": {
+      "title": "精品店",
+      "allWatches": "全部表款",
+      "submariner": "潜航者型",
+      "daytona": "宇宙计型迪通拿",
+      "gmtMaster": "格林尼治型 II",
+      "datejust": "日志型",
+      "referenceGuide": "型号指南"
+    },
+    "services": {
+      "title": "服务",
+      "sellYourWatch": "出售腕表",
+      "sourceWatch": "寻表服务",
+      "authenticityGuarantee": "真伪保障",
+      "idVerification": "身份验证"
+    },
+    "support": {
+      "title": "客户支持",
+      "contactUs": "联系我们",
+      "faq": "常见问题",
+      "shippingDelivery": "配送与交付",
+      "returnsRefunds": "退货与退款",
+      "trackOrder": "订单追踪",
+      "sitemap": "网站地图"
+    },
+    "company": {
+      "title": "公司",
+      "aboutUs": "关于我们",
+      "blog": "品牌志",
+      "privacyPolicy": "隐私政策",
+      "termsOfService": "服务条款"
+    },
+    "trust": {
+      "authenticated": "鉴定认证",
+      "securePayments": "安全支付",
+      "insuredShipping": "保价配送",
+      "warranty": "两年质保"
+    },
+    "copyright": "© {year} Essence of Watches。保留所有权利。",
+    "developedBy": "Developed by Vizantir"
+  },
+  "Hero": {
+    "eyebrow": "臻选系列",
+    "headline1": "时光停驻之处",
+    "headline2": "与传承相遇",
+    "subtext": "来自全球最受尊崇的制表名门，经认证的中古臻品时计。",
+    "ctaExplore": "探索系列",
+    "ctaSell": "出售腕表",
+    "scrollHint": "探索系列"
+  },
+  "TrustStrip": {
+    "authenticity": "真伪保障",
+    "certified": "认证中古",
+    "shipping": "保价配送",
+    "warranty": "两年质保"
+  },
+  "WhyEssence": {
+    "eyebrow": "我们的承诺",
+    "title": "为何选择 Essence of Watches",
+    "cards": {
+      "sourcing": {
+        "title": "专业寻源",
+        "description": "每一枚腕表均来自经核实的藏家、授权合作方与值得信赖的遗产渠道。"
+      },
+      "authentication": {
+        "title": "多重真伪鉴定",
+        "description": "序列号核验、机芯检测、表盘真伪鉴定，层层把关，细致入微。"
+      },
+      "condition": {
+        "title": "成色透明",
+        "description": "不隐瞒任何瑕疵。划痕、印记与保养记录，皆如实呈现。"
+      },
+      "service": {
+        "title": "藏家优先的服务",
+        "description": "与腕表专家直接沟通，拒绝话术推销，只给您真诚专业的建议。"
+      }
+    }
+  },
+  "NewArrivals": {
+    "eyebrow": "新品上架",
+    "title": "最新到货",
+    "viewCollection": "探索系列",
+    "badge": "新品",
+    "quickView": "查看表款",
+    "brand": "劳力士"
+  },
+  "NewsletterSignup": {
+    "eyebrow": "订阅资讯",
+    "title": "新品与品牌志",
+    "description": "偶尔为您奉上新品动态、鉴定见解与中古市场观察——无每日轰炸，无冗余信息。",
+    "success": "您已成功订阅。我们只在确有值得分享的内容时致信于您。",
+    "emailAria": "电子邮箱",
+    "placeholder": "您的邮箱",
+    "subscribe": "订阅",
+    "sending": "发送中…",
+    "legal": "订阅即表示您同意我们的<policy>隐私政策</policy>。可随时通过邮件页脚退订。",
+    "errors": {
+      "server": "出现问题，请稍后再试。",
+      "network": "订阅未完成，请检查网络后重试。"
+    }
   }
 }

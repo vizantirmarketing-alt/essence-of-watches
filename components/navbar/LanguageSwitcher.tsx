@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 
@@ -22,6 +22,7 @@ interface LanguageSwitcherProps {
 }
 
 export default function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
+  const t = useTranslations('LanguageSwitcher');
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -55,7 +56,7 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label="Language"
+        aria-label={t('ariaLabel')}
         className={`flex items-center gap-2 transition-colors text-sm ${
           className ? `${className} hover:opacity-70` : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
         }`}

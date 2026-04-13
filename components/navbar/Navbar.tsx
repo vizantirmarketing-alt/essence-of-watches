@@ -4,46 +4,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import CurrencySelector from '@/components/ui/CurrencySelector';
 import LanguageSwitcher from '@/components/navbar/LanguageSwitcher';
 
-const navLinks = [
-  { href: '/shop', label: 'Shop' },
-  { href: '/sell', label: 'Sell Your Watch' },
-  { href: '/source', label: 'Source a Watch' },
-  { href: '/appointment', label: 'Schedule Appointment' },
-  { href: '/about', label: 'About' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
-];
-
-const footerLinks = [
-  { href: '/faq', label: 'FAQ' },
-  { href: '/authenticity', label: 'Authenticity' },
-  { href: '/verify', label: 'ID Verification' },
-  { href: '/financing', label: 'Financing' },
-  { href: '/shipping', label: 'Shipping' },
-  { href: '/returns', label: 'Returns' },
-];
-
-const menuVariants = {
-  closed: { opacity: 0 },
-  open: { opacity: 1, transition: { duration: 0.3 } },
-};
-
-const linkVariants = {
-  closed: { opacity: 0, x: -20 },
-  open: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: { delay: 0.1 + i * 0.06, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] as const },
-  }),
-};
-
 export default function Navbar() {
+  const t = useTranslations('Navbar');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,6 +22,25 @@ export default function Navbar() {
   const { data: session } = useSession();
   const pathname = usePathname();
   const isHomepage = /^\/(en|ja|de|ko|zh)\/?$/.test(pathname);
+
+  const navLinks = [
+    { href: '/shop', label: t('nav.shop') },
+    { href: '/sell', label: t('nav.sellYourWatch') },
+    { href: '/source', label: t('nav.sourceWatch') },
+    { href: '/appointment', label: t('nav.scheduleAppointment') },
+    { href: '/about', label: t('nav.about') },
+    { href: '/blog', label: t('nav.blog') },
+    { href: '/contact', label: t('nav.contact') },
+  ];
+
+  const footerLinks = [
+    { href: '/faq', label: t('menuQuick.faq') },
+    { href: '/authenticity', label: t('menuQuick.authenticity') },
+    { href: '/verify', label: t('menuQuick.idVerification') },
+    { href: '/financing', label: t('menuQuick.financing') },
+    { href: '/shipping', label: t('menuQuick.shipping') },
+    { href: '/returns', label: t('menuQuick.returns') },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,7 +124,7 @@ export default function Navbar() {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
-                Authenticity
+                {t('top.authenticity')}
               </Link>
               <Link href="/verify" className="flex items-center gap-2 hover:opacity-80 transition">
                 <svg
@@ -153,7 +141,7 @@ export default function Navbar() {
                   <path d="M15 12h2" />
                   <path d="M7 16h10" />
                 </svg>
-                ID Verification
+                {t('top.idVerification')}
               </Link>
               <Link href="/appointment" className="flex items-center gap-2 hover:opacity-80 transition">
                 <svg
@@ -169,10 +157,10 @@ export default function Navbar() {
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Schedule Appointment
+                {t('top.scheduleAppointment')}
               </Link>
               <Link href="/track" className="hover:opacity-80 transition">
-                Track Order
+                {t('top.trackOrder')}
               </Link>
             </div>
           </div>
@@ -212,14 +200,14 @@ export default function Navbar() {
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
-                <span className="hidden sm:inline text-xs tracking-[0.15em] uppercase font-medium">Menu</span>
+                <span className="hidden sm:inline text-xs tracking-[0.15em] uppercase font-medium">{t('menu')}</span>
               </button>
             </div>
 
             {/* Center - Logo */}
             <Link href="/" className="flex-1 flex justify-center px-2">
               <span className={`text-[10px] sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] font-medium whitespace-nowrap ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}>
-                ESSENCE OF WATCHES
+                {t('logo')}
               </span>
             </Link>
 
@@ -233,7 +221,7 @@ export default function Navbar() {
               <button 
                 onClick={() => setSearchOpen(true)}
                 className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
-                aria-label="Search"
+                aria-label={t('search.ariaSearch')}
               >
                 <svg
                   width="20"
@@ -289,7 +277,7 @@ export default function Navbar() {
                 {session?.user?.image ? (
                   <Image
                     src={session.user.image}
-                    alt="Account"
+                    alt={t('accountAlt')}
                     width={24}
                     height={24}
                     className="rounded-full"
@@ -423,7 +411,7 @@ export default function Navbar() {
                 >
                   <Image
                     src="/menu-watch.jpg"
-                    alt="Featured Timepiece"
+                    alt={t('featuredImageAlt')}
                     fill
                     className="object-cover"
                   />
@@ -448,7 +436,7 @@ export default function Navbar() {
             <button
               onClick={() => setSearchOpen(false)}
               className="absolute top-4 right-4 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2 z-10"
-              aria-label="Close search"
+              aria-label={t('search.ariaClose')}
             >
               <svg
                 width="28"
@@ -470,7 +458,7 @@ export default function Navbar() {
                 transition={{ delay: 0.1 }}
               >
                 <label className="block text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-4">
-                  Search Watches
+                  {t('search.label')}
                 </label>
                 <form
                   onSubmit={(e) => {
@@ -484,14 +472,14 @@ export default function Navbar() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search watches..."
+                    placeholder={t('search.placeholder')}
                     autoFocus
                     className="w-full pl-4 sm:pl-6 pr-14 sm:pr-12 py-4 sm:py-6 bg-transparent dark:bg-[#0f0f0f] border-b-2 border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-xl sm:text-2xl md:text-3xl placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors"
                   />
                   <button
                     type="submit"
                     className="absolute right-0 sm:right-0 top-1/2 -translate-y-1/2 p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
-                    aria-label="Submit search"
+                    aria-label={t('search.ariaSubmit')}
                   >
                     <svg
                       width="24"
@@ -507,7 +495,7 @@ export default function Navbar() {
                   </button>
                 </form>
                 <p className="text-xs text-[var(--text-muted)] mt-4">
-                  Press Enter to search or ESC to close
+                  {t('search.hint')}
                 </p>
               </motion.div>
             </div>

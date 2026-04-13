@@ -1,12 +1,144 @@
 {
   "Navbar": {
-    "brand": "Essence of Watches",
-    "shop": "Shop",
-    "sell": "Sell",
-    "source": "Source",
-    "blog": "Blog",
-    "contact": "Contact",
-    "account": "Account",
-    "searchPlaceholder": "Search watches..."
+    "logo": "ESSENCE OF WATCHES",
+    "menu": "Menü",
+    "top": {
+      "authenticity": "Echtheit",
+      "idVerification": "Identitätsprüfung",
+      "scheduleAppointment": "Termin vereinbaren",
+      "trackOrder": "Sendung verfolgen"
+    },
+    "nav": {
+      "shop": "Shop",
+      "sellYourWatch": "Uhr verkaufen",
+      "sourceWatch": "Uhr beschaffen",
+      "scheduleAppointment": "Termin vereinbaren",
+      "about": "Über uns",
+      "blog": "Journal",
+      "contact": "Kontakt"
+    },
+    "menuQuick": {
+      "faq": "FAQ",
+      "authenticity": "Echtheit",
+      "idVerification": "Identitätsprüfung",
+      "financing": "Finanzierung",
+      "shipping": "Versand",
+      "returns": "Rückgabe"
+    },
+    "search": {
+      "label": "Uhren suchen",
+      "placeholder": "Uhren durchsuchen…",
+      "hint": "Enter zum Suchen, ESC zum Schließen",
+      "ariaSearch": "Suche",
+      "ariaClose": "Suche schließen",
+      "ariaSubmit": "Suche starten"
+    },
+    "accountAlt": "Konto",
+    "featuredImageAlt": "Ausgewähltes Zeitstück"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Sprache"
+  },
+  "Footer": {
+    "shop": {
+      "title": "Shop",
+      "allWatches": "Alle Uhren",
+      "submariner": "Submariner",
+      "daytona": "Daytona",
+      "gmtMaster": "GMT-Master II",
+      "datejust": "Datejust",
+      "referenceGuide": "Referenzführer"
+    },
+    "services": {
+      "title": "Services",
+      "sellYourWatch": "Uhr verkaufen",
+      "sourceWatch": "Uhr beschaffen",
+      "authenticityGuarantee": "Echtheitsgarantie",
+      "idVerification": "Identitätsprüfung"
+    },
+    "support": {
+      "title": "Support",
+      "contactUs": "Kontakt",
+      "faq": "FAQ",
+      "shippingDelivery": "Versand & Lieferung",
+      "returnsRefunds": "Rückgabe & Erstattung",
+      "trackOrder": "Sendung verfolgen",
+      "sitemap": "Sitemap"
+    },
+    "company": {
+      "title": "Unternehmen",
+      "aboutUs": "Über uns",
+      "blog": "Journal",
+      "privacyPolicy": "Datenschutz",
+      "termsOfService": "AGB"
+    },
+    "trust": {
+      "authenticated": "Begutachtet",
+      "securePayments": "Sichere Zahlung",
+      "insuredShipping": "Versicherter Versand",
+      "warranty": "2 Jahre Garantie"
+    },
+    "copyright": "© {year} Essence of Watches. Alle Rechte vorbehalten.",
+    "developedBy": "Entwickelt von Vizantir"
+  },
+  "Hero": {
+    "eyebrow": "Kuratierte Kollektion",
+    "headline1": "Wo Zeit",
+    "headline2": "auf Erbe trifft",
+    "subtext": "Begutachtete Occasion-Zeitstücke von den renommiertesten Uhrenmanufakturen der Welt.",
+    "ctaExplore": "Kollektion entdecken",
+    "ctaSell": "Uhr verkaufen",
+    "scrollHint": "Kollektion entdecken"
+  },
+  "TrustStrip": {
+    "authenticity": "Echtheit garantiert",
+    "certified": "Zertifizierte Occasion",
+    "shipping": "Versicherter Versand",
+    "warranty": "2 Jahre Garantie"
+  },
+  "WhyEssence": {
+    "eyebrow": "Unser Versprechen",
+    "title": "Warum Essence of Watches",
+    "cards": {
+      "sourcing": {
+        "title": "Expertise beim Bezug",
+        "description": "Jede Uhr stammt von geprüften Sammlern, autorisierten Partnern und renommierten Nachlässen."
+      },
+      "authentication": {
+        "title": "Mehrstufige Echtheitsprüfung",
+        "description": "Seriennummer, Werk und Zifferblatt werden in mehreren Schritten sorgfältig geprüft."
+      },
+      "condition": {
+        "title": "Transparente Zustandsangaben",
+        "description": "Keine versteckten Mängel. Jede Kratzspur, Markierung und Servicehistorie wird dokumentiert."
+      },
+      "service": {
+        "title": "Service für Kenner",
+        "description": "Direkter Austausch mit Uhrenexperten – ohne Druck, ohne Standardverkaufsskripte."
+      }
+    }
+  },
+  "NewArrivals": {
+    "eyebrow": "Neu eingetroffen",
+    "title": "Neuheiten",
+    "viewCollection": "Zur Kollektion",
+    "badge": "Neu",
+    "quickView": "Uhr ansehen",
+    "brand": "Rolex"
+  },
+  "NewsletterSignup": {
+    "eyebrow": "Bleiben Sie informiert",
+    "title": "Neuheiten & Journal",
+    "description": "Gelegentliche Einblicke in neue Stücke, Echtheit und den Occasion-Markt – ohne tägliche Flut, ohne Lärm.",
+    "success": "Sie stehen auf der Liste. Wir schreiben nur, wenn es etwas Wertvolles zu berichten gibt.",
+    "emailAria": "E-Mail-Adresse",
+    "placeholder": "Ihre E-Mail",
+    "subscribe": "Anmelden",
+    "sending": "Wird gesendet…",
+    "legal": "Mit Ihrer Anmeldung stimmen Sie unserer <policy>Datenschutzerklärung</policy> zu. Abmeldung jederzeit über den Link im Newsletter.",
+    "errors": {
+      "server": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "network": "Anmeldung nicht möglich. Bitte versuchen Sie es später erneut."
+    }
   }
 }

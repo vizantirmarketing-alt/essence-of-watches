@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useCurrency } from '@/contexts/CurrencyContext';
 
 interface Watch {
@@ -18,6 +19,7 @@ interface NewArrivalsProps {
 }
 
 export default function NewArrivals({ watches }: NewArrivalsProps) {
+  const t = useTranslations('NewArrivals');
   const { formatPrice } = useCurrency();
 
   if (!watches || watches.length === 0) {
@@ -30,18 +32,14 @@ export default function NewArrivals({ watches }: NewArrivalsProps) {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-12">
           <div>
-            <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-2">
-              Just In
-            </p>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[var(--text-primary)]">
-              New Arrivals
-            </h2>
+            <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-2">{t('eyebrow')}</p>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[var(--text-primary)]">{t('title')}</h2>
           </div>
           <Link
             href="/shop"
             className="text-[var(--text-secondary)] text-[11px] tracking-[0.15em] uppercase hover:text-[var(--text-primary)] transition-colors duration-300 flex items-center gap-2 group"
           >
-            Explore the Collection
+            {t('viewCollection')}
             <svg
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               viewBox="0 0 24 24"
@@ -72,23 +70,21 @@ export default function NewArrivals({ watches }: NewArrivalsProps) {
                   {/* New Badge */}
                   <div className="absolute top-3 left-3 z-20">
                     <span className="text-[9px] tracking-[0.15em] uppercase bg-white text-black px-2.5 py-1 font-medium">
-                      New
+                      {t('badge')}
                     </span>
                   </div>
 
                   {/* Quick View */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center z-10">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-[10px] tracking-[0.2em] uppercase border border-white px-5 py-2.5">
-                      View This Watch
+                      {t('quickView')}
                     </span>
                   </div>
                 </div>
 
                 {/* Info */}
                 <div className="p-4">
-                  <p className="text-[var(--text-muted)] text-[10px] tracking-[0.2em] uppercase mb-1">
-                    Rolex
-                  </p>
+                  <p className="text-[var(--text-muted)] text-[10px] tracking-[0.2em] uppercase mb-1">{t('brand')}</p>
                   <h3 className="font-serif text-sm sm:text-base text-[var(--text-primary)] group-hover:text-[var(--text-secondary)] transition-colors duration-300 mb-1 line-clamp-1">
                     {watch.name.replace('Rolex ', '')}
                   </h3>

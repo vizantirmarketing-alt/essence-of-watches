@@ -1,12 +1,144 @@
 {
   "Navbar": {
-    "brand": "Essence of Watches",
-    "shop": "Shop",
-    "sell": "Sell",
-    "source": "Source",
-    "blog": "Blog",
-    "contact": "Contact",
-    "account": "Account",
-    "searchPlaceholder": "Search watches..."
+    "logo": "ESSENCE OF WATCHES",
+    "menu": "メニュー",
+    "top": {
+      "authenticity": "真贋鑑定",
+      "idVerification": "本人確認",
+      "scheduleAppointment": "来店予約",
+      "trackOrder": "配送状況"
+    },
+    "nav": {
+      "shop": "ショップ",
+      "sellYourWatch": "時計を売る",
+      "sourceWatch": "ご希望モデルを探す",
+      "scheduleAppointment": "来店予約",
+      "about": "ブランドについて",
+      "blog": "ジャーナル",
+      "contact": "お問い合わせ"
+    },
+    "menuQuick": {
+      "faq": "よくあるご質問",
+      "authenticity": "真贋鑑定",
+      "idVerification": "本人確認",
+      "financing": "分割払い",
+      "shipping": "配送について",
+      "returns": "返品・返金"
+    },
+    "search": {
+      "label": "時計を検索",
+      "placeholder": "キーワードで検索…",
+      "hint": "Enter で検索、ESC で閉じる",
+      "ariaSearch": "検索",
+      "ariaClose": "検索を閉じる",
+      "ariaSubmit": "検索を実行"
+    },
+    "accountAlt": "マイアカウント",
+    "featuredImageAlt": "厳選タイムピース"
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "表示言語"
+  },
+  "Footer": {
+    "shop": {
+      "title": "ショップ",
+      "allWatches": "全モデル",
+      "submariner": "サブマリーナ",
+      "daytona": "デイトナ",
+      "gmtMaster": "GMTマスター II",
+      "datejust": "デイトジャスト",
+      "referenceGuide": "リファレンスガイド"
+    },
+    "services": {
+      "title": "サービス",
+      "sellYourWatch": "時計を売る",
+      "sourceWatch": "ご希望モデルを探す",
+      "authenticityGuarantee": "真贋保証",
+      "idVerification": "本人確認"
+    },
+    "support": {
+      "title": "サポート",
+      "contactUs": "お問い合わせ",
+      "faq": "よくあるご質問",
+      "shippingDelivery": "配送について",
+      "returnsRefunds": "返品・返金",
+      "trackOrder": "配送状況",
+      "sitemap": "サイトマップ"
+    },
+    "company": {
+      "title": "会社情報",
+      "aboutUs": "私たちについて",
+      "blog": "ジャーナル",
+      "privacyPolicy": "プライバシーポリシー",
+      "termsOfService": "利用規約"
+    },
+    "trust": {
+      "authenticated": "鑑定済み",
+      "securePayments": "安心のお支払い",
+      "insuredShipping": "保険付き配送",
+      "warranty": "2年間保証"
+    },
+    "copyright": "© {year} Essence of Watches. 無断転載を禁じます。",
+    "developedBy": "Developed by Vizantir"
+  },
+  "Hero": {
+    "eyebrow": "厳選コレクション",
+    "headline1": "時を纏う",
+    "headline2": "レガシーとともに",
+    "subtext": "世界最高峰のメゾンより。真正性を証明したプレオウンド・タイムピースをお届けします。",
+    "ctaExplore": "コレクションを見る",
+    "ctaSell": "時計を売る",
+    "scrollHint": "コレクションへ"
+  },
+  "TrustStrip": {
+    "authenticity": "真贋保証",
+    "certified": "認定中古",
+    "shipping": "保険付き配送",
+    "warranty": "2年間保証"
+  },
+  "WhyEssence": {
+    "eyebrow": "私たちの約束",
+    "title": "Essence of Watches が選ばれる理由",
+    "cards": {
+      "sourcing": {
+        "title": "プロフェッショナルな調達",
+        "description": "実績のあるコレクター、正規販売店、信頼できる遺産整理からのみ、一本一本を厳選して仕入れています。"
+      },
+      "authentication": {
+        "title": "多段階の真贋鑑定",
+        "description": "シリアル確認、ムーブメント検査、文字盤の真正性まで、複数工程で丁寧に鑑定いたします。"
+      },
+      "condition": {
+        "title": "コンディションの透明性",
+        "description": "見えにくい傷も隠しません。キズ、マーク、オーバーホール履歴まで詳細に記録します。"
+      },
+      "service": {
+        "title": "コレクター本位のサービス",
+        "description": "専門スタッフが直接ご案内。型にはまったセールストークではなく、誠実な対話を大切にしています。"
+      }
+    }
+  },
+  "NewArrivals": {
+    "eyebrow": "新入荷",
+    "title": "最新入荷",
+    "viewCollection": "コレクションを見る",
+    "badge": "NEW",
+    "quickView": "詳細を見る",
+    "brand": "ロレックス"
+  },
+  "NewsletterSignup": {
+    "eyebrow": "最新情報",
+    "title": "新入荷とジャーナル",
+    "description": "入荷情報、真贋の話題、プレオウンド市場の洞察を、余計なノイズなくお届けします。毎日の一斉送信はいたしません。",
+    "success": "ご登録ありがとうございます。価値あるお知らせのみお送りします。",
+    "emailAria": "メールアドレス",
+    "placeholder": "メールアドレス",
+    "subscribe": "登録する",
+    "sending": "送信中…",
+    "legal": "ご登録により<policy>プライバシーポリシー</policy>に同意したものとみなされます。配信停止はメール末尾からいつでも可能です。",
+    "errors": {
+      "server": "送信に失敗しました。しばらくしてから再度お試しください。",
+      "network": "登録を完了できませんでした。通信状況をご確認のうえ、再度お試しください。"
+    }
   }
 }
