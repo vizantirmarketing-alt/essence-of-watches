@@ -235,4 +235,35 @@ The Tank is one of the few watches that transcends watch collecting entirely —
 
 The right first pre-owned luxury watch sets the tone for everything that follows. These five references all share the qualities that matter most at the entry level: strong brands, defined secondary market histories, reasonable running costs, and enough staying power to still feel like a good decision years from now.`,
   },
+  {
+    slug: 'how-to-spot-a-fake-rolex',
+    title: 'How to Spot a Fake Rolex — What Buyers Need to Know',
+    focusKeyword: 'how to spot a fake Rolex',
+    metaDescription:
+      'A straight-talking guide on how to spot a fake Rolex, what the real red flags look like, and when to rely on an expert before you buy.',
+    publishedAt: '2026-03-05',
+    body: `The uncomfortable truth about the fake Rolex market is that it has improved significantly. The quick tells that circulated online a decade ago — check if the seconds hand sweeps smoothly, feel the weight, look at the magnification on the cyclops — are no longer reliable guides. Modern counterfeits address many of these surface-level checks, and a buyer who relies on them alone is operating with a false sense of security.
+
+That doesn't mean spotting a fake is impossible. It means the reliable tells are different from the ones most guides focus on.
+
+## The Limits of Quick Tell Tricks
+
+The sweeping seconds hand has been replicated in counterfeits for years. The weight check requires handling enough genuine examples to have a calibrated reference point most buyers don't have. The cyclops magnification test was useful when fakes used flat glass, but current counterfeits use curved sapphire that approximates Rolex's 2.5x magnification well enough to fool casual inspection. Relying on these checks creates a false binary: the watch passes or fails the quick tells, and the buyer decides from there. The problem is that a sophisticated fake can pass all of them at arm's length, while only failing on closer inspection of details that require expertise and time to evaluate.
+
+## Details That Counterfeiters Still Struggle With
+
+The areas where quality counterfeits most often fall short are the ones that require either high-precision manufacturing or specialized knowledge to replicate convincingly. Dial printing on genuine Rolex watches is extraordinarily precise — the text is crisp, the spacing is exact, and the depth of the printing is consistent. Most counterfeits show softness in the text, spacing irregularities, or a slightly different font weight on close inspection under good lighting and magnification. Case finishing is another reliable area. Rolex applies a combination of brushed and polished surfaces with precise transitions between them. On a genuine watch these transitions are sharp and intentional. On most fakes the finishing is either uniformly polished or shows inconsistent transitions that don't match Rolex's factory specification. The movement is definitive. Opening the caseback on a genuine Rolex reveals a decorated, well-finished movement with specific characteristics for each caliber. Most counterfeits either have a non-opening caseback, a visually similar but technically distinct movement, or a generic movement that doesn't resemble the genuine article. A watchmaker can identify the difference immediately.
+
+## Paperwork and Packaging: Helpful but Not Proof
+
+Fake papers and replica Rolex packaging exist and are good enough to fool buyers who treat them as definitive. Box and papers add value and context to a genuine watch, but their presence doesn't authenticate a watch. Treat documentation as supporting evidence, not as the primary basis for your decision.
+
+## Red Flags in Listings and Seller Behavior
+
+Beyond the watch itself, seller behavior provides meaningful signals. Stock photos instead of actual photographs of the specific watch are a significant red flag — a legitimate seller of a genuine watch has nothing to hide and every reason to show it clearly. Vague or evasive answers to direct questions about reference number, serial range, movement, and authentication process suggest the seller either doesn't know the watch well or is hoping you don't ask. Pricing that sits significantly below market for the stated reference and configuration is worth treating with suspicion. Genuine pre-owned Rolex watches trade in a relatively predictable range. When a price diverges dramatically from that range downward, it almost always reflects something undisclosed.
+
+## When to Rely on Professional Authentication
+
+For any significant purchase, professional authentication is a rational safety net rather than a last resort. An experienced watchmaker or specialist can evaluate a watch in ways that aren't practical for most buyers — opening the caseback, inspecting the movement under magnification, checking details that require reference knowledge and technical expertise. The combination of basic buyer knowledge, careful seller selection, and professional authentication where appropriate is the most reliable approach available. None of these alone is sufficient; together, they address the fake market as it actually exists.`,
+  },
 ];
