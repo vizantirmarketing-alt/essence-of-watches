@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const INQUIRY_TYPES = ['contact', 'appointment', 'sell', 'source'] as const;
+const INQUIRY_TYPES = ['contact', 'appointment', 'sell', 'source', 'newsletter'] as const;
 type InquiryType = (typeof INQUIRY_TYPES)[number];
 
 function isInquiryType(t: unknown): t is InquiryType {
@@ -110,8 +110,12 @@ function subjectFor(type: InquiryType, payload: Record<string, unknown>): string
     const who = String(payload.fullName || 'Sell inquiry').trim();
     return `[${site}] Sell your watch — ${who}`;
   }
-  const who = String(payload.fullName || 'Source request').trim();
-  return `[${site}] Source a watch — ${who}`;
+  if (type === 'source') {
+    const who = String(payload.fullName || 'Source request').trim();
+    return `[${site}] Source a watch — ${who}`;
+  }
+  const em = String(payload.email || 'Newsletter').trim();
+  return `[${site}] Newsletter — ${em}`;
 }
 
 function replyToFor(type: InquiryType, payload: Record<string, unknown>): string | undefined {
@@ -122,6 +126,9 @@ function replyToFor(type: InquiryType, payload: Record<string, unknown>): string
     const last = typeof payload.lastName === 'string' ? payload.lastName : '';
     const name = `${first} ${last}`.trim();
     return name ? `${name} <${email}>` : email;
+  }
+  if (type === 'newsletter') {
+    return email;
   }
   const name = typeof payload.fullName === 'string' ? payload.fullName.trim() : '';
   return name ? `${name} <${email}>` : email;
@@ -151,9 +158,19 @@ export async function POST(request: Request) {
   const type = body.type;
   if (!isInquiryType(type)) {
     return NextResponse.json(
-      { error: 'Invalid or missing "type". Expected contact, appointment, sell, or source.' },
+      { error: 'Invalid or missing "type". Expected contact, appointment, sell, source, or newsletter.' },
       { status: 400 },
     );
+  }
+
+  if (type === 'newsletter') {
+    const email = typeof body.email === 'string' ? body.email.trim() : '';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json(
+        { error: 'A valid email is required for newsletter signup.' },
+        { status: 400 },
+      );
+    }
   }
 
   const resend = new Resend(apiKey);

@@ -5,6 +5,7 @@ import Hero from '@/components/homepage/Hero';
 import TrustStrip from '@/components/homepage/TrustStrip';
 import NewArrivals from '@/components/homepage/NewArrivals';
 import WhyEssence from '@/components/homepage/WhyEssence';
+import NewsletterSignup from '@/components/homepage/NewsletterSignup';
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageSeo('home');
@@ -29,6 +30,7 @@ export default async function Home() {
       <TrustStrip />
       <NewArrivals watches={featuredWatches || []} />
       <WhyEssence />
+      <NewsletterSignup />
     </main>
   );
 }

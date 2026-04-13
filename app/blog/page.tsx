@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { blogPosts } from '@/lib/blog-data';
+import NewsletterSignup from '@/components/homepage/NewsletterSignup';
 
 export const metadata: Metadata = {
   title: 'Journal | Essence of Watches',
@@ -76,6 +77,8 @@ export default function BlogIndexPage() {
           </div>
         </div>
       </section>
+
+      <NewsletterSignup />
     </main>
   );
 }
