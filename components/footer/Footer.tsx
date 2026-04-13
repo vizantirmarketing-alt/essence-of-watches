@@ -149,6 +149,14 @@ export default function Footer() {
                   Track Order
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/sitemap-page"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Sitemap
+                </Link>
+              </li>
             </ul>
           </div>
 
