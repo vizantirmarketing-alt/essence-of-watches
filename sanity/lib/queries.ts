@@ -46,6 +46,8 @@ export const singleWatchQuery = groq`
     reference,
     serialNumber,
     price,
+    retailPrice,
+    marketValue,
     status,
     collection,
     year,

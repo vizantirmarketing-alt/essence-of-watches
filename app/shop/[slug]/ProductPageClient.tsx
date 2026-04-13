@@ -16,6 +16,7 @@ import { normalizeWatchStatus } from '@/data/watches';
 import { useWishlist } from '@/contexts/WishlistContext';
 import { sanityWatchToProduct } from '@/lib/watchToProduct';
 import AuthCertificate from '@/components/product/AuthCertificate';
+import PriceContext from '@/components/product/PriceContext';
 
 interface SanityWatch {
   _id: string;
@@ -36,6 +37,8 @@ interface SanityWatch {
   featured?: boolean;
   images: string[];
   serialNumber?: string;
+  retailPrice?: number;
+  marketValue?: string;
 }
 
 interface ProductPageClientProps {
@@ -222,20 +225,25 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
               <p className="text-[var(--text-secondary)] text-sm mb-4">
                 {watch.reference} · {watch.year}
               </p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <p className="font-serif text-3xl text-[var(--text-primary)]">
-                  {formatPrice(watch.price)}
-                </p>
-                {status === 'sold' && (
-                  <span className="text-[9px] tracking-[0.15em] uppercase font-medium border border-[var(--text-primary)] text-[var(--text-primary)] px-2.5 py-1">
-                    Sold
-                  </span>
-                )}
-                {status === 'reserved' && (
-                  <span className="text-[9px] tracking-[0.15em] uppercase font-medium bg-[var(--accent)] text-black px-2.5 py-1">
-                    Reserved
-                  </span>
-                )}
+              <div className="flex flex-wrap items-start gap-x-4 gap-y-3">
+                <PriceContext
+                  listingPrice={watch.price}
+                  retailPrice={watch.retailPrice}
+                  marketValue={watch.marketValue}
+                  formatPrice={formatPrice}
+                />
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  {status === 'sold' && (
+                    <span className="text-[9px] tracking-[0.15em] uppercase font-medium border border-[var(--text-primary)] text-[var(--text-primary)] px-2.5 py-1">
+                      Sold
+                    </span>
+                  )}
+                  {status === 'reserved' && (
+                    <span className="text-[9px] tracking-[0.15em] uppercase font-medium bg-[var(--accent)] text-black px-2.5 py-1">
+                      Reserved
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

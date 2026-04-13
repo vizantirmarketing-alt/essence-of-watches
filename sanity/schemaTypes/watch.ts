@@ -38,6 +38,19 @@ export const watch = defineType({
       validation: (Rule) => Rule.required().positive(),
     }),
     defineField({
+      name: 'retailPrice',
+      title: 'Original Retail (MSRP)',
+      type: 'number',
+      description: 'Manufacturer suggested retail when new, in USD (optional).',
+    }),
+    defineField({
+      name: 'marketValue',
+      title: 'Current Market Range',
+      type: 'string',
+      description:
+        'Secondary market range for this reference, e.g. "$18,000 – $22,000" (optional). Used for price context on the product page.',
+    }),
+    defineField({
       name: 'status',
       title: 'Status',
       type: 'string',
