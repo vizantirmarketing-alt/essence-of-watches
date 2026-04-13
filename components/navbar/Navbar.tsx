@@ -8,6 +8,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import CurrencySelector from '@/components/ui/CurrencySelector';
+import LanguageSwitcher from '@/components/navbar/LanguageSwitcher';
 
 const navLinks = [
   { href: '/shop', label: 'Shop' },
@@ -51,7 +52,7 @@ export default function Navbar() {
   const { isDayMode, toggleTheme } = useTheme();
   const { data: session } = useSession();
   const pathname = usePathname();
-  const isHomepage = pathname === '/';
+  const isHomepage = /^\/(en|ja|de|ko|zh)\/?$/.test(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -224,8 +225,9 @@ export default function Navbar() {
 
             {/* Right - Icons */}
             <div className="flex items-center gap-3 sm:gap-5">
-              <div className="hidden sm:block">
+              <div className="hidden sm:flex items-center gap-4">
                 <CurrencySelector className={isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
+                <LanguageSwitcher className={isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
               </div>
 
               <button 

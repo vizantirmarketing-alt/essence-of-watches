@@ -3,8 +3,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/lib/blog-data';
 import { BlogBody } from '@/components/blog/BlogBody';
+import { routing } from '@/i18n/routing';
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 function formatDate(iso: string) {
   return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
@@ -15,7 +16,9 @@ function formatDate(iso: string) {
 }
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return routing.locales.flatMap((locale) =>
+    blogPosts.map((post) => ({ locale, slug: post.slug }))
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

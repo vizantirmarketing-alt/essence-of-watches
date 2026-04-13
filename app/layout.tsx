@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, DM_Sans } from "next/font/google";
 import { Providers } from "@/components/Providers";
-import { ClientLayout } from "@/components/ClientLayout";
-import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
-import { CartDrawer } from "@/components/cart/CartDrawer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
@@ -60,16 +56,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} ${dmSans.variable} antialiased`}
       >
         <GoogleAnalytics />
-        <Providers>
-          <ClientLayout>
-            <div className="min-h-screen bg-[var(--bg-primary)]">
-              <Navbar />
-              <CartDrawer />
-              <main>{children}</main>
-              <Footer />
-            </div>
-          </ClientLayout>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

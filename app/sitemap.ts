@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
 import { getAllWatches } from '@/sanity/lib/watches';
+import { routing } from '@/i18n/routing';
 
 const FALLBACK_SITE = 'https://www.essenceofwatches.com';
 
@@ -15,6 +16,7 @@ type SanityWatchSlug = { slug?: string | null };
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = getBaseUrl();
   const now = new Date();
+  const locales = routing.locales;
 
   let watches: SanityWatchSlug[] = [];
   try {
@@ -23,23 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     watches = [];
   }
 
-  const entries: MetadataRoute.Sitemap = [
-    {
-      url: `${base}/`,
-      lastModified: now,
-      changeFrequency: 'daily',
-    },
-    {
-      url: `${base}/shop`,
-      lastModified: now,
-      changeFrequency: 'daily',
-    },
-    {
-      url: `${base}/blog`,
-      lastModified: now,
-      changeFrequency: 'daily',
-    },
-  ];
+  const entries: MetadataRoute.Sitemap = [];
 
   const staticMonthlyPaths = [
     '/references',
@@ -54,33 +40,52 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/appointment',
     '/about',
     '/verify',
-    '/track-order',
+    '/track',
+    '/sitemap-page',
   ];
 
-  for (const path of staticMonthlyPaths) {
+  for (const locale of locales) {
     entries.push({
-      url: `${base}${path}`,
+      url: `${base}/${locale}`,
       lastModified: now,
-      changeFrequency: 'monthly',
+      changeFrequency: 'daily',
     });
-  }
-
-  for (const post of blogPosts) {
     entries.push({
-      url: `${base}/blog/${post.slug}`,
-      lastModified: new Date(post.publishedAt),
-      changeFrequency: 'monthly',
-    });
-  }
-
-  for (const watch of watches) {
-    const slug = watch.slug?.trim();
-    if (!slug) continue;
-    entries.push({
-      url: `${base}/shop/${slug}`,
+      url: `${base}/${locale}/shop`,
       lastModified: now,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily',
     });
+    entries.push({
+      url: `${base}/${locale}/blog`,
+      lastModified: now,
+      changeFrequency: 'daily',
+    });
+
+    for (const path of staticMonthlyPaths) {
+      entries.push({
+        url: `${base}/${locale}${path}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+      });
+    }
+
+    for (const post of blogPosts) {
+      entries.push({
+        url: `${base}/${locale}/blog/${post.slug}`,
+        lastModified: new Date(post.publishedAt),
+        changeFrequency: 'monthly',
+      });
+    }
+
+    for (const watch of watches) {
+      const slug = watch.slug?.trim();
+      if (!slug) continue;
+      entries.push({
+        url: `${base}/${locale}/shop/${slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+      });
+    }
   }
 
   return entries;

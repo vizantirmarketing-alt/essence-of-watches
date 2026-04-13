@@ -1,0 +1,12 @@
+{
+  "Navbar": {
+    "brand": "Essence of Watches",
+    "shop": "Shop",
+    "sell": "Sell",
+    "source": "Source",
+    "blog": "Blog",
+    "contact": "Contact",
+    "account": "Account",
+    "searchPlaceholder": "Search watches..."
+  }
+}

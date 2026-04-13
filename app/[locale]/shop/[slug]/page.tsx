@@ -5,7 +5,7 @@ import ProductJsonLd from '@/components/product/ProductJsonLd';
 import type { Metadata } from 'next';
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
