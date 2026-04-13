@@ -295,4 +295,33 @@ A growing, more transparent pre-owned market is generally good for buyers. More 
 
 For sellers, the same transparency that benefits buyers applies in reverse. A watch that's properly authenticated, clearly described, and honestly priced moves faster in a transparent market. Sellers who invest in documentation, photography, and honest condition disclosure are positioned well as buyer expectations rise. The market's growth also means that the window for selling on favorable terms is not closing. Sustained demand for authenticated pre-owned luxury watches, driven by the structural factors above, suggests the category will remain a viable and attractive channel for sellers who approach it seriously. The pre-owned watch market in 2026 isn't a trend or a moment — it's a mature category with real infrastructure, real data, and real demand. For buyers and sellers who understand it, that's a genuinely good thing.`,
   },
+  {
+    slug: 'rolex-sports-vs-dress-value',
+    title: 'Rolex Sports Models vs Dress Watches — Which Holds Value Better?',
+    focusKeyword: 'Rolex sports vs dress value',
+    metaDescription:
+      'An expert look at Rolex sports models vs dress watches, which tends to hold value better over time, and how to choose the right one for you.',
+    publishedAt: '2026-03-19',
+    body: `Rolex makes two fundamentally different kinds of watches. Sports models — the Submariner, GMT-Master, Daytona, Explorer, Sea-Dweller — are built around function first, with designs that evolved from professional tool watches. Dress and semi-dress pieces — the Datejust, Day-Date, Cellini — are built around aesthetics and occasion, with designs rooted in traditional watchmaking presentation. Both families have legitimate collector followings, but they behave differently on the secondary market, and understanding those differences matters before you buy.
+
+## How Demand for Sports Models Evolved
+
+Rolex sports watches started as professional instruments. The Submariner was a diving watch. The GMT-Master was built for aviators. The Daytona was designed for motorsport timing. Over time, these functional origins became part of their cultural appeal — the watches carried a history and purpose that gave them meaning beyond their design. In the current market, steel Rolex sports models occupy an unusual position. They're simultaneously tool watches, status symbols, and collector objects, and that combination of roles sustains demand across a broad range of buyers. A steel Submariner or GMT-Master has appeal to someone who wants to wear a well-built diver, to someone who wants a recognizable luxury piece, and to someone building a reference collection. That breadth of demand is one of the reasons steel sports models have shown strong value retention.
+
+## The Quieter Appeal of Rolex Dress Pieces
+
+The Day-Date and Datejust occupy different territory. They're not status symbols in the same mass-culture sense as the Submariner or Daytona, and they're not tool watches. Their appeal is rooted in traditional luxury watchmaking — precious metals, classic dial proportions, the kind of watch that signals taste rather than aspiration. The Datejust in particular has a long and varied production history, with hundreds of dial and configuration options across decades. This variety creates a deep collector world for those who are drawn to it, but it also means the secondary market is fragmented — some configurations are highly sought after while others sit for a long time at modest prices.
+
+## Value Retention Trends: Sports vs Dress
+
+The general pattern in the current market is that steel sports models from Rolex hold value more broadly and more consistently than dress pieces of equivalent retail pricing. This isn't a universal rule — a Day-Date in platinum or a particularly rare Datejust configuration can hold or gain value significantly — but as a general framework it reflects how the secondary market has behaved over the past decade. The reasons are structural. Steel sports models have a broad buyer base across multiple motivations. They're wearable in more contexts. They have strong brand recognition beyond the collector community. And production of the most desirable references has historically lagged demand, which sustains secondary market pricing. Dress pieces, particularly in gold, have a narrower buyer base. Precious metal content provides some floor to their value, but the collector premiums are more reference-specific and less predictable for buyers without deep knowledge of the category.
+
+## How Reference, Metal, and Configuration Influence Both
+
+Within both families, the specifics matter enormously. A steel Submariner date and a gold Submariner date occupy very different positions in the market. A Datejust 41 in steel with a clean dial and Jubilee bracelet holds value differently than a two-tone example from the 1990s. The general principle is that steel is more liquid than precious metal across most Rolex sports references, while in the Day-Date family, precious metal is part of the core proposition and the market reflects that differently.
+
+## Which Is Right for You?
+
+Value retention is one factor in this decision, but it shouldn't be the only one. The best watch for you is the one you'll actually wear — and that depends on how you live, what you wear, and what kind of presence you want on your wrist. A sports model worn daily in most environments makes sense for most people. A dress piece worn occasionally but owned for decades also makes sense for the right person. The secondary market data provides useful context, but it shouldn't override a genuine preference for a watch you'll actually enjoy owning. The best long-term outcome is almost always a watch you wear often, care for well, and eventually sell with clear documentation — regardless of which family it came from.`,
+  },
 ];
