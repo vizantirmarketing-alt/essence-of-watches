@@ -34,7 +34,9 @@
       "ariaSubmit": "提交搜索"
     },
     "accountAlt": "账户",
-    "featuredImageAlt": "精选时计"
+    "featuredImageAlt": "精选时计",
+    "mobileMenuLanguage": "语言",
+    "mobileMenuCurrency": "货币"
   },
   "LanguageSwitcher": {
     "ariaLabel": "语言"

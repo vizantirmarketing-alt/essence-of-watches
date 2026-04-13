@@ -34,7 +34,9 @@
       "ariaSubmit": "검색 실행"
     },
     "accountAlt": "계정",
-    "featuredImageAlt": "엄선된 타임피스"
+    "featuredImageAlt": "엄선된 타임피스",
+    "mobileMenuLanguage": "언어",
+    "mobileMenuCurrency": "통화"
   },
   "LanguageSwitcher": {
     "ariaLabel": "언어"

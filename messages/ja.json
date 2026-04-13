@@ -34,7 +34,9 @@
       "ariaSubmit": "検索を実行"
     },
     "accountAlt": "マイアカウント",
-    "featuredImageAlt": "厳選タイムピース"
+    "featuredImageAlt": "厳選タイムピース",
+    "mobileMenuLanguage": "言語",
+    "mobileMenuCurrency": "通貨"
   },
   "LanguageSwitcher": {
     "ariaLabel": "表示言語"

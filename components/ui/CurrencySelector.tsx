@@ -5,9 +5,11 @@ import { useCurrency, currencies } from '@/contexts/CurrencyContext';
 
 interface CurrencySelectorProps {
   className?: string;
+  /** When true, panel opens above the trigger (e.g. mobile menu footer). */
+  dropdownOpenUpward?: boolean;
 }
 
-export default function CurrencySelector({ className = '' }: CurrencySelectorProps) {
+export default function CurrencySelector({ className = '', dropdownOpenUpward = false }: CurrencySelectorProps) {
   const { currency, setCurrency } = useCurrency();
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState('');
@@ -64,7 +66,11 @@ export default function CurrencySelector({ className = '' }: CurrencySelectorPro
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-72 bg-[var(--bg-elevated)] border border-[var(--border)] rounded-lg shadow-xl z-50">
+        <div
+          className={`absolute right-0 w-72 bg-[var(--bg-elevated)] border border-[var(--border)] rounded-lg shadow-xl z-50 ${
+            dropdownOpenUpward ? 'bottom-full mb-2' : 'top-full mt-2'
+          }`}
+        >
           {/* Search */}
           <div className="p-3 border-b border-[var(--border)]">
             <div className="relative">
