@@ -22,7 +22,7 @@ Pre-owned luxury watch e-commerce platform specializing in authenticated Rolex a
 ## Features
 
 - Full watch catalog with search, price, collection, and condition filters
-- Product detail pages with image zoom lightbox, Schema.org JSON-LD structured data
+- Product detail pages with image zoom lightbox, Schema.org JSON-LD structured data, and related watches fetched live from Sanity by brand (excludes current watch)
 - Stock status indicators — available, reserved, sold — on catalog and PDP
 - Wishlist with localStorage persistence and heart toggle on cards and PDP
 - Per-watch Certificate of Authenticity with generated certificate number
