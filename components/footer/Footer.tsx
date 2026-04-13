@@ -51,6 +51,14 @@ export default function Footer() {
                   Datejust
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/references"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  Reference Guide
+                </Link>
+              </li>
             </ul>
           </div>
 
