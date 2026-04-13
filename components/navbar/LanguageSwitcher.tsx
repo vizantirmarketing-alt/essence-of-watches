@@ -19,11 +19,9 @@ const LOCALE_OPTIONS: {
 
 interface LanguageSwitcherProps {
   className?: string;
-  /** When true, panel opens above the trigger (e.g. mobile menu footer). */
-  dropdownOpenUpward?: boolean;
 }
 
-export default function LanguageSwitcher({ className = '', dropdownOpenUpward = false }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
   const t = useTranslations('LanguageSwitcher');
   const locale = useLocale();
   const pathname = usePathname();
@@ -79,9 +77,7 @@ export default function LanguageSwitcher({ className = '', dropdownOpenUpward = 
 
       {open && (
         <div
-          className={`absolute right-0 min-w-[10rem] bg-[var(--bg-elevated)] border border-[var(--border)] rounded-lg shadow-xl z-50 py-1 ${
-            dropdownOpenUpward ? 'bottom-full mb-2' : 'top-full mt-2'
-          }`}
+          className="absolute right-0 top-full mt-2 min-w-[10rem] bg-[var(--bg-elevated)] border border-[var(--border)] rounded-lg shadow-xl z-50 py-1"
           role="listbox"
         >
           {LOCALE_OPTIONS.map((opt) => (

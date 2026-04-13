@@ -34,9 +34,7 @@
       "ariaSubmit": "Submit search"
     },
     "accountAlt": "Account",
-    "featuredImageAlt": "Featured Timepiece",
-    "mobileMenuLanguage": "Language",
-    "mobileMenuCurrency": "Currency"
+    "featuredImageAlt": "Featured Timepiece"
   },
   "LanguageSwitcher": {
     "ariaLabel": "Language"

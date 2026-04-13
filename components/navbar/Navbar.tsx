@@ -339,12 +339,12 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex flex-col bg-[var(--bg-primary)] dark:bg-[#0a0a0a]"
+            className="fixed inset-0 z-50 bg-[var(--bg-primary)] dark:bg-[#0a0a0a]"
           >
             {/* Close Button */}
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-5 right-5 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2 z-10"
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2"
             >
               <svg
                 width="28"
@@ -359,7 +359,7 @@ export default function Navbar() {
               </svg>
             </button>
 
-            <div className="flex-1 min-h-0 flex flex-col justify-center overflow-y-auto px-6 sm:px-16 lg:px-24 pt-16 pb-6">
+            <div className="h-full flex flex-col justify-center px-6 sm:px-16 lg:px-24">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1400px] mx-auto w-full">
                 {/* Left - Nav Links */}
                 <div>
@@ -416,34 +416,6 @@ export default function Navbar() {
                     className="object-cover"
                   />
                 </motion.div>
-              </div>
-            </div>
-
-            {/* Mobile: currency & language (desktop uses navbar controls) */}
-            <div className="lg:hidden shrink-0 border-t border-[var(--border)] px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-5 bg-[var(--bg-primary)] dark:bg-[#0a0a0a]">
-              <div className="max-w-[1400px] mx-auto w-full flex flex-row items-end justify-center gap-12 sm:gap-16">
-                <div className="flex flex-col items-center gap-1.5">
-                  <span className="text-[var(--text-muted)] text-[10px] tracking-[0.15em] uppercase">
-                    {t('mobileMenuCurrency')}
-                  </span>
-                  <div className="flex min-h-[48px] min-w-[48px] items-center justify-center">
-                    <CurrencySelector
-                      className="text-[var(--text-secondary)] font-medium tracking-wide"
-                      dropdownOpenUpward
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center gap-1.5">
-                  <span className="text-[var(--text-muted)] text-[10px] tracking-[0.15em] uppercase">
-                    {t('mobileMenuLanguage')}
-                  </span>
-                  <div className="flex min-h-[48px] min-w-[48px] items-center justify-center">
-                    <LanguageSwitcher
-                      className="text-[var(--text-secondary)] font-medium tracking-wide"
-                      dropdownOpenUpward
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>

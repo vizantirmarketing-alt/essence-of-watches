@@ -34,9 +34,7 @@
       "ariaSubmit": "Suche starten"
     },
     "accountAlt": "Konto",
-    "featuredImageAlt": "Ausgewähltes Zeitstück",
-    "mobileMenuLanguage": "Sprache",
-    "mobileMenuCurrency": "Währung"
+    "featuredImageAlt": "Ausgewähltes Zeitstück"
   },
   "LanguageSwitcher": {
     "ariaLabel": "Sprache"
