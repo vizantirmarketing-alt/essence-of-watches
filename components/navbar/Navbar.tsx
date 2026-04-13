@@ -229,7 +229,7 @@ export default function Navbar() {
 
               <button 
                 onClick={() => setSearchOpen(true)}
-                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
                 aria-label="Search"
               >
                 <svg
@@ -247,7 +247,7 @@ export default function Navbar() {
 
               <Link
                 href="/wishlist"
-                className={`hidden sm:block ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`hidden sm:block ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
               >
                 <svg
                   width="20"
@@ -263,7 +263,7 @@ export default function Navbar() {
 
               <Link
                 href="/cart"
-                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
               >
                 <svg
                   width="20"
@@ -281,7 +281,7 @@ export default function Navbar() {
 
               <Link
                 href={session ? '/account' : '/login'}
-                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1 rounded-full ${session?.user?.image ? 'hover:ring-2 hover:ring-[var(--accent)]' : ''}`}
               >
                 {session?.user?.image ? (
                   <Image
@@ -301,7 +301,7 @@ export default function Navbar() {
 
               <button
                 onClick={toggleTheme}
-                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--text-secondary)] transition p-1`}
+                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
               >
                 {isDayMode ? (
                   <svg
