@@ -32,6 +32,7 @@ Pre-owned luxury watch e-commerce platform specializing in authenticated Rolex a
 - Contact, Appointment, Sell, and Source inquiry forms wired to Resend email API
 - Blog with 12 SEO-optimized posts covering the pre-owned watch buyer journey
 - Rolex reference guide — searchable, filterable index of 167 references across all model families
+- User-facing sitemap page at /sitemap-page with all site routes organized by category
 - Warranty page, Returns page, Authenticity page, Buyer Protection page
 - Google and Apple OAuth authentication via NextAuth
 - Sanity Studio for inventory and content management
@@ -158,6 +159,7 @@ Watch inventory is managed through Sanity Studio at `/studio`. Each watch listin
 | `/blog` | Blog listing with 12 SEO-optimized posts |
 | `/blog/[slug]` | Individual blog post |
 | `/references` | Rolex reference guide — searchable by reference number, model, and family |
+| `/sitemap-page` | User-facing sitemap listing all site pages by category |
 | `/sell` | Sell your watch inquiry |
 | `/source` | Source a specific watch |
 | `/warranty` | Full warranty terms |
