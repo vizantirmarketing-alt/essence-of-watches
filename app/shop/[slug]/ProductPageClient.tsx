@@ -1,9 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BadgeCheck, Shield, RotateCcw, Truck, Heart } from 'lucide-react';
+import Lightbox from 'yet-another-react-lightbox';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import { BadgeCheck, Shield, RotateCcw, Truck, Heart, Maximize2 } from 'lucide-react';
+import 'yet-another-react-lightbox/styles.css';
 import RelatedWatches from '@/components/product-page/RelatedWatches';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { useCart } from '@/contexts/CartContext';
@@ -37,23 +40,40 @@ interface ProductPageClientProps {
 }
 
 export default function ProductPageClient({ watch }: ProductPageClientProps) {
+  // Use actual images from Sanity, or fallback to first image repeated
+  const images =
+    watch.images && watch.images.length > 0
+      ? watch.images
+      : watch.images?.[0]
+        ? [watch.images[0]]
+        : [];
+
   const { formatPrice } = useCurrency();
   const { addItem } = useCart();
   const { openDrawer } = useCartDrawer();
   const { toggleItem, isInWishlist } = useWishlist();
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const lightboxSlides = useMemo(
+    () => images.map((src) => ({ src, alt: watch.name })),
+    [images, watch.name],
+  );
+
+  const openLightbox = useCallback(() => {
+    setLightboxIndex(selectedImage);
+    setLightboxOpen(true);
+  }, [selectedImage]);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
 
   const status = normalizeWatchStatus(watch.status);
   const commerceDisabled = status === 'sold' || status === 'reserved';
   const inWishlist = isInWishlist(watch._id);
-
-  // Use actual images from Sanity, or fallback to first image repeated
-  const images = watch.images && watch.images.length > 0 
-    ? watch.images 
-    : watch.images?.[0] 
-      ? [watch.images[0]] 
-      : [];
 
   // Determine brand from name (assuming "Rolex" for now, can be enhanced)
   const brand = 'Rolex';
@@ -114,10 +134,33 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
             {images.length > 0 && (
               <>
                 <div className="relative aspect-square bg-[var(--card-bg)] rounded-lg overflow-hidden">
+                  <Image
+                    src={images[selectedImage]}
+                    alt={watch.name}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                   <button
                     type="button"
-                    onClick={() => toggleItem(sanityWatchToProduct(watch))}
-                    className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-primary)] transition hover:border-[var(--text-muted)]"
+                    onClick={openLightbox}
+                    className="absolute inset-0 z-[1] cursor-zoom-in bg-transparent text-left transition-opacity hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg)]"
+                    aria-label={`View ${watch.name} images fullscreen`}
+                  />
+                  <div
+                    className="pointer-events-none absolute bottom-3 left-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)]/90 text-[var(--text-primary)] shadow-sm backdrop-blur-sm"
+                    aria-hidden
+                  >
+                    <Maximize2 className="h-4 w-4 opacity-80" strokeWidth={1.5} />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleItem(sanityWatchToProduct(watch));
+                    }}
+                    className="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-primary)] transition hover:border-[var(--text-muted)]"
                     aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
                     aria-pressed={inWishlist}
                   >
@@ -127,13 +170,6 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
                       fill={inWishlist ? 'currentColor' : 'none'}
                     />
                   </button>
-                  <Image
-                    src={images[selectedImage]}
-                    alt={watch.name}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
                 </div>
 
                 {/* Thumbnail Gallery */}
@@ -700,6 +736,22 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
           featured: watch.featured || false,
           newArrival: false,
         }} />
+
+        {lightboxSlides.length > 0 && (
+          <Lightbox
+            open={lightboxOpen}
+            close={closeLightbox}
+            index={lightboxIndex}
+            slides={lightboxSlides}
+            plugins={[Zoom]}
+            zoom={{ scrollToZoom: true }}
+            controller={{ closeOnBackdropClick: true }}
+            on={{ view: ({ index }) => setLightboxIndex(index) }}
+            styles={{
+              container: { backgroundColor: 'rgba(10, 10, 10, 0.96)' },
+            }}
+          />
+        )}
       </div>
     </main>
   );
