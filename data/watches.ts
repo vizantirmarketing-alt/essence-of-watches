@@ -1,3 +1,11 @@
+/** Inventory state from CMS (e.g. Sanity). Omitted on legacy static rows defaults to available in UI. */
+export type WatchStatus = 'available' | 'sold' | 'reserved';
+
+export function normalizeWatchStatus(raw: string | undefined): WatchStatus {
+  if (raw === 'sold' || raw === 'reserved' || raw === 'available') return raw;
+  return 'available';
+}
+
 export interface Watch {
   id: string;
   slug: string;
@@ -17,6 +25,7 @@ export interface Watch {
   images: string[];
   featured: boolean;
   newArrival: boolean;
+  status?: WatchStatus;
 }
 
 export const watches: Watch[] = [

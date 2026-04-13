@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import FilterBar from '@/components/shop-page/FilterBar';
 import ProductGrid from '@/components/shop-page/ProductGrid';
-import { Watch } from '@/data/watches';
+import { Watch, normalizeWatchStatus } from '@/data/watches';
 
 interface SanityWatch {
   _id?: string;
@@ -15,6 +15,7 @@ interface SanityWatch {
   year: number;
   price: number;
   condition: string;
+  status?: string;
   caseSize: string;
   caseMaterial: string;
   dialColor: string;
@@ -55,6 +56,7 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
       newArrival: false, // Can be added to Sanity schema if needed
       boxPapers: 'Full Set' as const, // Default value, can be added to Sanity if needed
       originalMSRP: undefined,
+      status: normalizeWatchStatus(watch.status),
     }));
   }, [watches]);
 

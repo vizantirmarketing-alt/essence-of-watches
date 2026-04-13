@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Watch } from '@/data/watches';
+import { Watch, type WatchStatus } from '@/data/watches';
 import { useCurrency } from '@/contexts/CurrencyContext';
 
 interface ProductCardProps {
@@ -11,6 +11,8 @@ interface ProductCardProps {
 
 export default function ProductCard({ watch }: ProductCardProps) {
   const { formatPrice } = useCurrency();
+  const status: WatchStatus = watch.status ?? 'available';
+
   return (
     <Link href={`/shop/${watch.slug}`} className="group block">
       {/* Card with solid background and border */}
@@ -22,7 +24,7 @@ export default function ProductCard({ watch }: ProductCardProps) {
             src={watch.image}
             alt={`${watch.brand} ${watch.model}`}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className={`object-cover transition-transform duration-700 group-hover:scale-105 ${status === 'sold' ? 'opacity-60' : ''}`}
           />
 
           {/* Badges */}
@@ -39,8 +41,27 @@ export default function ProductCard({ watch }: ProductCardProps) {
             )}
           </div>
 
+          {status === 'reserved' && (
+            <div className="absolute top-3 right-3 z-20">
+              <span className="text-[9px] tracking-[0.15em] uppercase bg-[var(--accent)] text-black px-2.5 py-1 font-medium">
+                Reserved
+              </span>
+            </div>
+          )}
+
+          {status === 'sold' && (
+            <div
+              className="absolute inset-0 z-[18] flex items-center justify-center bg-black/50 pointer-events-none"
+              aria-hidden
+            >
+              <span className="text-white text-[11px] tracking-[0.25em] uppercase font-medium border border-white/80 px-4 py-2">
+                Sold
+              </span>
+            </div>
+          )}
+
           {/* Quick View on Hover */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center z-10">
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-[10px] tracking-[0.2em] uppercase border border-white px-5 py-2.5">
               View Details
             </span>

@@ -8,6 +8,7 @@ import RelatedWatches from '@/components/product-page/RelatedWatches';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { useCart } from '@/contexts/CartContext';
 import { useCartDrawer } from '@/components/cart/CartDrawer';
+import { normalizeWatchStatus } from '@/data/watches';
 
 interface SanityWatch {
   _id: string;
@@ -15,7 +16,7 @@ interface SanityWatch {
   slug: string;
   reference: string;
   price: number;
-  status: string;
+  status?: string;
   collection: string;
   year: number;
   caseDiameter: string;
@@ -39,6 +40,9 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
   const { openDrawer } = useCartDrawer();
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+
+  const status = normalizeWatchStatus(watch.status);
+  const commerceDisabled = status === 'sold' || status === 'reserved';
 
   // Use actual images from Sanity, or fallback to first image repeated
   const images = watch.images && watch.images.length > 0 
@@ -150,9 +154,21 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
               <p className="text-[var(--text-secondary)] text-sm mb-4">
                 {watch.reference} · {watch.year}
               </p>
-              <p className="font-serif text-3xl text-[var(--text-primary)]">
-                {formatPrice(watch.price)}
-              </p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <p className="font-serif text-3xl text-[var(--text-primary)]">
+                  {formatPrice(watch.price)}
+                </p>
+                {status === 'sold' && (
+                  <span className="text-[9px] tracking-[0.15em] uppercase font-medium border border-[var(--text-primary)] text-[var(--text-primary)] px-2.5 py-1">
+                    Sold
+                  </span>
+                )}
+                {status === 'reserved' && (
+                  <span className="text-[9px] tracking-[0.15em] uppercase font-medium bg-[var(--accent)] text-black px-2.5 py-1">
+                    Reserved
+                  </span>
+                )}
+              </div>
             </div>
 
             {/* Quick Info Badges */}
@@ -344,8 +360,11 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
 
             {/* Action Buttons */}
             <div className="space-y-3 pt-4">
-              <button 
+              <button
+                type="button"
+                disabled={commerceDisabled}
                 onClick={() => {
+                  if (commerceDisabled) return;
                   addItem({
                     id: watch._id,
                     slug: watch.slug,
@@ -373,16 +392,27 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
                   });
                   openDrawer();
                 }}
-                className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-[11px] tracking-[0.2em] uppercase font-medium hover:opacity-90 transition"
+                className={`w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-[11px] tracking-[0.2em] uppercase font-medium transition ${
+                  commerceDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
+                }`}
               >
                 Add to Cart
               </button>
-              <Link 
-                href={`/contact?watch=${encodeURIComponent(watch.name)}&ref=${watch.reference}`}
-                className="w-full border border-[var(--border)] text-[var(--text-primary)] py-4 text-[11px] tracking-[0.2em] uppercase hover:bg-[var(--card-bg)] transition block text-center"
-              >
-                Make an Offer
-              </Link>
+              {commerceDisabled ? (
+                <span
+                  aria-disabled
+                  className="w-full border border-[var(--border)] text-[var(--text-primary)] py-4 text-[11px] tracking-[0.2em] uppercase block text-center opacity-50 cursor-not-allowed"
+                >
+                  Make an Offer
+                </span>
+              ) : (
+                <Link
+                  href={`/contact?watch=${encodeURIComponent(watch.name)}&ref=${watch.reference}`}
+                  className="w-full border border-[var(--border)] text-[var(--text-primary)] py-4 text-[11px] tracking-[0.2em] uppercase hover:bg-[var(--card-bg)] transition block text-center"
+                >
+                  Make an Offer
+                </Link>
+              )}
             </div>
 
             {/* Trust Badges */}
