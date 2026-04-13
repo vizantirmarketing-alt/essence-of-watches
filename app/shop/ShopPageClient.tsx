@@ -29,8 +29,19 @@ interface ShopPageClientProps {
   watches: SanityWatch[];
 }
 
+function mapSanityCondition(raw: string | undefined): Watch['condition'] {
+  const v = (raw ?? '').toLowerCase().trim();
+  if (v === 'unworn') return 'Unworn';
+  if (v === 'excellent') return 'Excellent';
+  if (v === 'very-good' || v === 'very good') return 'Very Good';
+  if (v === 'good') return 'Good';
+  if (v === 'fair') return 'Fair';
+  return 'Excellent';
+}
+
 export default function ShopPageClient({ watches }: ShopPageClientProps) {
   const [selectedCollection, setSelectedCollection] = useState('');
+  const [selectedCondition, setSelectedCondition] = useState('');
   const [sortBy, setSortBy] = useState('newest');
   const [searchQuery, setSearchQuery] = useState('');
   const [priceRange, setPriceRange] = useState<[number, number]>([0, Infinity]);
@@ -45,7 +56,7 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
       reference: watch.reference,
       year: watch.year,
       price: watch.price,
-      condition: watch.condition as Watch['condition'],
+      condition: mapSanityCondition(watch.condition),
       caseSize: watch.caseSize,
       caseMaterial: watch.caseMaterial,
       dialColor: watch.dialColor,
@@ -81,6 +92,10 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
       result = result.filter((w) => w.model.includes(selectedCollection));
     }
 
+    if (selectedCondition) {
+      result = result.filter((w) => w.condition === selectedCondition);
+    }
+
     // Filter by price range
     if (priceRange[0] > 0 || priceRange[1] < Infinity) {
       result = result.filter((w) => w.price >= priceRange[0] && w.price <= priceRange[1]);
@@ -100,7 +115,7 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
     }
 
     return result;
-  }, [transformedWatches, selectedCollection, sortBy, searchQuery, priceRange]);
+  }, [transformedWatches, selectedCollection, selectedCondition, sortBy, searchQuery, priceRange]);
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
@@ -122,6 +137,8 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
         <FilterBar
           selectedCollection={selectedCollection}
           onCollectionChange={setSelectedCollection}
+          selectedCondition={selectedCondition}
+          onConditionChange={setSelectedCondition}
           sortBy={sortBy}
           onSortChange={setSortBy}
           searchQuery={searchQuery}

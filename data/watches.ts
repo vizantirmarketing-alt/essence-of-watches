@@ -15,7 +15,7 @@ export interface Watch {
   year: number;
   price: number;
   originalMSRP?: number;
-  condition: 'Excellent' | 'Very Good' | 'Good' | 'Fair';
+  condition: 'Unworn' | 'Excellent' | 'Very Good' | 'Good' | 'Fair';
   boxPapers: 'Full Set' | 'Box Only' | 'Papers Only' | 'Watch Only';
   dialColor: string;
   caseSize: string;

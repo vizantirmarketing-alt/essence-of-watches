@@ -6,6 +6,8 @@ import { collections } from '@/data/watches';
 interface FilterBarProps {
   selectedCollection: string;
   onCollectionChange: (collection: string) => void;
+  selectedCondition: string;
+  onConditionChange: (condition: string) => void;
   sortBy: string;
   onSortChange: (sort: string) => void;
   searchQuery: string;
@@ -13,6 +15,14 @@ interface FilterBarProps {
   priceRange: [number, number];
   onPriceRangeChange: (range: [number, number]) => void;
 }
+
+const conditionOptions: { label: string; value: string }[] = [
+  { label: 'All', value: '' },
+  { label: 'Unworn', value: 'Unworn' },
+  { label: 'Excellent', value: 'Excellent' },
+  { label: 'Very Good', value: 'Very Good' },
+  { label: 'Good', value: 'Good' },
+];
 
 const priceRanges = [
   { label: 'All Prices', min: 0, max: Infinity },
@@ -26,6 +36,8 @@ const priceRanges = [
 export default function FilterBar({
   selectedCollection,
   onCollectionChange,
+  selectedCondition,
+  onConditionChange,
   sortBy,
   onSortChange,
   searchQuery,
@@ -145,6 +157,29 @@ export default function FilterBar({
             </div>
           </div>
 
+          {/* Condition Filter */}
+          <div className="hidden sm:flex items-center gap-2 flex-wrap">
+            <span className="text-[var(--text-muted)] text-[10px] tracking-[0.1em] uppercase">
+              Condition:
+            </span>
+            <div className="flex items-center gap-1.5 flex-wrap">
+              {conditionOptions.map((opt) => (
+                <button
+                  key={opt.label}
+                  type="button"
+                  onClick={() => onConditionChange(opt.value)}
+                  className={`text-[10px] tracking-[0.05em] uppercase px-3 py-1.5 border transition-colors duration-300 ${
+                    (opt.value === '' && !selectedCondition) || selectedCondition === opt.value
+                      ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] border-[var(--text-primary)]'
+                      : 'border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--text-secondary)]'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Bottom Row - Price Filter & Sort */}
           <div className="hidden sm:flex items-center justify-between">
             {/* Price Filter */}
@@ -211,6 +246,29 @@ export default function FilterBar({
                     }`}
                   >
                     {collection}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Condition */}
+            <div>
+              <p className="text-[var(--text-muted)] text-[10px] tracking-[0.15em] uppercase mb-3">
+                Condition
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {conditionOptions.map((opt) => (
+                  <button
+                    key={opt.label}
+                    type="button"
+                    onClick={() => onConditionChange(opt.value)}
+                    className={`text-[10px] tracking-[0.1em] uppercase px-3 py-1.5 border transition-colors duration-300 ${
+                      (opt.value === '' && !selectedCondition) || selectedCondition === opt.value
+                        ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] border-[var(--text-primary)]'
+                        : 'border-[var(--border)] text-[var(--text-secondary)]'
+                    }`}
+                  >
+                    {opt.label}
                   </button>
                 ))}
               </div>

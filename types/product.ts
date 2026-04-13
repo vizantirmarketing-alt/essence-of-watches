@@ -13,7 +13,7 @@ export interface Product {
   originalMSRP?: number;
   
   // Details
-  condition: 'Excellent' | 'Very Good' | 'Good' | 'Fair';
+  condition: 'Unworn' | 'Excellent' | 'Very Good' | 'Good' | 'Fair';
   boxPapers: 'Full Set' | 'Box Only' | 'Papers Only' | 'Watch Only';
   warranty: string;
   

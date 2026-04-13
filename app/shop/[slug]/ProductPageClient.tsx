@@ -390,7 +390,9 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
                     reference: watch.reference,
                     year: watch.year,
                     price: watch.price,
-                    condition: (watch.condition as 'Excellent' | 'Very Good' | 'Good' | 'Fair') || 'Excellent',
+                    condition:
+                      (watch.condition as 'Unworn' | 'Excellent' | 'Very Good' | 'Good' | 'Fair') ||
+                      'Excellent',
                     boxPapers: watch.box && watch.papers ? 'Full Set' : watch.box ? 'Box Only' : watch.papers ? 'Papers Only' : 'Watch Only',
                     warranty: '2 Year Warranty',
                     specs: {

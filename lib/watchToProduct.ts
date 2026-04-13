@@ -65,7 +65,7 @@ export function sanityWatchToProduct(watch: SanityWatchLike): Product {
           : 'Watch Only';
 
   const condition =
-    (['Excellent', 'Very Good', 'Good', 'Fair'].includes(watch.condition)
+    (['Unworn', 'Excellent', 'Very Good', 'Good', 'Fair'].includes(watch.condition)
       ? watch.condition
       : 'Excellent') as Product['condition'];
 
