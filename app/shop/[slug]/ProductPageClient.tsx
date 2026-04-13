@@ -17,6 +17,7 @@ import { useWishlist } from '@/contexts/WishlistContext';
 import { sanityWatchToProduct } from '@/lib/watchToProduct';
 import AuthCertificate from '@/components/product/AuthCertificate';
 import PriceContext from '@/components/product/PriceContext';
+import type { SanityListingWatch } from '@/types/sanityListingWatch';
 
 interface SanityWatch {
   _id: string;
@@ -43,9 +44,10 @@ interface SanityWatch {
 
 interface ProductPageClientProps {
   watch: SanityWatch;
+  relatedWatches: SanityListingWatch[];
 }
 
-export default function ProductPageClient({ watch }: ProductPageClientProps) {
+export default function ProductPageClient({ watch, relatedWatches }: ProductPageClientProps) {
   // Use actual images from Sanity, or fallback to first image repeated
   const images =
     watch.images && watch.images.length > 0
@@ -751,25 +753,7 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
         </section>
 
         {/* Related Watches */}
-        <RelatedWatches currentWatch={{
-          id: watch._id,
-          slug: watch.slug,
-          brand,
-          model,
-          reference: watch.reference,
-          year: watch.year,
-          price: watch.price,
-          condition: watch.condition as any,
-          boxPapers: boxPapers as any,
-          dialColor: watch.dialColor,
-          caseSize: watch.caseDiameter,
-          caseMaterial: watch.material,
-          movement: '',
-          image: images[0] || '',
-          images,
-          featured: watch.featured || false,
-          newArrival: false,
-        }} />
+        <RelatedWatches watches={relatedWatches} />
 
         {lightboxSlides.length > 0 && (
           <Lightbox

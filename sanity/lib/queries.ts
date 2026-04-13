@@ -14,27 +14,39 @@ export const seoQuery = groq`
   }
 `;
 
+/** Shared listing shape for catalog + related watches (keep in sync). */
+const watchListingProjection = `
+  _id,
+  name,
+  "slug": slug.current,
+  reference,
+  serialNumber,
+  price,
+  status,
+  collection,
+  year,
+  caseDiameter,
+  dialColor,
+  material,
+  condition,
+  box,
+  papers,
+  description,
+  featured,
+  "image": images[0].asset->url,
+  "images": images[].asset->url
+`;
+
 export const allWatchesQuery = groq`
   *[_type == "watch"] | order(year desc, price desc) {
-    _id,
-    name,
-    "slug": slug.current,
-    reference,
-    serialNumber,
-    price,
-    status,
-    collection,
-    year,
-    caseDiameter,
-    dialColor,
-    material,
-    condition,
-    box,
-    papers,
-    description,
-    featured,
-    "image": images[0].asset->url,
-    "images": images[].asset->url
+    ${watchListingProjection}
+  }
+`;
+
+/** Same fields as `allWatchesQuery`; same brand via `name` glob; exclude current slug; max 6. */
+export const relatedWatchesQuery = groq`
+  *[_type == "watch" && slug.current != $slug && name match $brandGlob] | order(year desc, price desc) [0...6] {
+    ${watchListingProjection}
   }
 `;
 

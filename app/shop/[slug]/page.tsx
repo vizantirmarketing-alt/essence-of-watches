@@ -1,4 +1,4 @@
-import { getWatchBySlug } from '@/sanity/lib/watches';
+import { getWatchBySlug, getRelatedWatches } from '@/sanity/lib/watches';
 import { notFound } from 'next/navigation';
 import ProductPageClient from './ProductPageClient';
 import ProductJsonLd from '@/components/product/ProductJsonLd';
@@ -22,6 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function brandPrefixFromWatchName(name: string): string {
+  const first = name.trim().split(/\s+/)[0];
+  return first || 'Rolex';
+}
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const watch = await getWatchBySlug(slug);
@@ -29,6 +34,8 @@ export default async function ProductPage({ params }: Props) {
   if (!watch) {
     notFound();
   }
+
+  const relatedWatches = await getRelatedWatches(slug, brandPrefixFromWatchName(watch.name));
 
   return (
     <>
@@ -42,7 +49,7 @@ export default async function ProductPage({ params }: Props) {
           images: watch.images || [],
         }}
       />
-      <ProductPageClient watch={watch} />
+      <ProductPageClient watch={watch} relatedWatches={relatedWatches ?? []} />
     </>
   );
 }
