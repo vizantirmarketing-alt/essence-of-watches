@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
@@ -8,6 +8,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function NewsletterSignup() {
   const t = useTranslations('NewsletterSignup');
+  const emailInputRef = useRef<HTMLInputElement>(null);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [message, setMessage] = useState('');
@@ -59,6 +60,7 @@ export default function NewsletterSignup() {
               className="mx-auto flex w-full max-w-lg flex-row flex-nowrap items-stretch justify-center gap-3"
             >
               <input
+                ref={emailInputRef}
                 type="email"
                 name="email"
                 autoComplete="email"
@@ -66,6 +68,9 @@ export default function NewsletterSignup() {
                 aria-label={t('emailAria')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onFocus={() =>
+                  emailInputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                }
                 placeholder={t('placeholder')}
                 disabled={status === 'submitting'}
                 className="min-w-0 flex-1 px-4 py-3.5 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
