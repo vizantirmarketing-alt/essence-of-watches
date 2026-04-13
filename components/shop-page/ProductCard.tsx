@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { Heart } from 'lucide-react';
 import { Watch, type WatchStatus } from '@/data/watches';
 import { useCurrency } from '@/contexts/CurrencyContext';
+import { useWishlist } from '@/contexts/WishlistContext';
+import { watchToProduct } from '@/lib/watchToProduct';
 
 interface ProductCardProps {
   watch: Watch;
@@ -11,7 +14,9 @@ interface ProductCardProps {
 
 export default function ProductCard({ watch }: ProductCardProps) {
   const { formatPrice } = useCurrency();
+  const { toggleItem, isInWishlist } = useWishlist();
   const status: WatchStatus = watch.status ?? 'available';
+  const inWishlist = isInWishlist(watch.id);
 
   return (
     <Link href={`/shop/${watch.slug}`} className="group block">
@@ -41,13 +46,36 @@ export default function ProductCard({ watch }: ProductCardProps) {
             )}
           </div>
 
-          {status === 'reserved' && (
-            <div className="absolute top-3 right-3 z-20">
+          <div
+            className={
+              status === 'reserved'
+                ? 'absolute top-3 right-3 z-[25] flex items-center gap-2 flex-row-reverse'
+                : 'absolute top-3 right-3 z-[25]'
+            }
+          >
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleItem(watchToProduct(watch));
+              }}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[var(--text-primary)] shadow-sm backdrop-blur-sm transition hover:bg-white"
+              aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+              aria-pressed={inWishlist}
+            >
+              <Heart
+                className="h-[18px] w-[18px]"
+                strokeWidth={1.5}
+                fill={inWishlist ? 'currentColor' : 'none'}
+              />
+            </button>
+            {status === 'reserved' && (
               <span className="text-[9px] tracking-[0.15em] uppercase bg-[var(--accent)] text-black px-2.5 py-1 font-medium">
                 Reserved
               </span>
-            </div>
-          )}
+            )}
+          </div>
 
           {status === 'sold' && (
             <div

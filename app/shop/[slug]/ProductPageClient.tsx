@@ -3,12 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BadgeCheck, Shield, RotateCcw, Truck } from 'lucide-react';
+import { BadgeCheck, Shield, RotateCcw, Truck, Heart } from 'lucide-react';
 import RelatedWatches from '@/components/product-page/RelatedWatches';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { useCart } from '@/contexts/CartContext';
 import { useCartDrawer } from '@/components/cart/CartDrawer';
 import { normalizeWatchStatus } from '@/data/watches';
+import { useWishlist } from '@/contexts/WishlistContext';
+import { sanityWatchToProduct } from '@/lib/watchToProduct';
 
 interface SanityWatch {
   _id: string;
@@ -38,11 +40,13 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
   const { formatPrice } = useCurrency();
   const { addItem } = useCart();
   const { openDrawer } = useCartDrawer();
+  const { toggleItem, isInWishlist } = useWishlist();
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
   const status = normalizeWatchStatus(watch.status);
   const commerceDisabled = status === 'sold' || status === 'reserved';
+  const inWishlist = isInWishlist(watch._id);
 
   // Use actual images from Sanity, or fallback to first image repeated
   const images = watch.images && watch.images.length > 0 
@@ -110,6 +114,19 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
             {images.length > 0 && (
               <>
                 <div className="relative aspect-square bg-[var(--card-bg)] rounded-lg overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => toggleItem(sanityWatchToProduct(watch))}
+                    className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-primary)] transition hover:border-[var(--text-muted)]"
+                    aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+                    aria-pressed={inWishlist}
+                  >
+                    <Heart
+                      className="h-[18px] w-[18px]"
+                      strokeWidth={1.5}
+                      fill={inWishlist ? 'currentColor' : 'none'}
+                    />
+                  </button>
                   <Image
                     src={images[selectedImage]}
                     alt={watch.name}
