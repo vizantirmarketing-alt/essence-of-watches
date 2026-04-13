@@ -59,27 +59,24 @@ export default function NewsletterSignup() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-0 sm:items-stretch max-w-lg mx-auto"
+              className="mx-auto flex w-full max-w-lg flex-row flex-nowrap items-stretch justify-center gap-3"
             >
-              <label htmlFor="newsletter-email" className="sr-only">
-                Email address
-              </label>
               <input
-                id="newsletter-email"
                 type="email"
                 name="email"
                 autoComplete="email"
                 required
+                aria-label="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
                 disabled={status === 'submitting'}
-                className="flex-1 min-w-0 px-4 py-3.5 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
+                className="min-w-0 flex-1 px-4 py-3.5 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
               />
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="shrink-0 px-6 py-3.5 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-60 sm:ml-3"
+                className="shrink-0 px-6 py-3.5 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-60"
               >
                 {status === 'submitting' ? 'Sending…' : 'Subscribe'}
               </button>
