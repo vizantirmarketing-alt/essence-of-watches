@@ -355,4 +355,37 @@ A watch that comes with original box and papers will always sell faster and at a
 
 The bottom line is that selling a luxury watch well is mostly about preparation and realistic expectations. The right channel, the right pricing, and the right documentation will get you to a good outcome faster and with less friction than any amount of negotiating can.`,
   },
+  {
+    slug: 'watch-condition-grades-guide',
+    title: 'The Complete Guide to Watch Condition Grades — Mint, Excellent, Good, Fair',
+    focusKeyword: 'watch condition grades',
+    metaDescription:
+      "A complete, plain-English guide to watch condition grades — mint, excellent, good, and fair — so you always know exactly what you're buying.",
+    publishedAt: '2026-04-02',
+    body: `Condition language in the pre-owned watch market is inconsistent. One seller's "excellent" is another's "good plus," and the same word can describe watches in meaningfully different states depending on who's using it. For buyers, this creates real risk: you pay for what the description implies and receive what the seller actually meant. Understanding how condition grades should work — and how to evaluate them beyond the label — is one of the most practical skills a watch buyer can develop.
+
+## Why Condition Grading Matters
+
+Condition is one of the primary drivers of price on the secondary market. Two watches with identical references, from the same production year, with the same dial and bezel configuration can differ in value by 20 to 40 percent or more based on condition alone. That spread reflects the difference between what collectors want — an original, well-preserved example — and what many pre-owned watches actually are after years or decades of wear. Beyond pricing, condition affects wearability, future serviceability, and long-term value retention. A watch in genuinely excellent condition with original surfaces intact will outperform a heavily polished, parts-swapped example in almost every subsequent transaction.
+
+## What "Mint" Should Realistically Mean
+
+Mint is the rarest grade in pre-owned watches, and it's often applied too generously. A genuinely mint watch shows no meaningful wear on any surface: case lines are sharp, dial printing is crisp, lume is intact and unrestored, crystal is free of scratches, and bracelet shows no stretch or marks. The overall impression is of a watch that has barely been worn. True mint examples are uncommon even in the dealer market, because most watches that have been worn accumulate at least some surface evidence of that use. When a seller describes a watch as mint, examine the photographs carefully and ask specific questions. If the photographs show any soft case edges, surface scratches on the crystal, or bracelet wear, the watch is not mint — it's excellent at best.
+
+## Excellent: What It Actually Looks Like
+
+Excellent condition is the sweet spot for most serious pre-owned watch buyers. It means the watch shows light, honest wear consistent with careful use — minor surface marks that are expected and acceptable, but no damage, no refinishing, and no replaced parts unless disclosed. Case lines should still be visible and defined, though not razor-sharp. The dial should be original and clean. The crystal may show fine surface marks but no deep scratches. The bracelet may show light wear but no significant stretch or cracking. An excellent-condition watch looks like what it is: a cared-for piece that has been worn thoughtfully. It doesn't need to look unworn to earn this grade, but it should demonstrate that the previous owner maintained it well.
+
+## Good vs Excellent: Where the Line Is
+
+Good condition describes a watch that shows more pronounced wear while remaining fully functional and original. Case edges may be softened by normal use. The dial may show minor marks, slight lume aging, or a patina that developed naturally over time. The crystal may have visible scratches. The bracelet may show meaningful wear or slight stretch. Good condition isn't a failure — many collectors specifically seek watches with honest, natural wear that tells a story. A good-condition example from a significant reference or era can be an excellent purchase for a collector who values authenticity over pristine appearance. The key is that the wear is natural, not the result of damage, harsh polishing, or replaced parts.
+
+## When "Fair" Can Still Be a Smart Buy
+
+Fair condition describes a watch with significant wear: pronounced scratches, substantial bracelet stretch, possible crystal replacement, or surface marks that go beyond normal use. It may also describe a watch that has been polished, with softened case lines and a buffed finish that differs from the factory surface. Fair-condition watches aren't for everyone, but they're not without value. A fair-condition sports model from a desirable reference at a commensurately lower price can make sense for a buyer who intends to wear it daily without concern for preservation. The important thing is that the price reflects the condition honestly, and that any repairs or replacements are disclosed upfront.
+
+## How We Grade Watches at Essence of Watches
+
+Our approach to condition grading is straightforward: we describe what we see, not what we wish the watch were. Every listing includes specific photographs of case edges, dial condition, crystal, and bracelet, taken under consistent lighting to show actual surface condition. We note any replaced parts, refinished surfaces, or undisclosed service history. We apply the grades above consistently, which means our "excellent" means what it should mean — and our buyers know what they're getting before they make a decision. The single most important thing to look for in any pre-owned watch listing is whether the condition language matches the photographs. If it does, the seller is being honest with you. If it doesn't, you already know something important about how they do business.`,
+  },
 ];
