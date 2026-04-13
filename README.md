@@ -16,12 +16,14 @@ Pre-owned luxury watch e-commerce platform specializing in authenticated Rolex a
 - **Email:** Resend (transactional + inquiry forms)
 - **Analytics:** Google Analytics 4, Microsoft Clarity
 - **Hosting:** Vercel
+- **Internationalization:** next-intl (English, Japanese, German, Korean, Chinese)
 
 ---
 
 ## Features
 
 - Full watch catalog with search, price, collection, and condition filters
+- Multi-language support — English, Japanese, German, Korean, and Chinese via next-intl with locale-aware routing
 - Product detail pages with image zoom lightbox, Schema.org JSON-LD structured data, and related watches fetched live from Sanity by brand (excludes current watch)
 - Stock status indicators — available, reserved, sold — on catalog and PDP
 - Wishlist with localStorage persistence and heart toggle on cards and PDP
