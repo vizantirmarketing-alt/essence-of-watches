@@ -497,7 +497,7 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
                 >
                   <RotateCcw size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
                   <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
-                    14-Day Returns
+                    7-Day Inspection Window
                   </span>
                 </Link>
                 <Link
@@ -573,7 +573,9 @@ export default function ProductPageClient({ watch }: ProductPageClientProps) {
               >
                 Returns
               </Link>{' '}
-              are accepted within 14 days.
+              are governed by our{' '}
+              <strong className="text-[var(--text-primary)] font-medium">7-day inspection window</strong>{' '}
+              after delivery—see that policy for conditions and how to start a return.
             </p>
           </div>
         </section>

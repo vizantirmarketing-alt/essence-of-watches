@@ -729,6 +729,42 @@ export default function CheckoutPage() {
                 <span className="text-xl text-[var(--text-primary)] font-medium">${total.toLocaleString()}</span>
               </div>
 
+              {/* Buyer protection */}
+              <div className="p-4 sm:p-5 border border-[var(--border)] dark:border-[#333] bg-[var(--bg-secondary)] dark:bg-[#141414] mt-6">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
+                  You&apos;re protected
+                </p>
+                <ul className="space-y-2 text-xs text-[var(--text-secondary)] leading-relaxed mb-4">
+                  <li className="flex gap-2">
+                    <span className="text-[var(--text-primary)] flex-shrink-0">—</span>
+                    <span>
+                      <strong className="text-[var(--text-primary)] font-medium">7-day inspection window</strong>{' '}
+                      after delivery—if the watch isn&apos;t as described, we arrange return and a full refund.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--text-primary)] flex-shrink-0">—</span>
+                    <span>
+                      <strong className="text-[var(--text-primary)] font-medium">Authenticated before shipment</strong>
+                      —serial, movement, and parts checks on every timepiece.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-[var(--text-primary)] flex-shrink-0">—</span>
+                    <span>
+                      <strong className="text-[var(--text-primary)] font-medium">Insured shipping</strong> on every
+                      order—fully covered in transit.
+                    </span>
+                  </li>
+                </ul>
+                <Link
+                  href="/buyer-protection"
+                  className="text-[10px] tracking-[0.15em] uppercase text-[var(--text-primary)] underline hover:opacity-80"
+                >
+                  Full buyer protection details
+                </Link>
+              </div>
+
               {/* Trust Badges */}
               <div className="grid grid-cols-2 gap-4 pt-6 border-t border-[var(--border)] dark:border-[#262626]">
                 <div className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
@@ -759,7 +795,7 @@ export default function CheckoutPage() {
                     <polyline points="1 4 1 10 7 10" />
                     <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
                   </svg>
-                  7-Day Returns
+                  7-Day Inspection Window
                 </div>
               </div>
             </div>

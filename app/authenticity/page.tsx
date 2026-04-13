@@ -75,7 +75,8 @@ const authenticationSteps = [
 const guarantees = [
   {
     title: '100% Authentic',
-    description: 'Every watch guaranteed genuine or your money back',
+    description:
+      'Authenticated in-house before shipment—serial verification, movement inspection, and parts originality against our listing',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -94,8 +95,9 @@ const guarantees = [
     ),
   },
   {
-    title: 'Full Refund',
-    description: 'Complete refund if authenticity is ever disputed',
+    title: '7-Day Inspection Window',
+    description:
+      'After delivery, inspect against our listing; if something material does not match, we make it right with return and full refund per our policy',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <line x1="12" y1="1" x2="12" y2="23" />
@@ -157,9 +159,12 @@ export default function AuthenticityPage() {
               Authenticity Guarantee
             </h1>
             <p className="text-lg text-[var(--text-secondary)] mt-6 leading-relaxed">
-              Every timepiece we sell is guaranteed 100% authentic. Our rigorous 
-              multi-point inspection process ensures you receive only genuine luxury watches, 
-              backed by our lifetime authenticity guarantee.
+              Every timepiece we sell is guaranteed 100% authentic. Our rigorous multi-point
+              inspection process ensures you receive only genuine luxury watches—authenticated before
+              shipment and backed by a{' '}
+              <strong className="text-[var(--text-primary)] font-medium">7-day inspection window</strong>{' '}
+              after delivery if the watch is not as described, plus our lifetime authenticity
+              guarantee.
             </p>
           </motion.div>
         </div>
