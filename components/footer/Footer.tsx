@@ -239,7 +239,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[var(--text-muted)] text-xs">
+          <p className="w-full sm:w-auto text-center sm:text-left text-[var(--text-muted)] text-xs">
             © {new Date().getFullYear()} Essence of Watches. All rights reserved.
             <span className="mx-2">|</span>
             <a 
@@ -253,7 +253,7 @@ export default function Footer() {
           </p>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex w-full sm:w-auto items-center justify-center sm:justify-end gap-4">
             <a
               href="https://instagram.com"
               target="_blank"
