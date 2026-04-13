@@ -324,4 +324,35 @@ Within both families, the specifics matter enormously. A steel Submariner date a
 
 Value retention is one factor in this decision, but it shouldn't be the only one. The best watch for you is the one you'll actually wear — and that depends on how you live, what you wear, and what kind of presence you want on your wrist. A sports model worn daily in most environments makes sense for most people. A dress piece worn occasionally but owned for decades also makes sense for the right person. The secondary market data provides useful context, but it shouldn't override a genuine preference for a watch you'll actually enjoy owning. The best long-term outcome is almost always a watch you wear often, care for well, and eventually sell with clear documentation — regardless of which family it came from.`,
   },
+  {
+    slug: 'selling-your-luxury-watch',
+    title: 'What to Expect When Selling Your Luxury Watch',
+    focusKeyword: 'selling your luxury watch',
+    metaDescription:
+      "Thinking about selling your luxury watch? Here's what to expect in terms of pricing, process, options, and how to get the best outcome.",
+    publishedAt: '2026-03-26',
+    body: `Selling a luxury watch is a different experience from selling most other possessions. The combination of significant value, buyer expertise requirements, and the emotional history a watch often carries makes the process worth understanding before you start. Knowing what to expect upfront will help you set realistic expectations, choose the right channel, and come out of the transaction feeling like it was handled well.
+
+## How Buyers Evaluate Your Watch
+
+When a buyer or dealer looks at your watch, they're making several assessments simultaneously. Brand and reference come first — these establish the baseline for what the market will support. Condition follows immediately, because even a strong reference in poor condition can be a difficult sale. Completeness matters: original box, papers, service records, and any accessories that came with the watch add meaningful value and make the sale easier. Market demand at the moment of sale affects timing and pricing. The same watch can command different prices in different market conditions, and understanding where your reference sits in the current market is part of setting realistic expectations.
+
+## Setting Realistic Expectations on Price
+
+The most common source of disappointment in watch sales is the gap between sentimental value and market value. A watch that cost a certain amount, was worn for a decade, and has personal significance may feel like it's worth more than the market will pay for it. The market doesn't share the sentiment — it prices based on reference, condition, completeness, and demand. Retail price is also a poor anchor. A watch bought new at retail for a given price may have depreciated significantly, held steady, or appreciated, depending on the reference and market conditions. The only reliable way to calibrate your expectations is to research recent sold prices for your specific reference in comparable condition — not asking prices, but sold prices that reflect what buyers actually paid.
+
+## Your Options: Dealer, Consignment, or Private Sale
+
+Each selling channel has a different profile. Selling outright to a dealer is the fastest and most predictable option. The dealer buys the watch at wholesale, which means you'll receive less than retail market value — typically somewhere in the range of 60 to 80 percent of the current secondary market price depending on the reference and condition. The tradeoff is speed, certainty, and no further involvement. Consignment with a reputable dealer or auction house allows you to capture a higher percentage of the market price, but it takes longer and involves fees. This is often the right choice for high-value or particularly collectible references where the potential upside justifies the wait. Private sale offers the highest potential return but requires the most from you. You're responsible for authentication questions, photographs, condition disclosure, pricing, and managing the buyer relationship. The risk of fraud and the time investment are both higher. Private sales work best for collectors with the expertise and network to manage them safely.
+
+## The Selling Process Step by Step
+
+Regardless of channel, the process has consistent stages. Documentation and photography come first — gather everything you have, including box, papers, service records, and any original accessories. Photograph the watch honestly, including any wear or imperfections, under good lighting. Get a condition assessment if you want an objective view before approaching buyers. Research current market pricing for your reference and condition using recent sold data. Approach your chosen channel with realistic expectations and complete documentation. Be prepared to answer specific questions about the watch's history — a buyer who asks good questions is a serious buyer.
+
+## Documentation and Preparation That Helps You
+
+A watch that comes with original box and papers will always sell faster and at a better price than the same watch without them. Service records showing what was done, when, and by whom add confidence for buyers who care about mechanical history. Honest, detailed photographs that show condition accurately build trust before the conversation starts. If you have paperwork but it's incomplete or unclear, organize what you have rather than leaving it for the buyer to sort through. Presentation matters. A seller who arrives at a transaction well-organized and transparent communicates something important about how the watch was cared for.
+
+The bottom line is that selling a luxury watch well is mostly about preparation and realistic expectations. The right channel, the right pricing, and the right documentation will get you to a good outcome faster and with less friction than any amount of negotiating can.`,
+  },
 ];
