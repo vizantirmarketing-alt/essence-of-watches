@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
@@ -48,6 +49,7 @@ interface ProductPageClientProps {
 }
 
 export default function ProductPageClient({ watch, relatedWatches }: ProductPageClientProps) {
+  const t = useTranslations('ProductPage');
   // Use actual images from Sanity, or fallback to first image repeated
   const images =
     watch.images && watch.images.length > 0
@@ -86,30 +88,33 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
   const commerceDisabled = status === 'sold' || status === 'reserved';
   const inWishlist = isInWishlist(watch._id);
 
-  // Determine brand from name (assuming "Rolex" for now, can be enhanced)
-  const brand = 'Rolex';
-  const model = watch.name.replace('Rolex ', '');
+  const brand = t('defaultBrand');
+  const model = watch.name.replace(/^Rolex\s+/i, '');
 
-  // Format box & papers
-  const boxPapers = watch.box && watch.papers 
-    ? 'Full Set' 
-    : watch.box 
-      ? 'Box Only' 
-      : watch.papers 
-        ? 'Papers Only' 
-        : 'Watch Only';
+  const boxPapersDisplay = useMemo(() => {
+    if (watch.box && watch.papers) return t('boxPapers.fullSet');
+    if (watch.box) return t('boxPapers.boxOnly');
+    if (watch.papers) return t('boxPapers.papersOnly');
+    return t('boxPapers.watchOnly');
+  }, [watch.box, watch.papers, t]);
 
-  const specifications = [
-    { label: 'Brand', value: brand },
-    { label: 'Model', value: model },
-    { label: 'Reference', value: watch.reference },
-    { label: 'Year', value: watch.year.toString() },
-    { label: 'Dial', value: watch.dialColor },
-    { label: 'Case Size', value: watch.caseDiameter },
-    { label: 'Case Material', value: watch.material },
-    { label: 'Condition', value: watch.condition },
-    { label: 'Box & Papers', value: boxPapers },
-  ];
+  const boxPapersCart: 'Full Set' | 'Box Only' | 'Papers Only' | 'Watch Only' =
+    watch.box && watch.papers ? 'Full Set' : watch.box ? 'Box Only' : watch.papers ? 'Papers Only' : 'Watch Only';
+
+  const specifications = useMemo(
+    () => [
+      { label: t('spec.brand'), value: brand },
+      { label: t('spec.model'), value: model },
+      { label: t('spec.reference'), value: watch.reference },
+      { label: t('spec.year'), value: watch.year.toString() },
+      { label: t('spec.dial'), value: watch.dialColor },
+      { label: t('spec.caseSize'), value: watch.caseDiameter },
+      { label: t('spec.caseMaterial'), value: watch.material },
+      { label: t('spec.condition'), value: watch.condition },
+      { label: t('spec.boxPapers'), value: boxPapersDisplay },
+    ],
+    [t, brand, model, watch, boxPapersDisplay],
+  );
 
   const toggleAccordion = (section: string) => {
     setActiveAccordion(activeAccordion === section ? null : section);
@@ -132,13 +137,13 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
           <ol className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
             <li>
               <Link href="/" className="hover:text-[var(--text-primary)] transition">
-                Home
+                {t('breadcrumbHome')}
               </Link>
             </li>
             <li>/</li>
             <li>
               <Link href="/shop" className="hover:text-[var(--text-primary)] transition">
-                Shop
+                {t('breadcrumbShop')}
               </Link>
             </li>
             <li>/</li>
@@ -166,7 +171,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                     type="button"
                     onClick={openLightbox}
                     className="absolute inset-0 z-[1] cursor-zoom-in bg-transparent text-left transition-opacity hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg)]"
-                    aria-label={`View ${watch.name} images fullscreen`}
+                    aria-label={t('ariaLightbox', { name: watch.name })}
                   />
                   <div
                     className="pointer-events-none absolute bottom-3 left-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)]/90 text-[var(--text-primary)] shadow-sm backdrop-blur-sm"
@@ -181,7 +186,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                       toggleItem(sanityWatchToProduct(watch));
                     }}
                     className="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--text-primary)] transition hover:border-[var(--text-muted)]"
-                    aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+                    aria-label={inWishlist ? t('ariaWishlistRemove') : t('ariaWishlistAdd')}
                     aria-pressed={inWishlist}
                   >
                     <Heart
@@ -205,7 +210,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                             : 'border-transparent hover:border-[var(--text-muted)]'
                         }`}
                       >
-                        <Image src={img} alt={`View ${index + 1}`} fill className="object-cover" />
+                        <Image src={img} alt={t('thumbAlt', { n: index + 1 })} fill className="object-cover" />
                       </button>
                     ))}
                   </div>
@@ -237,12 +242,12 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                 <div className="flex flex-wrap items-center gap-2 pt-1">
                   {status === 'sold' && (
                     <span className="text-[9px] tracking-[0.15em] uppercase font-medium border border-[var(--text-primary)] text-[var(--text-primary)] px-2.5 py-1">
-                      Sold
+                      {t('statusSold')}
                     </span>
                   )}
                   {status === 'reserved' && (
                     <span className="text-[9px] tracking-[0.15em] uppercase font-medium bg-[var(--accent)] text-black px-2.5 py-1">
-                      Reserved
+                      {t('statusReserved')}
                     </span>
                   )}
                 </div>
@@ -253,7 +258,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
             <div className="flex flex-wrap gap-3">
               <div className="bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-center">
                 <p className="text-[10px] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
-                  Condition
+                  {t('badgeCondition')}
                 </p>
                 <p className="text-sm text-[var(--text-primary)] font-medium">
                   {watch.condition}{' '}
@@ -261,19 +266,19 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                     href="/condition-guide"
                     className="text-[var(--text-muted)] hover:text-[var(--text-secondary)] text-[10px] font-normal underline"
                   >
-                    (What's this?)
+                    {t('whatsThis')}
                   </Link>
                 </p>
               </div>
               <div className="bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-center">
                 <p className="text-[10px] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
-                  Box & Papers
+                  {t('badgeBoxPapers')}
                 </p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">{boxPapers}</p>
+                <p className="text-sm text-[var(--text-primary)] font-medium">{boxPapersDisplay}</p>
               </div>
               <div className="bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-center">
                 <p className="text-[10px] tracking-[0.15em] uppercase text-[var(--text-muted)] mb-1">
-                  Year
+                  {t('badgeYear')}
                 </p>
                 <p className="text-sm text-[var(--text-primary)] font-medium">{watch.year}</p>
               </div>
@@ -282,14 +287,14 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
             {/* What's Included */}
             <div className="mt-6 pt-6 border-t border-[var(--border)]">
               <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <h3 className="font-serif text-lg text-[var(--text-primary)]">What&apos;s Included</h3>
+                <h3 className="font-serif text-lg text-[var(--text-primary)]">{t('includedTitle')}</h3>
                 {serialNumberTrimmed ? (
                   <button
                     type="button"
                     onClick={() => setCertificateModalOpen(true)}
                     className="self-start border border-[var(--border)] px-4 py-2.5 text-[10px] tracking-[0.2em] uppercase text-[var(--text-primary)] transition hover:border-[var(--text-secondary)] hover:bg-[var(--card-bg)] sm:self-auto"
                   >
-                    View Certificate
+                    {t('viewCertificate')}
                   </button>
                 ) : null}
               </div>
@@ -306,7 +311,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   >
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
-                  <span>The watch itself</span>
+                  <span>{t('includedWatch')}</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
                   {watch.box ? (
@@ -322,7 +327,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                       >
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
-                      <span>Original box included</span>
+                      <span>{t('includedBoxYes')}</span>
                     </>
                   ) : (
                     <>
@@ -338,7 +343,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                         <line x1="18" y1="6" x2="6" y2="18" />
                         <line x1="6" y1="6" x2="18" y2="18" />
                       </svg>
-                      <span className="text-[var(--text-muted)]">No original box</span>
+                      <span className="text-[var(--text-muted)]">{t('includedBoxNo')}</span>
                     </>
                   )}
                 </li>
@@ -356,7 +361,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                       >
                         <path d="M20 6L9 17l-5-5" />
                       </svg>
-                      <span>Papers/warranty card included</span>
+                      <span>{t('includedPapersYes')}</span>
                     </>
                   ) : (
                     <>
@@ -372,7 +377,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                         <line x1="18" y1="6" x2="6" y2="18" />
                         <line x1="6" y1="6" x2="18" y2="18" />
                       </svg>
-                      <span className="text-[var(--text-muted)]">No papers</span>
+                      <span className="text-[var(--text-muted)]">{t('includedPapersNo')}</span>
                     </>
                   )}
                 </li>
@@ -388,7 +393,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   >
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
-                  <span>Essence of Watches authentication certificate</span>
+                  <span>{t('includedCertificate')}</span>
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
                   <svg
@@ -402,7 +407,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   >
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
-                  <span>Protective packaging</span>
+                  <span>{t('includedPackaging')}</span>
                 </li>
               </ul>
             </div>
@@ -423,8 +428,8 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   <line x1="12" y1="22.08" x2="12" y2="12" />
                 </svg>
                 <div>
-                  <p className="text-xs font-medium">Fast Delivery</p>
-                  <p className="text-[10px] opacity-80">1-3 Working Days</p>
+                  <p className="text-xs font-medium">{t('fastDelivery')}</p>
+                  <p className="text-[10px] opacity-80">{t('fastDeliveryDays')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 bg-[var(--accent-steel)] text-white px-4 py-3 rounded">
@@ -439,8 +444,8 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
                 <div>
-                  <p className="text-xs font-medium">Authenticity</p>
-                  <p className="text-[10px] opacity-80">100% Guaranteed</p>
+                  <p className="text-xs font-medium">{t('authenticityShort')}</p>
+                  <p className="text-[10px] opacity-80">{t('authenticityGuaranteed')}</p>
                 </div>
               </div>
             </div>
@@ -455,7 +460,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   addItem({
                     id: watch._id,
                     slug: watch.slug,
-                    brand: 'Rolex',
+                    brand,
                     model: watch.name,
                     reference: watch.reference,
                     year: watch.year,
@@ -463,8 +468,8 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                     condition:
                       (watch.condition as 'Unworn' | 'Excellent' | 'Very Good' | 'Good' | 'Fair') ||
                       'Excellent',
-                    boxPapers: watch.box && watch.papers ? 'Full Set' : watch.box ? 'Box Only' : watch.papers ? 'Papers Only' : 'Watch Only',
-                    warranty: '2 Year Warranty',
+                    boxPapers: boxPapersCart,
+                    warranty: t('cartWarranty'),
                     specs: {
                       caseMaterial: watch.material || '',
                       caseSize: watch.caseDiameter || '',
@@ -485,21 +490,21 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                   commerceDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
                 }`}
               >
-                Add to Cart
+                {t('addToCart')}
               </button>
               {commerceDisabled ? (
                 <span
                   aria-disabled
                   className="w-full border border-[var(--border)] text-[var(--text-primary)] py-4 text-[11px] tracking-[0.2em] uppercase block text-center opacity-50 cursor-not-allowed"
                 >
-                  Make an Offer
+                  {t('makeOffer')}
                 </span>
               ) : (
                 <Link
                   href={`/contact?watch=${encodeURIComponent(watch.name)}&ref=${watch.reference}`}
                   className="w-full border border-[var(--border)] text-[var(--text-primary)] py-4 text-[11px] tracking-[0.2em] uppercase hover:bg-[var(--card-bg)] transition block text-center"
                 >
-                  Make an Offer
+                  {t('makeOffer')}
                 </Link>
               )}
             </div>
@@ -513,7 +518,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                 >
                   <BadgeCheck size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
                   <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
-                    Authenticity Guaranteed
+                    {t('trustAuthGuaranteed')}
                   </span>
                 </Link>
                 <Link
@@ -522,7 +527,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                 >
                   <Shield size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
                   <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
-                    2-Year Warranty
+                    {t('trustWarranty')}
                   </span>
                 </Link>
                 <Link
@@ -531,7 +536,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                 >
                   <RotateCcw size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
                   <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
-                    7-Day Inspection Window
+                    {t('trustInspection')}
                   </span>
                 </Link>
                 <Link
@@ -540,19 +545,19 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                 >
                   <Truck size={16} className="text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors flex-shrink-0" strokeWidth={1.5} />
                   <span className="text-[10px] tracking-[0.1em] uppercase text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors">
-                    Free Insured Shipping
+                    {t('trustShipping')}
                   </span>
                 </Link>
               </div>
               <p className="text-[var(--text-muted)] text-[10px] text-center">
-                Questions?{' '}
+                {t('questionsPrefix')}{' '}
                 <Link
                   href="/contact"
                   className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
                 >
-                  Contact us
+                  {t('questionsContact')}
                 </Link>{' '}
-                or call{' '}
+                {t('questionsOrCall')}{' '}
                 <a
                   href="tel:+17025551234"
                   className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
@@ -567,7 +572,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
         {/* Product Specifications */}
         <section className="mb-16">
           <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-10">
-            Product Specifications
+            {t('specsTitle')}
           </h2>
           <div className="grid sm:grid-cols-2 gap-x-16 gap-y-0">
             {specifications.map((spec) => (
@@ -589,27 +594,31 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
         {/* Warranty & Returns */}
         <section className="mb-16">
           <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-6">
-            Warranty & Returns
+            {t('warrantyReturnsTitle')}
           </h2>
           <div className="max-w-3xl">
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
-              This timepiece is covered by an{' '}
-              <Link
-                href="/warranty"
-                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] underline"
-              >
-                Essence of Watches warranty
-              </Link>{' '}
-              for added peace of mind. Every watch is thoroughly inspected and authenticated prior to sale. Insured shipping is included.{' '}
-              <Link
-                href="/returns"
-                className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] underline"
-              >
-                Returns
-              </Link>{' '}
-              are governed by our{' '}
-              <strong className="text-[var(--text-primary)] font-medium">7-day inspection window</strong>{' '}
-              after delivery—see that policy for conditions and how to start a return.
+              {t.rich('warrantyReturnsRich', {
+                warranty: (chunks) => (
+                  <Link
+                    href="/warranty"
+                    className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] underline"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+                returns: (chunks) => (
+                  <Link
+                    href="/returns"
+                    className="text-[var(--text-primary)] hover:text-[var(--text-secondary)] underline"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+                inspection: (chunks) => (
+                  <strong className="text-[var(--text-primary)] font-medium">{chunks}</strong>
+                ),
+              })}
             </p>
           </div>
         </section>
@@ -617,11 +626,11 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
         {/* Shipping Information */}
         <section className="mb-16">
           <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-6">
-            Shipping Information
+            {t('shippingInfoTitle')}
           </h2>
           <div className="max-w-3xl">
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
-              All orders are shipped fully insured via FedEx or UPS. Orders are typically processed within 1-2 business days. Tracking information will be provided once your order ships.
+              {t('shippingInfoBody')}
             </p>
           </div>
         </section>
@@ -629,11 +638,11 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
         {/* Why Essence of Watches */}
         <section className="mb-16">
           <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)] mb-6">
-            Why Essence of Watches
+            {t('whyTitle')}
           </h2>
           <div className="max-w-3xl">
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
-              Every watch we offer is carefully curated, authenticated, and inspected to meet our standards. We focus on quality over volume, offering timepieces we would confidently wear ourselves. No marketplaces. No uncertainty. Just exceptional watches, sourced with intention.
+              {t('whyBody')}
             </p>
           </div>
         </section>
@@ -647,7 +656,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
               className="w-full flex items-center justify-between py-7 text-left group"
             >
               <span className="font-serif text-xl text-[var(--text-primary)] group-hover:text-[var(--text-secondary)] transition-colors">
-                Description
+                {t('accordionDescription')}
               </span>
               <svg
                 className={`w-4 h-4 text-[var(--text-muted)] transition-transform duration-300 ${
@@ -669,12 +678,19 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                 ) : (
                   <>
                     <p>
-                      This stunning {brand} {model} features a {watch.dialColor.toLowerCase()}{' '}
-                      dial housed in a {watch.caseDiameter} {watch.material.toLowerCase()} case.
+                      {t('descriptionFallback1', {
+                        brand,
+                        model,
+                        dial: watch.dialColor,
+                        caseSize: watch.caseDiameter,
+                        material: watch.material,
+                      })}
                     </p>
                     <p className="mt-4">
-                      The watch comes in {watch.condition.toLowerCase()} condition with{' '}
-                      {boxPapers.toLowerCase()}, making it an exceptional addition to any collection.
+                      {t('descriptionFallback2', {
+                        condition: watch.condition,
+                        boxPapers: boxPapersDisplay,
+                      })}
                     </p>
                   </>
                 )}
@@ -689,7 +705,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
               className="w-full flex items-center justify-between py-7 text-left group"
             >
               <span className="font-serif text-xl text-[var(--text-primary)] group-hover:text-[var(--text-secondary)] transition-colors">
-                Warranty
+                {t('accordionWarranty')}
               </span>
               <svg
                 className={`w-4 h-4 text-[var(--text-muted)] transition-transform duration-300 ${
@@ -706,11 +722,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
             </button>
             {activeAccordion === 'warranty' && (
               <div className="pb-6 text-[var(--text-secondary)] text-sm leading-relaxed">
-                <p>
-                  Every timepiece from Essence of Watches comes with a comprehensive 2-year warranty
-                  covering manufacturing defects and movement issues. Our in-house master watchmakers
-                  thoroughly inspect and service each watch before shipping.
-                </p>
+                <p>{t('accordionWarrantyBody')}</p>
               </div>
             )}
           </div>
@@ -722,7 +734,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
               className="w-full flex items-center justify-between py-7 text-left group"
             >
               <span className="font-serif text-xl text-[var(--text-primary)] group-hover:text-[var(--text-secondary)] transition-colors">
-                Delivery
+                {t('accordionDelivery')}
               </span>
               <svg
                 className={`w-4 h-4 text-[var(--text-muted)] transition-transform duration-300 ${
@@ -739,14 +751,13 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
             </button>
             {activeAccordion === 'delivery' && (
               <div className="pb-6 text-[var(--text-secondary)] text-sm leading-relaxed">
-                <p>
-                  We offer fully insured, tracked shipping via FedEx Priority. Domestic orders
-                  typically arrive within 1-3 business days. International shipping is available to
-                  most countries with delivery times of 3-7 business days.
-                </p>
-                <p className="mt-4">
-                  All shipments require a signature upon delivery for security purposes.
-                </p>
+                {t('accordionDeliveryBody')
+                  .split('\n\n')
+                  .map((para, i) => (
+                    <p key={i} className={i > 0 ? 'mt-4' : ''}>
+                      {para}
+                    </p>
+                  ))}
               </div>
             )}
           </div>
@@ -799,7 +810,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                     id="certificate-dialog-title"
                     className="font-serif text-lg text-[var(--text-primary)]"
                   >
-                    Certificate of Authenticity
+                    {t('certificateModalTitle')}
                   </h2>
                   <div className="flex flex-wrap gap-2">
                     <button
@@ -807,14 +818,14 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
                       onClick={() => window.print()}
                       className="border border-[var(--border)] px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-[var(--text-primary)] transition hover:bg-[var(--card-bg)]"
                     >
-                      Print
+                      {t('print')}
                     </button>
                     <button
                       type="button"
                       onClick={() => setCertificateModalOpen(false)}
                       className="bg-[var(--text-primary)] px-4 py-2 text-[10px] tracking-[0.2em] uppercase text-[var(--bg-primary)] transition hover:opacity-90"
                     >
-                      Close
+                      {t('close')}
                     </button>
                   </div>
                 </div>

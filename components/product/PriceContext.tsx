@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function parseMarketRange(marketValue: string): { low: number; high: number } | null {
   const trimmed = marketValue.trim();
@@ -29,6 +30,7 @@ export default function PriceContext({
   marketValue,
   formatPrice,
 }: PriceContextProps) {
+  const t = useTranslations('PriceContext');
   const marketTrimmed = marketValue?.trim() ?? '';
   const showRetail =
     retailPrice != null && Number.isFinite(retailPrice) && retailPrice > 0;
@@ -56,7 +58,7 @@ export default function PriceContext({
         <div className="space-y-1.5 pt-1">
           {showRetail ? (
             <p className="text-sm text-[var(--text-muted)]">
-              Original retail:{' '}
+              {t('originalRetail')}{' '}
               <span className="text-[var(--text-secondary)]">{formatPrice(retailPrice!)}</span>
             </p>
           ) : null}
@@ -64,23 +66,22 @@ export default function PriceContext({
           {showMarket ? (
             <div className="text-sm">
               <p className="text-[var(--text-muted)]">
-                Current market range:{' '}
+                {t('marketRange')}{' '}
                 <span className="text-[var(--text-secondary)]">{marketTrimmed}</span>
               </p>
               <p className="mt-1 text-[11px] leading-snug text-[var(--text-muted)]">
-                Based on recent secondary market sales for comparable listings; ranges vary by
-                condition, box &amp; papers, and timing—not a guarantee of appraisal value.
+                {t('marketDisclaimer')}
               </p>
             </div>
           ) : null}
 
           {fairLabel === 'below' ? (
             <p className="text-[10px] tracking-[0.12em] uppercase font-medium text-green-600 dark:text-green-400">
-              Below Market
+              {t('belowMarket')}
             </p>
           ) : fairLabel === 'fair' ? (
             <p className="text-[10px] tracking-[0.12em] uppercase font-medium text-[var(--accent-gold)]">
-              Fair Market Price
+              {t('fairMarket')}
             </p>
           ) : null}
         </div>

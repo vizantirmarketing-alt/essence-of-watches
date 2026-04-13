@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import FilterBar from '@/components/shop-page/FilterBar';
 import ProductGrid from '@/components/shop-page/ProductGrid';
 import { Watch, normalizeWatchStatus } from '@/data/watches';
@@ -40,6 +41,7 @@ function mapSanityCondition(raw: string | undefined): Watch['condition'] {
 }
 
 export default function ShopPageClient({ watches }: ShopPageClientProps) {
+  const t = useTranslations('ShopPage');
   const [selectedCollection, setSelectedCollection] = useState('');
   const [selectedCondition, setSelectedCondition] = useState('');
   const [sortBy, setSortBy] = useState('newest');
@@ -123,13 +125,13 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
         {/* Header */}
         <div className="mb-8 sm:mb-10">
           <p className="text-[var(--text-secondary)] text-[11px] tracking-[0.2em] uppercase mb-2">
-            Pre-Owned Rolex
+            {t('eyebrow')}
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] mb-2">
-            Our Collection
+            {t('title')}
           </h1>
           <p className="text-[var(--text-secondary)] text-sm">
-            {filteredWatches.length} authenticated timepieces
+            {t('watchCount', { count: filteredWatches.length })}
           </p>
         </div>
 

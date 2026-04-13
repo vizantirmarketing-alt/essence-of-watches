@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { useCurrency } from '@/contexts/CurrencyContext';
 import type { SanityListingWatch } from '@/types/sanityListingWatch';
 
 interface RelatedWatchesProps {
@@ -16,13 +18,15 @@ function brandAndModelFromName(name: string): { brand: string; model: string } {
 }
 
 export default function RelatedWatches({ watches }: RelatedWatchesProps) {
+  const t = useTranslations('RelatedWatches');
+  const { formatPrice } = useCurrency();
   const displayWatches = watches;
 
   return (
     <section>
       <div className="flex items-center justify-between mb-10">
         <h2 className="font-serif text-2xl sm:text-3xl text-[var(--text-primary)]">
-          Explore Other Watches
+          {t('title')}
         </h2>
         <div className="flex items-center gap-3">
           <button className="w-10 h-10 flex items-center justify-center border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-300">
@@ -77,7 +81,7 @@ export default function RelatedWatches({ watches }: RelatedWatchesProps) {
                   </h3>
                   <p className="text-[var(--text-muted)] text-xs mb-2">{watch.reference}</p>
                   <p className="text-[var(--text-primary)] font-serif text-base">
-                    ${watch.price.toLocaleString()}
+                    {formatPrice(watch.price)}
                   </p>
                 </div>
               </div>
