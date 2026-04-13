@@ -10,6 +10,12 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-[position:65%_center] bg-no-repeat"
         style={{ backgroundImage: "url('/eow-sub-hero.jpg')" }}
       />
+
+      {/* Darken hero on small viewports only — keeps text legible when the crop reads lighter */}
+      <div
+        className="absolute inset-0 pointer-events-none bg-black/50 sm:bg-transparent"
+        aria-hidden
+      />
       
       {/* Subtle gradient for text area */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
@@ -19,7 +25,7 @@ export default function Hero() {
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
           <div className="max-w-xl">
             {/* Eyebrow */}
-            <p className="text-white/50 text-[10px] tracking-[0.3em] uppercase mb-6">
+            <p className="text-white text-[10px] tracking-[0.3em] uppercase mb-6">
               Curated Collection
             </p>
             
@@ -68,7 +74,7 @@ export default function Hero() {
       {/* Scroll Indicator - Watch Crown Inspired */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
         <div className="flex flex-col items-center gap-3">
-          <span className="text-white/30 text-[9px] tracking-[0.3em] uppercase">Discover the Collection</span>
+          <span className="text-white text-[9px] tracking-[0.3em] uppercase">Discover the Collection</span>
           <div className="relative w-8 h-8">
             {/* Outer ring like watch bezel */}
             <div className="absolute inset-0 rounded-full border border-white/20" />
