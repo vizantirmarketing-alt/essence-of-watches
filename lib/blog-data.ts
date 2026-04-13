@@ -113,4 +113,33 @@ Box and papers are valuable but not definitive. Original documentation adds to a
 
 The questions you're asking today are the same questions your future buyer will ask. A watch that comes with clear documentation of its authentication, disclosed condition, and known parts history is easier to sell, faster to move, and more likely to command fair value on the secondary market. Buying from a seller who authenticates properly isn't just about your protection right now — it's about maintaining the integrity of the watch's history for every owner that follows.`,
   },
+  {
+    slug: 'rolex-daytona-buying-guide',
+    title: 'Rolex Daytona Buying Guide — What to Look For',
+    focusKeyword: 'Rolex Daytona buying guide',
+    metaDescription:
+      'A practical Rolex Daytona buying guide from a watch expert. Key references, important details, and pitfalls to avoid before you buy.',
+    publishedAt: '2026-02-05',
+    body: `The Rolex Daytona is one of the most recognizable watches in the world, and one of the most complicated to buy on the secondary market. Its combination of cultural cachet, genuine horological significance, and extreme demand at retail creates a buying environment where knowledge is your best protection. Whether you're buying your first Daytona or adding to an existing collection, understanding the reference landscape before you engage with a seller will save you time, money, and frustration.
+
+## Know Your Era: From Zenith to Modern In-House
+
+The Daytona's history on the secondary market is largely defined by two eras. The Zenith-movement Daytonas — references 16520 and the earlier manual-wind models — are considered by many serious collectors to be the pinnacle of the reference family. The 16520, powered by the modified Zenith El Primero, is particularly sought after for its collector provenance and the variety of dial configurations available. Inverted six dials, patrizzi dials with tropical sub-dials, and other variations command serious premiums among enthusiasts. The modern in-house era began with the reference 116520 and the caliber 4130. This movement is widely regarded as an exceptional chronograph mechanism — reliable, serviceable, and genuinely impressive. The current 126500LN with its ceramic bezel and caliber 4131 represents the latest evolution.
+
+## Case, Dial, and Bezel Details That Matter
+
+In the Daytona family, the details matter enormously. Dial color and sub-dial configuration drive significant value differences within the same reference. A white dial 116500LN and a black dial 116500LN are the same watch mechanically, but collector preference has historically created pricing differences between them. Bezel material is another meaningful consideration. Earlier steel Daytonas used acrylic bezels that scratch easily and are often found with wear or replacement inserts. The ceramic bezel introduced on the 116500LN is far more durable and scratch-resistant. Bracelet configuration — Oyster vs Jubilee on later references — is a matter of personal preference, but it affects resale to buyers who have strong opinions either way.
+
+## Movement, Service, and the Cost of Ownership
+
+Daytona movements are robust, but a chronograph is mechanically more complex than a simple three-hand watch. Service intervals and costs reflect that. When evaluating a pre-owned Daytona, ask directly about service history, who performed any past service, and whether any parts were replaced. A watch that's overdue for service isn't necessarily one to avoid, but the service cost should be part of your total purchase calculation. Case condition is particularly important on the Daytona. Aggressive polishing removes metal, softens case lines, and permanently affects the watch's appearance and value. Original, unpolished surfaces with honest wear are generally preferred by knowledgeable buyers over a heavily buffed case that looks shiny but has lost its factory geometry.
+
+## Market Behavior: Hype vs Enduring Demand
+
+The Daytona market has seen significant volatility in recent years. Secondary market premiums that seemed permanent in 2021 and 2022 came back to earth as broader market conditions shifted. This is worth understanding before you buy, not because it should discourage you, but because it should calibrate your expectations. What hasn't changed is the fundamental desirability of the reference. The Daytona has a strong collector base, genuine horological merit, and decades of cultural significance. Buying a well-chosen, properly authenticated example at a fair price remains a sensible decision — just not a speculation.
+
+## Where to Buy With Confidence
+
+Given the Daytona's value and the sophistication of the fake market around it, buying from a specialist dealer who can walk you through their authentication process is particularly important for this reference. The dealer's track record, their ability to describe their inspection process in detail, and their willingness to stand behind the sale with a clear warranty should all factor into your decision. Patience and reference knowledge are your two best tools. A buyer who knows exactly which configuration they want, understands what fair market looks like, and chooses their seller carefully will almost always end up with a watch they're proud to own.`,
+  },
 ];
