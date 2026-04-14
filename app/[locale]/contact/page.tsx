@@ -3,18 +3,20 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-const inquiryTypes = [
-  'General Inquiry',
-  'Purchase Question',
-  'Sell My Watch',
-  'Order Status',
-  'Returns & Refunds',
-  'Authentication',
-  'Partnership',
-];
+const INQUIRY_OPTIONS = [
+  { value: 'General Inquiry', msgKey: 'general' },
+  { value: 'Purchase Question', msgKey: 'purchase' },
+  { value: 'Sell My Watch', msgKey: 'sell' },
+  { value: 'Order Status', msgKey: 'orderStatus' },
+  { value: 'Returns & Refunds', msgKey: 'returns' },
+  { value: 'Authentication', msgKey: 'authentication' },
+  { value: 'Partnership', msgKey: 'partnership' },
+] as const;
 
 export default function ContactPage() {
+  const t = useTranslations('ContactPage');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -43,18 +45,18 @@ export default function ContactPage() {
       });
       const data = (await res.json().catch(() => ({}))) as { error?: string };
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to send message');
+        throw new Error(data.error || t('errors.sendFailed'));
       }
       setSubmitted(true);
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Failed to send message');
+      setSubmitError(err instanceof Error ? err.message : t('errors.sendFailed'));
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -85,15 +87,13 @@ export default function ContactPage() {
               <path d="M20 6L9 17l-5-5" />
             </svg>
           </div>
-          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">Message Sent</h1>
-          <p className="text-[var(--text-secondary)] mb-8">
-            Thank you for reaching out. Our team will respond within 24 hours.
-          </p>
+          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">{t('successTitle')}</h1>
+          <p className="text-[var(--text-secondary)] mb-8">{t('successBody')}</p>
           <Link
             href="/"
             className="inline-block text-xs tracking-[0.2em] uppercase border-b border-[var(--text-primary)] text-[var(--text-primary)] pb-1 hover:opacity-70 transition"
           >
-            Return Home
+            {t('returnHome')}
           </Link>
         </motion.div>
       </main>
@@ -104,7 +104,6 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-28">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
-          
           {/* Left - Contact Info */}
           <div className="bg-[var(--bg-secondary)] dark:bg-[#111] p-8 sm:p-12 xl:p-16 flex flex-col justify-between">
             <div>
@@ -113,7 +112,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]"
               >
-                Get in Touch
+                {t('eyebrow')}
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -121,7 +120,9 @@ export default function ContactPage() {
                 transition={{ delay: 0.1 }}
                 className="font-serif text-4xl xl:text-5xl text-[var(--text-primary)] mt-4 leading-tight"
               >
-                We're Here<br />to Help
+                {t('headlineLine1')}
+                <br />
+                {t('headlineLine2')}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -129,8 +130,7 @@ export default function ContactPage() {
                 transition={{ delay: 0.2 }}
                 className="text-[var(--text-secondary)] mt-6 max-w-sm leading-relaxed"
               >
-                Have a question about a timepiece, need help with an order, or interested in selling? 
-                Our team of watch experts is ready to assist you.
+                {t('intro')}
               </motion.p>
             </div>
 
@@ -158,7 +158,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-1">Email</h3>
+                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-1">{t('emailHeading')}</h3>
                   <a
                     href="mailto:info@essenceofwatches.com"
                     className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
@@ -184,14 +184,14 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-1">Phone</h3>
+                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-1">{t('phoneHeading')}</h3>
                   <a
                     href="tel:+12345678900"
                     className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                   >
                     +1 (234) 567-890
                   </a>
-                  <p className="text-xs text-[var(--text-muted)] mt-1">Mon - Fri, 9am - 6pm PST</p>
+                  <p className="text-xs text-[var(--text-muted)] mt-1">{t('hours')}</p>
                 </div>
               </div>
 
@@ -212,9 +212,9 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-1">Location</h3>
-                  <p className="text-[var(--text-secondary)]">Las Vegas, Nevada</p>
-                  <p className="text-xs text-[var(--text-muted)] mt-1">By appointment only</p>
+                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-1">{t('locationHeading')}</h3>
+                  <p className="text-[var(--text-secondary)]">{t('locationCity')}</p>
+                  <p className="text-xs text-[var(--text-muted)] mt-1">{t('appointmentOnly')}</p>
                 </div>
               </div>
             </motion.div>
@@ -226,9 +226,7 @@ export default function ContactPage() {
               transition={{ delay: 0.4 }}
               className="mt-12 pt-8 border-t border-[var(--border)]"
             >
-              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">
-                Follow Us
-              </p>
+              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">{t('followUs')}</p>
               <div className="flex gap-4">
                 <a
                   href="https://instagram.com"
@@ -275,10 +273,8 @@ export default function ContactPage() {
               transition={{ delay: 0.1 }}
               className="mb-8"
             >
-              <h2 className="font-serif text-2xl text-[var(--text-primary)]">Send a Message</h2>
-              <p className="text-[var(--text-secondary)] text-sm mt-2">
-                Fill out the form below and we'll get back to you within 24 hours.
-              </p>
+              <h2 className="font-serif text-2xl text-[var(--text-primary)]">{t('formTitle')}</h2>
+              <p className="text-[var(--text-secondary)] text-sm mt-2">{t('formIntro')}</p>
             </motion.div>
 
             <motion.form
@@ -292,7 +288,7 @@ export default function ContactPage() {
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="firstName" className={labelClasses}>
-                    First Name
+                    {t('labels.firstName')}
                   </label>
                   <input
                     type="text"
@@ -306,7 +302,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="lastName" className={labelClasses}>
-                    Last Name
+                    {t('labels.lastName')}
                   </label>
                   <input
                     type="text"
@@ -324,7 +320,7 @@ export default function ContactPage() {
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="email" className={labelClasses}>
-                    Email
+                    {t('labels.email')}
                   </label>
                   <input
                     type="email"
@@ -338,7 +334,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label htmlFor="phone" className={labelClasses}>
-                    Phone <span className="normal-case tracking-normal text-[var(--text-muted)]">(optional)</span>
+                    {t('labels.phone')}{' '}
+                    <span className="normal-case tracking-normal text-[var(--text-muted)]">{t('phoneOptional')}</span>
                   </label>
                   <input
                     type="tel"
@@ -355,7 +352,7 @@ export default function ContactPage() {
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="inquiryType" className={labelClasses}>
-                    Inquiry Type
+                    {t('labels.inquiryType')}
                   </label>
                   <select
                     id="inquiryType"
@@ -365,23 +362,26 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className={`${inputClasses} appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="1.5"%3e%3cpath d="M6 9l6 6 6-6"/%3e%3c/svg%3e')] bg-no-repeat bg-[center_right_1rem]`}
                   >
-                    <option value="">Select...</option>
-                    {inquiryTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
+                    <option value="">{t('selectPlaceholder')}</option>
+                    {INQUIRY_OPTIONS.map((row) => (
+                      <option key={row.value} value={row.value}>
+                        {t(`inquiryTypes.${row.msgKey}`)}
                       </option>
                     ))}
                   </select>
                 </div>
                 <div>
                   <label htmlFor="orderNumber" className={labelClasses}>
-                    Order Number <span className="normal-case tracking-normal text-[var(--text-muted)]">(if applicable)</span>
+                    {t('labels.orderNumber')}{' '}
+                    <span className="normal-case tracking-normal text-[var(--text-muted)]">
+                      {t('orderNumberHint')}
+                    </span>
                   </label>
                   <input
                     type="text"
                     id="orderNumber"
                     name="orderNumber"
-                    placeholder="EOW-XXXX-XXX"
+                    placeholder={t('orderPlaceholder')}
                     value={formData.orderNumber}
                     onChange={handleChange}
                     className={inputClasses}
@@ -392,7 +392,7 @@ export default function ContactPage() {
               {/* Message */}
               <div>
                 <label htmlFor="message" className={labelClasses}>
-                  Message
+                  {t('labels.message')}
                 </label>
                 <textarea
                   id="message"
@@ -401,7 +401,7 @@ export default function ContactPage() {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="How can we help you?"
+                  placeholder={t('messagePlaceholder')}
                   className={`${inputClasses} resize-none`}
                 />
               </div>
@@ -418,7 +418,7 @@ export default function ContactPage() {
                 disabled={isSubmitting}
                 className="w-full bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition-opacity duration-300 disabled:opacity-50"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? t('sending') : t('send')}
               </button>
             </motion.form>
 
@@ -429,33 +429,31 @@ export default function ContactPage() {
               transition={{ delay: 0.3 }}
               className="mt-10 pt-8 border-t border-[var(--border)]"
             >
-              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">
-                Quick Links
-              </p>
+              <p className="text-xs tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">{t('quickLinks')}</p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/faq"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
-                  FAQ →
+                  {t('linkFaq')}
                 </Link>
                 <Link
                   href="/shipping"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
-                  Shipping Info →
+                  {t('linkShipping')}
                 </Link>
                 <Link
                   href="/returns"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
-                  Returns →
+                  {t('linkReturns')}
                 </Link>
                 <Link
                   href="/appointment"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
-                  Schedule Appointment →
+                  {t('linkAppointment')}
                 </Link>
               </div>
             </motion.div>
@@ -465,4 +463,3 @@ export default function ContactPage() {
     </main>
   );
 }
-

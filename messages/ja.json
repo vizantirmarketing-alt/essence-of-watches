@@ -352,5 +352,249 @@
     "relatedBody": "返品および一般条件は別途定めています。返品期間内であれば、まずそちらの手続きをご検討ください。",
     "returnsLink": "返品・返金",
     "contactLink": "お問い合わせ"
+  },
+  "SellPage": {
+    "errors": {
+      "submitFailed": "査定依頼の送信に失敗しました。もう一度お試しください。"
+    },
+    "successTitle": "お申し込みを受け付けました",
+    "successBody": "ありがとうございます。担当が内容を確認のうえ、24〜48時間以内にご連絡いたします。",
+    "returnHome": "トップへ戻る",
+    "eyebrow": "安心の売却サポート",
+    "heroTitle": "ロレックスをお売りください",
+    "heroDescription": "ラグジュアリーウォッチに相応しい査定額をご提案いたします。無料査定に加え、状態の良い認定中古ロレックスを公正な条件でお取引いたします。",
+    "trust1Title": "納得のご提案",
+    "trust1Body": "最新の相場とコンディションを踏まえた適正なご評価",
+    "trust2Title": "スムーズな手続き",
+    "trust2Body": "査定結果は原則24〜48時間以内にご連絡",
+    "trust3Title": "安全・信頼の取引",
+    "trust3Body": "全額保険付き配送など、安心のトランザクション",
+    "formTitle": "お持ちの時計について",
+    "watchDetailsTitle": "時計の詳細",
+    "labels": {
+      "fullName": "お名前（フルネーム）",
+      "email": "メールアドレス",
+      "phone": "電話番号",
+      "watchBrand": "ブランド",
+      "watchModel": "モデル",
+      "yearOfPurchase": "購入年",
+      "condition": "コンディション",
+      "boxPapers": "箱・付属書類の有無",
+      "serviceHistory": "整備履歴の有無",
+      "askingPrice": "ご希望価格（USD）",
+      "additionalInfo": "その他の情報"
+    },
+    "placeholders": {
+      "selectBrand": "ブランドを選択",
+      "selectCondition": "コンディションを選択",
+      "modelExample": "例：サブマリーナ デイト",
+      "yearExample": "例：2022",
+      "askingPriceOptional": "任意",
+      "additionalInfo": "時計に関する補足があればご記入ください…"
+    },
+    "brands": {
+      "rolex": "ロレックス",
+      "patek": "パテック フィリップ",
+      "ap": "オーデマ ピゲ",
+      "omega": "オメガ",
+      "other": "その他"
+    },
+    "condition": {
+      "unworn": "未使用／新品同様",
+      "excellent": "極上",
+      "veryGood": "非常に良い",
+      "good": "良い"
+    },
+    "boxPapers": {
+      "yes": "あり",
+      "no": "なし",
+      "partial": "一部のみ"
+    },
+    "serviceHistory": {
+      "yes": "あり",
+      "no": "なし"
+    },
+    "uploadTitle": "写真をアップロード",
+    "uploadDescription": "時計本体、箱、付属書類（お持ちの場合）がはっきり写る写真をご用意ください。",
+    "uploadCta": "クリックまたはドラッグ＆ドロップでアップロード",
+    "uploadFormats": "PNG／JPG、各10MBまで",
+    "submitting": "送信中…",
+    "submit": "査定を依頼する",
+    "legalRich": "送信により<terms>利用規約</terms>および<privacy>プライバシーポリシー</privacy>に同意したものとみなされます。",
+    "whatNextTitle": "この後の流れ",
+    "steps": {
+      "1": {
+        "title": "専門家による審査",
+        "description": "専門スタッフがお申し込み内容と写真を精査し、24〜48時間以内にご返答いたします。"
+      },
+      "2": {
+        "title": "ご提案",
+        "description": "相場とコンディションを踏まえ、競争力のあるお見積りをご提示いたします。"
+      },
+      "3": {
+        "title": "安全な発送",
+        "description": "ご承諾後、全額保険付きの安全な配送手配を当社負担で行います。"
+      },
+      "4": {
+        "title": "お支払い",
+        "description": "真贋確認後、ご指定の方法にて原則2〜3営業日以内にお振り込みいたします。"
+      }
+    }
+  },
+  "SourcePage": {
+    "errors": {
+      "submitFailed": "ご依頼の送信に失敗しました。もう一度お試しください。"
+    },
+    "successTitle": "お申し込みを受け付けました",
+    "successBody": "ありがとうございます。ソーシング担当より24時間以内にご連絡いたします。",
+    "returnHome": "トップへ戻る",
+    "eyebrow": "ウォッチ・ソーシング",
+    "heroTitle": "理想の一本をお探しします",
+    "heroDescription": "お探しのモデルが見つからない場合も、専門チームが最適なロレックスをご用意いたします。長年培ったネットワークと知見で、希少モデルにも対応可能です。",
+    "labels": {
+      "fullName": "お名前（フルネーム）",
+      "email": "メールアドレス",
+      "phone": "電話番号",
+      "desiredModel": "ご希望のモデル",
+      "budget": "ご予算の目安",
+      "conditionPreference": "コンディションのご希望",
+      "additionalNotes": "備考・ご要望"
+    },
+    "placeholders": {
+      "desiredModel": "例：ロレックス デイトナ 116500LN ホワイトダイヤル",
+      "additionalNotes": "仕様やご希望の詳細があればご記入ください…"
+    },
+    "budget": {
+      "placeholder": "予算を選択",
+      "under10k": "1万ドル未満",
+      "10k20k": "1万〜2万ドル",
+      "20k50k": "2万〜5万ドル",
+      "50k100k": "5万〜10万ドル",
+      "over100k": "10万ドル超"
+    },
+    "condition": {
+      "placeholder": "コンディションを選択",
+      "unworn": "未使用",
+      "mint": "ミントコンディション",
+      "excellent": "極上",
+      "good": "良い",
+      "any": "指定なし"
+    },
+    "submitting": "送信中…",
+    "submit": "依頼を送信",
+    "footnote": "＊は必須項目です。原則24時間以内にご返信いたします。",
+    "benefit1Title": "専門家ネットワーク",
+    "benefit1Body": "世界各地の厳選ディーラー・コレクターへアクセス。長年の信頼関係を活かし、お客様にふさわしい一本を探します。",
+    "benefit2Title": "無料・無義務",
+    "benefit2Body": "ソーシングは完全無料、ご契約の義務はございません。ご希望どおりの時計が見つかった場合のみご検討ください。",
+    "benefit3Title": "迅速なご提案",
+    "benefit3Body": "目安として2〜4週間で候補をご案内することが多く、定番モデルでは数日以内の場合もございます。",
+    "trustNote": "ソーシングした時計はすべて当社の厳格な真贋鑑定を経て、標準保証と書類とともにお届けいたします。"
+  },
+  "AppointmentPage": {
+    "errors": {
+      "submitFailed": "予約リクエストの送信に失敗しました。もう一度お試しください。"
+    },
+    "successTitle": "ご予約を承りました",
+    "successBody": "お問い合わせありがとうございます。24時間以内に担当より日程確定のご連絡を差し上げます。",
+    "returnHome": "トップへ戻る",
+    "eyebrow": "プライベート相談",
+    "heroTitleLine1": "コレクションを",
+    "heroTitleLine2": "実物でご体感ください",
+    "heroDescription": "時計専門スタッフによるプライベート鑑賞をご予約いただけます。ご購入・売却・真贋確認まで、上質なご案内をいたします。",
+    "trustPoint1": "全時計を鑑定済み",
+    "trustPoint2": "柔軟な日程調整",
+    "trustPoint3": "押し売りのないご相談",
+    "mobileTitle": "来店予約",
+    "formTitle": "ご来店のお申し込み",
+    "formSubtitle": "※任意と記載のない項目はすべて必須です",
+    "labels": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "メール",
+      "phone": "電話",
+      "purpose": "ご来店の目的",
+      "brand": "ご関心のブランド",
+      "date": "ご希望日",
+      "time": "ご希望時間",
+      "message": "メッセージ"
+    },
+    "messageOptional": "（任意）",
+    "messagePlaceholder": "ご希望やご質問をお聞かせください…",
+    "selectPlaceholder": "選択してください…",
+    "submitting": "送信中…",
+    "submit": "予約を申し込む",
+    "privacyNoteRich": "送信により<privacy>プライバシーポリシー</privacy>に同意したものとみなされます。",
+    "purposes": {
+      "purchaseConsultation": "購入相談",
+      "sellMyWatch": "売却のご相談",
+      "tradeIn": "下取り",
+      "authentication": "真贋鑑定サービス",
+      "generalInquiry": "その他のお問い合わせ"
+    },
+    "brands": {
+      "other": "その他"
+    },
+    "timeSlots": {
+      "1000": "午前10時",
+      "1100": "午前11時",
+      "1200": "正午",
+      "1300": "午後1時",
+      "1400": "午後2時",
+      "1500": "午後3時",
+      "1600": "午後4時",
+      "1700": "午後5時"
+    }
+  },
+  "ContactPage": {
+    "errors": {
+      "sendFailed": "メッセージの送信に失敗しました。もう一度お試しください。"
+    },
+    "successTitle": "送信完了",
+    "successBody": "お問い合わせありがとうございます。24時間以内に担当よりご返信いたします。",
+    "returnHome": "トップへ戻る",
+    "eyebrow": "お問い合わせ",
+    "headlineLine1": "お客様を",
+    "headlineLine2": "サポートいたします",
+    "intro": "時計に関するご質問、ご注文のサポート、売却のご相談など、専門スタッフが丁寧に承ります。",
+    "emailHeading": "メール",
+    "phoneHeading": "電話",
+    "hours": "月〜金 9時〜18時（太平洋時間）",
+    "locationHeading": "所在地",
+    "locationCity": "ネバダ州ラスベガス",
+    "appointmentOnly": "完全予約制",
+    "followUs": "フォローする",
+    "formTitle": "メッセージを送る",
+    "formIntro": "フォームにご記入ください。原則24時間以内にご返信いたします。",
+    "labels": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "メール",
+      "phone": "電話",
+      "inquiryType": "お問い合わせ種別",
+      "orderNumber": "ご注文番号",
+      "message": "メッセージ"
+    },
+    "phoneOptional": "（任意）",
+    "orderNumberHint": "（該当する場合）",
+    "orderPlaceholder": "EOW-XXXX-XXX",
+    "messagePlaceholder": "ご用件をお聞かせください",
+    "selectPlaceholder": "選択してください…",
+    "sending": "送信中…",
+    "send": "送信する",
+    "quickLinks": "クイックリンク",
+    "linkFaq": "よくある質問 →",
+    "linkShipping": "配送について →",
+    "linkReturns": "返品について →",
+    "linkAppointment": "来店予約 →",
+    "inquiryTypes": {
+      "general": "一般的なお問い合わせ",
+      "purchase": "購入に関するご質問",
+      "sell": "売却のご相談",
+      "orderStatus": "ご注文状況",
+      "returns": "返品・返金",
+      "authentication": "真贋鑑定",
+      "partnership": "業務提携"
+    }
   }
 }

@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function SourcePage() {
+  const t = useTranslations('SourcePage');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -39,11 +41,11 @@ export default function SourcePage() {
       });
       const data = (await res.json().catch(() => ({}))) as { error?: string };
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit sourcing request');
+        throw new Error(data.error || t('errors.submitFailed'));
       }
       setSubmitted(true);
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Failed to submit sourcing request');
+      setSubmitError(err instanceof Error ? err.message : t('errors.submitFailed'));
     } finally {
       setIsSubmitting(false);
     }
@@ -66,15 +68,13 @@ export default function SourcePage() {
               <path d="M20 6L9 17l-5-5" />
             </svg>
           </div>
-          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">Request Received</h1>
-          <p className="text-[var(--text-secondary)] mb-8">
-            Thank you. Our sourcing team will follow up within 24 hours.
-          </p>
+          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">{t('successTitle')}</h1>
+          <p className="text-[var(--text-secondary)] mb-8">{t('successBody')}</p>
           <Link
             href="/"
             className="inline-block text-xs tracking-[0.2em] uppercase border-b border-[var(--text-primary)] text-[var(--text-primary)] pb-1 hover:opacity-70 transition"
           >
-            Return Home
+            {t('returnHome')}
           </Link>
         </div>
       </main>
@@ -89,16 +89,11 @@ export default function SourcePage() {
           <div>
             {/* Header */}
             <div className="mb-10">
-              <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-3">
-                Watch Sourcing
-              </p>
+              <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-3">{t('eyebrow')}</p>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] mb-4">
-                Source Your Dream Watch
+                {t('heroTitle')}
               </h1>
-              <p className="text-[var(--text-secondary)] text-base leading-relaxed">
-                Can't find what you're looking for? Let our experts source the perfect Rolex for you.
-                With our extensive network and expertise, we can locate even the rarest timepieces.
-              </p>
+              <p className="text-[var(--text-secondary)] text-base leading-relaxed">{t('heroDescription')}</p>
             </div>
 
             {/* Form */}
@@ -106,7 +101,7 @@ export default function SourcePage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                    Full Name <span className="text-red-500">*</span>
+                    {t('labels.fullName')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -119,7 +114,7 @@ export default function SourcePage() {
                 </div>
                 <div>
                   <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                    Email Address <span className="text-red-500">*</span>
+                    {t('labels.email')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -133,7 +128,7 @@ export default function SourcePage() {
               </div>
 
               <div>
-                <label className="block text-[var(--text-secondary)] text-sm mb-2">Phone Number</label>
+                <label className="block text-[var(--text-secondary)] text-sm mb-2">{t('labels.phone')}</label>
                 <input
                   type="tel"
                   name="phone"
@@ -145,13 +140,13 @@ export default function SourcePage() {
 
               <div>
                 <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                  Desired Watch Model <span className="text-red-500">*</span>
+                  {t('labels.desiredModel')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   name="desiredModel"
                   required
-                  placeholder="e.g., Rolex Daytona 116500LN White Dial"
+                  placeholder={t('placeholders.desiredModel')}
                   value={formData.desiredModel}
                   onChange={handleChange}
                   className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-secondary)] transition-colors"
@@ -160,26 +155,24 @@ export default function SourcePage() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                    Budget Range
-                  </label>
+                  <label className="block text-[var(--text-secondary)] text-sm mb-2">{t('labels.budget')}</label>
                   <select
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
                     className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm outline-none focus:border-[var(--text-secondary)] transition-colors cursor-pointer"
                   >
-                    <option value="">Select budget</option>
-                    <option value="under-10k">Under $10,000</option>
-                    <option value="10k-20k">$10,000 - $20,000</option>
-                    <option value="20k-50k">$20,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="over-100k">Over $100,000</option>
+                    <option value="">{t('budget.placeholder')}</option>
+                    <option value="under-10k">{t('budget.under10k')}</option>
+                    <option value="10k-20k">{t('budget.10k20k')}</option>
+                    <option value="20k-50k">{t('budget.20k50k')}</option>
+                    <option value="50k-100k">{t('budget.50k100k')}</option>
+                    <option value="over-100k">{t('budget.over100k')}</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                    Condition Preference
+                    {t('labels.conditionPreference')}
                   </label>
                   <select
                     name="condition"
@@ -187,24 +180,22 @@ export default function SourcePage() {
                     onChange={handleChange}
                     className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm outline-none focus:border-[var(--text-secondary)] transition-colors cursor-pointer"
                   >
-                    <option value="">Select condition</option>
-                    <option value="unworn">Unworn</option>
-                    <option value="mint">Mint Condition</option>
-                    <option value="excellent">Excellent</option>
-                    <option value="good">Good</option>
-                    <option value="any">Any Condition</option>
+                    <option value="">{t('condition.placeholder')}</option>
+                    <option value="unworn">{t('condition.unworn')}</option>
+                    <option value="mint">{t('condition.mint')}</option>
+                    <option value="excellent">{t('condition.excellent')}</option>
+                    <option value="good">{t('condition.good')}</option>
+                    <option value="any">{t('condition.any')}</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                  Additional Notes
-                </label>
+                <label className="block text-[var(--text-secondary)] text-sm mb-2">{t('labels.additionalNotes')}</label>
                 <textarea
                   name="additionalNotes"
                   rows={4}
-                  placeholder="Any specific requirements or preferences..."
+                  placeholder={t('placeholders.additionalNotes')}
                   value={formData.additionalNotes}
                   onChange={handleChange}
                   className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-secondary)] transition-colors resize-none"
@@ -223,11 +214,9 @@ export default function SourcePage() {
                   disabled={isSubmitting}
                   className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-[11px] tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                  {isSubmitting ? t('submitting') : t('submit')}
                 </button>
-                <p className="text-[var(--text-muted)] text-xs text-center mt-4">
-                  * Required fields. We typically respond within 24 hours.
-                </p>
+                <p className="text-[var(--text-muted)] text-xs text-center mt-4">{t('footnote')}</p>
               </div>
             </form>
           </div>
@@ -252,13 +241,8 @@ export default function SourcePage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">
-                      Expert Network
-                    </h3>
-                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                      Access to exclusive dealers and collectors worldwide. We leverage relationships
-                      built over years to find your perfect timepiece.
-                    </p>
+                    <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t('benefit1Title')}</h3>
+                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">{t('benefit1Body')}</p>
                   </div>
                 </div>
               </div>
@@ -279,13 +263,8 @@ export default function SourcePage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">
-                      No Obligation
-                    </h3>
-                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                      Our sourcing service is completely free with no commitment required. You only
-                      proceed if we find exactly what you want.
-                    </p>
+                    <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t('benefit2Title')}</h3>
+                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">{t('benefit2Body')}</p>
                   </div>
                 </div>
               </div>
@@ -306,21 +285,15 @@ export default function SourcePage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">Fast Results</h3>
-                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                      We typically locate watches within 2-4 weeks. For common models, we often find
-                      options within days.
-                    </p>
+                    <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t('benefit3Title')}</h3>
+                    <p className="text-[var(--text-muted)] text-sm leading-relaxed">{t('benefit3Body')}</p>
                   </div>
                 </div>
               </div>
 
               {/* Trust Note */}
               <div className="pt-4 border-t border-[var(--border)]">
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                  Every watch we source undergoes our comprehensive authentication process and comes
-                  with our standard warranty and documentation.
-                </p>
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed">{t('trustNote')}</p>
               </div>
             </div>
           </div>
@@ -329,7 +302,3 @@ export default function SourcePage() {
     </main>
   );
 }
-
-
-
-

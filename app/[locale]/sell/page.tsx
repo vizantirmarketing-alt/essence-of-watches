@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
+const STEP_KEYS = ['1', '2', '3', '4'] as const;
 
 export default function SellPage() {
+  const t = useTranslations('SellPage');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -52,40 +56,31 @@ export default function SellPage() {
       });
       const data = (await res.json().catch(() => ({}))) as { error?: string };
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit valuation request');
+        throw new Error(data.error || t('errors.submitFailed'));
       }
       setSubmitted(true);
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Failed to submit valuation request');
+      setSubmitError(err instanceof Error ? err.message : t('errors.submitFailed'));
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const steps = [
-    {
-      number: '1',
-      title: 'Expert Review',
-      description:
-        'Our team of experts will carefully review your submission and photos within 24-48 hours.',
-    },
-    {
-      number: '2',
-      title: 'Receive Offer',
-      description:
-        "We'll send you a competitive offer based on current market conditions and your watch's condition.",
-    },
-    {
-      number: '3',
-      title: 'Ship Securely',
-      description: "If you accept, we'll arrange fully insured, secure shipping at no cost to you.",
-    },
-    {
-      number: '4',
-      title: 'Get Paid',
-      description:
-        "Once authenticated, you'll receive payment via your preferred method within 2-3 business days.",
-    },
+  const steps = STEP_KEYS.map((key) => ({
+    number: key,
+    title: t(`steps.${key}.title`),
+    description: t(`steps.${key}.description`),
+  }));
+
+  const boxPaperOptions: { value: string; label: string }[] = [
+    { value: 'yes', label: t('boxPapers.yes') },
+    { value: 'no', label: t('boxPapers.no') },
+    { value: 'partial', label: t('boxPapers.partial') },
+  ];
+
+  const serviceHistoryOptions: { value: string; label: string }[] = [
+    { value: 'yes', label: t('serviceHistory.yes') },
+    { value: 'no', label: t('serviceHistory.no') },
   ];
 
   if (submitted) {
@@ -105,15 +100,13 @@ export default function SellPage() {
               <path d="M20 6L9 17l-5-5" />
             </svg>
           </div>
-          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">Request Received</h1>
-          <p className="text-[var(--text-secondary)] mb-8">
-            Thank you. Our team will review your submission and respond within 24–48 hours.
-          </p>
+          <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">{t('successTitle')}</h1>
+          <p className="text-[var(--text-secondary)] mb-8">{t('successBody')}</p>
           <Link
             href="/"
             className="inline-block text-xs tracking-[0.2em] uppercase border-b border-[var(--text-primary)] text-[var(--text-primary)] pb-1 hover:opacity-70 transition"
           >
-            Return Home
+            {t('returnHome')}
           </Link>
         </div>
       </main>
@@ -125,16 +118,11 @@ export default function SellPage() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-16">
         {/* Hero Section */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-3">
-            Sell With Confidence
-          </p>
+          <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-3">{t('eyebrow')}</p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] mb-4">
-            Sell Your Rolex
+            {t('heroTitle')}
           </h1>
-          <p className="text-[var(--text-secondary)] text-base sm:text-lg leading-relaxed">
-            Get a competitive offer for your luxury timepiece. We provide free valuations and fair
-            prices for pre-owned Rolex watches in excellent condition.
-          </p>
+          <p className="text-[var(--text-secondary)] text-base sm:text-lg leading-relaxed">{t('heroDescription')}</p>
         </div>
 
         {/* Trust Badges */}
@@ -152,10 +140,8 @@ export default function SellPage() {
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
               </svg>
             </div>
-            <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">Competitive Offers</h3>
-            <p className="text-[var(--text-muted)] text-sm">
-              We offer fair market value based on current conditions
-            </p>
+            <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t('trust1Title')}</h3>
+            <p className="text-[var(--text-muted)] text-sm">{t('trust1Body')}</p>
           </div>
 
           <div className="bg-[var(--card-bg)] border border-[var(--card-border)] p-6 rounded-lg">
@@ -172,8 +158,8 @@ export default function SellPage() {
                 <polyline points="12 6 12 12 16 14" />
               </svg>
             </div>
-            <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">Quick Process</h3>
-            <p className="text-[var(--text-muted)] text-sm">Receive an offer within 24-48 hours</p>
+            <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t('trust2Title')}</h3>
+            <p className="text-[var(--text-muted)] text-sm">{t('trust2Body')}</p>
           </div>
 
           <div className="bg-[var(--card-bg)] border border-[var(--card-border)] p-6 rounded-lg">
@@ -190,10 +176,8 @@ export default function SellPage() {
                 <path d="M9 12l2 2 4-4" />
               </svg>
             </div>
-            <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">Secure & Trusted</h3>
-            <p className="text-[var(--text-muted)] text-sm">
-              Safe transactions with full insurance coverage
-            </p>
+            <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t('trust3Title')}</h3>
+            <p className="text-[var(--text-muted)] text-sm">{t('trust3Body')}</p>
           </div>
         </div>
 
@@ -201,9 +185,7 @@ export default function SellPage() {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Form */}
           <div className="lg:col-span-3">
-            <h2 className="font-serif text-2xl text-[var(--text-primary)] mb-8">
-              Tell Us About Your Watch
-            </h2>
+            <h2 className="font-serif text-2xl text-[var(--text-primary)] mb-8">{t('formTitle')}</h2>
 
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Contact Information */}
@@ -211,7 +193,7 @@ export default function SellPage() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                      Full Name <span className="text-red-500">*</span>
+                      {t('labels.fullName')} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -224,7 +206,7 @@ export default function SellPage() {
                   </div>
                   <div>
                     <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                      Email Address <span className="text-red-500">*</span>
+                      {t('labels.email')} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
@@ -238,9 +220,7 @@ export default function SellPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                    Phone Number
-                  </label>
+                  <label className="block text-[var(--text-secondary)] text-sm mb-2">{t('labels.phone')}</label>
                   <input
                     type="tel"
                     name="phone"
@@ -254,14 +234,14 @@ export default function SellPage() {
               {/* Watch Details */}
               <div>
                 <h3 className="font-serif text-lg text-[var(--text-primary)] mb-4 pb-2 border-b border-[var(--border)]">
-                  Watch Details
+                  {t('watchDetailsTitle')}
                 </h3>
 
                 <div className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                        Watch Brand <span className="text-red-500">*</span>
+                        {t('labels.watchBrand')} <span className="text-red-500">*</span>
                       </label>
                       <select
                         name="brand"
@@ -270,23 +250,23 @@ export default function SellPage() {
                         onChange={handleChange}
                         className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm outline-none focus:border-[var(--text-secondary)] transition-colors cursor-pointer"
                       >
-                        <option value="">Select brand</option>
-                        <option value="rolex">Rolex</option>
-                        <option value="patek">Patek Philippe</option>
-                        <option value="ap">Audemars Piguet</option>
-                        <option value="omega">Omega</option>
-                        <option value="other">Other</option>
+                        <option value="">{t('placeholders.selectBrand')}</option>
+                        <option value="rolex">{t('brands.rolex')}</option>
+                        <option value="patek">{t('brands.patek')}</option>
+                        <option value="ap">{t('brands.ap')}</option>
+                        <option value="omega">{t('brands.omega')}</option>
+                        <option value="other">{t('brands.other')}</option>
                       </select>
                     </div>
                     <div>
                       <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                        Watch Model <span className="text-red-500">*</span>
+                        {t('labels.watchModel')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
                         name="model"
                         required
-                        placeholder="e.g., Submariner Date"
+                        placeholder={t('placeholders.modelExample')}
                         value={formData.model}
                         onChange={handleChange}
                         className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-secondary)] transition-colors"
@@ -297,12 +277,12 @@ export default function SellPage() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                        Year of Purchase
+                        {t('labels.yearOfPurchase')}
                       </label>
                       <input
                         type="text"
                         name="year"
-                        placeholder="e.g., 2022"
+                        placeholder={t('placeholders.yearExample')}
                         value={formData.year}
                         onChange={handleChange}
                         className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-secondary)] transition-colors"
@@ -310,7 +290,7 @@ export default function SellPage() {
                     </div>
                     <div>
                       <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                        Condition <span className="text-red-500">*</span>
+                        {t('labels.condition')} <span className="text-red-500">*</span>
                       </label>
                       <select
                         name="condition"
@@ -319,31 +299,31 @@ export default function SellPage() {
                         onChange={handleChange}
                         className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm outline-none focus:border-[var(--text-secondary)] transition-colors cursor-pointer"
                       >
-                        <option value="">Select condition</option>
-                        <option value="unworn">Unworn/New</option>
-                        <option value="excellent">Excellent</option>
-                        <option value="very-good">Very Good</option>
-                        <option value="good">Good</option>
+                        <option value="">{t('placeholders.selectCondition')}</option>
+                        <option value="unworn">{t('condition.unworn')}</option>
+                        <option value="excellent">{t('condition.excellent')}</option>
+                        <option value="very-good">{t('condition.veryGood')}</option>
+                        <option value="good">{t('condition.good')}</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-[var(--text-secondary)] text-sm mb-3">
-                      Box & Papers Available? <span className="text-red-500">*</span>
+                      {t('labels.boxPapers')} <span className="text-red-500">*</span>
                     </label>
                     <div className="flex flex-wrap gap-3">
-                      {['Yes', 'No', 'Partial'].map((option) => (
-                        <label key={option} className="flex items-center gap-2 cursor-pointer">
+                      {boxPaperOptions.map((option) => (
+                        <label key={option.value} className="flex items-center gap-2 cursor-pointer">
                           <input
                             type="radio"
                             name="boxPapers"
-                            value={option.toLowerCase()}
-                            checked={formData.boxPapers === option.toLowerCase()}
+                            value={option.value}
+                            checked={formData.boxPapers === option.value}
                             onChange={handleChange}
                             className="w-4 h-4 accent-[var(--accent-steel)]"
                           />
-                          <span className="text-[var(--text-primary)] text-sm">{option}</span>
+                          <span className="text-[var(--text-primary)] text-sm">{option.label}</span>
                         </label>
                       ))}
                     </div>
@@ -351,20 +331,20 @@ export default function SellPage() {
 
                   <div>
                     <label className="block text-[var(--text-secondary)] text-sm mb-3">
-                      Service History Available?
+                      {t('labels.serviceHistory')}
                     </label>
                     <div className="flex flex-wrap gap-3">
-                      {['Yes', 'No'].map((option) => (
-                        <label key={option} className="flex items-center gap-2 cursor-pointer">
+                      {serviceHistoryOptions.map((option) => (
+                        <label key={option.value} className="flex items-center gap-2 cursor-pointer">
                           <input
                             type="radio"
                             name="serviceHistory"
-                            value={option.toLowerCase()}
-                            checked={formData.serviceHistory === option.toLowerCase()}
+                            value={option.value}
+                            checked={formData.serviceHistory === option.value}
                             onChange={handleChange}
                             className="w-4 h-4 accent-[var(--accent-steel)]"
                           />
-                          <span className="text-[var(--text-primary)] text-sm">{option}</span>
+                          <span className="text-[var(--text-primary)] text-sm">{option.label}</span>
                         </label>
                       ))}
                     </div>
@@ -372,12 +352,12 @@ export default function SellPage() {
 
                   <div>
                     <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                      Asking Price (USD)
+                      {t('labels.askingPrice')}
                     </label>
                     <input
                       type="text"
                       name="askingPrice"
-                      placeholder="Optional"
+                      placeholder={t('placeholders.askingPriceOptional')}
                       value={formData.askingPrice}
                       onChange={handleChange}
                       className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-secondary)] transition-colors"
@@ -389,11 +369,9 @@ export default function SellPage() {
               {/* Photo Upload */}
               <div>
                 <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2 pb-2 border-b border-[var(--border)]">
-                  Upload Photos
+                  {t('uploadTitle')}
                 </h3>
-                <p className="text-[var(--text-muted)] text-sm mb-4">
-                  Please upload clear photos of the watch, box, and papers (if available)
-                </p>
+                <p className="text-[var(--text-muted)] text-sm mb-4">{t('uploadDescription')}</p>
 
                 <label className="block border-2 border-dashed border-[var(--border)] rounded-lg p-8 text-center cursor-pointer hover:border-[var(--text-muted)] transition-colors">
                   <input
@@ -414,8 +392,8 @@ export default function SellPage() {
                     <polyline points="17 8 12 3 7 8" />
                     <line x1="12" y1="3" x2="12" y2="15" />
                   </svg>
-                  <p className="text-[var(--text-secondary)] text-sm">Click to upload or drag and drop</p>
-                  <p className="text-[var(--text-muted)] text-xs mt-1">PNG, JPG up to 10MB each</p>
+                  <p className="text-[var(--text-secondary)] text-sm">{t('uploadCta')}</p>
+                  <p className="text-[var(--text-muted)] text-xs mt-1">{t('uploadFormats')}</p>
                 </label>
 
                 {files.length > 0 && (
@@ -452,12 +430,12 @@ export default function SellPage() {
               {/* Additional Info */}
               <div>
                 <label className="block text-[var(--text-secondary)] text-sm mb-2">
-                  Additional Information
+                  {t('labels.additionalInfo')}
                 </label>
                 <textarea
                   name="additionalInfo"
                   rows={4}
-                  placeholder="Any other details about your watch..."
+                  placeholder={t('placeholders.additionalInfo')}
                   value={formData.additionalInfo}
                   onChange={handleChange}
                   className="w-full bg-[var(--card-bg)] border border-[var(--card-border)] px-4 py-3 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-secondary)] transition-colors resize-none"
@@ -477,17 +455,21 @@ export default function SellPage() {
                   disabled={isSubmitting}
                   className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-[11px] tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit for Valuation'}
+                  {isSubmitting ? t('submitting') : t('submit')}
                 </button>
                 <p className="text-[var(--text-muted)] text-xs text-center mt-4">
-                  By submitting this form, you agree to our{' '}
-                  <a href="/terms" className="underline hover:text-[var(--text-secondary)]">
-                    Terms & Conditions
-                  </a>{' '}
-                  and{' '}
-                  <a href="/privacy" className="underline hover:text-[var(--text-secondary)]">
-                    Privacy Policy
-                  </a>
+                  {t.rich('legalRich', {
+                    terms: (chunks) => (
+                      <a href="/terms" className="underline hover:text-[var(--text-secondary)]">
+                        {chunks}
+                      </a>
+                    ),
+                    privacy: (chunks) => (
+                      <a href="/privacy" className="underline hover:text-[var(--text-secondary)]">
+                        {chunks}
+                      </a>
+                    ),
+                  })}
                 </p>
               </div>
             </form>
@@ -496,21 +478,17 @@ export default function SellPage() {
           {/* What Happens Next - Sidebar */}
           <div className="lg:col-span-2">
             <div className="lg:sticky lg:top-32">
-              <h2 className="font-serif text-2xl text-[var(--text-primary)] mb-8">
-                What Happens Next?
-              </h2>
+              <h2 className="font-serif text-2xl text-[var(--text-primary)] mb-8">{t('whatNextTitle')}</h2>
 
               <div className="space-y-6">
-                {steps.map((step, index) => (
+                {steps.map((step) => (
                   <div key={step.number} className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-[var(--accent-steel)] text-white font-serif text-lg rounded-full">
                       {step.number}
                     </div>
                     <div>
                       <h3 className="font-medium text-[var(--text-primary)] mb-1">{step.title}</h3>
-                      <p className="text-[var(--text-muted)] text-sm leading-relaxed">
-                        {step.description}
-                      </p>
+                      <p className="text-[var(--text-muted)] text-sm leading-relaxed">{step.description}</p>
                     </div>
                   </div>
                 ))}
@@ -522,7 +500,3 @@ export default function SellPage() {
     </main>
   );
 }
-
-
-
-

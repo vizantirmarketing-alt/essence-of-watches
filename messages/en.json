@@ -352,5 +352,249 @@
     "relatedBody": "Returns and general conditions are governed separately. If you are inside the return window, start there first.",
     "returnsLink": "Returns & Refunds",
     "contactLink": "Contact"
+  },
+  "SellPage": {
+    "errors": {
+      "submitFailed": "Failed to submit valuation request"
+    },
+    "successTitle": "Request Received",
+    "successBody": "Thank you. Our team will review your submission and respond within 24–48 hours.",
+    "returnHome": "Return Home",
+    "eyebrow": "Sell With Confidence",
+    "heroTitle": "Sell Your Rolex",
+    "heroDescription": "Get a competitive offer for your luxury timepiece. We provide free valuations and fair prices for pre-owned Rolex watches in excellent condition.",
+    "trust1Title": "Competitive Offers",
+    "trust1Body": "We offer fair market value based on current conditions",
+    "trust2Title": "Quick Process",
+    "trust2Body": "Receive an offer within 24-48 hours",
+    "trust3Title": "Secure & Trusted",
+    "trust3Body": "Safe transactions with full insurance coverage",
+    "formTitle": "Tell Us About Your Watch",
+    "watchDetailsTitle": "Watch Details",
+    "labels": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "watchBrand": "Watch Brand",
+      "watchModel": "Watch Model",
+      "yearOfPurchase": "Year of Purchase",
+      "condition": "Condition",
+      "boxPapers": "Box & Papers Available?",
+      "serviceHistory": "Service History Available?",
+      "askingPrice": "Asking Price (USD)",
+      "additionalInfo": "Additional Information"
+    },
+    "placeholders": {
+      "selectBrand": "Select brand",
+      "selectCondition": "Select condition",
+      "modelExample": "e.g., Submariner Date",
+      "yearExample": "e.g., 2022",
+      "askingPriceOptional": "Optional",
+      "additionalInfo": "Any other details about your watch..."
+    },
+    "brands": {
+      "rolex": "Rolex",
+      "patek": "Patek Philippe",
+      "ap": "Audemars Piguet",
+      "omega": "Omega",
+      "other": "Other"
+    },
+    "condition": {
+      "unworn": "Unworn/New",
+      "excellent": "Excellent",
+      "veryGood": "Very Good",
+      "good": "Good"
+    },
+    "boxPapers": {
+      "yes": "Yes",
+      "no": "No",
+      "partial": "Partial"
+    },
+    "serviceHistory": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "uploadTitle": "Upload Photos",
+    "uploadDescription": "Please upload clear photos of the watch, box, and papers (if available)",
+    "uploadCta": "Click to upload or drag and drop",
+    "uploadFormats": "PNG, JPG up to 10MB each",
+    "submitting": "Submitting...",
+    "submit": "Submit for Valuation",
+    "legalRich": "By submitting this form, you agree to our <terms>Terms & Conditions</terms> and <privacy>Privacy Policy</privacy>.",
+    "whatNextTitle": "What Happens Next?",
+    "steps": {
+      "1": {
+        "title": "Expert Review",
+        "description": "Our team of experts will carefully review your submission and photos within 24-48 hours."
+      },
+      "2": {
+        "title": "Receive Offer",
+        "description": "We'll send you a competitive offer based on current market conditions and your watch's condition."
+      },
+      "3": {
+        "title": "Ship Securely",
+        "description": "If you accept, we'll arrange fully insured, secure shipping at no cost to you."
+      },
+      "4": {
+        "title": "Get Paid",
+        "description": "Once authenticated, you'll receive payment via your preferred method within 2-3 business days."
+      }
+    }
+  },
+  "SourcePage": {
+    "errors": {
+      "submitFailed": "Failed to submit sourcing request"
+    },
+    "successTitle": "Request Received",
+    "successBody": "Thank you. Our sourcing team will follow up within 24 hours.",
+    "returnHome": "Return Home",
+    "eyebrow": "Watch Sourcing",
+    "heroTitle": "Source Your Dream Watch",
+    "heroDescription": "Can't find what you're looking for? Let our experts source the perfect Rolex for you. With our extensive network and expertise, we can locate even the rarest timepieces.",
+    "labels": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "desiredModel": "Desired Watch Model",
+      "budget": "Budget Range",
+      "conditionPreference": "Condition Preference",
+      "additionalNotes": "Additional Notes"
+    },
+    "placeholders": {
+      "desiredModel": "e.g., Rolex Daytona 116500LN White Dial",
+      "additionalNotes": "Any specific requirements or preferences..."
+    },
+    "budget": {
+      "placeholder": "Select budget",
+      "under10k": "Under $10,000",
+      "10k20k": "$10,000 - $20,000",
+      "20k50k": "$20,000 - $50,000",
+      "50k100k": "$50,000 - $100,000",
+      "over100k": "Over $100,000"
+    },
+    "condition": {
+      "placeholder": "Select condition",
+      "unworn": "Unworn",
+      "mint": "Mint Condition",
+      "excellent": "Excellent",
+      "good": "Good",
+      "any": "Any Condition"
+    },
+    "submitting": "Submitting...",
+    "submit": "Submit Request",
+    "footnote": "* Required fields. We typically respond within 24 hours.",
+    "benefit1Title": "Expert Network",
+    "benefit1Body": "Access to exclusive dealers and collectors worldwide. We leverage relationships built over years to find your perfect timepiece.",
+    "benefit2Title": "No Obligation",
+    "benefit2Body": "Our sourcing service is completely free with no commitment required. You only proceed if we find exactly what you want.",
+    "benefit3Title": "Fast Results",
+    "benefit3Body": "We typically locate watches within 2-4 weeks. For common models, we often find options within days.",
+    "trustNote": "Every watch we source undergoes our comprehensive authentication process and comes with our standard warranty and documentation."
+  },
+  "AppointmentPage": {
+    "errors": {
+      "submitFailed": "Failed to submit appointment request"
+    },
+    "successTitle": "Appointment Requested",
+    "successBody": "Thank you for your interest. Our team will contact you within 24 hours to confirm your appointment.",
+    "returnHome": "Return Home",
+    "eyebrow": "Private Consultation",
+    "heroTitleLine1": "Experience Our",
+    "heroTitleLine2": "Collection Firsthand",
+    "heroDescription": "Schedule a private viewing with our horological experts. Whether you're acquiring, selling, or seeking authentication—we're here to guide you.",
+    "trustPoint1": "Every timepiece authenticated",
+    "trustPoint2": "Flexible scheduling available",
+    "trustPoint3": "No-pressure consultations",
+    "mobileTitle": "Schedule an Appointment",
+    "formTitle": "Request Your Visit",
+    "formSubtitle": "All fields are required unless marked optional",
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "purpose": "Purpose of Visit",
+      "brand": "Brand of Interest",
+      "date": "Preferred Date",
+      "time": "Preferred Time",
+      "message": "Message"
+    },
+    "messageOptional": "(optional)",
+    "messagePlaceholder": "Tell us about what you're looking for...",
+    "selectPlaceholder": "Select...",
+    "submitting": "Submitting...",
+    "submit": "Request Appointment",
+    "privacyNoteRich": "By submitting, you agree to our <privacy>Privacy Policy</privacy>.",
+    "purposes": {
+      "purchaseConsultation": "Purchase Consultation",
+      "sellMyWatch": "Sell My Watch",
+      "tradeIn": "Trade-In",
+      "authentication": "Authentication Service",
+      "generalInquiry": "General Inquiry"
+    },
+    "brands": {
+      "other": "Other"
+    },
+    "timeSlots": {
+      "1000": "10:00 AM",
+      "1100": "11:00 AM",
+      "1200": "12:00 PM",
+      "1300": "1:00 PM",
+      "1400": "2:00 PM",
+      "1500": "3:00 PM",
+      "1600": "4:00 PM",
+      "1700": "5:00 PM"
+    }
+  },
+  "ContactPage": {
+    "errors": {
+      "sendFailed": "Failed to send message"
+    },
+    "successTitle": "Message Sent",
+    "successBody": "Thank you for reaching out. Our team will respond within 24 hours.",
+    "returnHome": "Return Home",
+    "eyebrow": "Get in Touch",
+    "headlineLine1": "We're Here",
+    "headlineLine2": "to Help",
+    "intro": "Have a question about a timepiece, need help with an order, or interested in selling? Our team of watch experts is ready to assist you.",
+    "emailHeading": "Email",
+    "phoneHeading": "Phone",
+    "hours": "Mon - Fri, 9am - 6pm PST",
+    "locationHeading": "Location",
+    "locationCity": "Las Vegas, Nevada",
+    "appointmentOnly": "By appointment only",
+    "followUs": "Follow Us",
+    "formTitle": "Send a Message",
+    "formIntro": "Fill out the form below and we'll get back to you within 24 hours.",
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "inquiryType": "Inquiry Type",
+      "orderNumber": "Order Number",
+      "message": "Message"
+    },
+    "phoneOptional": "(optional)",
+    "orderNumberHint": "(if applicable)",
+    "orderPlaceholder": "EOW-XXXX-XXX",
+    "messagePlaceholder": "How can we help you?",
+    "selectPlaceholder": "Select...",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "quickLinks": "Quick Links",
+    "linkFaq": "FAQ →",
+    "linkShipping": "Shipping Info →",
+    "linkReturns": "Returns →",
+    "linkAppointment": "Schedule Appointment →",
+    "inquiryTypes": {
+      "general": "General Inquiry",
+      "purchase": "Purchase Question",
+      "sell": "Sell My Watch",
+      "orderStatus": "Order Status",
+      "returns": "Returns & Refunds",
+      "authentication": "Authentication",
+      "partnership": "Partnership"
+    }
   }
 }

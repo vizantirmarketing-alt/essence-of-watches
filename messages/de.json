@@ -352,5 +352,249 @@
     "relatedBody": "Rückgaben und allgemeine Bedingungen sind separat geregelt. Befinden Sie sich in der Rückgabefrist, beginnen Sie dort zuerst.",
     "returnsLink": "Rückgabe & Erstattung",
     "contactLink": "Kontakt"
+  },
+  "SellPage": {
+    "errors": {
+      "submitFailed": "Die Bewertungsanfrage konnte nicht gesendet werden."
+    },
+    "successTitle": "Anfrage eingegangen",
+    "successBody": "Vielen Dank. Unser Team prüft Ihre Angaben und meldet sich innerhalb von 24–48 Stunden.",
+    "returnHome": "Zur Startseite",
+    "eyebrow": "Verkaufen mit Ruhe",
+    "heroTitle": "Verkaufen Sie Ihre Rolex",
+    "heroDescription": "Erhalten Sie ein marktgerechtes Angebot für Ihre Luxusuhr. Wir bieten kostenlose Einschätzungen und faire Konditionen für ausgewählte gebrauchte Rolex-Modelle in sehr gutem Zustand.",
+    "trust1Title": "Marktgerechte Angebote",
+    "trust1Body": "Fairer Marktwert – abgestimmt auf die aktuelle Marktlage",
+    "trust2Title": "Zügiger Ablauf",
+    "trust2Body": "Angebot in der Regel innerhalb von 24–48 Stunden",
+    "trust3Title": "Sicher & vertrauenswürdig",
+    "trust3Body": "Abgesicherte Abläufe mit vollständiger Transportversicherung",
+    "formTitle": "Erzählen Sie uns von Ihrer Uhr",
+    "watchDetailsTitle": "Details zur Uhr",
+    "labels": {
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "watchBrand": "Marke",
+      "watchModel": "Modell",
+      "yearOfPurchase": "Jahr des Erwerbs",
+      "condition": "Zustand",
+      "boxPapers": "Box & Papiere vorhanden?",
+      "serviceHistory": "Servicehistorie vorhanden?",
+      "askingPrice": "Wunschpreis (USD)",
+      "additionalInfo": "Weitere Angaben"
+    },
+    "placeholders": {
+      "selectBrand": "Marke wählen",
+      "selectCondition": "Zustand wählen",
+      "modelExample": "z. B. Submariner Date",
+      "yearExample": "z. B. 2022",
+      "askingPriceOptional": "Optional",
+      "additionalInfo": "Weitere Details zu Ihrer Uhr …"
+    },
+    "brands": {
+      "rolex": "Rolex",
+      "patek": "Patek Philippe",
+      "ap": "Audemars Piguet",
+      "omega": "Omega",
+      "other": "Sonstige"
+    },
+    "condition": {
+      "unworn": "Ungetragen / wie neu",
+      "excellent": "Ausgezeichnet",
+      "veryGood": "Sehr gut",
+      "good": "Gut"
+    },
+    "boxPapers": {
+      "yes": "Ja",
+      "no": "Nein",
+      "partial": "Teilweise"
+    },
+    "serviceHistory": {
+      "yes": "Ja",
+      "no": "Nein"
+    },
+    "uploadTitle": "Fotos hochladen",
+    "uploadDescription": "Bitte laden Sie klare Aufnahmen von Uhr, Box und Papieren (falls vorhanden) hoch.",
+    "uploadCta": "Klicken zum Hochladen oder per Drag & Drop",
+    "uploadFormats": "PNG, JPG, je bis 10 MB",
+    "submitting": "Wird gesendet …",
+    "submit": "Zur Bewertung einreichen",
+    "legalRich": "Mit dem Absenden akzeptieren Sie unsere <terms>AGB</terms> und die <privacy>Datenschutzerklärung</privacy>.",
+    "whatNextTitle": "Wie geht es weiter?",
+    "steps": {
+      "1": {
+        "title": "Expertenprüfung",
+        "description": "Unser Team prüft Ihre Angaben und Fotos sorgfältig – in der Regel innerhalb von 24–48 Stunden."
+      },
+      "2": {
+        "title": "Angebot erhalten",
+        "description": "Sie erhalten ein marktgerechtes Angebot – basierend auf Marktlage und dem Zustand Ihrer Uhr."
+      },
+      "3": {
+        "title": "Sicherer Versand",
+        "description": "Nach Annahme organisieren wir vollversicherten, sicheren Versand für Sie – ohne Kosten."
+      },
+      "4": {
+        "title": "Auszahlung",
+        "description": "Nach erfolgter Authentifizierung erfolgt die Zahlung auf dem von Ihnen gewünschten Weg – in der Regel innerhalb von 2–3 Werktagen."
+      }
+    }
+  },
+  "SourcePage": {
+    "errors": {
+      "submitFailed": "Die Suchanfrage konnte nicht gesendet werden."
+    },
+    "successTitle": "Anfrage eingegangen",
+    "successBody": "Vielen Dank. Unser Sourcing-Team meldet sich innerhalb von 24 Stunden.",
+    "returnHome": "Zur Startseite",
+    "eyebrow": "Watch Sourcing",
+    "heroTitle": "Wir finden Ihre Traumuhr",
+    "heroDescription": "Nicht das passende Modell gefunden? Unsere Experten besorgen die ideale Rolex für Sie. Dank unseres Netzwerks und unserer Erfahrung erreichen wir auch seltene Referenzen.",
+    "labels": {
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "desiredModel": "Gewünschtes Modell",
+      "budget": "Budgetrahmen",
+      "conditionPreference": "Zustandspräferenz",
+      "additionalNotes": "Weitere Hinweise"
+    },
+    "placeholders": {
+      "desiredModel": "z. B. Rolex Daytona 116500LN, weißes Zifferblatt",
+      "additionalNotes": "Besondere Wünsche oder Präferenzen …"
+    },
+    "budget": {
+      "placeholder": "Budget wählen",
+      "under10k": "Unter 10.000 $",
+      "10k20k": "10.000 $ – 20.000 $",
+      "20k50k": "20.000 $ – 50.000 $",
+      "50k100k": "50.000 $ – 100.000 $",
+      "over100k": "Über 100.000 $"
+    },
+    "condition": {
+      "placeholder": "Zustand wählen",
+      "unworn": "Ungetragen",
+      "mint": "Wie neu",
+      "excellent": "Ausgezeichnet",
+      "good": "Gut",
+      "any": "Egal"
+    },
+    "submitting": "Wird gesendet …",
+    "submit": "Anfrage senden",
+    "footnote": "* Pflichtfelder. Wir antworten in der Regel innerhalb von 24 Stunden.",
+    "benefit1Title": "Expertennetzwerk",
+    "benefit1Body": "Zugang zu ausgewählten Händlern und Sammlern weltweit – auf langjährigen Beziehungen basierend.",
+    "benefit2Title": "Unverbindlich",
+    "benefit2Body": "Unser Sourcing ist kostenlos und ohne Verpflichtung. Sie entscheiden erst, wenn wir genau das gefunden haben, was Sie suchen.",
+    "benefit3Title": "Schnelle Ergebnisse",
+    "benefit3Body": "In der Regel innerhalb von 2–4 Wochen; bei gängigen Modellen oft schon innerhalb weniger Tage.",
+    "trustNote": "Jede von uns beschaffte Uhr durchläuft unsere umfassende Authentifizierung und wird mit Standardgarantie und Dokumentation geliefert."
+  },
+  "AppointmentPage": {
+    "errors": {
+      "submitFailed": "Der Terminwunsch konnte nicht gesendet werden."
+    },
+    "successTitle": "Terminanfrage eingegangen",
+    "successBody": "Vielen Dank für Ihr Interesse. Unser Team meldet sich innerhalb von 24 Stunden zur Bestätigung.",
+    "returnHome": "Zur Startseite",
+    "eyebrow": "Private Beratung",
+    "heroTitleLine1": "Erleben Sie",
+    "heroTitleLine2": "unsere Kollektion hautnah",
+    "heroDescription": "Vereinbaren Sie eine private Besichtigung mit unseren Experten – ob Ankauf, Verkauf oder Authentifizierung: wir begleiten Sie diskret und kompetent.",
+    "trustPoint1": "Jede Uhr authentifiziert",
+    "trustPoint2": "Flexible Terminplanung",
+    "trustPoint3": "Beratung ohne Verkaufsdruck",
+    "mobileTitle": "Termin vereinbaren",
+    "formTitle": "Ihren Besuch anfragen",
+    "formSubtitle": "Alle Felder sind Pflicht, sofern nicht als optional gekennzeichnet",
+    "labels": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "purpose": "Anlass des Besuchs",
+      "brand": "Interessensmarke",
+      "date": "Wunschdatum",
+      "time": "Wunschuhrzeit",
+      "message": "Nachricht"
+    },
+    "messageOptional": "(optional)",
+    "messagePlaceholder": "Teilen Sie uns mit, worauf Sie Wert legen …",
+    "selectPlaceholder": "Auswählen …",
+    "submitting": "Wird gesendet …",
+    "submit": "Termin anfragen",
+    "privacyNoteRich": "Mit dem Absenden stimmen Sie unserer <privacy>Datenschutzerklärung</privacy> zu.",
+    "purposes": {
+      "purchaseConsultation": "Kaufberatung",
+      "sellMyWatch": "Uhr verkaufen",
+      "tradeIn": "Inzahlungnahme",
+      "authentication": "Authentifizierungsservice",
+      "generalInquiry": "Allgemeine Anfrage"
+    },
+    "brands": {
+      "other": "Sonstige"
+    },
+    "timeSlots": {
+      "1000": "10:00 Uhr",
+      "1100": "11:00 Uhr",
+      "1200": "12:00 Uhr",
+      "1300": "13:00 Uhr",
+      "1400": "14:00 Uhr",
+      "1500": "15:00 Uhr",
+      "1600": "16:00 Uhr",
+      "1700": "17:00 Uhr"
+    }
+  },
+  "ContactPage": {
+    "errors": {
+      "sendFailed": "Die Nachricht konnte nicht gesendet werden."
+    },
+    "successTitle": "Nachricht gesendet",
+    "successBody": "Vielen Dank für Ihre Nachricht. Unser Team antwortet in der Regel innerhalb von 24 Stunden.",
+    "returnHome": "Zur Startseite",
+    "eyebrow": "Kontakt",
+    "headlineLine1": "Wir sind für Sie da",
+    "headlineLine2": "und helfen gern",
+    "intro": "Fragen zu einer Uhr, zu Ihrer Bestellung oder zum Verkauf? Unser Team aus Uhrenexperten unterstützt Sie persönlich.",
+    "emailHeading": "E-Mail",
+    "phoneHeading": "Telefon",
+    "hours": "Mo–Fr, 9–18 Uhr PST",
+    "locationHeading": "Standort",
+    "locationCity": "Las Vegas, Nevada",
+    "appointmentOnly": "Nur nach Terminvereinbarung",
+    "followUs": "Folgen Sie uns",
+    "formTitle": "Nachricht senden",
+    "formIntro": "Füllen Sie das Formular aus – wir melden uns in der Regel innerhalb von 24 Stunden.",
+    "labels": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "inquiryType": "Art der Anfrage",
+      "orderNumber": "Bestellnummer",
+      "message": "Nachricht"
+    },
+    "phoneOptional": "(optional)",
+    "orderNumberHint": "(falls zutreffend)",
+    "orderPlaceholder": "EOW-XXXX-XXX",
+    "messagePlaceholder": "Wobei können wir Ihnen helfen?",
+    "selectPlaceholder": "Auswählen …",
+    "sending": "Wird gesendet …",
+    "send": "Nachricht senden",
+    "quickLinks": "Schnellzugriff",
+    "linkFaq": "FAQ →",
+    "linkShipping": "Versand →",
+    "linkReturns": "Rückgabe →",
+    "linkAppointment": "Termin vereinbaren →",
+    "inquiryTypes": {
+      "general": "Allgemeine Anfrage",
+      "purchase": "Frage zum Kauf",
+      "sell": "Uhr verkaufen",
+      "orderStatus": "Bestellstatus",
+      "returns": "Rückgabe & Erstattung",
+      "authentication": "Authentifizierung",
+      "partnership": "Partnerschaft"
+    }
   }
 }

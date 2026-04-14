@@ -352,5 +352,249 @@
     "relatedBody": "退货与一般条件另有规定。若您处于退货期限内，请先遵循退货流程。",
     "returnsLink": "退货与退款",
     "contactLink": "联系"
+  },
+  "SellPage": {
+    "errors": {
+      "submitFailed": "提交估价申请失败，请稍后重试。"
+    },
+    "successTitle": "我们已收到您的请求",
+    "successBody": "感谢您的信任。我们的团队将在24至48小时内审阅并回复。",
+    "returnHome": "返回首页",
+    "eyebrow": "安心出售",
+    "heroTitle": "出售您的劳力士",
+    "heroDescription": "为您的臻品时计提供具竞争力的报价。我们提供免费估价，并以公允价格收购状态优良的认证二手劳力士。",
+    "trust1Title": "公允报价",
+    "trust1Body": "结合市场行情与实物状况，给出合理估值",
+    "trust2Title": "高效流程",
+    "trust2Body": "通常在24至48小时内反馈报价",
+    "trust3Title": "安全可信",
+    "trust3Body": "全程全额保险，交易安心无忧",
+    "formTitle": "请介绍您的腕表",
+    "watchDetailsTitle": "腕表详情",
+    "labels": {
+      "fullName": "姓名",
+      "email": "电子邮箱",
+      "phone": "电话",
+      "watchBrand": "品牌",
+      "watchModel": "型号",
+      "yearOfPurchase": "购买年份",
+      "condition": "成色",
+      "boxPapers": "是否含原装盒与证书？",
+      "serviceHistory": "是否有保养记录？",
+      "askingPrice": "期望价格（美元）",
+      "additionalInfo": "其他说明"
+    },
+    "placeholders": {
+      "selectBrand": "请选择品牌",
+      "selectCondition": "请选择成色",
+      "modelExample": "例：潜航者日历型",
+      "yearExample": "例：2022",
+      "askingPriceOptional": "选填",
+      "additionalInfo": "请补充任何有助于估价的细节…"
+    },
+    "brands": {
+      "rolex": "劳力士",
+      "patek": "百达翡丽",
+      "ap": "爱彼",
+      "omega": "欧米茄",
+      "other": "其他"
+    },
+    "condition": {
+      "unworn": "未使用／近新",
+      "excellent": "极佳",
+      "veryGood": "优",
+      "good": "良好"
+    },
+    "boxPapers": {
+      "yes": "是",
+      "no": "否",
+      "partial": "部分"
+    },
+    "serviceHistory": {
+      "yes": "是",
+      "no": "否"
+    },
+    "uploadTitle": "上传照片",
+    "uploadDescription": "请上传腕表、表盒与证书（如有）的清晰照片。",
+    "uploadCta": "点击上传或拖放至此",
+    "uploadFormats": "PNG、JPG，单张不超过10MB",
+    "submitting": "提交中…",
+    "submit": "提交估价申请",
+    "legalRich": "提交即表示您同意我们的<terms>条款与条件</terms>及<privacy>隐私政策</privacy>。",
+    "whatNextTitle": "接下来会发生什么",
+    "steps": {
+      "1": {
+        "title": "专家审阅",
+        "description": "专家团队将仔细审阅您的资料与照片，通常在24至48小时内回复。"
+      },
+      "2": {
+        "title": "收到报价",
+        "description": "我们将结合市场行情与腕表成色，向您发送具竞争力的报价。"
+      },
+      "3": {
+        "title": "安全寄送",
+        "description": "若您接受报价，我们将安排全额保险的安全物流，费用由我们承担。"
+      },
+      "4": {
+        "title": "收款",
+        "description": "完成鉴定后，我们将在2至3个工作日内按您指定的方式付款。"
+      }
+    }
+  },
+  "SourcePage": {
+    "errors": {
+      "submitFailed": "提交寻表请求失败，请稍后重试。"
+    },
+    "successTitle": "我们已收到您的请求",
+    "successBody": "感谢您的信任。寻表团队将在24小时内与您联系。",
+    "returnHome": "返回首页",
+    "eyebrow": "腕表寻源",
+    "heroTitle": "为您寻觅心仪之作",
+    "heroDescription": "暂没找到理想款式？交由我们的专家为您寻觅完美劳力士。凭借广泛人脉与深厚经验，即便稀缺型号亦有机会为您找到。",
+    "labels": {
+      "fullName": "姓名",
+      "email": "电子邮箱",
+      "phone": "电话",
+      "desiredModel": "意向型号",
+      "budget": "预算区间",
+      "conditionPreference": "成色偏好",
+      "additionalNotes": "补充说明"
+    },
+    "placeholders": {
+      "desiredModel": "例：劳力士宇宙计型迪通拿 116500LN 白盘",
+      "additionalNotes": "请说明特殊要求或偏好…"
+    },
+    "budget": {
+      "placeholder": "请选择预算",
+      "under10k": "1万美元以下",
+      "10k20k": "1万 – 2万美元",
+      "20k50k": "2万 – 5万美元",
+      "50k100k": "5万 – 10万美元",
+      "over100k": "10万美元以上"
+    },
+    "condition": {
+      "placeholder": "请选择成色",
+      "unworn": "未使用",
+      "mint": "近新",
+      "excellent": "极佳",
+      "good": "良好",
+      "any": "不限"
+    },
+    "submitting": "提交中…",
+    "submit": "提交请求",
+    "footnote": "＊为必填项。我们通常在24小时内回复。",
+    "benefit1Title": "专家网络",
+    "benefit1Body": "触达全球精选经销商与藏家资源，依托多年互信关系为您匹配理想时计。",
+    "benefit2Title": "零义务",
+    "benefit2Body": "寻表服务完全免费，亦无任何承诺。唯有找到完全符合您期望的腕表后，您再决定是否继续。",
+    "benefit3Title": "高效反馈",
+    "benefit3Body": "常见表款往往数日内即有线索；整体周期多在2至4周左右。",
+    "trustNote": "经我们寻获的每一枚腕表均通过全面鉴定，并附带标准质保与完整文件。"
+  },
+  "AppointmentPage": {
+    "errors": {
+      "submitFailed": "提交预约失败，请稍后重试。"
+    },
+    "successTitle": "预约请求已提交",
+    "successBody": "感谢您的关注。我们将在24小时内与您联系以确认预约。",
+    "returnHome": "返回首页",
+    "eyebrow": "私人鉴赏",
+    "heroTitleLine1": "亲临品鉴",
+    "heroTitleLine2": "我们的珍藏",
+    "heroDescription": "预约与制表专家的一对一私人赏表。无论购藏、出售或鉴定需求，我们都将以专业审慎的态度为您服务。",
+    "trustPoint1": "每一枚腕表均经鉴定",
+    "trustPoint2": "时间灵活可协调",
+    "trustPoint3": "轻松无压力的咨询",
+    "mobileTitle": "预约到店",
+    "formTitle": "提交到访申请",
+    "formSubtitle": "除标注为选填外，其余字段均为必填",
+    "labels": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "邮箱",
+      "phone": "电话",
+      "purpose": "到访目的",
+      "brand": "感兴趣的品牌",
+      "date": "首选日期",
+      "time": "首选时间",
+      "message": "留言"
+    },
+    "messageOptional": "（选填）",
+    "messagePlaceholder": "请告诉我们您的需求…",
+    "selectPlaceholder": "请选择…",
+    "submitting": "提交中…",
+    "submit": "提交预约",
+    "privacyNoteRich": "提交即表示您同意我们的<privacy>隐私政策</privacy>。",
+    "purposes": {
+      "purchaseConsultation": "购表咨询",
+      "sellMyWatch": "出售腕表",
+      "tradeIn": "置换",
+      "authentication": "鉴定服务",
+      "generalInquiry": "一般咨询"
+    },
+    "brands": {
+      "other": "其他"
+    },
+    "timeSlots": {
+      "1000": "上午10:00",
+      "1100": "上午11:00",
+      "1200": "中午12:00",
+      "1300": "下午1:00",
+      "1400": "下午2:00",
+      "1500": "下午3:00",
+      "1600": "下午4:00",
+      "1700": "下午5:00"
+    }
+  },
+  "ContactPage": {
+    "errors": {
+      "sendFailed": "发送失败，请稍后重试。"
+    },
+    "successTitle": "消息已发送",
+    "successBody": "感谢您的来信，我们将在24小时内回复。",
+    "returnHome": "返回首页",
+    "eyebrow": "联系我们",
+    "headlineLine1": "我们随时",
+    "headlineLine2": "为您效劳",
+    "intro": "如有关于时计的疑问、订单协助或出售意向，我们的专家团队乐意为您效劳。",
+    "emailHeading": "邮箱",
+    "phoneHeading": "电话",
+    "hours": "周一至周五 9:00–18:00（太平洋时间）",
+    "locationHeading": "地址",
+    "locationCity": "内华达州拉斯维加斯",
+    "appointmentOnly": "仅接受预约到访",
+    "followUs": "关注我们",
+    "formTitle": "发送消息",
+    "formIntro": "填写下方表单，我们将在24小时内回复。",
+    "labels": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "邮箱",
+      "phone": "电话",
+      "inquiryType": "咨询类型",
+      "orderNumber": "订单编号",
+      "message": "留言"
+    },
+    "phoneOptional": "（选填）",
+    "orderNumberHint": "（如适用）",
+    "orderPlaceholder": "EOW-XXXX-XXX",
+    "messagePlaceholder": "请描述您的需求",
+    "selectPlaceholder": "请选择…",
+    "sending": "发送中…",
+    "send": "发送消息",
+    "quickLinks": "快捷入口",
+    "linkFaq": "常见问题 →",
+    "linkShipping": "配送说明 →",
+    "linkReturns": "退换货 →",
+    "linkAppointment": "预约到店 →",
+    "inquiryTypes": {
+      "general": "一般咨询",
+      "purchase": "购买相关",
+      "sell": "出售腕表",
+      "orderStatus": "订单状态",
+      "returns": "退货与退款",
+      "authentication": "鉴定",
+      "partnership": "商务合作"
+    }
   }
 }
