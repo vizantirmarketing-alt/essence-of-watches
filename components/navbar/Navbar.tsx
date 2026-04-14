@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, usePathname } from '@/i18n/navigation';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSession } from 'next-auth/react';
@@ -20,6 +20,7 @@ export default function Navbar() {
   const { isDayMode, toggleTheme } = useTheme();
   const { data: session } = useSession();
   const pathname = usePathname();
+  const router = useRouter();
   const isHomepage = pathname === '/' || pathname === '';
 
   const navLinks = [
@@ -462,8 +463,9 @@ export default function Navbar() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    // Handle search - redirect to shop with query
-                    window.location.href = `/shop?q=${encodeURIComponent(searchQuery)}`;
+                    const q = encodeURIComponent(searchQuery);
+                    router.push(`/shop?q=${q}`);
+                    setSearchOpen(false);
                   }}
                   className="relative"
                 >
