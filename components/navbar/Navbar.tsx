@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSession } from 'next-auth/react';
@@ -21,7 +20,7 @@ export default function Navbar() {
   const { isDayMode, toggleTheme } = useTheme();
   const { data: session } = useSession();
   const pathname = usePathname();
-  const isHomepage = /^\/(en|ja|de|ko|zh)\/?$/.test(pathname);
+  const isHomepage = pathname === '/' || pathname === '';
 
   const navLinks = [
     { href: '/shop', label: t('nav.shop') },
