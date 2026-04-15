@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@portabletext/react": "^5.0.0",
     "@prisma/client": "^7.0.1",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.20.3",

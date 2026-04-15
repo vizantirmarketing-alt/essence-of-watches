@@ -5,29 +5,17 @@ import { useTranslations } from 'next-intl';
 import FilterBar from '@/components/shop-page/FilterBar';
 import ProductGrid from '@/components/shop-page/ProductGrid';
 import { Watch, normalizeWatchStatus } from '@/data/watches';
-
-interface SanityWatch {
-  _id?: string;
-  id?: string;
-  slug: string | { current: string };
-  brand: string;
-  model: string;
-  reference: string;
-  year: number;
-  price: number;
-  condition: string;
-  status?: string;
-  caseSize: string;
-  caseMaterial: string;
-  dialColor: string;
-  movement: string;
-  image?: string;
-  images?: string[];
-  featured?: boolean;
-}
+import type { SanityListingWatch } from '@/types/sanityListingWatch';
 
 interface ShopPageClientProps {
-  watches: SanityWatch[];
+  watches: SanityListingWatch[];
+}
+
+function brandAndModelFromName(name: string): { brand: string; model: string } {
+  const parts = name.trim().split(/\s+/);
+  const brand = parts[0] || 'Rolex';
+  const model = parts.slice(1).join(' ') || name;
+  return { brand, model };
 }
 
 function mapSanityCondition(raw: string | undefined): Watch['condition'] {
@@ -50,27 +38,38 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
 
   // Transform Sanity data to match expected format
   const transformedWatches = useMemo((): Watch[] => {
-    return watches.map((watch) => ({
-      id: watch._id || watch.id || '',
-      slug: typeof watch.slug === 'object' ? watch.slug.current : watch.slug,
-      brand: watch.brand,
-      model: watch.model,
-      reference: watch.reference,
-      year: watch.year,
-      price: watch.price,
-      condition: mapSanityCondition(watch.condition),
-      caseSize: watch.caseSize,
-      caseMaterial: watch.caseMaterial,
-      dialColor: watch.dialColor,
-      movement: watch.movement,
-      image: watch.image || watch.images?.[0] || '',
-      images: watch.images || (watch.image ? [watch.image] : []),
-      featured: watch.featured || false,
-      newArrival: false, // Can be added to Sanity schema if needed
-      boxPapers: 'Full Set' as const, // Default value, can be added to Sanity if needed
-      originalMSRP: undefined,
-      status: normalizeWatchStatus(watch.status),
-    }));
+    return watches.map((watch) => {
+      const { brand, model } = brandAndModelFromName(watch.name);
+      const boxPapers: Watch['boxPapers'] =
+        watch.box && watch.papers
+          ? 'Full Set'
+          : watch.box
+            ? 'Box Only'
+            : watch.papers
+              ? 'Papers Only'
+              : 'Watch Only';
+      return {
+        id: watch._id,
+        slug: watch.slug,
+        brand,
+        model,
+        reference: watch.reference,
+        year: watch.year,
+        price: watch.price,
+        condition: mapSanityCondition(watch.condition),
+        caseSize: watch.caseDiameter || '',
+        caseMaterial: watch.material || '',
+        dialColor: watch.dialColor || '',
+        movement: 'Automatic',
+        image: watch.image || watch.images?.[0] || '',
+        images: watch.images?.length ? watch.images : watch.image ? [watch.image] : [],
+        featured: watch.featured || false,
+        newArrival: false,
+        boxPapers,
+        originalMSRP: undefined,
+        status: normalizeWatchStatus(watch.status),
+      };
+    });
   }, [watches]);
 
   const filteredWatches = useMemo(() => {

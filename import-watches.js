@@ -2,12 +2,44 @@ const { createClient } = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
 
-// Sanity client config - UPDATE THESE VALUES
+/** Load `.env.local` into `process.env` (no extra dependency). */
+function loadEnvLocal() {
+  const envPath = path.join(__dirname, '.env.local');
+  if (!fs.existsSync(envPath)) return;
+  const content = fs.readFileSync(envPath, 'utf8');
+  for (const line of content.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    let val = trimmed.slice(eq + 1).trim();
+    if (
+      (val.startsWith('"') && val.endsWith('"')) ||
+      (val.startsWith("'") && val.endsWith("'"))
+    ) {
+      val = val.slice(1, -1);
+    }
+    if (key) process.env[key] = val;
+  }
+}
+
+loadEnvLocal();
+
+const sanityWriteToken = process.env.SANITY_WRITE_TOKEN;
+if (!sanityWriteToken) {
+  console.error(
+    'Missing SANITY_WRITE_TOKEN. Add it to .env.local (see README) or export it before running this script.'
+  );
+  process.exit(1);
+}
+
+// Sanity client config — project/dataset should match sanity.config.ts
 const client = createClient({
-  projectId: "3y81qruq", // Get from sanity.config.ts
+  projectId: '3y81qruq',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  token: 'sk5OrmxHc8xBw7UQw6kinQKgM5VJ6azhPFCSlGjokjEexqg3xuerDk6xNvjQXhCKoGxI7Ide5uAmghhtRQ4KO8M66GFQvlMQZUeMH1hLEAbPAJjhustRolHc4UNcxYfu4N0nj6MTrPZFK31K4k88nWr6tqznECJ5sYaFUF7nVwMD32zk8qMJ', // Get from sanity.io/manage -> API -> Tokens
+  token: sanityWriteToken,
   useCdn: false,
 });
 

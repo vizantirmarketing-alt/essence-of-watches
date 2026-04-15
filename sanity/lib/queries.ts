@@ -9,7 +9,7 @@ export const seoQuery = groq`
       metaDescription,
       canonicalUrl,
       noIndex,
-      "ogImage": ogImage.asset->url
+      ogImage
     }
   }
 `;
@@ -33,8 +33,8 @@ const watchListingProjection = `
   papers,
   description,
   featured,
-  "image": images[0].asset->url,
-  "images": images[].asset->url
+  "image": images[0],
+  "images": images[]
 `;
 
 export const allWatchesQuery = groq`
@@ -71,7 +71,7 @@ export const singleWatchQuery = groq`
     papers,
     description,
     featured,
-    "images": images[].asset->url
+    "images": images[]
   }
 `;
 
@@ -82,7 +82,7 @@ export const featuredWatchesQuery = groq`
     "slug": slug.current,
     reference,
     price,
-    "image": images[0].asset->url
+    "image": images[0]
   }
 `;
 

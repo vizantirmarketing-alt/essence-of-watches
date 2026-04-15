@@ -71,66 +71,18 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll Indicator - Watch Crown Inspired */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
         <div className="flex flex-col items-center gap-3">
           <span className="text-white text-[9px] tracking-[0.3em] uppercase">{t('scrollHint')}</span>
-          <div className="size-8" aria-hidden>
-            <style>
-              {`
-                @keyframes minuteHand {
-                  from { transform: rotate(0deg); }
-                  to { transform: rotate(360deg); }
-                }
-                @keyframes hourHand {
-                  from { transform: rotate(0deg); }
-                  to { transform: rotate(360deg); }
-                }
-              `}
-            </style>
-            <svg
-              className="block size-8"
-              width={32}
-              height={32}
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="16" cy="16" r="14" stroke="white" fill="none" strokeWidth="1" />
-              <g
-                style={{
-                  transformOrigin: '16px 16px',
-                  animation: 'hourHand 3600s linear infinite',
-                }}
-              >
-                <line
-                  x1="16"
-                  y1="16"
-                  x2="16"
-                  y2="9"
-                  stroke="white"
-                  strokeWidth="1.35"
-                  strokeLinecap="round"
-                />
-              </g>
-              <g
-                style={{
-                  transformOrigin: '16px 16px',
-                  animation: 'minuteHand 60s linear infinite',
-                }}
-              >
-                <line
-                  x1="16"
-                  y1="16"
-                  x2="16"
-                  y2="5"
-                  stroke="white"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                />
-              </g>
-              <circle cx="16" cy="16" r="1.5" fill="white" />
-            </svg>
+          <div className="relative w-8 h-8">
+            {/* Outer ring like watch bezel */}
+            <div className="absolute inset-0 rounded-full border border-white/20" />
+            {/* Inner dot that pulses like lume */}
+            <div className="absolute inset-2 rounded-full bg-white/40 animate-ping" />
+            <div className="absolute inset-2 rounded-full bg-white/60" />
+            {/* Animated hand */}
+            <div className="absolute top-1/2 left-1/2 w-[1px] h-3 bg-white/60 origin-bottom -translate-x-1/2 -translate-y-full animate-[spin_3s_linear_infinite]" />
           </div>
         </div>
       </div>
