@@ -39,6 +39,14 @@ yarn-error.log*
 # vercel
 .vercel
 
+# sanity local dev / generated
+.sanity/
+
+# cursor / local AI IDE
+.cursor/
+.cursorrules
+.cursor-*
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

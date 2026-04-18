@@ -26,6 +26,14 @@ function loadEnvLocal() {
 
 loadEnvLocal();
 
+const sanityProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+if (!sanityProjectId) {
+  console.error(
+    'Missing NEXT_PUBLIC_SANITY_PROJECT_ID. Add it to .env.local (see README) or export it before running this script.'
+  );
+  process.exit(1);
+}
+
 const sanityWriteToken = process.env.SANITY_WRITE_TOKEN;
 if (!sanityWriteToken) {
   console.error(
@@ -36,7 +44,7 @@ if (!sanityWriteToken) {
 
 // Sanity client config — project/dataset should match sanity.config.ts
 const client = createClient({
-  projectId: '3y81qruq',
+  projectId: sanityProjectId,
   dataset: 'production',
   apiVersion: '2024-01-01',
   token: sanityWriteToken,

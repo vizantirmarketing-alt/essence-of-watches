@@ -11,7 +11,7 @@ import {structureTool} from 'sanity/structure'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 const apiVersion = '2024-01-01'
 const dataset = 'production'
-const projectId = '3y81qruq'
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!
 import {schemaTypes} from './sanity/schemaTypes'
 import {structure} from './sanity/structure'
 
