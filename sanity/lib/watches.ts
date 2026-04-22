@@ -76,7 +76,7 @@ export async function getFeaturedWatches(): Promise<FeaturedWatchCard[]> {
     slug: String(row.slug ?? ''),
     reference: String(row.reference ?? ''),
     price: Number(row.price ?? 0),
-    image: sanityImageToUrl(row.image) ?? '/menu-watch.jpg',
+    image: sanityImageToUrl(row.image, { width: 600 }) ?? '/menu-watch.jpg',
   }));
 }
 

@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@prisma/client": "^7.0.1",
     "@sanity/image-url": "^1.2.0",

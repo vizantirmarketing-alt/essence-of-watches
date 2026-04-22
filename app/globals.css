@@ -1,6 +1,3 @@
-/* Google Fonts - Import at the top */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
-
 @import "tailwindcss";
 
 /* Smooth theme transitions */
@@ -111,7 +108,7 @@ body {
 }
 
 h1, h2, h3, .font-serif {
-  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
 }
 
