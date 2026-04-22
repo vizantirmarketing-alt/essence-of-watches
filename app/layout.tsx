@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, DM_Sans } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 
 const inter = Inter({
@@ -58,7 +57,6 @@ export default function RootLayout({
       >
         <GoogleAnalytics />
         <Providers>{children}</Providers>
-        <SanityLive />
       </body>
     </html>
   );
