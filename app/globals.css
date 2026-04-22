@@ -67,7 +67,7 @@ html.no-transitions *::after {
   
   --text-primary: #050506;
   --text-secondary: #4A4A4A;
-  --text-muted: #8A8A8A;
+  --text-muted: #6B6B6B;
   
   --border: rgba(0, 0, 0, 0.08);
   --border-light: rgba(0, 0, 0, 0.05);

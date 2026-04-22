@@ -34,7 +34,10 @@
       "ariaSubmit": "Suche starten"
     },
     "accountAlt": "Konto",
-    "featuredImageAlt": "Ausgewähltes Zeitstück"
+    "featuredImageAlt": "Ausgewähltes Zeitstück",
+    "wishlistLabel": "Wishlist",
+    "cartLabel": "Cart",
+    "accountLabel": "Account"
   },
   "LanguageSwitcher": {
     "ariaLabel": "Sprache"

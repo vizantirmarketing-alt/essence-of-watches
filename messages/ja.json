@@ -34,7 +34,10 @@
       "ariaSubmit": "検索を実行"
     },
     "accountAlt": "マイアカウント",
-    "featuredImageAlt": "厳選タイムピース"
+    "featuredImageAlt": "厳選タイムピース",
+    "wishlistLabel": "Wishlist",
+    "cartLabel": "Cart",
+    "accountLabel": "Account"
   },
   "LanguageSwitcher": {
     "ariaLabel": "表示言語"

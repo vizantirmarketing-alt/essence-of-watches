@@ -238,6 +238,7 @@ export default function Navbar() {
 
               <Link
                 href="/wishlist"
+                aria-label={t('wishlistLabel')}
                 className={`hidden sm:block ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
               >
                 <svg
@@ -254,6 +255,7 @@ export default function Navbar() {
 
               <Link
                 href="/cart"
+                aria-label={t('cartLabel')}
                 className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
               >
                 <svg
@@ -272,6 +274,7 @@ export default function Navbar() {
 
               <Link
                 href={session ? '/account' : '/login'}
+                aria-label={t('accountLabel')}
                 className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1 rounded-full ${session?.user?.image ? 'hover:ring-2 hover:ring-[var(--accent)]' : ''}`}
               >
                 {session?.user?.image ? (

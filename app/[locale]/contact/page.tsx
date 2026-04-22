@@ -232,6 +232,7 @@ export default function ContactPage() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Instagram"
                   className="w-10 h-10 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -244,6 +245,7 @@ export default function ContactPage() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Facebook"
                   className="w-10 h-10 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -254,6 +256,7 @@ export default function ContactPage() {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="YouTube"
                   className="w-10 h-10 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

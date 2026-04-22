@@ -34,7 +34,10 @@
       "ariaSubmit": "Submit search"
     },
     "accountAlt": "Account",
-    "featuredImageAlt": "Featured Timepiece"
+    "featuredImageAlt": "Featured Timepiece",
+    "wishlistLabel": "Wishlist",
+    "cartLabel": "Cart",
+    "accountLabel": "Account"
   },
   "LanguageSwitcher": {
     "ariaLabel": "Language"

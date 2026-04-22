@@ -34,7 +34,10 @@
       "ariaSubmit": "提交搜索"
     },
     "accountAlt": "账户",
-    "featuredImageAlt": "精选时计"
+    "featuredImageAlt": "精选时计",
+    "wishlistLabel": "Wishlist",
+    "cartLabel": "Cart",
+    "accountLabel": "Account"
   },
   "LanguageSwitcher": {
     "ariaLabel": "语言"

@@ -288,6 +288,7 @@ export default function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
               className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
             >
               <svg
@@ -307,6 +308,7 @@ export default function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Facebook"
               className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
             >
               <svg
@@ -324,6 +326,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="X (Twitter)"
               className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
             >
               <svg
@@ -341,6 +344,7 @@ export default function Footer() {
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="YouTube"
               className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
             >
               <svg
