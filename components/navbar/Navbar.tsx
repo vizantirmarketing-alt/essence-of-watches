@@ -410,7 +410,7 @@ export default function Navbar() {
                   className="hidden lg:block relative aspect-[4/5] rounded-lg overflow-hidden"
                 >
                   <Image
-                    src="/menu-watch.jpg"
+                    src="/optimized/menu-watch-1280.avif"
                     alt={t('featuredImageAlt')}
                     fill
                     className="object-cover"

@@ -134,7 +134,7 @@ export default function AppointmentPage() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0">
               <Image
-                src="/daytona-consulting.jpg"
+                src="/optimized/daytona-consulting-1920.avif"
                 alt=""
                 fill
                 className="object-cover object-center opacity-20"
