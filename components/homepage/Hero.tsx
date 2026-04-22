@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
@@ -8,10 +9,16 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full bg-black overflow-hidden">
-      {/* Full-bleed Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-[position:65%_center] bg-no-repeat"
-        style={{ backgroundImage: "url('/eow-sub-hero.jpg')" }}
+      {/* Full-bleed Background Image - optimized with next/image */}
+      <Image
+        src="/optimized/eow-sub-hero-1920.avif"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        quality={70}
+        className="object-cover object-[65%_center]"
       />
 
       {/* Darken hero on small viewports only — keeps text legible when the crop reads lighter */}
