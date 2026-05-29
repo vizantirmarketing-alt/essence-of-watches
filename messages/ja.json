@@ -54,6 +54,7 @@
     },
     "services": {
       "title": "サービス",
+      "shopAllWatches": "全モデルを見る",
       "sellYourWatch": "時計を売る",
       "sourceWatch": "ご希望モデルを探す",
       "authenticityGuarantee": "真贋保証",
@@ -63,6 +64,7 @@
       "title": "サポート",
       "contactUs": "お問い合わせ",
       "faq": "よくあるご質問",
+      "referenceGuide": "リファレンスガイド",
       "shippingDelivery": "配送について",
       "returnsRefunds": "返品・返金",
       "trackOrder": "配送状況",

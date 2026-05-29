@@ -54,6 +54,7 @@
     },
     "services": {
       "title": "服务",
+      "shopAllWatches": "浏览全部表款",
       "sellYourWatch": "出售腕表",
       "sourceWatch": "寻表服务",
       "authenticityGuarantee": "真伪保障",
@@ -63,6 +64,7 @@
       "title": "客户支持",
       "contactUs": "联系我们",
       "faq": "常见问题",
+      "referenceGuide": "型号指南",
       "shippingDelivery": "配送与交付",
       "returnsRefunds": "退货与退款",
       "trackOrder": "订单追踪",

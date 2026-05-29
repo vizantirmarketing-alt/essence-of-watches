@@ -10,11 +10,11 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--bg-secondary)] border-t border-[var(--border)]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 mb-12">
-          {/* Shop */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-16 mb-12">
+          {/* Services */}
           <div>
             <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
-              {t('shop.title')}
+              {t('services.title')}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -22,58 +22,9 @@ export default function Footer() {
                   href="/shop"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
-                  {t('shop.allWatches')}
+                  {t('services.shopAllWatches')}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/shop?collection=Submariner"
-                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
-                >
-                  {t('shop.submariner')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop?collection=Daytona"
-                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
-                >
-                  {t('shop.daytona')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop?collection=GMT-Master"
-                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
-                >
-                  {t('shop.gmtMaster')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop?collection=Datejust"
-                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
-                >
-                  {t('shop.datejust')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/references"
-                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
-                >
-                  {t('shop.referenceGuide')}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
-              {t('services.title')}
-            </h4>
-            <ul className="space-y-3">
               <li>
                 <Link
                   href="/sell"
@@ -133,6 +84,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/references"
+                  className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
+                >
+                  {t('support.referenceGuide')}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/shipping"
                   className="text-[var(--text-muted)] text-sm hover:text-[var(--text-primary)] transition"
                 >
@@ -167,7 +126,7 @@ export default function Footer() {
           </div>
 
           {/* Company */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h4 className="text-[var(--text-primary)] text-[11px] tracking-[0.2em] uppercase font-medium mb-4">
               {t('company.title')}
             </h4>

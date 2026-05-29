@@ -54,6 +54,7 @@
     },
     "services": {
       "title": "서비스",
+      "shopAllWatches": "전체 시계 보기",
       "sellYourWatch": "시계 판매",
       "sourceWatch": "시계 소싱",
       "authenticityGuarantee": "정품 보증",
@@ -63,6 +64,7 @@
       "title": "고객 지원",
       "contactUs": "문의하기",
       "faq": "자주 묻는 질문",
+      "referenceGuide": "레퍼런스 가이드",
       "shippingDelivery": "배송 안내",
       "returnsRefunds": "반품·환불",
       "trackOrder": "배송 조회",

@@ -54,6 +54,7 @@
     },
     "services": {
       "title": "Services",
+      "shopAllWatches": "Alle Uhren shoppen",
       "sellYourWatch": "Uhr verkaufen",
       "sourceWatch": "Uhr beschaffen",
       "authenticityGuarantee": "Echtheitsgarantie",
@@ -63,6 +64,7 @@
       "title": "Support",
       "contactUs": "Kontakt",
       "faq": "FAQ",
+      "referenceGuide": "Referenzführer",
       "shippingDelivery": "Versand & Lieferung",
       "returnsRefunds": "Rückgabe & Erstattung",
       "trackOrder": "Sendung verfolgen",
