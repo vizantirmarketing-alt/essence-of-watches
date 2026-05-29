@@ -126,7 +126,7 @@ export default function AppointmentPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-28">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
           {/* Left - Atmospheric Section */}

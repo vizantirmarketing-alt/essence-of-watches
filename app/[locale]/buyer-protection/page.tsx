@@ -8,7 +8,7 @@ export default function BuyerProtectionPage() {
   const t = useTranslations('BuyerProtection');
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16 sm:pb-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16 sm:pb-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

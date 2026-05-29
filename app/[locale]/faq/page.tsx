@@ -283,7 +283,7 @@ export default function FAQPage() {
   const activeFAQ = faqCategories.find((cat) => cat.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16 sm:pb-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16 sm:pb-24">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header */}
@@ -312,7 +312,7 @@ export default function FAQPage() {
             transition={{ delay: 0.1 }}
             className="lg:col-span-1"
           >
-            <div className="sticky top-32 space-y-1">
+            <div className="sticky top-24 space-y-1">
               {faqCategories.map((cat) => (
                 <button
                   key={cat.category}

@@ -24,7 +24,7 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16">
       <div className="max-w-md mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

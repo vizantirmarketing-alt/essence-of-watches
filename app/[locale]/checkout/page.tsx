@@ -103,7 +103,7 @@ export default function CheckoutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-28 pb-16">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         
         {/* Logo */}
@@ -658,7 +658,7 @@ export default function CheckoutPage() {
 
           {/* Right - Order Summary */}
           <div className="lg:border-l lg:border-[var(--border)] lg:pl-16">
-            <div className="sticky top-28">
+            <div className="sticky top-24">
               <h2 className="font-serif text-xl text-[var(--text-primary)] mb-6">
                 Order Summary
               </h2>

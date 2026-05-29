@@ -13,7 +13,7 @@ export default function FinancingPage() {
   const months12 = ((price * 1.15) / 12).toFixed(2); // ~15% APR estimate
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
       {/* Hero */}
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pb-16 sm:pb-24">
         <div className="text-center max-w-3xl mx-auto">

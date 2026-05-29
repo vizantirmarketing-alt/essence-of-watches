@@ -82,7 +82,7 @@ export default function SourcePage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left - Form */}
@@ -223,7 +223,7 @@ export default function SourcePage() {
 
           {/* Right - Benefits */}
           <div className="lg:pt-32">
-            <div className="lg:sticky lg:top-32 space-y-6">
+            <div className="lg:sticky lg:top-24 space-y-6">
               {/* Benefit Cards */}
               <div className="bg-[var(--card-bg)] border border-[var(--card-border)] p-6 rounded-lg">
                 <div className="flex items-start gap-4">

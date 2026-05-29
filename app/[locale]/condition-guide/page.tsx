@@ -25,7 +25,7 @@ export default function ConditionGuidePage() {
   return (
     <main className="min-h-screen bg-[var(--bg-primary)]">
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-secondary)] to-transparent opacity-50" />
 
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">

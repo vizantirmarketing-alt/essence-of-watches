@@ -44,7 +44,7 @@ export default function CartPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16 sm:pb-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16 sm:pb-24">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header */}
@@ -208,7 +208,7 @@ export default function CartPage() {
               transition={{ delay: 0.2 }}
               className="lg:col-span-1"
             >
-              <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sticky top-32">
+              <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sticky top-24">
                 <h2 className="font-serif text-xl text-[var(--text-primary)] mb-6">
                   Order Summary
                 </h2>

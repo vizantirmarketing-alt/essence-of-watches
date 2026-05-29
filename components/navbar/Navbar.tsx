@@ -70,7 +70,7 @@ export default function Navbar() {
       {!isHomepage && (
         <div className="hidden sm:block bg-[var(--accent-steel)] text-white fixed top-0 left-0 right-0 z-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="flex items-center justify-between h-9 text-xs">
+            <div className="flex items-center justify-between h-8 text-xs">
             {/* Left - Contact */}
             <div className="flex items-center gap-6">
               <a
@@ -169,7 +169,7 @@ export default function Navbar() {
       {/* Main Navbar */}
       <nav
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          isHomepage ? 'top-0' : 'top-0 sm:top-9'
+          isHomepage ? 'top-0' : 'top-0 sm:top-8'
         } ${
           isScrolled
             ? 'bg-black/30 backdrop-blur-md border-b border-white/5'
@@ -179,7 +179,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Left - Menu Button */}
             <div className="w-12 sm:w-auto">
               <button

@@ -130,7 +130,7 @@ export default function ProductPageClient({ watch, relatedWatches }: ProductPage
   }, [certificateModalOpen]);
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12">
         {/* Breadcrumb */}
         <nav className="mb-6 sm:mb-8">

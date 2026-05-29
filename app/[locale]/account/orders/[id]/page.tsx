@@ -129,7 +129,7 @@ export default function OrderDetailPage() {
 
   if (!order) {
     return (
-      <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16">
+      <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h1 className="font-serif text-3xl text-[var(--text-primary)] mb-4">Order Not Found</h1>
           <p className="text-[var(--text-muted)] mb-8">We couldn't find an order with that ID.</p>
@@ -145,7 +145,7 @@ export default function OrderDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16 sm:pb-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16 sm:pb-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Back Link */}

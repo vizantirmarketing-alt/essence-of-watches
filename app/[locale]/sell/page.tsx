@@ -114,7 +114,7 @@ export default function SellPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-16">
         {/* Hero Section */}
         <div className="max-w-3xl mb-12 sm:mb-16">
@@ -477,7 +477,7 @@ export default function SellPage() {
 
           {/* What Happens Next - Sidebar */}
           <div className="lg:col-span-2">
-            <div className="lg:sticky lg:top-32">
+            <div className="lg:sticky lg:top-24">
               <h2 className="font-serif text-2xl text-[var(--text-primary)] mb-8">{t('whatNextTitle')}</h2>
 
               <div className="space-y-6">

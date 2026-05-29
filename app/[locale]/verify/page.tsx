@@ -50,7 +50,7 @@ export default function VerifyPage() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
+      <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
           <div className="w-16 h-16 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center">
             <svg
@@ -88,7 +88,7 @@ export default function VerifyPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-16">
         {/* Header */}
         <div className="text-center mb-12">
