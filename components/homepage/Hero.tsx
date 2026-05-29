@@ -8,7 +8,7 @@ export default function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative min-h-[100svh] h-screen mobile-landscape:h-auto w-full bg-black overflow-hidden">
+    <section className="relative min-h-[100svh] w-full bg-black overflow-hidden mobile-landscape:min-h-0 mobile-landscape:h-auto">
       {/* Full-bleed Background Image - optimized with next/image */}
       <Image
         src="/optimized/eow-sub-hero-1920.avif"
@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center mobile-landscape:items-start mobile-landscape:pt-14 mobile-landscape:pb-6">
+      <div className="relative z-10 min-h-[100svh] flex items-center mobile-landscape:min-h-0 mobile-landscape:items-start mobile-landscape:pt-20 mobile-landscape:pb-8">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16 mobile-landscape:px-6">
           <div className="max-w-xl">
             {/* Eyebrow */}
