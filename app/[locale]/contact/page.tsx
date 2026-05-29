@@ -101,7 +101,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-24 sm:pt-32 lg:pt-40 mobile-landscape:pt-20">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
           {/* Left - Contact Info */}

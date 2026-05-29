@@ -103,7 +103,7 @@ export default function CheckoutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-24 sm:pt-32 lg:pt-40 mobile-landscape:pt-20 pb-16">
       <h1 className="sr-only">Checkout</h1>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16 sm:pb-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-24 sm:pt-32 lg:pt-40 mobile-landscape:pt-20 pb-16 sm:pb-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header */}

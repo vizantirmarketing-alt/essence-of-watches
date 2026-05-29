@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="min-h-screen bg-[var(--bg-primary)]">
       <article>
-        <header className="relative pt-16 sm:pt-24 pb-12 sm:pb-16 overflow-hidden">
+        <header className="relative pt-24 sm:pt-32 lg:pt-40 mobile-landscape:pt-20 pb-12 sm:pb-16 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-secondary)] to-transparent opacity-60 pointer-events-none" />
           <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
             <Link

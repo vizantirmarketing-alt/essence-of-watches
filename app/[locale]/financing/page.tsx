@@ -15,7 +15,7 @@ export default function FinancingPage() {
   return (
     <main className="min-h-screen bg-[var(--bg-primary)]">
       {/* Hero */}
-      <section className="pt-16 sm:pt-24 pb-16 sm:pb-24 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+      <section className="pt-24 sm:pt-32 lg:pt-40 mobile-landscape:pt-20 pb-16 sm:pb-24 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 10 }}

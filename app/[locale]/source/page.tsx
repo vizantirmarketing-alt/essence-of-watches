@@ -82,7 +82,7 @@ export default function SourcePage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)] pt-24 sm:pt-32 lg:pt-40 mobile-landscape:pt-20">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left - Form */}
