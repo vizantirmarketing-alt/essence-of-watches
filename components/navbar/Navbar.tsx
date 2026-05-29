@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { useTheme } from '@/contexts/ThemeContext';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import CurrencySelector from '@/components/ui/CurrencySelector';
@@ -17,7 +16,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const { isDayMode, toggleTheme } = useTheme();
   const { data: session } = useSession();
   const pathname = usePathname();
   const router = useRouter();
@@ -174,10 +172,10 @@ export default function Navbar() {
           isHomepage ? 'top-0' : 'top-0 sm:top-9'
         } ${
           isScrolled
-            ? 'bg-black/30 dark:bg-black/40 backdrop-blur-md border-b border-white/5'
+            ? 'bg-black/30 backdrop-blur-md border-b border-white/5'
             : isHomepage 
               ? 'bg-transparent' 
-              : 'bg-[var(--bg-primary)] dark:bg-[#0a0a0a] border-b border-[var(--border)]'
+              : 'bg-[var(--bg-primary)] border-b border-[var(--border)]'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -292,43 +290,6 @@ export default function Navbar() {
                   </svg>
                 )}
               </Link>
-
-              <button
-                onClick={toggleTheme}
-                className={`${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'} hover:text-[var(--accent)] transition p-1`}
-              >
-                {isDayMode ? (
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                  </svg>
-                ) : (
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <circle cx="12" cy="12" r="5" />
-                    <line x1="12" y1="1" x2="12" y2="3" />
-                    <line x1="12" y1="21" x2="12" y2="23" />
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                    <line x1="1" y1="12" x2="3" y2="12" />
-                    <line x1="21" y1="12" x2="23" y2="12" />
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                  </svg>
-                )}
-              </button>
             </div>
           </div>
         </div>
@@ -342,7 +303,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-[var(--bg-primary)] dark:bg-[#0a0a0a]"
+            className="fixed inset-0 z-50 bg-[var(--bg-primary)]"
           >
             {/* Close Button */}
             <button
@@ -433,7 +394,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-[var(--bg-primary)] dark:bg-[#0a0a0a]"
+            className="fixed inset-0 z-50 bg-[var(--bg-primary)]"
           >
             {/* Close Button */}
             <button
@@ -478,7 +439,7 @@ export default function Navbar() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={t('search.placeholder')}
                     autoFocus
-                    className="w-full pl-4 sm:pl-6 pr-14 sm:pr-12 py-4 sm:py-6 bg-transparent dark:bg-[#0f0f0f] border-b-2 border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-xl sm:text-2xl md:text-3xl placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors"
+                    className="w-full pl-4 sm:pl-6 pr-14 sm:pr-12 py-4 sm:py-6 bg-transparent border-b-2 border-[var(--border)] text-[var(--text-primary)] text-xl sm:text-2xl md:text-3xl placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] transition-colors"
                   />
                   <button
                     type="submit"

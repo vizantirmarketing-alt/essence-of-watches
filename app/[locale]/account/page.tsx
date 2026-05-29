@@ -52,10 +52,10 @@ const mockOrders = [
 ];
 
 const statusColors: Record<string, string> = {
-  'Processing': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-400 dark:border dark:border-yellow-500/30',
-  'Shipped': 'bg-blue-100 text-blue-800 dark:bg-blue-500/20 dark:text-blue-400 dark:border dark:border-blue-500/30',
-  'Delivered': 'bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-400 dark:border dark:border-green-500/30',
-  'Cancelled': 'bg-red-100 text-red-800 dark:bg-red-500/20 dark:text-red-400 dark:border dark:border-red-500/30',
+  'Processing': 'bg-yellow-100 text-yellow-800',
+  'Shipped': 'bg-blue-100 text-blue-800',
+  'Delivered': 'bg-green-100 text-green-800',
+  'Cancelled': 'bg-red-100 text-red-800',
 };
 
 export default function AccountPage() {
@@ -151,7 +151,7 @@ export default function AccountPage() {
             className="space-y-6"
           >
             {mockOrders.length === 0 ? (
-              <div className="text-center py-16 bg-[var(--bg-secondary)] border border-[var(--border)] dark:bg-white/5 dark:border-white/10">
+              <div className="text-center py-16 bg-[var(--bg-secondary)] border border-[var(--border)]">
                 <svg
                   className="w-12 h-12 mx-auto text-[var(--text-muted)] mb-4"
                   fill="none"
@@ -174,7 +174,7 @@ export default function AccountPage() {
               mockOrders.map((order) => (
                 <div
                   key={order.id}
-                  className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] overflow-hidden"
+                  className="bg-[var(--bg-secondary)] border border-[var(--border)] overflow-hidden"
                 >
                   {/* Order Header */}
                   <div className="p-4 sm:p-6 border-b border-[var(--border)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -225,7 +225,7 @@ export default function AccountPage() {
                   </div>
 
                   {/* Shipping Info */}
-                  <div className="p-4 sm:p-6 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border-t border-[var(--border)] dark:border-[#262626]">
+                  <div className="p-4 sm:p-6 bg-[var(--bg-primary)] border-t border-[var(--border)]">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
                         <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Shipping</span>
@@ -246,14 +246,14 @@ export default function AccountPage() {
                             href={`https://www.fedex.com/fedextrack/?trknbr=${order.shipping.tracking}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs tracking-[0.1em] uppercase border border-[var(--border)] dark:border-[#444] px-4 py-2 hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+                            className="text-xs tracking-[0.1em] uppercase border border-[var(--border)] px-4 py-2 hover:bg-[var(--bg-secondary)] transition"
                           >
                             Track Package
                           </a>
                         )}
                         <Link
                           href={`/account/orders/${order.id}`}
-                          className="text-xs tracking-[0.1em] uppercase bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-4 py-2 hover:opacity-90 transition"
+                          className="text-xs tracking-[0.1em] uppercase bg-[var(--text-primary)] text-[var(--bg-primary)] px-4 py-2 hover:opacity-90 transition"
                         >
                           View Details
                         </Link>
@@ -274,7 +274,7 @@ export default function AccountPage() {
             className="space-y-6"
           >
             {/* Profile */}
-            <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
               <h3 className="font-serif text-lg text-[var(--text-primary)] mb-4">Profile</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -284,7 +284,7 @@ export default function AccountPage() {
                   <input
                     type="text"
                     defaultValue={session.user?.name || ''}
-                    className="w-full px-4 py-3 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
+                    className="w-full px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-primary)] transition"
                   />
                 </div>
                 <div>
@@ -302,7 +302,7 @@ export default function AccountPage() {
             </div>
 
             {/* Addresses */}
-            <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-serif text-lg text-[var(--text-primary)]">Saved Addresses</h3>
                 <button className="text-xs tracking-[0.1em] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition">
@@ -315,7 +315,7 @@ export default function AccountPage() {
             </div>
 
             {/* Preferences */}
-            <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
               <h3 className="font-serif text-lg text-[var(--text-primary)] mb-4">Preferences</h3>
               <div className="space-y-4">
                 <label className="flex items-center gap-3 cursor-pointer">
@@ -330,9 +330,9 @@ export default function AccountPage() {
             </div>
 
             {/* Danger Zone */}
-            <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800/30 p-6">
-              <h3 className="font-serif text-lg text-red-800 dark:text-red-400 mb-2">Delete Account</h3>
-              <p className="text-sm text-red-700 dark:text-red-300 mb-4">
+            <div className="bg-red-50 border border-red-200 p-6">
+              <h3 className="font-serif text-lg text-red-800 mb-2">Delete Account</h3>
+              <p className="text-sm text-red-700 mb-4">
                 Permanently delete your account and all associated data. This action cannot be undone.
               </p>
               <button className="text-xs tracking-[0.1em] uppercase border border-red-500 text-red-600 px-4 py-2 hover:bg-red-500 hover:text-white transition">

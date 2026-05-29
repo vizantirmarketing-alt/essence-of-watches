@@ -26,7 +26,7 @@ export default function WarrantyPage() {
           transition={{ delay: 0.1 }}
           className="space-y-10 text-[var(--text-secondary)] leading-relaxed"
         >
-          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] border border-[var(--border)]">
             <p>{t('intro')}</p>
           </section>
 
@@ -36,7 +36,7 @@ export default function WarrantyPage() {
           </section>
 
           <section className="grid sm:grid-cols-1 gap-6">
-            <div className="p-6 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800/30 rounded-sm">
+            <div className="p-6 bg-red-50 border border-red-200 rounded-sm">
               <h2 className="font-serif text-lg text-[var(--text-primary)] mb-4 flex items-center gap-2">
                 <svg
                   className="w-5 h-5 text-red-500 flex-shrink-0"
@@ -60,7 +60,7 @@ export default function WarrantyPage() {
             </div>
           </section>
 
-          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] border border-[var(--border)]">
             <h2 className="font-serif text-xl text-[var(--text-primary)] mb-4">{t('turnaroundTitle')}</h2>
             <p>{t('turnaroundBody')}</p>
           </section>
@@ -76,13 +76,13 @@ export default function WarrantyPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/returns"
-                className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
               >
                 {t('returnsLink')}
               </Link>
               <Link
                 href="/contact"
-                className="inline-block border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+                className="inline-block border border-[var(--border)] text-[var(--text-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition"
               >
                 {t('contactLink')}
               </Link>

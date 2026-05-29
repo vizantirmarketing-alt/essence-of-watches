@@ -76,7 +76,7 @@ export default function PriceContext({
           ) : null}
 
           {fairLabel === 'below' ? (
-            <p className="text-[10px] tracking-[0.12em] uppercase font-medium text-green-600 dark:text-green-400">
+            <p className="text-[10px] tracking-[0.12em] uppercase font-medium text-green-600">
               {t('belowMarket')}
             </p>
           ) : fairLabel === 'fair' ? (

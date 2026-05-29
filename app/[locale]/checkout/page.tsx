@@ -4,14 +4,12 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
-import { useTheme } from '@/contexts/ThemeContext';
 import { trackBeginCheckout } from '@/lib/analytics';
 
 type CheckoutStep = 'information' | 'shipping' | 'payment';
 
 export default function CheckoutPage() {
   const { items, total: cartTotal } = useCart();
-  const { theme } = useTheme();
   const [currentStep, setCurrentStep] = useState<CheckoutStep>('information');
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'wire' | 'affirm'>('card');
@@ -94,7 +92,7 @@ export default function CheckoutPage() {
   };
 
   const inputClasses =
-    'w-full px-4 py-3 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition text-sm';
+    'w-full px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] transition text-sm';
 
   const labelClasses = 'block text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] mb-2';
 
@@ -317,7 +315,7 @@ export default function CheckoutPage() {
                       name="saveInfo"
                       checked={formData.saveInfo}
                       onChange={handleChange}
-                      className="w-4 h-4 rounded border-[var(--border)] dark:border-[#333] accent-[var(--text-primary)]"
+                      className="w-4 h-4 rounded border-[var(--border)] accent-[var(--text-primary)]"
                     />
                     <label htmlFor="saveInfo" className="text-sm text-[var(--text-secondary)]">
                       Save this information for next time
@@ -327,7 +325,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={handleContinue}
-                    className="w-full bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                    className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
                   >
                     Continue to Shipping
                   </button>
@@ -347,7 +345,7 @@ export default function CheckoutPage() {
                     </h2>
                     
                     <div className="space-y-3">
-                      <label className="flex items-center justify-between p-4 border border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] cursor-pointer">
+                      <label className="flex items-center justify-between p-4 border border-[var(--text-primary)] bg-[var(--bg-secondary)] cursor-pointer">
                         <div className="flex items-center gap-3">
                           <input
                             type="radio"
@@ -364,7 +362,7 @@ export default function CheckoutPage() {
                         <span className="text-sm text-[var(--text-primary)]">Free</span>
                       </label>
                       
-                      <label className="flex items-center justify-between p-4 border border-[var(--border)] dark:border-[#333] hover:border-[var(--text-primary)] dark:hover:border-[#555] cursor-pointer transition">
+                      <label className="flex items-center justify-between p-4 border border-[var(--border)] hover:border-[var(--text-primary)] cursor-pointer transition">
                         <div className="flex items-center gap-3">
                           <input
                             type="radio"
@@ -380,7 +378,7 @@ export default function CheckoutPage() {
                         <span className="text-sm text-[var(--text-primary)]">Free</span>
                       </label>
                       
-                      <label className="flex items-center justify-between p-4 border border-[var(--border)] dark:border-[#333] hover:border-[var(--text-primary)] dark:hover:border-[#555] cursor-pointer transition">
+                      <label className="flex items-center justify-between p-4 border border-[var(--border)] hover:border-[var(--text-primary)] cursor-pointer transition">
                         <div className="flex items-center gap-3">
                           <input
                             type="radio"
@@ -398,7 +396,7 @@ export default function CheckoutPage() {
                     </div>
                   </div>
 
-                  <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-4">
+                  <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-4">
                     <div className="flex items-start gap-3">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-green-500 flex-shrink-0 mt-0.5">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -418,14 +416,14 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       onClick={handleBack}
-                      className="px-6 py-4 border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+                      className="px-6 py-4 border border-[var(--border)] text-[var(--text-primary)] text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition"
                     >
                       Back
                     </button>
                     <button
                       type="button"
                       onClick={handleContinue}
-                      className="flex-1 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                      className="flex-1 bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
                     >
                       Continue to Payment
                     </button>
@@ -452,8 +450,8 @@ export default function CheckoutPage() {
                         onClick={() => setPaymentMethod('card')}
                         className={`p-3 border text-xs tracking-[0.1em] uppercase transition ${
                           paymentMethod === 'card'
-                            ? 'border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)]'
-                            : 'border-[var(--border)] dark:border-[#333] text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)]'
+                            ? 'border-[var(--text-primary)] bg-[var(--bg-secondary)] text-[var(--text-primary)]'
+                            : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]'
                         }`}
                       >
                         Card
@@ -463,8 +461,8 @@ export default function CheckoutPage() {
                         onClick={() => setPaymentMethod('wire')}
                         className={`p-3 border text-xs tracking-[0.1em] uppercase transition ${
                           paymentMethod === 'wire'
-                            ? 'border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)]'
-                            : 'border-[var(--border)] dark:border-[#333] text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)]'
+                            ? 'border-[var(--text-primary)] bg-[var(--bg-secondary)] text-[var(--text-primary)]'
+                            : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]'
                         }`}
                       >
                         Wire
@@ -474,8 +472,8 @@ export default function CheckoutPage() {
                         onClick={() => setPaymentMethod('affirm')}
                         className={`p-3 border text-xs tracking-[0.1em] uppercase transition ${
                           paymentMethod === 'affirm'
-                            ? 'border-[var(--text-primary)] dark:border-white bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)]'
-                            : 'border-[var(--border)] dark:border-[#333] text-[var(--text-muted)] hover:border-[var(--text-primary)] dark:hover:border-[#555] hover:text-[var(--text-primary)]'
+                            ? 'border-[var(--text-primary)] bg-[var(--bg-secondary)] text-[var(--text-primary)]'
+                            : 'border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]'
                         }`}
                       >
                         Affirm
@@ -544,7 +542,7 @@ export default function CheckoutPage() {
 
                     {paymentMethod === 'wire' && (
                       <div className="space-y-4">
-                        <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+                        <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
                           <h3 className="text-sm font-medium text-[var(--text-primary)] mb-4">Wire Transfer Instructions</h3>
                           <div className="space-y-3 text-sm">
                             <div>
@@ -574,9 +572,9 @@ export default function CheckoutPage() {
 
                     {paymentMethod === 'affirm' && (
                       <div className="space-y-4">
-                        <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 text-center">
+                        <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 text-center">
                           <img 
-                            src={theme === 'night' ? "/assets/affirm-dark.svg" : "/assets/affirm-day.svg"}
+                            src="/assets/affirm-day.svg"
                             alt="Affirm" 
                             className="h-8 mx-auto mb-4"
                           />
@@ -584,7 +582,7 @@ export default function CheckoutPage() {
                           <p className="text-xs text-[var(--text-muted)] mb-4">
                             You'll be redirected to Affirm to complete your purchase securely.
                           </p>
-                          <div className="bg-[var(--bg-primary)] dark:bg-[#0a0a0a] p-4 rounded mb-4">
+                          <div className="bg-[var(--bg-primary)] p-4 rounded mb-4">
                             <p className="text-lg font-medium text-[var(--text-primary)]">
                               As low as ${Math.round(total / 12).toLocaleString()}/month
                             </p>
@@ -605,7 +603,7 @@ export default function CheckoutPage() {
                       name="sameAsBilling"
                       checked={formData.sameAsBilling}
                       onChange={handleChange}
-                      className="w-4 h-4 rounded border-[var(--border)] dark:border-[#333] accent-[var(--text-primary)]"
+                      className="w-4 h-4 rounded border-[var(--border)] accent-[var(--text-primary)]"
                     />
                     <label htmlFor="sameAsBilling" className="text-sm text-[var(--text-secondary)]">
                       Billing address same as shipping
@@ -613,7 +611,7 @@ export default function CheckoutPage() {
                   </div>
 
                   {/* Security Note */}
-                  <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-4">
+                  <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-4">
                     <div className="flex items-start gap-3">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[var(--text-muted)] flex-shrink-0 mt-0.5">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -633,14 +631,14 @@ export default function CheckoutPage() {
                     <button
                       type="button"
                       onClick={handleBack}
-                      className="px-6 py-4 border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+                      className="px-6 py-4 border border-[var(--border)] text-[var(--text-primary)] text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition"
                     >
                       Back
                     </button>
                     <button
                       type="submit"
                       disabled={isProcessing}
-                      className="flex-1 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition disabled:opacity-50"
+                      className="flex-1 bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition disabled:opacity-50"
                     >
                       {isProcessing ? 'Processing...' : paymentMethod === 'affirm' ? 'Continue with Affirm' : `Pay $${total.toLocaleString()}`}
                     </button>
@@ -650,7 +648,7 @@ export default function CheckoutPage() {
             </form>
 
             {/* Footer Links */}
-            <div className="flex gap-6 mt-8 pt-8 border-t border-[var(--border)] dark:border-[#262626] text-xs text-[var(--text-muted)]">
+            <div className="flex gap-6 mt-8 pt-8 border-t border-[var(--border)] text-xs text-[var(--text-muted)]">
               <Link href="/returns" className="hover:text-[var(--text-primary)]">Refund Policy</Link>
               <Link href="/shipping" className="hover:text-[var(--text-primary)]">Shipping Policy</Link>
               <Link href="/privacy" className="hover:text-[var(--text-primary)]">Privacy Policy</Link>
@@ -659,7 +657,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* Right - Order Summary */}
-          <div className="lg:border-l lg:border-[var(--border)] dark:lg:border-[#262626] lg:pl-16">
+          <div className="lg:border-l lg:border-[var(--border)] lg:pl-16">
             <div className="sticky top-28">
               <h2 className="font-serif text-xl text-[var(--text-primary)] mb-6">
                 Order Summary
@@ -672,7 +670,7 @@ export default function CheckoutPage() {
                 ) : (
                   cartItems.map((item) => (
                     <div key={item.id} className="flex gap-4">
-                      <div className="relative w-20 h-20 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] flex-shrink-0 overflow-hidden">
+                      <div className="relative w-20 h-20 bg-[var(--bg-secondary)] border border-[var(--border)] flex-shrink-0 overflow-hidden">
                         {item.image ? (
                           <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                         ) : (
@@ -701,15 +699,15 @@ export default function CheckoutPage() {
                 <input
                   type="text"
                   placeholder="Discount code"
-                  className="flex-1 px-4 py-3 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555]"
+                  className="flex-1 px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)]"
                 />
-                <button className="px-4 py-3 border border-[var(--border)] dark:border-[#444] text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] dark:hover:border-[#555] transition">
+                <button className="px-4 py-3 border border-[var(--border)] text-xs tracking-[0.1em] uppercase text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition">
                   Apply
                 </button>
               </div>
 
               {/* Totals */}
-              <div className="space-y-3 py-6 border-t border-[var(--border)] dark:border-[#262626]">
+              <div className="space-y-3 py-6 border-t border-[var(--border)]">
                 <div className="flex justify-between text-sm">
                   <span className="text-[var(--text-secondary)]">Subtotal</span>
                   <span className="text-[var(--text-primary)]">${subtotal.toLocaleString()}</span>
@@ -724,13 +722,13 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="flex justify-between py-6 border-t border-[var(--border)] dark:border-[#262626]">
+              <div className="flex justify-between py-6 border-t border-[var(--border)]">
                 <span className="text-[var(--text-primary)] font-medium">Total</span>
                 <span className="text-xl text-[var(--text-primary)] font-medium">${total.toLocaleString()}</span>
               </div>
 
               {/* Buyer protection */}
-              <div className="p-4 sm:p-5 border border-[var(--border)] dark:border-[#333] bg-[var(--bg-secondary)] dark:bg-[#141414] mt-6">
+              <div className="p-4 sm:p-5 border border-[var(--border)] bg-[var(--bg-secondary)] mt-6">
                 <p className="text-[10px] tracking-[0.2em] uppercase text-[var(--text-muted)] mb-3">
                   You&apos;re protected
                 </p>
@@ -766,7 +764,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Trust Badges */}
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-[var(--border)] dark:border-[#262626]">
+              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-[var(--border)]">
                 <div className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />

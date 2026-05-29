@@ -30,7 +30,7 @@ export default function BuyerProtectionPage() {
           transition={{ delay: 0.1 }}
           className="space-y-10 text-[var(--text-secondary)] leading-relaxed"
         >
-          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] border border-[var(--border)]">
             <p>{t('intro')}</p>
           </section>
 
@@ -62,7 +62,7 @@ export default function BuyerProtectionPage() {
             </p>
           </section>
 
-          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] border border-[var(--border)]">
             <h2 className="font-serif text-xl text-[var(--text-primary)] mb-4">{t('shippingTitle')}</h2>
             <p>{t('shippingBody')}</p>
           </section>
@@ -96,13 +96,13 @@ export default function BuyerProtectionPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
               >
                 {t('contactUs')}
               </Link>
               <Link
                 href="/shop"
-                className="inline-block border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+                className="inline-block border border-[var(--border)] text-[var(--text-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition"
               >
                 {t('shopCollection')}
               </Link>

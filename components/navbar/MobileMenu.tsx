@@ -20,7 +20,7 @@ export function MobileMenu() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden p-2 text-[#1A1A1A] dark:text-[#F8F8F8]"
+        className="md:hidden p-2 text-[#1A1A1A]"
         aria-label="Toggle menu"
       >
         {isOpen ? (
@@ -35,14 +35,14 @@ export function MobileMenu() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white dark:bg-[#0A0A0A] border-t border-[#E5E5E5] dark:border-[#2A2A2A] md:hidden z-50">
+        <div className="absolute top-full left-0 right-0 bg-white border-t border-[#E5E5E5] md:hidden z-50">
           <nav className="flex flex-col p-4 gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-medium text-[#1A1A1A] dark:text-[#F8F8F8] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors py-2"
+                className="text-sm font-medium text-[#1A1A1A] hover:text-[#C9A962] transition-colors py-2"
               >
                 {link.label}
               </Link>

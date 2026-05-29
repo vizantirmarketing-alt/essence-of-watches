@@ -62,7 +62,7 @@ export default function ContactPage() {
   };
 
   const inputClasses =
-    'w-full px-4 py-3.5 bg-transparent dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors duration-300';
+    'w-full px-4 py-3.5 bg-transparent border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] transition-colors duration-300';
 
   const labelClasses = 'block text-xs tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-2';
 
@@ -105,7 +105,7 @@ export default function ContactPage() {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
           {/* Left - Contact Info */}
-          <div className="bg-[var(--bg-secondary)] dark:bg-[#111] p-8 sm:p-12 xl:p-16 flex flex-col justify-between">
+          <div className="bg-[var(--bg-secondary)] p-8 sm:p-12 xl:p-16 flex flex-col justify-between">
             <div>
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
@@ -143,7 +143,7 @@ export default function ContactPage() {
             >
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-primary)] flex items-center justify-center flex-shrink-0">
                   <svg
                     width="20"
                     height="20"
@@ -170,7 +170,7 @@ export default function ContactPage() {
 
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-primary)] flex items-center justify-center flex-shrink-0">
                   <svg
                     width="20"
                     height="20"
@@ -197,7 +197,7 @@ export default function ContactPage() {
 
               {/* Location */}
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[var(--bg-primary)] flex items-center justify-center flex-shrink-0">
                   <svg
                     width="20"
                     height="20"
@@ -233,7 +233,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="w-10 h-10 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
+                  className="w-10 h-10 rounded-full bg-[var(--bg-primary)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -246,7 +246,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="w-10 h-10 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
+                  className="w-10 h-10 rounded-full bg-[var(--bg-primary)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -257,7 +257,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="w-10 h-10 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
+                  className="w-10 h-10 rounded-full bg-[var(--bg-primary)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
@@ -410,7 +410,7 @@ export default function ContactPage() {
               </div>
 
               {submitError ? (
-                <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+                <p className="text-sm text-red-600" role="alert">
                   {submitError}
                 </p>
               ) : null}
@@ -419,7 +419,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition-opacity duration-300 disabled:opacity-50"
+                className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition-opacity duration-300 disabled:opacity-50"
               >
                 {isSubmitting ? t('sending') : t('send')}
               </button>

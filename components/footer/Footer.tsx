@@ -8,7 +8,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--bg-secondary)] dark:bg-[#141414] border-t border-[var(--border)] dark:border-[#262626]">
+    <footer className="bg-[var(--bg-secondary)] border-t border-[var(--border)]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12 mb-12">
           {/* Shop */}

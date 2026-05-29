@@ -85,7 +85,7 @@ export default function ReferencesPage() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by reference, model, or description…"
                 autoComplete="off"
-                className="w-full bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--text-muted)] transition"
+                className="w-full bg-[var(--bg-secondary)] border border-[var(--border)] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--text-muted)] transition"
               />
             </div>
 
@@ -99,8 +99,8 @@ export default function ReferencesPage() {
                     onClick={() => setFamily(pill)}
                     className={`px-3.5 py-2 text-xs tracking-[0.12em] uppercase border transition ${
                       active
-                        ? 'bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] border-transparent'
-                        : 'bg-transparent text-[var(--text-muted)] border-[var(--border)] dark:border-[#333] hover:text-[var(--text-primary)] hover:border-[var(--text-muted)]'
+                        ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] border-transparent'
+                        : 'bg-transparent text-[var(--text-muted)] border-[var(--border)] hover:text-[var(--text-primary)] hover:border-[var(--text-muted)]'
                     }`}
                   >
                     {pill}
@@ -126,7 +126,7 @@ export default function ReferencesPage() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                className="border border-dashed border-[var(--border)] dark:border-[#333] bg-[var(--bg-secondary)]/40 dark:bg-[#141414]/60 px-8 py-16 text-center"
+                className="border border-dashed border-[var(--border)] bg-[var(--bg-secondary)]/40 px-8 py-16 text-center"
               >
                 <p className="font-serif text-xl text-[var(--text-primary)] mb-2">No matches</p>
                 <p className="text-[var(--text-secondary)] text-sm max-w-md mx-auto mb-8">
@@ -139,7 +139,7 @@ export default function ReferencesPage() {
                     setSearch('');
                     setFamily(ALL);
                   }}
-                  className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                  className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
                 >
                   Reset search & filters
                 </button>
@@ -153,9 +153,9 @@ export default function ReferencesPage() {
                 className="space-y-6"
               >
                 {/* Desktop table */}
-                <div className="hidden lg:block border border-[var(--border)] dark:border-[#262626] overflow-hidden">
+                <div className="hidden lg:block border border-[var(--border)] overflow-hidden">
                   <table className="w-full text-left text-sm">
-                    <thead className="bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-muted)] text-[11px] tracking-[0.18em] uppercase">
+                    <thead className="bg-[var(--bg-secondary)] text-[var(--text-muted)] text-[11px] tracking-[0.18em] uppercase">
                       <tr>
                         <th className="px-5 py-4 font-medium w-[140px]">Reference</th>
                         <th className="px-5 py-4 font-medium w-[200px]">Model</th>
@@ -163,12 +163,12 @@ export default function ReferencesPage() {
                         <th className="px-5 py-4 font-medium">Description</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[var(--border)] dark:divide-[#262626]">
+                    <tbody className="divide-y divide-[var(--border)]">
                       {filtered.map((row, i) => (
                         <motion.tr
                           key={`${row.reference}-${row.model}-${i}`}
                           initial={false}
-                          className="bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)]/50 dark:hover:bg-[#141414]/80 transition-colors"
+                          className="bg-[var(--bg-primary)] hover:bg-[var(--bg-secondary)]/50 transition-colors"
                         >
                           <td className="px-5 py-3.5 font-mono text-[var(--text-primary)] whitespace-nowrap">
                             {row.reference}
@@ -191,7 +191,7 @@ export default function ReferencesPage() {
                   {filtered.map((row, i) => (
                     <li
                       key={`${row.reference}-card-${i}`}
-                      className="border border-[var(--border)] dark:border-[#262626] bg-[var(--bg-secondary)]/30 dark:bg-[#141414]/40 p-5 flex flex-col gap-2"
+                      className="border border-[var(--border)] bg-[var(--bg-secondary)]/30 p-5 flex flex-col gap-2"
                     >
                       <div className="flex items-baseline justify-between gap-3">
                         <span className="font-mono text-[var(--text-primary)]">{row.reference}</span>

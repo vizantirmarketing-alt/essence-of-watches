@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           className="space-y-10 text-[var(--text-secondary)] leading-relaxed"
         >
           {/* Intro */}
-          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+          <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] border border-[var(--border)]">
             <p>
               Essence of Watches LLC ("we", "us", "our") respects your privacy and is committed 
               to protecting your personal data. This Privacy Policy explains how we collect, use, 
@@ -154,19 +154,19 @@ export default function PrivacyPage() {
                 We use cookies and similar technologies to enhance your experience:
               </p>
               <div className="grid sm:grid-cols-2 gap-4 mt-4">
-                <div className="p-4 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+                <div className="p-4 bg-[var(--bg-secondary)] border border-[var(--border)]">
                   <strong className="text-[var(--text-primary)] text-sm">Essential Cookies</strong>
                   <p className="text-xs mt-1">Required for site functionality, cart, and checkout.</p>
                 </div>
-                <div className="p-4 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+                <div className="p-4 bg-[var(--bg-secondary)] border border-[var(--border)]">
                   <strong className="text-[var(--text-primary)] text-sm">Analytics Cookies</strong>
                   <p className="text-xs mt-1">Help us understand how visitors use our site.</p>
                 </div>
-                <div className="p-4 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+                <div className="p-4 bg-[var(--bg-secondary)] border border-[var(--border)]">
                   <strong className="text-[var(--text-primary)] text-sm">Marketing Cookies</strong>
                   <p className="text-xs mt-1">Used to deliver relevant ads (with consent).</p>
                 </div>
-                <div className="p-4 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+                <div className="p-4 bg-[var(--bg-secondary)] border border-[var(--border)]">
                   <strong className="text-[var(--text-primary)] text-sm">Preference Cookies</strong>
                   <p className="text-xs mt-1">Remember your settings like currency and theme.</p>
                 </div>

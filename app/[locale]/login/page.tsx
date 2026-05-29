@@ -46,7 +46,7 @@ export default function LoginPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-8 space-y-4"
+          className="bg-[var(--bg-secondary)] border border-[var(--border)] p-8 space-y-4"
         >
           {/* Apple Sign In */}
           <button
@@ -69,7 +69,7 @@ export default function LoginPage() {
           {/* Google Sign In */}
           <button
             onClick={() => signIn('google', { callbackUrl: '/account' })}
-            className="w-full flex items-center justify-center gap-3 bg-white dark:bg-[#1a1a1a] text-gray-800 dark:text-[#f5f5f5] border border-gray-300 dark:border-[#333] px-6 py-4 hover:bg-gray-50 dark:hover:bg-[#222] transition"
+            className="w-full flex items-center justify-center gap-3 bg-white text-gray-800 border border-gray-300 px-6 py-4 hover:bg-gray-50 transition"
           >
             <svg width="20" height="20" viewBox="0 0 24 24">
               <path

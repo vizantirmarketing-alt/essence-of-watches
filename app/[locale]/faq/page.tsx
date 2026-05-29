@@ -240,10 +240,10 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-[var(--border)] dark:border-[#262626]">
+    <div className="border-b border-[var(--border)]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-5 flex items-center justify-between gap-4 text-left hover:bg-[var(--bg-primary)]/30 dark:hover:bg-[#0f0f0f] transition-colors"
+        className="w-full py-5 flex items-center justify-between gap-4 text-left hover:bg-[var(--bg-primary)]/30 transition-colors"
       >
         <span className="text-[var(--text-primary)] font-medium">{question}</span>
         <svg
@@ -319,8 +319,8 @@ export default function FAQPage() {
                   onClick={() => setActiveCategory(cat.category)}
                   className={`w-full flex items-center gap-3 px-4 py-3 text-left text-sm transition ${
                     activeCategory === cat.category
-                      ? 'bg-[var(--bg-secondary)] dark:bg-[#141414] text-[var(--text-primary)] border-l-2 border-[var(--text-primary)]'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]/50 dark:hover:bg-[#141414]/50'
+                      ? 'bg-[var(--bg-secondary)] text-[var(--text-primary)] border-l-2 border-[var(--text-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]/50'
                   }`}
                 >
                   <span className={activeCategory === cat.category ? 'text-[var(--text-primary)]' : 'text-[var(--text-muted)]'}>
@@ -339,8 +339,8 @@ export default function FAQPage() {
             transition={{ delay: 0.2 }}
             className="lg:col-span-3"
           >
-            <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--border)] dark:border-[#262626]">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[var(--border)]">
                 <span className="text-[var(--text-primary)]">{activeFAQ?.icon}</span>
                 <h2 className="font-serif text-xl text-[var(--text-primary)]">
                   {activeCategory}
@@ -361,7 +361,7 @@ export default function FAQPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mt-16 text-center bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-8 sm:p-12"
+          className="mt-16 text-center bg-[var(--bg-secondary)] border border-[var(--border)] p-8 sm:p-12"
         >
           <h2 className="font-serif text-2xl text-[var(--text-primary)] mb-3">
             Still Have Questions?
@@ -372,13 +372,13 @@ export default function FAQPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+              className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
             >
               Contact Us
             </Link>
             <Link
               href="/appointment"
-              className="inline-block border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+              className="inline-block border border-[var(--border)] text-[var(--text-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition"
             >
               Schedule a Call
             </Link>

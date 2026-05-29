@@ -57,11 +57,11 @@ export default function ConditionGuidePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 sm:p-8"
+                className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sm:p-8"
               >
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-[var(--bg-primary)] border border-[var(--border)] flex items-center justify-center">
                       <span className="text-2xl font-serif text-[var(--text-primary)]">
                         {idx + 1}
                       </span>
@@ -83,7 +83,7 @@ export default function ConditionGuidePage() {
       </section>
 
       {/* Note Section */}
-      <section className="py-16 sm:py-24 bg-[var(--bg-secondary)] dark:bg-[#141414]">
+      <section className="py-16 sm:py-24 bg-[var(--bg-secondary)]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div
@@ -103,7 +103,7 @@ export default function ConditionGuidePage() {
               </p>
               <Link
                 href="/shop"
-                className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
               >
                 Browse Watches
               </Link>

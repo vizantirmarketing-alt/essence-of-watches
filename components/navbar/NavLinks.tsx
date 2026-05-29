@@ -19,7 +19,7 @@ export function NavLinks() {
         <Link
           key={link.href}
           href={link.href}
-          className="text-sm font-medium text-[#1A1A1A] dark:text-[#F8F8F8] hover:text-[#C9A962] dark:hover:text-[#D4B872] transition-colors"
+          className="text-sm font-medium text-[#1A1A1A] hover:text-[#C9A962] transition-colors"
         >
           {link.label}
         </Link>

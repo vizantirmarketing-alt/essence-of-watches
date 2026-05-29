@@ -65,7 +65,7 @@ export function BlogBody({ body }: { body: string }) {
             key={i}
             className={
               showSectionRule
-                ? 'mt-12 sm:mt-14 pt-10 sm:pt-12 border-t border-[var(--border)] dark:border-[#262626]'
+                ? 'mt-12 sm:mt-14 pt-10 sm:pt-12 border-t border-[var(--border)]'
                 : 'mt-2'
             }
           >

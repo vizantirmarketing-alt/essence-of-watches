@@ -1,61 +1,7 @@
 @import "tailwindcss";
 
-/* Smooth theme transitions */
-html,
-html *,
-html *::before,
-html *::after {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease;
-}
-
-/* Disable transitions on page load to prevent flash */
-html.no-transitions,
-html.no-transitions *,
-html.no-transitions *::before,
-html.no-transitions *::after {
-  transition: none !important;
-}
-
-/* Ultra Premium Editorial Color System - Night Mode (Default) */
+/* Day mode — Porcelain */
 :root {
-  /* Night Mode - Premium Bloomberg Terminal Style */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #141414;
-  --bg-tertiary: #1a1a1a;
-  --bg-elevated: #1f1f1f;
-  --bg-card: #0F0F10;
-  
-  --text-primary: #f5f5f5;
-  --text-secondary: #a3a3a3;
-  --text-muted: #6b6b6b;
-  
-  --border: #262626;
-  --border-light: #1f1f1f;
-  --border-focus: #404040;
-  --border-hover: rgba(255, 255, 255, 0.15);
-  
-  --accent: #C9A227;
-  --accent-gold: #c9a962;
-  --accent-steel: #1e3a5f;
-  
-  /* Card colors - Night mode */
-  --card-bg: #0C0C0E;
-  --card-bg-inner: #141416;
-  --card-border: #1a1a1c;
-  --card-border-hover: #2a2a2c;
-  
-  /* Legacy support */
-  --bg-rich-black: var(--bg-primary);
-  --bg-warm-charcoal: var(--bg-secondary);
-  --bg-porcelain: #F3F1EB;
-  --text-dark: #050506;
-  --border-subtle: var(--border);
-  --background-primary: var(--bg-primary);
-  --background-secondary: var(--bg-secondary);
-}
-
-/* Day Mode — Porcelain */
-[data-theme="day"] {
   --bg-primary: #F3F1EB;
   --bg-secondary: #FAFAF8;
   --bg-tertiary: #F5F3EE;
@@ -75,11 +21,20 @@ html.no-transitions *::after {
   --accent-gold: #9A7B1C;
   --accent-steel: #243755;
   
-  /* Card colors - Day mode */
+  /* Card colors */
   --card-bg: #FFFFFF;
   --card-bg-inner: #F5F3EE;
   --card-border: #E5E3DE;
   --card-border-hover: #D5D3CE;
+  
+  /* Legacy support */
+  --bg-rich-black: var(--bg-primary);
+  --bg-warm-charcoal: var(--bg-secondary);
+  --bg-porcelain: #F3F1EB;
+  --text-dark: #050506;
+  --border-subtle: var(--border);
+  --background-primary: var(--bg-primary);
+  --background-secondary: var(--bg-secondary);
 }
 
 @theme inline {
@@ -96,7 +51,6 @@ body {
   letter-spacing: 0.01em;
   background: var(--bg-primary);
   color: var(--text-primary);
-  transition: background 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -131,7 +85,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 /* Minimal animations - only subtle transitions */

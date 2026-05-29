@@ -61,11 +61,11 @@ type OrderData = {
 };
 
 const statusColors: Record<string, string> = {
-  'Processing': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-400 dark:border dark:border-yellow-500/30',
-  'Shipped': 'bg-blue-100 text-blue-800 dark:bg-blue-500/20 dark:text-blue-400 dark:border dark:border-blue-500/30',
-  'Out for Delivery': 'bg-purple-100 text-purple-800 dark:bg-purple-500/20 dark:text-purple-400 dark:border dark:border-purple-500/30',
-  'Delivered': 'bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-400 dark:border dark:border-green-500/30',
-  'Cancelled': 'bg-red-100 text-red-800 dark:bg-red-500/20 dark:text-red-400 dark:border dark:border-red-500/30',
+  'Processing': 'bg-yellow-100 text-yellow-800',
+  'Shipped': 'bg-blue-100 text-blue-800',
+  'Out for Delivery': 'bg-purple-100 text-purple-800',
+  'Delivered': 'bg-green-100 text-green-800',
+  'Cancelled': 'bg-red-100 text-red-800',
 };
 
 export default function TrackOrderPage() {
@@ -96,7 +96,7 @@ export default function TrackOrderPage() {
   };
 
   const inputClasses =
-    'w-full px-4 py-3.5 bg-transparent dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors duration-300';
+    'w-full px-4 py-3.5 bg-transparent border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] transition-colors duration-300';
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] pt-20 sm:pt-32 pb-16 sm:pb-24">
@@ -124,7 +124,7 @@ export default function TrackOrderPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 sm:p-8 mb-8"
+          className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sm:p-8 mb-8"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
@@ -159,7 +159,7 @@ export default function TrackOrderPage() {
             <button
               type="submit"
               disabled={isSearching}
-              className="w-full bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition disabled:opacity-50"
+              className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition disabled:opacity-50"
             >
               {isSearching ? 'Searching...' : 'Track Order'}
             </button>
@@ -200,7 +200,7 @@ export default function TrackOrderPage() {
             className="space-y-6"
           >
             {/* Order Header */}
-            <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
                   <h2 className="font-serif text-xl text-[var(--text-primary)]">
@@ -219,8 +219,8 @@ export default function TrackOrderPage() {
                 </span>
               </div>
 
-              <div className="flex items-center gap-4 p-4 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333]">
-                <div className="w-16 h-16 bg-[var(--bg-secondary)] dark:bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-4 p-4 bg-[var(--bg-primary)] border border-[var(--border)]">
+                <div className="w-16 h-16 bg-[var(--bg-secondary)] flex items-center justify-center flex-shrink-0">
                   <svg className="w-8 h-8 text-[var(--text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
@@ -238,7 +238,7 @@ export default function TrackOrderPage() {
 
             {/* Tracking Info */}
             {orderData.tracking && (
-              <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+              <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
                 <h3 className="font-serif text-lg text-[var(--text-primary)] mb-4">Shipping Details</h3>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
@@ -253,7 +253,7 @@ export default function TrackOrderPage() {
                     href={`https://www.fedex.com/fedextrack/?trknbr=${orderData.tracking}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.15em] uppercase hover:opacity-90 transition"
+                    className="bg-[var(--text-primary)] text-[var(--bg-primary)] px-6 py-3 text-xs tracking-[0.15em] uppercase hover:opacity-90 transition"
                   >
                     Track on FedEx
                   </a>
@@ -262,7 +262,7 @@ export default function TrackOrderPage() {
             )}
 
             {/* Timeline */}
-            <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6">
+            <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6">
               <h3 className="font-serif text-lg text-[var(--text-primary)] mb-6">Order Timeline</h3>
               
               <div className="space-y-0">
@@ -272,13 +272,13 @@ export default function TrackOrderPage() {
                       <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
                         event.completed 
                           ? 'bg-green-500' 
-                          : 'bg-[var(--border)] dark:bg-[#333]'
+                          : 'bg-[var(--border)]'
                       }`} />
                       {idx < orderData.timeline.length - 1 && (
                         <div className={`w-0.5 h-12 ${
                           event.completed && orderData.timeline[idx + 1]?.completed
                             ? 'bg-green-500' 
-                            : 'bg-[var(--border)] dark:bg-[#333]'
+                            : 'bg-[var(--border)]'
                         }`} />
                       )}
                     </div>
@@ -302,7 +302,7 @@ export default function TrackOrderPage() {
             </div>
 
             {/* Help Section */}
-            <div className="text-center p-6 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+            <div className="text-center p-6 bg-[var(--bg-secondary)] border border-[var(--border)]">
               <p className="text-[var(--text-secondary)] text-sm">
                 Have questions about your order?{' '}
                 <Link href="/contact" className="text-[var(--text-primary)] underline hover:opacity-70">
@@ -326,7 +326,7 @@ export default function TrackOrderPage() {
             </p>
             <Link
               href="/account"
-              className="inline-block border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+              className="inline-block border border-[var(--border)] text-[var(--text-primary)] px-8 py-3 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition"
             >
               Sign in to View Orders
             </Link>

@@ -4,11 +4,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from '@/contexts/ThemeContext';
-
 export default function FinancingPage() {
   const [price, setPrice] = useState(5000);
-  const { isDayMode } = useTheme();
 
   // Simple payment calculator (Affirm typically 10-36% APR, we'll show 0% promo + 15% standard)
   const months3 = (price / 3).toFixed(2);
@@ -48,7 +45,7 @@ export default function FinancingPage() {
       </section>
 
       {/* Partner Logos + Calculator */}
-      <section className="bg-[var(--bg-secondary)] dark:bg-[#141414] py-16 sm:py-24">
+      <section className="bg-[var(--bg-secondary)] py-16 sm:py-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left - Branding */}
@@ -59,7 +56,7 @@ export default function FinancingPage() {
                 </span>
                 <span className="text-[var(--text-muted)] text-2xl">+</span>
                 <Image
-                  src={isDayMode ? '/assets/affirm-day.svg' : '/assets/affirm-dark.svg'}
+                  src="/assets/affirm-day.svg"
                   alt="Affirm"
                   width={100}
                   height={40}
@@ -86,7 +83,7 @@ export default function FinancingPage() {
               <div className="mt-8">
                 <Link
                   href="/shop"
-                  className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                  className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
                 >
                   Shop Now
                 </Link>
@@ -101,7 +98,7 @@ export default function FinancingPage() {
             </div>
 
             {/* Right - Payment Calculator */}
-            <div className="bg-[var(--bg-primary)] dark:bg-[#0f0f0f] p-8 sm:p-10 border border-[var(--border)] dark:border-[#262626]">
+            <div className="bg-[var(--bg-primary)] p-8 sm:p-10 border border-[var(--border)]">
               <h3 className="text-lg font-serif text-[var(--text-primary)] mb-6">
                 Estimate Your Payments
               </h3>
@@ -119,14 +116,14 @@ export default function FinancingPage() {
                     type="number"
                     value={price}
                     onChange={(e) => setPrice(Number(e.target.value) || 0)}
-                    className="w-full pl-8 pr-4 py-3 bg-transparent dark:bg-[#0a0a0a] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-xl focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
+                    className="w-full pl-8 pr-4 py-3 bg-transparent border border-[var(--border)] text-[var(--text-primary)] text-xl focus:outline-none focus:border-[var(--text-primary)] transition"
                   />
                 </div>
               </div>
 
               {/* Payment Options */}
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 border border-[var(--border)] dark:border-[#333] hover:border-[var(--text-secondary)] dark:hover:border-[#555] transition cursor-pointer">
+                <div className="flex items-center justify-between p-4 border border-[var(--border)] hover:border-[var(--text-secondary)] transition cursor-pointer">
                   <div>
                     <span className="text-2xl font-light text-[var(--text-primary)]">
                       ${months3}
@@ -134,12 +131,12 @@ export default function FinancingPage() {
                     <span className="text-[var(--text-secondary)] ml-2">/month</span>
                     <p className="text-xs text-[var(--text-muted)] mt-1">0% APR</p>
                   </div>
-                  <span className="text-xs tracking-[0.1em] uppercase bg-[var(--bg-secondary)] dark:bg-[#1a1a1a] px-3 py-1.5 text-[var(--text-secondary)]">
+                  <span className="text-xs tracking-[0.1em] uppercase bg-[var(--bg-secondary)] px-3 py-1.5 text-[var(--text-secondary)]">
                     3 months
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between p-4 border border-[var(--border)] dark:border-[#333] hover:border-[var(--text-secondary)] dark:hover:border-[#555] transition cursor-pointer">
+                <div className="flex items-center justify-between p-4 border border-[var(--border)] hover:border-[var(--text-secondary)] transition cursor-pointer">
                   <div>
                     <span className="text-2xl font-light text-[var(--text-primary)]">
                       ${months6}
@@ -147,12 +144,12 @@ export default function FinancingPage() {
                     <span className="text-[var(--text-secondary)] ml-2">/month</span>
                     <p className="text-xs text-[var(--text-muted)] mt-1">0% APR</p>
                   </div>
-                  <span className="text-xs tracking-[0.1em] uppercase bg-[var(--bg-secondary)] dark:bg-[#1a1a1a] px-3 py-1.5 text-[var(--text-secondary)]">
+                  <span className="text-xs tracking-[0.1em] uppercase bg-[var(--bg-secondary)] px-3 py-1.5 text-[var(--text-secondary)]">
                     6 months
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between p-4 border border-[var(--border)] dark:border-[#333] hover:border-[var(--text-secondary)] dark:hover:border-[#555] transition cursor-pointer">
+                <div className="flex items-center justify-between p-4 border border-[var(--border)] hover:border-[var(--text-secondary)] transition cursor-pointer">
                   <div>
                     <span className="text-2xl font-light text-[var(--text-primary)]">
                       ${months12}
@@ -160,7 +157,7 @@ export default function FinancingPage() {
                     <span className="text-[var(--text-secondary)] ml-2">/month</span>
                     <p className="text-xs text-[var(--text-muted)] mt-1">~15% APR</p>
                   </div>
-                  <span className="text-xs tracking-[0.1em] uppercase bg-[var(--bg-secondary)] dark:bg-[#1a1a1a] px-3 py-1.5 text-[var(--text-secondary)]">
+                  <span className="text-xs tracking-[0.1em] uppercase bg-[var(--bg-secondary)] px-3 py-1.5 text-[var(--text-secondary)]">
                     12 months
                   </span>
                 </div>
@@ -215,7 +212,7 @@ export default function FinancingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <Image
-                src="/assets/affirm-dark.svg"
+                src="/assets/affirm-day.svg"
                 alt="Affirm"
                 width={80}
                 height={32}
@@ -228,7 +225,7 @@ export default function FinancingPage() {
             </p>
             <Link
               href="/shop"
-                  className="border border-white dark:border-white/20 px-6 py-2 text-xs tracking-[0.15em] uppercase hover:bg-white hover:text-[var(--accent-steel)] dark:hover:bg-white/10 transition"
+                  className="border border-white px-6 py-2 text-xs tracking-[0.15em] uppercase hover:bg-white hover:text-[var(--accent-steel)] transition"
             >
               Learn More
             </Link>

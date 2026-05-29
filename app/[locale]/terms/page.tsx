@@ -229,7 +229,7 @@ export default function TermsPage() {
             </section>
 
             {/* Contact */}
-            <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+            <section className="p-6 sm:p-8 bg-[var(--bg-secondary)] border border-[var(--border)]">
               <h2 className="font-serif text-xl text-[var(--text-primary)] mb-4">
                 13. Contact & Complaints
               </h2>

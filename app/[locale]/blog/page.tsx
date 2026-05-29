@@ -47,7 +47,7 @@ export default function BlogIndexPage() {
             {sorted.map((post) => (
               <article
                 key={post.slug}
-                className="group flex flex-col bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 sm:p-8 transition-colors duration-300 hover:border-[var(--card-border-hover)]"
+                className="group flex flex-col bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sm:p-8 transition-colors duration-300 hover:border-[var(--card-border-hover)]"
               >
                 <time
                   dateTime={post.publishedAt}
@@ -56,7 +56,7 @@ export default function BlogIndexPage() {
                   {formatDate(post.publishedAt)}
                 </time>
                 <h2 className="font-serif text-xl sm:text-2xl text-[var(--text-primary)] leading-snug mb-4 group-hover:text-[var(--accent)] transition-colors duration-300">
-                  <Link href={`/blog/${post.slug}`} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-secondary)] dark:focus-visible:ring-offset-[#141414]">
+                  <Link href={`/blog/${post.slug}`} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-secondary)]">
                     {post.title}
                   </Link>
                 </h2>

@@ -98,7 +98,7 @@ export default function AuthenticityPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 dark:bg-green-500/20 mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-500/10 mb-8">
               <svg
                 width="40"
                 height="40"
@@ -122,7 +122,7 @@ export default function AuthenticityPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-[var(--bg-secondary)] dark:bg-[#141414] border-y border-[var(--border)] dark:border-[#262626]">
+      <section className="py-12 bg-[var(--bg-secondary)] border-y border-[var(--border)]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {statIds.map((id, idx) => (
@@ -161,9 +161,9 @@ export default function AuthenticityPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + idx * 0.05 }}
-                className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 text-center hover:border-green-500/30 dark:hover:border-green-500/50 transition-colors"
+                className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 text-center hover:border-green-500/30 transition-colors"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-500/10 dark:bg-green-500/20 text-green-500 mb-4">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-500/10 text-green-500 mb-4">
                   {guaranteeIcons[gid]}
                 </div>
                 <h3 className="font-serif text-lg text-[var(--text-primary)] mb-2">{t(`${gid}Title`)}</h3>
@@ -174,7 +174,7 @@ export default function AuthenticityPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-[var(--bg-secondary)] dark:bg-[#141414]">
+      <section className="py-16 sm:py-24 bg-[var(--bg-secondary)]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -197,7 +197,7 @@ export default function AuthenticityPage() {
                   idx % 2 === 1 ? 'md:flex-row-reverse' : ''
                 }`}
               >
-                <div className="w-full md:w-1/2 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] p-8 sm:p-10">
+                <div className="w-full md:w-1/2 bg-[var(--bg-primary)] border border-[var(--border)] p-8 sm:p-10">
                   <div className="flex items-start gap-4">
                     <span className="text-4xl font-serif text-[var(--text-muted)]/30">{stepId}</span>
                     <div>
@@ -211,7 +211,7 @@ export default function AuthenticityPage() {
                   </div>
                 </div>
                 <div className="w-full md:w-1/2 flex justify-center">
-                  <div className="w-24 h-24 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] border border-[var(--border)] flex items-center justify-center text-[var(--text-primary)]">
+                  <div className="w-24 h-24 rounded-full bg-[var(--bg-primary)] border border-[var(--border)] flex items-center justify-center text-[var(--text-primary)]">
                     {authenticationIcons[stepId]}
                   </div>
                 </div>
@@ -250,8 +250,8 @@ export default function AuthenticityPage() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="relative">
-              <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-8 sm:p-12">
-                <div className="border-2 border-[var(--border)] dark:border-[#333] p-6 sm:p-8 text-center">
+              <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-8 sm:p-12">
+                <div className="border-2 border-[var(--border)] p-6 sm:p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-full border-2 border-green-500 flex items-center justify-center">
                     <svg
                       width="32"
@@ -270,7 +270,7 @@ export default function AuthenticityPage() {
                   <p className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-2">{t('mockCertEyebrow')}</p>
                   <h3 className="font-serif text-2xl text-[var(--text-primary)]">{t('mockBrand')}</h3>
 
-                  <div className="mt-6 pt-6 border-t border-[var(--border)] dark:border-[#262626]">
+                  <div className="mt-6 pt-6 border-t border-[var(--border)]">
                     <p className="text-sm text-[var(--text-muted)]">{t('mockSerialLabel')}</p>
                     <p className="text-[var(--text-primary)] font-mono mt-1">{t('mockSerialPlaceholder')}</p>
                   </div>
@@ -280,7 +280,7 @@ export default function AuthenticityPage() {
                     <p className="text-green-500 font-medium mt-1">{t('mockConfirmed')}</p>
                   </div>
 
-                  <div className="mt-6 pt-6 border-t border-[var(--border)] dark:border-[#262626] text-xs text-[var(--text-muted)]">
+                  <div className="mt-6 pt-6 border-t border-[var(--border)] text-xs text-[var(--text-muted)]">
                     {t('mockCertifiedBy')}
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function AuthenticityPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-[var(--bg-secondary)] dark:bg-[#141414]">
+      <section className="py-16 sm:py-24 bg-[var(--bg-secondary)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">{t('commitmentEyebrow')}</span>
@@ -300,7 +300,7 @@ export default function AuthenticityPage() {
             <div className="mt-10 space-y-6 text-left max-w-xl mx-auto">
               {wrongIds.map((num) => (
                 <div key={num} className="flex gap-4 items-start">
-                  <div className="w-8 h-8 rounded-full bg-green-500/10 dark:bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
                     <span className="text-green-500 text-sm font-medium">{num}</span>
                   </div>
                   <div>
@@ -319,14 +319,14 @@ export default function AuthenticityPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] p-8 sm:p-12 lg:p-16 text-center"
+            className="bg-[var(--text-primary)] text-[var(--bg-primary)] p-8 sm:p-12 lg:p-16 text-center"
           >
             <h2 className="font-serif text-3xl sm:text-4xl">{t('ctaTitle')}</h2>
             <p className="mt-4 opacity-80 max-w-xl mx-auto">{t('ctaBody')}</p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/shop"
-                className="inline-block bg-[var(--bg-primary)] dark:bg-black text-[var(--text-primary)] dark:text-white px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+                className="inline-block bg-[var(--bg-primary)] text-[var(--text-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
               >
                 {t('ctaExplore')}
               </Link>

@@ -43,7 +43,7 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <section className="py-16 sm:py-20 bg-[var(--bg-secondary)] dark:bg-[#141414] border-y border-[var(--border)] dark:border-[#262626]">
+    <section className="py-16 sm:py-20 bg-[var(--bg-secondary)] border-y border-[var(--border)]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-[var(--text-muted)] text-[11px] tracking-[0.3em] uppercase mb-3">{t('eyebrow')}</p>
@@ -51,7 +51,7 @@ export default function NewsletterSignup() {
           <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-8">{t('description')}</p>
 
           {status === 'success' ? (
-            <p className="text-sm text-[var(--text-primary)] border border-[var(--border)] dark:border-[#333] bg-[var(--bg-primary)] dark:bg-[#0a0a0a] px-6 py-4">
+            <p className="text-sm text-[var(--text-primary)] border border-[var(--border)] bg-[var(--bg-primary)] px-6 py-4">
               {message}
             </p>
           ) : (
@@ -73,12 +73,12 @@ export default function NewsletterSignup() {
                 }
                 placeholder={t('placeholder')}
                 disabled={status === 'submitting'}
-                className="min-w-0 flex-1 px-4 py-3.5 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
+                className="min-w-0 flex-1 px-4 py-3.5 bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--text-primary)] transition"
               />
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="shrink-0 px-6 py-3.5 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-60"
+                className="shrink-0 px-6 py-3.5 bg-[var(--text-primary)] text-[var(--bg-primary)] text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition disabled:opacity-60"
               >
                 {status === 'submitting' ? t('sending') : t('subscribe')}
               </button>
@@ -86,7 +86,7 @@ export default function NewsletterSignup() {
           )}
 
           {status === 'error' && message && (
-            <p className="mt-4 text-sm text-red-600 dark:text-red-400" role="alert">
+            <p className="mt-4 text-sm text-red-600" role="alert">
               {message}
             </p>
           )}

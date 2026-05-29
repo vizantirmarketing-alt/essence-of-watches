@@ -91,10 +91,10 @@ const mockOrders = [
 ];
 
 const statusColors: Record<string, string> = {
-  'Processing': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-400 dark:border dark:border-yellow-500/30',
-  'Shipped': 'bg-blue-100 text-blue-800 dark:bg-blue-500/20 dark:text-blue-400 dark:border dark:border-blue-500/30',
-  'Delivered': 'bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-400 dark:border dark:border-green-500/30',
-  'Cancelled': 'bg-red-100 text-red-800 dark:bg-red-500/20 dark:text-red-400 dark:border dark:border-red-500/30',
+  'Processing': 'bg-yellow-100 text-yellow-800',
+  'Shipped': 'bg-blue-100 text-blue-800',
+  'Delivered': 'bg-green-100 text-green-800',
+  'Cancelled': 'bg-red-100 text-red-800',
 };
 
 export default function OrderDetailPage() {
@@ -197,7 +197,7 @@ export default function OrderDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6"
+              className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6"
             >
               <h2 className="font-serif text-lg text-[var(--text-primary)] mb-6">Items</h2>
               
@@ -229,7 +229,7 @@ export default function OrderDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6"
+              className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6"
             >
               <h2 className="font-serif text-lg text-[var(--text-primary)] mb-6">Order Timeline</h2>
               
@@ -278,7 +278,7 @@ export default function OrderDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 }}
-              className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6"
+              className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6"
             >
               <h2 className="font-serif text-lg text-[var(--text-primary)] mb-4">Summary</h2>
               
@@ -309,7 +309,7 @@ export default function OrderDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6"
+              className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6"
             >
               <h2 className="font-serif text-lg text-[var(--text-primary)] mb-4">Shipping</h2>
               
@@ -350,7 +350,7 @@ export default function OrderDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25 }}
-              className="bg-[var(--bg-secondary)] border border-[var(--border)] dark:bg-white/5 dark:border-white/10 p-6 text-center"
+              className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 text-center"
             >
               <h3 className="font-serif text-base text-[var(--text-primary)] mb-2">Need Help?</h3>
               <p className="text-xs text-[var(--text-muted)] mb-4">
@@ -358,7 +358,7 @@ export default function OrderDetailPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block w-full border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] px-4 py-2.5 text-xs tracking-[0.1em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition"
+                className="inline-block w-full border border-[var(--border)] text-[var(--text-primary)] px-4 py-2.5 text-xs tracking-[0.1em] uppercase hover:bg-[var(--bg-secondary)] transition"
               >
                 Contact Support
               </Link>

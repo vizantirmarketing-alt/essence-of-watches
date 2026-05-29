@@ -31,7 +31,7 @@ export default function CheckoutSuccessPage() {
         className="max-w-lg w-full text-center"
       >
         {/* Success Icon */}
-        <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-green-500/10 dark:bg-green-500/20 flex items-center justify-center">
+        <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-green-500/10 flex items-center justify-center">
           <motion.svg
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -60,7 +60,7 @@ export default function CheckoutSuccessPage() {
         </p>
 
         {/* Order Number */}
-        <div className="mt-8 p-6 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]">
+        <div className="mt-8 p-6 bg-[var(--bg-secondary)] border border-[var(--border)]">
           <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-2">
             Order Number
           </p>
@@ -95,7 +95,7 @@ export default function CheckoutSuccessPage() {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 items-start">
-                <div className="w-6 h-6 rounded-full bg-[var(--bg-secondary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] border border-[var(--border)] flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] flex items-center justify-center flex-shrink-0">
                   <span className="text-xs text-[var(--text-muted)]">{item.step}</span>
                 </div>
                 <div>
@@ -111,13 +111,13 @@ export default function CheckoutSuccessPage() {
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <Link
             href="/account"
-            className="flex-1 bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition text-center"
+            className="flex-1 bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition text-center"
           >
             View Order
           </Link>
           <Link
             href="/shop"
-            className="flex-1 border border-[var(--border)] dark:border-[#444] text-[var(--text-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] dark:hover:bg-[#1a1a1a] transition text-center"
+            className="flex-1 border border-[var(--border)] text-[var(--text-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:bg-[var(--bg-secondary)] transition text-center"
           >
             Continue Shopping
           </Link>

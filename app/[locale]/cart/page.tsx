@@ -69,9 +69,9 @@ export default function CartPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center py-16 bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626]"
+            className="text-center py-16 bg-[var(--bg-secondary)] border border-[var(--border)]"
           >
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--bg-primary)] dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--bg-primary)] flex items-center justify-center">
               <svg
                 width="32"
                 height="32"
@@ -94,7 +94,7 @@ export default function CartPage() {
             </p>
             <Link
               href="/shop"
-              className="inline-block bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
+              className="inline-block bg-[var(--text-primary)] text-[var(--bg-primary)] px-8 py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition"
             >
               Explore Collection
             </Link>
@@ -115,11 +115,11 @@ export default function CartPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + idx * 0.05 }}
-                  className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-4 sm:p-6"
+                  className="bg-[var(--bg-secondary)] border border-[var(--border)] p-4 sm:p-6"
                 >
                   <div className="flex gap-4 sm:gap-6">
                     {/* Image */}
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 bg-[var(--bg-primary)] dark:bg-[#0a0a0a] flex-shrink-0 relative overflow-hidden">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 bg-[var(--bg-primary)] flex-shrink-0 relative overflow-hidden">
                       {item.image ? (
                         <Image
                           src={item.image}
@@ -170,15 +170,15 @@ export default function CartPage() {
                       </div>
 
                       <div className="flex flex-wrap gap-3 mt-3 text-xs text-[var(--text-secondary)]">
-                        <span className="px-2 py-1 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333]">
+                        <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border)]">
                           {item.condition}
                         </span>
-                        <span className="px-2 py-1 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333]">
+                        <span className="px-2 py-1 bg-[var(--bg-primary)] border border-[var(--border)]">
                           {item.year}
                         </span>
                       </div>
 
-                      <div className="flex items-center justify-between mt-4 pt-4 border-t border-[var(--border)] dark:border-[#262626]">
+                      <div className="flex items-center justify-between mt-4 pt-4 border-t border-[var(--border)]">
                         <span className="text-xs text-[var(--text-muted)]">Qty: {item.quantity}</span>
                         <span className="text-lg font-medium text-[var(--text-primary)]">
                           {formatPrice(item.price * item.quantity)}
@@ -208,13 +208,13 @@ export default function CartPage() {
               transition={{ delay: 0.2 }}
               className="lg:col-span-1"
             >
-              <div className="bg-[var(--bg-secondary)] dark:bg-[#141414] border border-[var(--border)] dark:border-[#262626] p-6 sticky top-32">
+              <div className="bg-[var(--bg-secondary)] border border-[var(--border)] p-6 sticky top-32">
                 <h2 className="font-serif text-xl text-[var(--text-primary)] mb-6">
                   Order Summary
                 </h2>
 
                 {/* Promo Code */}
-                <div className="mb-6 pb-6 border-b border-[var(--border)] dark:border-[#262626]">
+                <div className="mb-6 pb-6 border-b border-[var(--border)]">
                   <label className="text-xs tracking-[0.15em] uppercase text-[var(--text-muted)] block mb-2">
                     Promo Code
                   </label>
@@ -224,11 +224,11 @@ export default function CartPage() {
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value)}
                       placeholder="Enter code"
-                      className="flex-1 px-4 py-2.5 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition"
+                      className="flex-1 px-4 py-2.5 bg-[var(--bg-primary)] border border-[var(--border)] text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] transition"
                     />
                     <button
                       onClick={applyPromoCode}
-                      className="px-4 py-2.5 border border-[var(--border)] dark:border-[#444] text-xs tracking-[0.1em] uppercase text-[var(--text-primary)] hover:bg-[var(--bg-primary)] dark:hover:bg-[#1a1a1a] transition"
+                      className="px-4 py-2.5 border border-[var(--border)] text-xs tracking-[0.1em] uppercase text-[var(--text-primary)] hover:bg-[var(--bg-primary)] transition"
                     >
                       Apply
                     </button>
@@ -267,7 +267,7 @@ export default function CartPage() {
                     <span className="text-[var(--text-primary)]">Calculated at checkout</span>
                   </div>
                   
-                  <div className="flex justify-between pt-4 border-t border-[var(--border)] dark:border-[#262626] text-base font-medium">
+                  <div className="flex justify-between pt-4 border-t border-[var(--border)] text-base font-medium">
                     <span className="text-[var(--text-primary)]">Total</span>
                     <span className="text-[var(--text-primary)]">{formatPrice(total)}</span>
                   </div>
@@ -276,13 +276,13 @@ export default function CartPage() {
                 {/* Checkout Button */}
                 <Link
                   href="/checkout"
-                  className="block w-full bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-center text-xs tracking-[0.2em] uppercase mt-6 hover:opacity-90 transition"
+                  className="block w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-center text-xs tracking-[0.2em] uppercase mt-6 hover:opacity-90 transition"
                 >
                   Proceed to Checkout
                 </Link>
 
                 {/* Affirm */}
-                <div className="mt-4 p-4 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] text-center">
+                <div className="mt-4 p-4 bg-[var(--bg-primary)] border border-[var(--border)] text-center">
                   <p className="text-xs text-[var(--text-muted)]">
                     Or pay as low as <span className="text-[var(--text-primary)] font-medium">${Math.round(total / 12).toLocaleString()}/mo</span> with
                   </p>
@@ -292,7 +292,7 @@ export default function CartPage() {
                 </div>
 
                 {/* Trust Badges */}
-                <div className="mt-6 pt-6 border-t border-[var(--border)] dark:border-[#262626]">
+                <div className="mt-6 pt-6 border-t border-[var(--border)]">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <svg
@@ -350,19 +350,19 @@ export default function CartPage() {
                 </div>
 
                 {/* Payment Methods */}
-                <div className="mt-6 pt-6 border-t border-[var(--border)] dark:border-[#262626]">
+                <div className="mt-6 pt-6 border-t border-[var(--border)]">
                   <p className="text-xs text-[var(--text-muted)] text-center mb-3">We Accept</p>
                   <div className="flex justify-center gap-3">
-                    <div className="w-10 h-6 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] rounded flex items-center justify-center">
+                    <div className="w-10 h-6 bg-[var(--bg-primary)] border border-[var(--border)] rounded flex items-center justify-center">
                       <span className="text-[8px] font-bold text-[var(--text-muted)]">VISA</span>
                     </div>
-                    <div className="w-10 h-6 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] rounded flex items-center justify-center">
+                    <div className="w-10 h-6 bg-[var(--bg-primary)] border border-[var(--border)] rounded flex items-center justify-center">
                       <span className="text-[8px] font-bold text-[var(--text-muted)]">MC</span>
                     </div>
-                    <div className="w-10 h-6 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] rounded flex items-center justify-center">
+                    <div className="w-10 h-6 bg-[var(--bg-primary)] border border-[var(--border)] rounded flex items-center justify-center">
                       <span className="text-[8px] font-bold text-[var(--text-muted)]">AMEX</span>
                     </div>
-                    <div className="w-10 h-6 bg-[var(--bg-primary)] dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] rounded flex items-center justify-center">
+                    <div className="w-10 h-6 bg-[var(--bg-primary)] border border-[var(--border)] rounded flex items-center justify-center">
                       <span className="text-[8px] font-bold text-[var(--text-muted)]">WIRE</span>
                     </div>
                   </div>

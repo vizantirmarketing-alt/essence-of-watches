@@ -88,7 +88,7 @@ export default function AppointmentPage() {
   };
 
   const inputClasses =
-    'w-full px-4 py-3.5 bg-transparent dark:bg-[#0f0f0f] border border-[var(--border)] dark:border-[#333] rounded-none text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] dark:focus:border-[#555] transition-colors duration-300';
+    'w-full px-4 py-3.5 bg-transparent border border-[var(--border)] rounded-none text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--text-primary)] transition-colors duration-300';
 
   const labelClasses = 'block text-xs tracking-[0.15em] uppercase text-[var(--text-secondary)] mb-2';
 
@@ -130,7 +130,7 @@ export default function AppointmentPage() {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-2 min-h-[calc(100vh-7rem)]">
           {/* Left - Atmospheric Section */}
-          <div className="hidden lg:flex flex-col justify-between p-12 xl:p-16 bg-[var(--bg-secondary)] dark:bg-[#111] relative overflow-hidden">
+          <div className="hidden lg:flex flex-col justify-between p-12 xl:p-16 bg-[var(--bg-secondary)] relative overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0">
               <Image
@@ -155,7 +155,7 @@ export default function AppointmentPage() {
             {/* Trust Points */}
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--bg-primary)]/50 dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[var(--bg-primary)]/50 flex items-center justify-center">
                   <svg
                     width="18"
                     height="18"
@@ -171,7 +171,7 @@ export default function AppointmentPage() {
                 <span className="text-sm text-[var(--text-secondary)]">{t('trustPoint1')}</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--bg-primary)]/50 dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[var(--bg-primary)]/50 flex items-center justify-center">
                   <svg
                     width="18"
                     height="18"
@@ -188,7 +188,7 @@ export default function AppointmentPage() {
                 <span className="text-sm text-[var(--text-secondary)]">{t('trustPoint2')}</span>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--bg-primary)]/50 dark:bg-[#1a1a1a] dark:border dark:border-[#333] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[var(--bg-primary)]/50 flex items-center justify-center">
                   <svg
                     width="18"
                     height="18"
@@ -386,7 +386,7 @@ export default function AppointmentPage() {
               </div>
 
               {submitError ? (
-                <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+                <p className="text-sm text-red-600" role="alert">
                   {submitError}
                 </p>
               ) : null}
@@ -395,7 +395,7 @@ export default function AppointmentPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[var(--text-primary)] dark:bg-white dark:text-black text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition-opacity duration-300 disabled:opacity-50"
+                className="w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-4 text-xs tracking-[0.2em] uppercase hover:opacity-90 transition-opacity duration-300 disabled:opacity-50"
               >
                 {isSubmitting ? t('submitting') : t('submit')}
               </button>
