@@ -110,7 +110,7 @@ export default function ContactPage() {
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]"
+                className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block"
               >
                 {t('eyebrow')}
               </motion.span>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="font-serif text-4xl xl:text-5xl text-[var(--text-primary)] mt-4 leading-tight"
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]"
               >
                 {t('headlineLine1')}
                 <br />
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-[var(--text-secondary)] mt-6 max-w-sm leading-relaxed"
+                className="text-base sm:text-lg text-[var(--text-secondary)] mt-4 max-w-2xl leading-relaxed"
               >
                 {t('intro')}
               </motion.p>

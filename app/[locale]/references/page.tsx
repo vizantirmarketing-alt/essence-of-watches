@@ -48,7 +48,7 @@ export default function ReferencesPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)]">
-      <section className="relative pt-16 sm:pt-24 pb-12 sm:pb-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-secondary)] to-transparent opacity-50 pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div
@@ -56,13 +56,13 @@ export default function ReferencesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">
+            <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
               Collectors & buyers
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight tracking-[-0.01em]">
               Rolex reference guide
             </h1>
-            <p className="text-[var(--text-secondary)] mt-6 leading-relaxed text-base sm:text-lg">
+            <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-6 max-w-2xl leading-relaxed">
               Use this index to cross-check reference numbers, model names, and production eras before
               you buy. It is a condensed field guide—not a substitute for authentication, papers, or
               serial dating—but it helps you speak the same language as listings and dealers.

@@ -34,13 +34,13 @@ export default function ConditionGuidePage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">
+            <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
               Our Standards
             </span>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight tracking-[-0.01em]">
               Condition Grading Guide
             </h1>
-            <p className="text-lg text-[var(--text-secondary)] mt-6 leading-relaxed">
+            <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-6 max-w-2xl mx-auto leading-relaxed">
               Understanding Our Watch Condition Standards
             </p>
           </motion.div>

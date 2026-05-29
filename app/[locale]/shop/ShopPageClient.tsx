@@ -123,13 +123,13 @@ export default function ShopPageClient({ watches }: ShopPageClientProps) {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12">
         {/* Header */}
         <div className="mb-8 sm:mb-10">
-          <p className="text-[var(--text-secondary)] text-[11px] tracking-[0.2em] uppercase mb-2">
+          <p className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3">
             {t('eyebrow')}
           </p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] mb-2">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
             {t('title')}
           </h1>
-          <p className="text-[var(--text-secondary)] text-sm">
+          <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-4 max-w-2xl leading-relaxed">
             {t('watchCount', { count: filteredWatches.length })}
           </p>
         </div>

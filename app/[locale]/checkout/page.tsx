@@ -104,6 +104,7 @@ export default function CheckoutPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16">
+      <h1 className="sr-only">Checkout</h1>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         
         {/* Logo */}

@@ -143,13 +143,17 @@ export default function AppointmentPage() {
             </div>
 
             <div className="relative z-10">
-              <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">{t('eyebrow')}</span>
-              <h1 className="font-serif text-4xl xl:text-5xl text-[var(--text-primary)] mt-4 leading-tight">
+              <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
+                {t('eyebrow')}
+              </span>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
                 {t('heroTitleLine1')}
                 <br />
                 {t('heroTitleLine2')}
               </h1>
-              <p className="text-[var(--text-secondary)] mt-6 max-w-sm leading-relaxed">{t('heroDescription')}</p>
+              <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-4 max-w-2xl leading-relaxed">
+                {t('heroDescription')}
+              </p>
             </div>
 
             {/* Trust Points */}
@@ -210,8 +214,12 @@ export default function AppointmentPage() {
           <div className="p-6 sm:p-12 xl:p-16">
             {/* Mobile Header */}
             <div className="lg:hidden mb-8">
-              <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">{t('eyebrow')}</span>
-              <h1 className="font-serif text-3xl text-[var(--text-primary)] mt-2">{t('mobileTitle')}</h1>
+              <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
+                {t('eyebrow')}
+              </span>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
+                {t('mobileTitle')}
+              </h1>
             </div>
 
             <div className="hidden lg:block mb-10">

@@ -118,11 +118,13 @@ export default function SellPage() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-16">
         {/* Hero Section */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <p className="text-[var(--text-muted)] text-[11px] tracking-[0.2em] uppercase mb-3">{t('eyebrow')}</p>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] mb-4">
+          <p className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3">{t('eyebrow')}</p>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
             {t('heroTitle')}
           </h1>
-          <p className="text-[var(--text-secondary)] text-base sm:text-lg leading-relaxed">{t('heroDescription')}</p>
+          <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-4 max-w-2xl leading-relaxed">
+            {t('heroDescription')}
+          </p>
         </div>
 
         {/* Trust Badges */}

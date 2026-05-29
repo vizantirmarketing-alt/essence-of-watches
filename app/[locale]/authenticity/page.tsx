@@ -113,11 +113,15 @@ export default function AuthenticityPage() {
               </svg>
             </div>
 
-            <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">{t('heroEyebrow')}</span>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight">
+            <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
+              {t('heroEyebrow')}
+            </span>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight tracking-[-0.01em]">
               {t('heroTitle')}
             </h1>
-            <p className="text-lg text-[var(--text-secondary)] mt-6 leading-relaxed">{t('heroIntro')}</p>
+            <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-6 max-w-2xl mx-auto leading-relaxed">
+              {t('heroIntro')}
+            </p>
           </motion.div>
         </div>
       </section>

@@ -100,7 +100,7 @@ export default function TrackOrderPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24 pb-16 sm:pb-24">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header */}
         <motion.div
@@ -108,13 +108,13 @@ export default function TrackOrderPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">
+          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
             Order Status
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] mt-3">
+          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
             Track Your Order
           </h1>
-          <p className="text-[var(--text-secondary)] mt-4">
+          <p className="text-base text-[var(--text-secondary)] mt-4 max-w-xl mx-auto leading-relaxed">
             Enter your order number to view the current status of your shipment.
           </p>
         </motion.div>

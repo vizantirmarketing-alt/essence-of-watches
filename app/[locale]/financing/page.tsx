@@ -13,14 +13,14 @@ export default function FinancingPage() {
   const months12 = ((price * 1.15) / 12).toFixed(2); // ~15% APR estimate
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pt-16 sm:pt-24">
+    <main className="min-h-screen bg-[var(--bg-primary)]">
       {/* Hero */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pb-16 sm:pb-24">
+      <section className="pt-16 sm:pt-24 pb-16 sm:pb-24 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]"
+            className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block"
           >
             Flexible Payment Options
           </motion.span>
@@ -28,7 +28,7 @@ export default function FinancingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-4"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight tracking-[-0.01em]"
           >
             Own Your Timepiece Today
           </motion.h1>
@@ -36,7 +36,7 @@ export default function FinancingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-[var(--text-secondary)] mt-6 text-lg leading-relaxed"
+            className="text-base sm:text-lg text-[var(--text-secondary)] mt-6 max-w-2xl mx-auto leading-relaxed"
           >
             Split your purchase into easy monthly payments with financing as low as 0% APR. No hidden
             fees. Real-time credit decisions. Your dream watch is within reach.

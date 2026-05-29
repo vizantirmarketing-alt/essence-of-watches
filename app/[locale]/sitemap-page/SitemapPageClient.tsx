@@ -15,9 +15,13 @@ export default function SitemapPageClient({ sections }: { sections: SitemapSecti
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">Navigate</span>
-          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] mt-3">Sitemap</h1>
-          <p className="text-[var(--text-secondary)] text-sm sm:text-base mt-5 leading-relaxed max-w-xl mx-auto">
+          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
+            Navigate
+          </span>
+          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
+            Sitemap
+          </h1>
+          <p className="text-base text-[var(--text-secondary)] mt-4 max-w-xl mx-auto leading-relaxed">
             Every public page on Essence of Watches, grouped by topic. Use the main navigation and
             footer for quick access from anywhere on the site.
           </p>

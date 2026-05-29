@@ -15,13 +15,15 @@ export default function BuyerProtectionPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">
+          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
             {t('eyebrow')}
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] mt-3">
+          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
             {t('title')}
           </h1>
-          <p className="text-[var(--text-muted)] text-sm mt-4">{t('subtitle')}</p>
+          <p className="text-base text-[var(--text-secondary)] mt-4 max-w-xl mx-auto leading-relaxed">
+            {t('subtitle')}
+          </p>
         </motion.div>
 
         <motion.div

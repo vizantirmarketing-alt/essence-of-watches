@@ -292,13 +292,13 @@ export default function FAQPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)]">
+          <span className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3 block">
             Support
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] mt-3">
+          <h1 className="font-serif text-4xl sm:text-5xl text-[var(--text-primary)] leading-tight tracking-[-0.01em]">
             Frequently Asked Questions
           </h1>
-          <p className="text-[var(--text-secondary)] mt-4 max-w-xl mx-auto">
+          <p className="text-base text-[var(--text-secondary)] mt-4 max-w-xl mx-auto leading-relaxed">
             Find answers to common questions about buying, selling, and authentication.
           </p>
         </motion.div>

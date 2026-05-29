@@ -24,17 +24,17 @@ export default function BlogIndexPage() {
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)]">
-      <section className="relative pt-16 sm:pt-24 pb-12 sm:pb-16 overflow-hidden">
+      <section className="relative pt-16 sm:pt-24 pb-16 sm:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-secondary)] to-transparent opacity-60 pointer-events-none" />
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-3xl">
-            <p className="text-[var(--text-muted)] text-[11px] tracking-[0.3em] uppercase mb-4">
+            <p className="text-xs tracking-[0.3em] uppercase text-[var(--text-muted)] mb-3">
               Journal
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] leading-tight">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mt-3 leading-tight tracking-[-0.01em]">
               From the Atelier
             </h1>
-            <p className="text-[var(--text-secondary)] text-base sm:text-lg mt-6 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-[var(--text-secondary)] mt-6 max-w-2xl leading-relaxed">
               Expert perspective on authentication, collecting, and buying with confidence.
             </p>
           </div>
