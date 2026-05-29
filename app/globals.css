@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant mobile-landscape (@media (orientation: landscape) and (max-height: 500px));
+
 /* Day mode — Porcelain */
 :root {
   --bg-primary: #F3F1EB;

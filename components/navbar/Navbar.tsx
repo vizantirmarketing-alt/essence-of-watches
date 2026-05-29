@@ -68,7 +68,7 @@ export default function Navbar() {
     <>
       {/* Top Bar - Hidden on homepage and mobile */}
       {!isHomepage && (
-        <div className="hidden sm:block bg-[var(--accent-steel)] text-white fixed top-0 left-0 right-0 z-50">
+        <div className="hidden sm:block mobile-landscape:hidden bg-[var(--accent-steel)] text-white fixed top-0 left-0 right-0 z-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
             <div className="flex items-center justify-between h-8 text-xs">
             {/* Left - Contact */}
@@ -169,19 +169,19 @@ export default function Navbar() {
       {/* Main Navbar */}
       <nav
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          isHomepage ? 'top-0' : 'top-0 sm:top-8'
+          isHomepage ? 'top-0' : 'top-0 sm:top-8 mobile-landscape:top-0'
         } ${
           isScrolled
             ? 'bg-black/30 backdrop-blur-md border-b border-white/5'
             : isHomepage 
-              ? 'bg-transparent' 
+              ? 'bg-transparent mobile-landscape:bg-black/40 mobile-landscape:backdrop-blur-md mobile-landscape:border-b mobile-landscape:border-white/5' 
               : 'bg-[var(--bg-primary)] border-b border-[var(--border)]'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex items-center justify-between h-14 sm:h-16">
+          <div className="flex items-center justify-between h-14 sm:h-16 mobile-landscape:h-14">
             {/* Left - Menu Button */}
-            <div className="w-12 sm:w-auto">
+            <div className="w-12 sm:w-auto mobile-landscape:w-12">
               <button
                 onClick={() => setMenuOpen(true)}
                 className={`flex items-center gap-2 ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}
@@ -198,7 +198,7 @@ export default function Navbar() {
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="18" x2="21" y2="18" />
                 </svg>
-                <span className="hidden sm:inline text-xs tracking-[0.15em] uppercase font-medium">{t('menu')}</span>
+                <span className="hidden sm:inline mobile-landscape:hidden text-xs tracking-[0.15em] uppercase font-medium">{t('menu')}</span>
               </button>
             </div>
 
@@ -211,7 +211,7 @@ export default function Navbar() {
 
             {/* Right - Icons */}
             <div className="flex items-center gap-3 sm:gap-5">
-              <div className="hidden sm:flex items-center gap-4">
+              <div className="hidden sm:flex mobile-landscape:hidden items-center gap-4">
                 <CurrencySelector className={isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
                 <LanguageSwitcher className={isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'} />
               </div>

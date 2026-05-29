@@ -8,7 +8,7 @@ export default function Hero() {
   const t = useTranslations('Hero');
 
   return (
-    <section className="relative h-screen w-full bg-black overflow-hidden">
+    <section className="relative min-h-[100svh] h-screen mobile-landscape:h-auto w-full bg-black overflow-hidden">
       {/* Full-bleed Background Image - optimized with next/image */}
       <Image
         src="/optimized/eow-sub-hero-1920.avif"
@@ -23,7 +23,7 @@ export default function Hero() {
 
       {/* Darken hero on small viewports only — keeps text legible when the crop reads lighter */}
       <div
-        className="absolute inset-0 pointer-events-none bg-black/50 sm:bg-transparent"
+        className="absolute inset-0 pointer-events-none bg-black/50 sm:bg-transparent mobile-landscape:bg-black/50"
         aria-hidden
       />
 
@@ -31,27 +31,27 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+      <div className="relative z-10 h-full flex items-center mobile-landscape:items-start mobile-landscape:pt-14 mobile-landscape:pb-6">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16 mobile-landscape:px-6">
           <div className="max-w-xl">
             {/* Eyebrow */}
-            <p className="text-white text-[10px] tracking-[0.3em] uppercase mb-6">{t('eyebrow')}</p>
+            <p className="text-white text-[10px] tracking-[0.3em] uppercase mb-6 mobile-landscape:mb-2">{t('eyebrow')}</p>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-8 tracking-[-0.02em]">
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl mobile-landscape:text-3xl text-white leading-[1.05] mb-8 mobile-landscape:mb-3 tracking-[-0.02em]">
               {t('headline1')}
               <br />
               {t('headline2')}
             </h1>
 
             {/* Subtle Divider */}
-            <div className="w-12 h-[1px] bg-white/30 mb-8" />
+            <div className="w-12 h-[1px] bg-white/30 mb-8 mobile-landscape:mb-3" />
 
             {/* Subtext */}
-            <p className="text-white/60 text-base leading-relaxed mb-12 max-w-sm">{t('subtext')}</p>
+            <p className="text-white/60 text-base leading-relaxed mb-12 mobile-landscape:mb-4 mobile-landscape:text-sm mobile-landscape:leading-snug max-w-sm">{t('subtext')}</p>
 
             {/* CTA - Minimal */}
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-8 mobile-landscape:gap-4 mobile-landscape:flex-wrap">
               <Link
                 href="/shop"
                 className="group flex items-center gap-3 text-white text-xs tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
@@ -79,7 +79,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator - Watch Crown Inspired */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 mobile-landscape:hidden">
         <div className="flex flex-col items-center gap-3">
           <span className="text-white text-[9px] tracking-[0.3em] uppercase">{t('scrollHint')}</span>
           <div className="relative w-8 h-8">
