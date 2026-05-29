@@ -303,31 +303,38 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-[var(--bg-primary)]"
+            className={`fixed left-0 right-0 bottom-0 z-50 bg-[var(--bg-primary)] flex flex-col overflow-hidden ${
+              isHomepage
+                ? 'top-14 sm:top-16 mobile-landscape:top-14'
+                : 'top-14 sm:top-24 mobile-landscape:top-14'
+            }`}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="absolute top-5 right-5 sm:top-8 sm:right-8 text-[var(--text-primary)] p-2"
-            >
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
+            {/* Header — close button sits below the fixed navbar */}
+            <div className="shrink-0 flex justify-end px-6 sm:px-16 lg:px-24 pt-4 pb-2 sm:pt-6">
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-[var(--text-primary)] p-2"
               >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
 
-            <div className="h-full flex flex-col justify-center px-6 sm:px-16 lg:px-24">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-[1400px] mx-auto w-full">
+            {/* Scrollable menu body */}
+            <div className="flex-1 min-h-0 overflow-y-auto px-6 sm:px-16 lg:px-24 pb-8 sm:pb-12">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-[1400px] mx-auto w-full">
                 {/* Left - Nav Links */}
                 <div>
-                  <nav className="space-y-5 sm:space-y-6">
+                  <nav className="space-y-5 sm:space-y-6 mobile-landscape:space-y-3">
                     {navLinks.map((link, i) => (
                       <motion.div
                         key={link.href}
@@ -338,7 +345,7 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           onClick={() => setMenuOpen(false)}
-                          className="block font-serif text-3xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition-colors"
+                          className="block font-serif text-3xl sm:text-5xl lg:text-6xl mobile-landscape:text-2xl text-[var(--text-primary)] hover:text-[var(--text-secondary)] transition-colors"
                         >
                           {link.label}
                         </Link>
@@ -351,7 +358,7 @@ export default function Navbar() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-12 sm:mt-16 flex flex-wrap gap-x-6 gap-y-3"
+                    className="mt-12 sm:mt-16 mobile-landscape:mt-6 flex flex-wrap gap-x-6 gap-y-3"
                   >
                     {footerLinks.map((link) => (
                       <Link
@@ -371,7 +378,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
-                  className="hidden lg:block relative aspect-[4/5] rounded-lg overflow-hidden"
+                  className="hidden lg:block mobile-landscape:hidden relative aspect-[4/5] rounded-lg overflow-hidden"
                 >
                   <Image
                     src="/optimized/menu-watch-1280.avif"
