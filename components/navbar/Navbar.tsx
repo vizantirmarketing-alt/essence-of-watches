@@ -358,14 +358,14 @@ export default function Navbar() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-12 sm:mt-16 mobile-landscape:mt-6 flex flex-wrap gap-x-6 gap-y-3"
+                    className="mt-12 sm:mt-16 mobile-landscape:mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:flex xl:flex-nowrap gap-x-4 gap-y-3 xl:gap-y-0"
                   >
                     {footerLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
-                        className="text-[var(--text-muted)] text-base sm:text-sm hover:text-[var(--text-primary)] transition-colors"
+                        className="text-[var(--text-muted)] text-base sm:text-sm whitespace-nowrap hover:text-[var(--text-primary)] transition-colors"
                       >
                         {link.label}
                       </Link>
