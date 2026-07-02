@@ -28,8 +28,6 @@ export const ROLEX_REFERENCE_FAMILIES = [
   'Vintage',
 ] as const;
 
-export type RolexReferenceFamily = (typeof ROLEX_REFERENCE_FAMILIES)[number];
-
 export const rolexReferences: RolexReferenceEntry[] = [
   { family: 'Submariner', reference: '6204', model: 'Submariner', production: '1953–1954', description: '37mm steel, early no-crown-guard diver, 100m WR' },
   { family: 'Submariner', reference: '6205', model: 'Submariner', production: '1954–1955', description: 'Early steel no-guard Sub, small crown, gilt dial' },

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export type SitemapLink = { label: string; href: string };
+type SitemapLink = { label: string; href: string };
 export type SitemapSection = { title: string; links: SitemapLink[] };
 
 export default function SitemapPageClient({ sections }: { sections: SitemapSection[] }) {

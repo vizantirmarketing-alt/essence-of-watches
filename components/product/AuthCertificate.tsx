@@ -12,7 +12,7 @@ export interface AuthCertificateProps {
 }
 
 /** Deterministic certificate number from slug + serial (no network, stable per watch). */
-export function certificateNumberFromSlugAndSerial(slug: string, serial: string): string {
+function certificateNumberFromSlugAndSerial(slug: string, serial: string): string {
   const raw = `${slug}\0${serial}`;
   let hash = 2166136261;
   for (let i = 0; i < raw.length; i++) {

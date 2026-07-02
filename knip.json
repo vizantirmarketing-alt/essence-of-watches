@@ -1,0 +1,4 @@
+{
+  "ignore": ["scripts/generate-apple-secret.js"],
+  "ignoreDependencies": ["jsonwebtoken", "sharp"]
+}

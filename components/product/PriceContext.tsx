@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
-export function parseMarketRange(marketValue: string): { low: number; high: number } | null {
+function parseMarketRange(marketValue: string): { low: number; high: number } | null {
   const trimmed = marketValue.trim();
   if (!trimmed) return null;
   const normalized = trimmed.replace(/,/g, '');

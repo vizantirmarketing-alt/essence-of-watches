@@ -41,17 +41,13 @@ export async function getAllWatches(): Promise<SanityListingWatch[]> {
   return rows.map((row) => normalizeListingWatch(row));
 }
 
-export async function getWatch(slug: string): Promise<SanityProductWatch | null> {
+export async function getWatchBySlug(slug: string): Promise<SanityProductWatch | null> {
   const { data } = await sanityFetch({
     query: singleWatchQuery,
     params: { slug },
     tags: ['watch', `watch:${slug}`],
   });
   return normalizeSingleWatch((data as Record<string, unknown> | null) ?? null);
-}
-
-export async function getWatchBySlug(slug: string): Promise<SanityProductWatch | null> {
-  return getWatch(slug);
 }
 
 /** Homepage featured strip — matches `featuredWatchesQuery` fields + resolved `image` URL. */

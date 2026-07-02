@@ -14,8 +14,7 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@prisma/client": "^7.0.1",
-    "@sanity/image-url": "^1.2.0",
+    "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^4.20.3",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.561.0",
@@ -23,7 +22,6 @@
     "next-auth": "^4.24.13",
     "next-intl": "^4.9.1",
     "next-sanity": "^11.6.10",
-    "prisma": "^7.0.1",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "resend": "^6.10.0",
@@ -39,8 +37,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.6",
+    "jsonwebtoken": "^9.0.3",
     "sharp": "^0.34.5",
-    "sharp-cli": "^5.2.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
