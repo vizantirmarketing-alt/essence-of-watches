@@ -32,23 +32,23 @@ export default function Hero() {
 
       {/* Content Overlay */}
       <div className="relative z-10 min-h-[100svh] flex items-center mobile-landscape:min-h-0 mobile-landscape:items-start mobile-landscape:pt-20 mobile-landscape:pb-8">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16 mobile-landscape:px-6">
-          <div className="max-w-xl">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="lg:max-w-3xl">
             {/* Eyebrow */}
             <p className="text-white text-[10px] tracking-[0.3em] uppercase mb-6 mobile-landscape:mb-2">{t('eyebrow')}</p>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl mobile-landscape:text-3xl text-white leading-[1.05] mb-8 mobile-landscape:mb-3 tracking-[-0.02em]">
+            <h1 className="font-serif text-[clamp(3rem,7vw,7rem)] mobile-landscape:text-3xl text-white leading-[1.05] mb-8 lg:mb-6 mobile-landscape:mb-3 tracking-[-0.02em]">
               {t('headline1')}
               <br />
               {t('headline2')}
             </h1>
 
             {/* Subtle Divider */}
-            <div className="w-12 h-[1px] bg-white/30 mb-8 mobile-landscape:mb-3" />
+            <div className="w-12 h-[1px] bg-white/30 mb-8 lg:mb-5 mobile-landscape:mb-3" />
 
             {/* Subtext */}
-            <p className="text-white/60 text-base leading-relaxed mb-12 mobile-landscape:mb-4 mobile-landscape:text-sm mobile-landscape:leading-snug max-w-sm">{t('subtext')}</p>
+            <p className="text-white/60 lg:text-white/75 !text-[clamp(1rem,1.6vw,1.5rem)] lg:text-balance leading-relaxed mb-12 mobile-landscape:mb-4 mobile-landscape:!text-sm mobile-landscape:leading-snug max-w-sm lg:max-w-xl">{t('subtext')}</p>
 
             {/* CTA - Minimal */}
             <div className="flex items-center gap-8 mobile-landscape:gap-4 mobile-landscape:flex-wrap">
