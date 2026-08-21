@@ -180,11 +180,15 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex items-center justify-between h-14 sm:h-16 mobile-landscape:h-14">
-            {/* Left - Menu Button */}
-            <div className="w-12 sm:w-auto mobile-landscape:w-12">
+            {/* Left - Menu Button (X overlays this slot when open) */}
+            <div className="relative w-12 sm:w-auto mobile-landscape:w-12">
               <button
+                type="button"
                 onClick={() => setMenuOpen(true)}
-                className={`flex items-center gap-2 ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}
+                aria-expanded={menuOpen}
+                aria-controls="site-menu"
+                tabIndex={menuOpen ? -1 : undefined}
+                className={`flex items-center gap-2 ${menuOpen ? 'invisible' : ''} ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}
               >
                 <svg
                   width="22"
@@ -200,6 +204,26 @@ export default function Navbar() {
                 </svg>
                 <span className="hidden sm:inline mobile-landscape:hidden text-xs tracking-[0.15em] uppercase font-medium">{t('menu')}</span>
               </button>
+              {menuOpen && (
+                <button
+                  type="button"
+                  onClick={() => setMenuOpen(false)}
+                  aria-label="Close menu"
+                  className={`absolute left-0 top-1/2 -translate-y-1/2 ${isHomepage && !isPastHero ? 'text-white' : 'text-[var(--text-primary)]'}`}
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              )}
             </div>
 
             {/* Center - Logo */}
@@ -299,39 +323,26 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="site-menu"
+            role="dialog"
+            aria-modal="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={() => setMenuOpen(false)}
             className={`fixed left-0 right-0 bottom-0 z-50 bg-[var(--bg-primary)] flex flex-col overflow-hidden ${
               isHomepage
                 ? 'top-14 sm:top-16 mobile-landscape:top-14'
                 : 'top-14 sm:top-24 mobile-landscape:top-14'
             }`}
           >
-            {/* Header — close button sits below the fixed navbar */}
-            <div className="shrink-0 flex justify-end px-6 sm:px-16 lg:px-24 pt-4 pb-2 sm:pt-6">
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="text-[var(--text-primary)] p-2"
+            {/* Scrollable menu body — click empty chrome to close; panel stops propagation */}
+            <div className="flex-1 min-h-0 overflow-y-auto px-6 sm:px-16 lg:px-24 pt-4 sm:pt-6 pb-8 sm:pb-12">
+              <div
+                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-[1400px] mx-auto w-full"
+                onClick={(e) => e.stopPropagation()}
               >
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Scrollable menu body */}
-            <div className="flex-1 min-h-0 overflow-y-auto px-6 sm:px-16 lg:px-24 pb-8 sm:pb-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-[1400px] mx-auto w-full">
                 {/* Left - Nav Links */}
                 <div>
                   <nav className="space-y-5 sm:space-y-6 mobile-landscape:space-y-3">
